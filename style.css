@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+.flexwrap {
+    display: flex;
+}
+
+.left-bar {
+    width: 15%;
+    height: 100vh;
+    position:fixed;
+    background-color: #2A3647;
+}
