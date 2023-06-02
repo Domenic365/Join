@@ -12,7 +12,7 @@ body {
 .left-bar {
     width: 15%;
     height: 100vh;
-    position:absolute;
+    position: absolute;
     left: 0;
     top: 0;
     background-color: #2A3647;
@@ -30,7 +30,7 @@ body {
     gap: 1rem;
 }
 
-.main-menu a{
+.main-menu a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -82,13 +82,14 @@ body {
 .legal-menu a:hover {
     background-color: #091931;
 }
+
 /* LEFTSIDE NAVIGATION END*/
 
 
 .right-bar {
     width: 85vw;
     margin-left: 15%;
-    
+
 }
 
 /* TOP BAR */
@@ -98,8 +99,8 @@ body {
     height: 90px;
     background-color: white;
     width: 85%;
-    -webkit-box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209); 
-    box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.209);
+    -webkit-box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
+    box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
 }
 
 .user-info {
@@ -119,6 +120,7 @@ body {
     height: calc(100vh - 90px);
     margin-top: 90px;
 }
+
 /* Content-Area END*/
 
 
@@ -154,7 +156,8 @@ body {
     height: 800px;
     width: 1000px;
     border-radius: 40px;
-    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.262); 
-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.262);
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.262);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.262);
 }
+
 /* LOGIN AREA END*/
