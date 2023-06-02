@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
     <script src="js/add_task.js"></script>
+    <script src="content_loader.js"></script>
 </head>
+
 <body>
     <section class="left-bar">
         <img src="assets/img/logo-on-dark-bg.svg" class="logo">
@@ -30,7 +32,7 @@
                 <img src="#" class="user-img">
             </div>
         </div>
-        <div id="content">
+        <div w3-include-html="assets/templates/contacts.html">
             <!-- hier werden die jeweiligen Seiten reingerendert -->
         </div>
     </section>
