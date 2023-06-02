@@ -1,14 +1,122 @@
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.flexwrap {
+.flexwrapper {
     display: flex;
 }
+
+/* LEFTSIDE NAVIGATION */
 
 .left-bar {
     width: 15%;
     height: 100vh;
-    position:fixed;
+    position:absolute;
+    left: 0;
+    top: 0;
     background-color: #2A3647;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    align-items: center;
 }
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.main-menu a{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    color: white;
+    width: calc(100% - 2rem);
+    height: 45px;
+    padding-left: 2rem;
+    box-sizing: content-box;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.main-menu a img {
+    width: 30px;
+}
+
+.main-menu a:hover {
+    background-color: #091931;
+}
+
+.legal-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.legal-menu a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    color: white;
+    width: calc(100% - 2rem);
+    height: 45px;
+    padding-left: 2rem;
+    box-sizing: content-box;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.legal-menu a img {
+    width: 30px;
+}
+
+.legal-menu a:hover {
+    background-color: #091931;
+}
+/* LEFTSIDE NAVIGATION END*/
+
+
+.right-bar {
+    width: 85vw;
+    margin-left: 15%;
+    
+}
+
+/* TOP BAR */
+.top-bar {
+    position: absolute;
+    top: 0;
+    height: 90px;
+    background-color: white;
+    width: 85%;
+    -webkit-box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209); 
+    box-shadow: 0px 6px 9px 0px rgba(0,0,0,0.209);
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 90px;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* TOP BAR END */
+
+/* Content-Area*/
+#content {
+    background-color: #f6f7f8;
+    height: calc(100vh - 90px);
+    margin-top: 90px;
+}
+/* Content-Area END*/
