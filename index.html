@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Kanban Projectmanagement</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
-    <script src="js/add_task.js"></script>
-    <script src="content_loader.js"></script>
+    <script src="./js/add_task.js"></script>
+    <script src="./js/content_loader.js"></script>
+    <script src="./main.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <section class="left-bar">
         <img src="assets/img/logo-on-dark-bg.svg" class="logo">
         <div class="main-menu">
@@ -32,7 +32,7 @@
                 <img src="#" class="user-img">
             </div>
         </div>
-        <div w3-include-html="assets/templates/contacts.html">
+        <div id="content" w3-include-html="assets/templates/contacts.html"> 
             <!-- hier werden die jeweiligen Seiten reingerendert -->
         </div>
     </section>
