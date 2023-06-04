@@ -161,3 +161,13 @@ body {
 }
 
 /* LOGIN AREA END*/
+
+/* CONTACTS */
+
+.contactsNumb{
+    background-color: black;
+    height: 85px;
+    width: 85px;
+}
+
+/* CONTACTS END */
