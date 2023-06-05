@@ -9,29 +9,36 @@
     <script src="main.js"></script>
     <script src="js/login.js"></script>    
 <body onload="initLogin()">
-    
-    <img src="assets/img/logo_main.svg" class="logoStart">
-    
-    <section class="login-flex">
-        <div class="loginForm">
-            <h1>Log in</h1>
-            <div class="h-divider"></div>
-            <form>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+    <div class="login-bg">
+        <img src="assets/img/logo_main.svg" class="logoStart">
+        
+        <section class="sign-up">
+            <p>Not a Join-User?</p><div class="login-btn">Sign up</div>
+        </section>
+
+        <section id ="loginRender" class="d-none login-flex">
+            <div class="loginForm">
+                <div class="loginHeader">
+                    <h1>Log in</h1>
+                    <div class="h-divider"></div>
+                </div>
+                <form class="form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                </form>
                 <div class="forgotPW">
-                    <input type="checkbox"><span>Remember me</span>
-                    <a>Forgot my password</a>
+                    <div class="rememberBox">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </div>
+                    <a href="#">Forgot my password</a>
                 </div>
                 <div class="log-btns">
                     <div class="login-btn">Log in</div>
                     <div class="guest-btn">Guest Log in</div>
                 </div>
-                
-            </form>
-        </div>
-    </section>
-
-    
+            </div>
+        </section>
+    </div>
 </body>
 </html>

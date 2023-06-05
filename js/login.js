@@ -6,9 +6,12 @@ function initLogin() {
         logo.classList.remove('logoStart');
         logo.classList.add('logomotion');
     }, 1000);
-    loadForm();
+    setTimeout(() => {
+        loadForm()
+    },1250);
 }
 
 function loadForm() {
-    
+    let container = document.getElementById('loginRender');
+    container.classList.remove('d-none');
 }
