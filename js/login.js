@@ -43,7 +43,7 @@ function generateLogin() {
                     <input type="checkbox">
                     <span>Remember me</span>
                 </div>
-                <a href="#">Forgot my password</a>
+                <a href="#" onclick="forgotPassword()">Forgot my password</a>
             </div>
             <div class="log-btns">
                 <button class="login-btn">Log in</button>
@@ -52,6 +52,31 @@ function generateLogin() {
         </form>
     </div>
 `;
+}
+
+function forgotPassword() {
+    let container = document.getElementById('loginRender');
+    let signupBox = document.querySelector('.sign-up');
+    signupBox.classList.add('d-none');
+    container.innerHTML = generateForgotPassword();
+}
+
+function generateForgotPassword() {
+    return `
+    <div class="loginForm arrow">
+        <img src="assets/img/icons/backArrow.svg" onclick="renderLogin()">
+        <div class="loginHeader">
+            <h1>I forgot my password</h1>
+            <div class="h-divider"></div>
+        </div>
+        <form class="form">
+            <input type="email" placeholder="Email" required>
+            <p class="forgotpwp">Don't worry! We will send you an e-mail with the instructions to reset your password</p>
+            <div class="log-btns">
+                <button class="login-btn">Send me the e-mail</button>
+            </div>
+        </form>
+    </div>`;
 }
 
 function renderSignup() {
