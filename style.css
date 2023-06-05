@@ -151,7 +151,11 @@ body {
 }
 
 .loginForm {
-    /* display: flex; */
+    display: flex;
+    
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
     background-color: white;
     height: 800px;
     width: 1000px;
