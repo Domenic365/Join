@@ -12,6 +12,72 @@ function initLogin() {
 }
 
 function loadForm() {
+    renderLogin();
     let container = document.getElementById('loginRender');
     container.classList.remove('d-none');
+    let signupBox = document.querySelector('.sign-up');
+    signupBox.classList.remove('d-none');
+    renderLogin();
+}
+
+function renderLogin() {
+    let container = document.getElementById('loginRender');
+    container.innerHTML = generateLogin();
+    let signupBox = document.querySelector('.sign-up');
+    signupBox.classList.remove('d-none');
+}
+
+function generateLogin() {
+    return `
+    <div class="loginForm">
+        <div class="loginHeader">
+            <h1>Log in</h1>
+            <div class="h-divider"></div>
+        </div>
+        <form class="form" onsubmit="login()">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+        
+            <div class="forgotPW">
+                <div class="rememberBox">
+                    <input type="checkbox">
+                    <span>Remember me</span>
+                </div>
+                <a href="#">Forgot my password</a>
+            </div>
+            <div class="log-btns">
+                <button class="login-btn">Log in</button>
+                <div class="guest-btn">Guest Log in</div>
+            </div>
+        </form>
+    </div>
+`;
+}
+
+function renderSignup() {
+    let container = document.getElementById('loginRender');
+    container.innerHTML = '';
+    container.innerHTML = generateSignup();
+    let signupBox = document.querySelector('.sign-up');
+    signupBox.classList.add('d-none');
+}
+
+function generateSignup() {
+    return `
+    <div class="loginForm arrow">
+        <img src="assets/img/icons/backArrow.svg" onclick="renderLogin()">
+        <div class="loginHeader">
+            
+            <h1>Sign up</h1>
+            <div class="h-divider"></div>
+        </div>
+        <form class="form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" minlength="8" required>
+            <div class="log-btns">
+                <button class="login-btn">Sign up</button>
+            </div>
+        </form>
+    </div>`;
 }
