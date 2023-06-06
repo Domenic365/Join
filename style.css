@@ -139,11 +139,6 @@ body {
     transition: all 150ms ease-out;
 }
 
-.logo {
-    height: 340;
-    background-color: #f6f7f8;
-}
-
 .login-flex {
     display: flex;
     justify-content: center;
