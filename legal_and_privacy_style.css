@@ -1,0 +1,15 @@
+.info-container {
+    margin: 1rem;
+}
+
+.info-container 
+h2,
+h3,
+h4 {
+    color: rgb(61, 82, 109);
+}
+
+.info-container a{
+    color: rgb(82, 82, 82);
+    text-decoration: unset;
+}
