@@ -117,6 +117,7 @@ body {
     background-color: #f6f7f8;
     height: calc(100vh - 90px);
     margin-top: 90px;
+    display: flex;
 }
 
 /* Content-Area END*/
@@ -343,10 +344,12 @@ body {
 
 /* CONTACTS */
 
-.contactsNumb {
-    background-color: black;
-    height: 85px;
-    width: 85px;
+.allContacts{
+  width: 453px;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+  overflow-y: scroll;
 }
 
 /* CONTACTS END */
