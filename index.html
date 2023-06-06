@@ -15,14 +15,14 @@
     <section class="left-bar">
         <img src="assets/img/logo-on-dark-bg.svg" class="logo">
         <div class="main-menu">
-            <a href="" onclick="changeContentHTML('')"><img src="assets/img/icons/summary.svg" class="menu-icon">Summary</a>
+            <a onclick="changeContentHTML('assets/templates/summery.html')"><img src="assets/img/icons/summary.svg" class="menu-icon">Summary</a>
             <a href="" onclick="changeContentHTML('')"><img src="assets/img/icons/board.svg" class="menu-icon">Board</a>
             <a onclick="changeContentHTML('assets/templates/add_task.html')"><img src="assets/img/icons/addTask.svg" class="menu-icon" >Add Task</a>
             <a onclick="changeContentHTML('assets/templates/contacts.html')"><img src="assets/img/icons/contacts.svg" class="menu-icon">Contacts</a>
         </div>
         <div class="legal-menu">
             <a href=""><img src="assets/img/icons/info.svg" class="menu-icon">Legal Notice</a>
-            <a onclick="location.href='privacy_policy.html'" ><img src="assets/img/icons/info.svg" class="menu-icon">Privacy Policy</a>
+            <a onclick="changeContentHTML('privacy_policy.html')"><img src="assets/img/icons/info.svg" class="menu-icon">Privacy Policy</a>
         </div>
     </section>
     <section class="right-bar">
@@ -35,6 +35,7 @@
         <div id="content" w3-include-html="assets/templates/contacts.html"> 
             <!-- hier werden die jeweiligen Seiten reingerendert -->
         </div>
+        
     </section>
 </body>
 </html>
