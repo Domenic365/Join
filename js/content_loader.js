@@ -17,7 +17,7 @@ async function includeHTML() {
  * @param {string} link relative path to the page to load
  */
 
-function changeContentHTML(link) {
+async function changeContentHTML(link) {
   document.getElementById("content").setAttribute("w3-include-html", link);
-  init();
+  await init();
 }
