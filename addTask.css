@@ -1,0 +1,61 @@
+.taskarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 90px);
+    background: yellow;
+    width: calc(100vw - 250px);
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.addtask-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: row;
+}
+
+.left-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.taskarea h1 {
+    font-size: 3rem;
+}
+
+.vertical-divider {
+    width: 1.5px;
+    background-color: black;
+    height: 50vh;
+}
+
+.addtask-form-container input {
+    height: 50px;
+    border-radius: 15px;
+    padding-left: 1rem;
+    border: 2px solid #d1d1d1;
+    font-size: 1.5rem;
+}
+
+.addtask-form-container input::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-form-container select {
+    height: 50px;
+    border-radius: 15px;
+    padding-left: 1rem;
+    border: 2px solid #d1d1d1;
+    font-size: 1.5rem;
+}

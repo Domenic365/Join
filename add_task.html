@@ -6,9 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add new task</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="addTask.css">
     <script src="main.js"></script>
 </head>
 <body>
-    <div > </div>
+    <section class="left-bar">
+        <img src="assets/img/logo-on-dark-bg.svg" class="logo">
+        <div class="main-menu">
+            <a onclick="changeContentHTML('assets/templates/summary.html')"><img src="assets/img/icons/summary.svg" class="menu-icon">Summary</a>
+            <a onclick="changeContentHTML('board.html')"><img src="assets/img/icons/board.svg" class="menu-icon">Board</a>
+            <a onclick="changeContentHTML('./add_task.html')"><img src="assets/img/icons/addTask.svg" class="menu-icon" >Add Task</a>
+            <a onclick="loadContacts()"><img src="assets/img/icons/contacts.svg" class="menu-icon">Contacts</a>
+        </div>
+        <div class="legal-menu">
+            <a onclick="changeContentHTML('legal_notice.html')"><img src="assets/img/icons/info.svg" class="menu-icon">Legal Notice</a>
+            <a onclick="changeContentHTML('privacy_policy.html')"><img src="assets/img/icons/info.svg" class="menu-icon">Privacy Policy</a>
+        </div>
+    </section>
+    <section class="right-bar">
+        <div class="top-bar">
+            <div class="user-info">
+                <a onclick="changeContentHTML('help.html')"><img src="assets/img/icons/help.svg" class="bar-icon"></a>
+                <img src="#" class="user-img">
+            </div>
+        </div>
+        <div id="content" w3-include-html="./addTask.html">
+            <!-- hier werden die jeweiligen Seiten reingerendert -->
+            <div class="taskarea">
+                <div class="task-container">
+                    <h1>Add Task</h1>
+                    <div class="addtask-form-container">
+                            <form onsubmit="" class="left-form">
+                                <label for="title">Title</label>
+                                <input type="text" placeholder="Enter a title" required>
+
+                                <label for="description">Description</label>
+                                <textarea name="description" placeholder="Enter a description">
+                                </textarea>
+
+                                <label for="category">Category</label>
+                                <select id="category" name="category" placeholder="Enter a title" required>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Accounting">Accounting</option>
+                                    <option value="IT">IT</option>
+                                </select>
+
+                                <label for="assigned to">Assigned to</label>
+                                <select id="assigned-to" name="assigned-to" placeholder="Select contacts to assign" required multiple size="1">
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Accounting">Accounting</option>
+                                    <option value="IT">IT</option>
+                                </select>
+                            </form>
+                        <div class="vertical-divider"></div>
+                        <div class="right-form"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
+
+<!-- <form>
+                        <div classs="left">
+                            <label for="title">Title</label>
+                            <input type="text" placeholder="Enter a title" required>
+
+                            <label for="description">Description</label>
+                            <textarea name="description" placeholder="Enter a description">
+                            </textarea>
+
+                            <label for="category">Category</label>
+                            <select id="category" name="category" placeholder="Enter a title" required>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="IT">IT</option>
+                            </select>
+
+                            <label for="assigned to">Assigned to</label>
+                            <select id="assigned-to" name="assigned-to" placeholder="Select contacts to assign" required multiple size="1">
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="IT">IT</option>
+                            </select>
+                        </div>
+                    </form> -->

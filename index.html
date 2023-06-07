@@ -19,7 +19,7 @@
         <div class="main-menu">
             <a onclick="changeContentHTML('assets/templates/summary.html')"><img src="assets/img/icons/summary.svg" class="menu-icon">Summary</a>
             <a onclick="changeContentHTML('board.html')"><img src="assets/img/icons/board.svg" class="menu-icon">Board</a>
-            <a onclick="changeContentHTML('assets/templates/add_task.html')"><img src="assets/img/icons/addTask.svg" class="menu-icon" >Add Task</a>
+            <a onclick="changeContentHTML('./add_task.html')"><img src="assets/img/icons/addTask.svg" class="menu-icon" >Add Task</a>
             <a onclick="loadContacts()"><img src="assets/img/icons/contacts.svg" class="menu-icon">Contacts</a>
         </div>
         <div class="legal-menu">
@@ -30,7 +30,6 @@
     <section class="right-bar">
         <div class="top-bar">
             <div class="user-info">
-                
                 <a onclick="changeContentHTML('help.html')"><img src="assets/img/icons/help.svg" class="bar-icon"></a>
                 <img src="#" class="user-img">
             </div>
@@ -38,7 +37,6 @@
         <div id="content" w3-include-html="assets/templates/contacts.html"> 
             <!-- hier werden die jeweiligen Seiten reingerendert -->
         </div>
-        
     </section>
 </body>
 </html>
