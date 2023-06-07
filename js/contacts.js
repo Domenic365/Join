@@ -13,7 +13,7 @@ async function loadContacts() {
   contactlist.innerHTML = "";
   contacts.forEach(contact => {
     contactlist.innerHTML += /*html*/`
-        <p>${contact.firstName}</p>
+        <p>${contact.firstName} ${contact.secondName}</p>
     `
   });
 }
