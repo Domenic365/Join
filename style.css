@@ -24,109 +24,187 @@ body {
 }
 
 .main-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
 }
 
 .main-menu a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.5rem;
-    color: white;
-    width: calc(100% - 2rem);
-    height: 45px;
-    padding-left: 2rem;
-    box-sizing: content-box;
-    font-weight: 400;
-    font-size: 1.2rem;
-    text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  color: white;
+  width: calc(100% - 2rem);
+  height: 45px;
+  padding-left: 2rem;
+  box-sizing: content-box;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .main-menu a img {
-    width: 30px;
+  width: 30px;
 }
 
 .main-menu a:hover {
-    background-color: #091931;
+  background-color: #091931;
 }
 
 .legal-menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
 }
 
 .legal-menu a {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.5rem;
-    color: white;
-    width: calc(100% - 2rem);
-    height: 45px;
-    padding-left: 2rem;
-    box-sizing: content-box;
-    font-weight: 400;
-    font-size: 1.2rem;
-    text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  color: white;
+  width: calc(100% - 2rem);
+  height: 45px;
+  padding-left: 2rem;
+  box-sizing: content-box;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .legal-menu a img {
-    width: 30px;
+  width: 30px;
 }
 
 .legal-menu a:hover {
-    background-color: #091931;
+  background-color: #091931;
 }
 
 /* LEFTSIDE NAVIGATION END*/
 
 .right-bar {
-    width: 85vw;
-    margin-left: 15%;
+  width: 85vw;
+  margin-left: 15%;
 }
 
 /* TOP BAR */
 .top-bar {
-    position: absolute;
-    top: 0;
-    height: 90px;
-    background-color: white;
-    width: 85%;
-    -webkit-box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
-    box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
+  position: absolute;
+  top: 0;
+  height: 90px;
+  background-color: white;
+  width: 85%;
+  -webkit-box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
+  box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.209);
 }
 
 .user-info {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 90px;
-    gap: 1.5rem;
-    padding-right: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 90px;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 /* TOP BAR END */
 
 /* Content-Area*/
 #content {
-    background-color: #f6f7f8;
-    height: calc(100vh - 90px);
-    margin-top: 90px;
+  background-color: #f6f7f8;
+  height: calc(100vh - 90px);
+  margin-top: 90px;
+  display: flex;
 }
 
 /* Content-Area END*/
 
 /* CONTACTS */
 
-.contactsNumb {
-    background-color: black;
-    height: 85px;
-    width: 85px;
+.contacts {
+  display: flex;
+  flex-grow: 100;
+}
+
+.allContacts {
+  width: 453px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+  overflow-y: scroll;
+}
+
+.selectedContact {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-grow: 100;
+  padding: 0px;
+}
+
+.contactSlogan{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.contactsTitle {
+  /* Version 2/t1 */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 120%;
+
+  /* or 73px */
+
+  color: #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.contactsVector {
+  width: 0px;
+  height: 59px;
+
+  border: 2px solid #29abe2;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.contactsText {
+  width: 235px;
+  height: 32px;
+
+  /* Version 2/t5 */
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 120%;
+
+  /* or 32px */
+
+  color: #2a3647;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 
 /* CONTACTS END */
