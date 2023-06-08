@@ -3,6 +3,7 @@ class Contact {
   secondName;
   email;
   phone;
+  firstLetters;
 
   /**
    *
@@ -16,5 +17,10 @@ class Contact {
     this.secondName = secondName;
     this.email = email;
     this.phone = phone;
+    this.firstLetters = getFirstLetters();
+  }
+
+  getFirstLetters(){
+    
   }
 }
