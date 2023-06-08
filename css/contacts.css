@@ -11,6 +11,7 @@
     overflow-y: scroll;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .selectedContact {
@@ -107,24 +108,5 @@
 
 .contactCard:hover {
     color: #ffffff;
-
-    /* Auto layout */
-
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 15px 25px;
-    gap: 35px;
-
-    width: 357px;
-    height: 79px;
-
     background: #2a3647;
-    border-radius: 10px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 2;
-    flex-grow: 0;
 }

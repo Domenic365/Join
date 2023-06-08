@@ -5,6 +5,24 @@ let contacts = [
     "bastian.hochfels@gmail.com",
     "017658468531"
   ),
+  new Contact(
+    "Bastian",
+    "Hochfels",
+    "bastian.hochfels@gmail.com",
+    "017658468531"
+  ),
+  new Contact(
+    "Bastian",
+    "Hochfels",
+    "bastian.hochfels@gmail.com",
+    "017658468531"
+  ),
+  new Contact(
+    "Bastian",
+    "Hochfels",
+    "bastian.hochfels@gmail.com",
+    "017658468531"
+  ),
 ];
 
 async function loadContacts() {
