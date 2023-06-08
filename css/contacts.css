@@ -10,7 +10,7 @@
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -107,6 +107,7 @@
 }
 
 .contactCard:hover {
+    cursor: pointer;
     color: #ffffff;
     background: #2a3647;
 }
