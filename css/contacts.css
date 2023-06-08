@@ -112,15 +112,102 @@
     background: #2a3647;
 }
 
+.contactImage {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ffffff;
+    border-radius: 45px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
 .contactDivider {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.divisonLine {
-    /* Vector 10 */
+.contactDivider .beforeP {
+    /* Auto layout */
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    width: 357px;
+    height: 60px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactDivider .beforeP div {
+    /* A */
+
+    width: 282px;
+    height: 40px;
+
+    /* Version 2/t6 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.divisonLine {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 12px;
+    gap: 10px;
+
+    width: 347px;
+    height: 28px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.divisonLine div {
     width: 323px;
     height: 0px;
 
@@ -128,4 +215,151 @@
 
     border: 1px solid #d1d1d1;
     border-radius: 3px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+#contactData {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 21px;
+
+    position: relative;
+    width: 461px;
+    height: 364px;
+}
+
+.contactName {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 54px;
+
+    width: 461px;
+    height: 120px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactEdit {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 59px;
+
+    width: 392.85px;
+    height: 74px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.contactInfo {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 22px;
+
+    width: 140px;
+    height: 128px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.frame79 {
+    /* Frame 79 */
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ffffff;
+    border-radius: 45px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.group9 {
+    /* Group 9 */
+
+    width: 42px;
+    height: 42px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.am {
+    /* AM */
+
+    width: 28px;
+    height: 10px;
+
+    /* Version 2/t7 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    /* or 14px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+}
+
+.ellipse5 {
+    /* Ellipse 5 */
+
+    box-sizing: border-box;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ff7a00;
+    border: 1px solid #ffffff;
 }
