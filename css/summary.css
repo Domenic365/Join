@@ -1,0 +1,47 @@
+header {
+    display: flex;
+    align-items: center;
+    margin-left: 10rem;
+}
+
+header h2 {
+    margin-right: 2.5rem;
+    font-size: 4rem;
+}
+
+header h3 {
+    font-size: 2rem;
+    margin: 1rem 1rem 1rem 2.5rem;
+    color: rgb(42, 54, 71);
+}
+
+main{
+    display: flex;
+    justify-content: space-evenly;
+}
+main span {
+    font-size: 2rem;
+    color: rgb(42, 54, 71);
+}
+
+main h4 {
+    color: rgb(42, 171, 226);
+    font-size: 4rem;
+    margin: 0.2rem;
+}
+
+.border-color {
+    border-left: 0.3rem solid rgb(42, 171, 226);
+}
+
+.left-content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tasks-container{
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 5rem;
+    width: 5rem;
+}
