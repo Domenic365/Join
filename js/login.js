@@ -64,7 +64,7 @@ function forgotPassword() {
 function generateForgotPassword() {
     return `
     <div class="loginForm arrow">
-        <img src="../img/icons/backArrow.svg" onclick="renderLogin()">
+        <img src="./assets/img/icons/backArrow.svg" onclick="renderLogin()">
         <div class="loginHeader">
             <h1>I forgot my password</h1>
             <div class="h-divider"></div>
@@ -90,9 +90,8 @@ function renderSignup() {
 function generateSignup() {
     return `
     <div class="loginForm arrow">
-        <img src="../img/icons/backArrow.svg" onclick="renderLogin()">
+        <img src="./assets/img/icons/backArrow.svg" onclick="renderLogin()">
         <div class="loginHeader">
-            
             <h1>Sign up</h1>
             <div class="h-divider"></div>
         </div>
