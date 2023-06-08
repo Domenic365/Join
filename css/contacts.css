@@ -1,7 +1,6 @@
-
 .contacts {
     display: flex;
-    flex-grow: 100;
+    height: 100%;
 }
 
 .allContacts {
@@ -10,6 +9,9 @@
     background: #ffffff;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .selectedContact {
@@ -80,4 +82,32 @@
     flex: none;
     order: 2;
     flex-grow: 0;
+}
+
+.contactCard {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 35px;
+
+    width: 357px;
+    height: 79px;
+
+    background: #ffffff;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+.contactCard:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background: #2a3647;
 }
