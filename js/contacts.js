@@ -1,7 +1,7 @@
 let contacts = new ContactList();
 
 function contactDivider(letter) {
-  return contactDivider = /*html*/`
+  return /*html*/`
     <div class="contactDivider">
       <p>${letter}</p>
       <div class="divisonLine"></div>
@@ -29,10 +29,11 @@ async function loadContacts() {
       const lastContactData = contacts.contactList[currentContact - 1]
       const currentContactData = contacts.contactList[currentContact];
       if (lastContactData) {
-        if (lastContactData.sortingLetter == currentContactData.sortingLetter) {
-        
+        if (lastContactData.sortingLetter != currentContactData.sortingLetter) {
+          contactlist.innerHTML += contactDivider(currentContactData.sortingLetter);
         }
       } else {
+        contactlist.innerHTML += contactDivider("A");
       }
       contactlist.innerHTML += loadContactHTML(currentContactData);
     }

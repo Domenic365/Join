@@ -102,7 +102,6 @@
     /* Inside auto layout */
 
     flex: none;
-    order: 3;
     flex-grow: 0;
 }
 
@@ -110,4 +109,22 @@
     cursor: pointer;
     color: #ffffff;
     background: #2a3647;
+}
+
+.contactDivider {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divisonLine {
+    /* Vector 10 */
+
+    width: 323px;
+    height: 0px;
+
+    /* Style */
+
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
 }
