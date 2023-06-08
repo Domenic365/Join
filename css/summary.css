@@ -15,7 +15,7 @@ header h3 {
     color: rgb(42, 54, 71);
 }
 
-main{
+main {
     display: flex;
     justify-content: space-evenly;
 }
@@ -34,12 +34,12 @@ main h4 {
     border-left: 0.3rem solid rgb(42, 171, 226);
 }
 
-.left-content{
+.left-content {
     display: flex;
     flex-wrap: wrap;
 }
 
-.tasks-container{
+.tasks-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -50,10 +50,10 @@ main h4 {
     margin: 0.5rem;
 }
 
-.left-content{
+.left-content {
     max-width: 50%;
 }
 
-.right-content{
-max-width: 50%;
+.right-content {
+    max-width: 50%;
 }
