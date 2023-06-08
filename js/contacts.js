@@ -13,7 +13,14 @@ async function loadContacts() {
   contactlist.innerHTML = "";
   contacts.forEach(contact => {
     contactlist.innerHTML += /*html*/`
+    <div class="contactCard">
+      <img src="" alt="IMG">
+      <div class="contactData">
         <p>${contact.firstName} ${contact.secondName}</p>
+        <p>${contact.email}</p>
+      </div>
+    </div>
+
     `
   });
 }
