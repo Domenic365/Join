@@ -3,19 +3,25 @@ let contacts = new ContactList();
 function contactDivider(letter) {
   return /*html*/`
     <div class="contactDivider">
-      <p>${letter}</p>
-      <div class="divisonLine"></div>
+      <div class="beforeP">
+        <div>${letter}</div>
+      </div>
+      <div class="divisonLine"><div></div></div>
     </div>
   `
 }
 
-function loadContactHTML(contact) {
+function loadContactHTML(contact, currentContact) {
   return /*html*/ `
-  <div class="contactCard">
-    <div class="ContactImage">${contact.firstLetters}</div>
+  <div onclick="loadSingleContact(${currentContact})" class="contactCard">
+    <div class="frame79"> 
+      <div class="group9">
+        <div class="am"></div>
+        <div class="ellipse5"></div>
+      </div>${contact.firstLetters}</div>
     <div class="contactData">
-      <p>${contact.firstName} ${contact.secondName}</p>
-      <p>${contact.email}</p>
+      <div>${contact.firstName} ${contact.secondName}</div>
+      <div>${contact.email}</div>
     </div>
   </div>
   `;
@@ -35,6 +41,10 @@ async function loadContacts() {
       } else {
         contactlist.innerHTML += contactDivider("A");
       }
-      contactlist.innerHTML += loadContactHTML(currentContactData);
+      contactlist.innerHTML += loadContactHTML(currentContactData, currentContact);
     }
+}
+
+function loadSingleContact(contactNumber) {
+  
 }
