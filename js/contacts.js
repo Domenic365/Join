@@ -26,7 +26,7 @@ let contacts = [
 ];
 
 async function loadContacts() {
-    await changeContentHTML("assets/templates/contacts.html");
+    await changeContentHTML("../templates/contacts.html");
     let contactlist = document.getElementById("contacts");
     contactlist.innerHTML = "";
     contacts.forEach((contact) => {

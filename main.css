@@ -122,4 +122,23 @@ body {
 /* Content-Area END*/
 
 /* BUTTONS */
+
+.main-btn {
+    height: 62px;
+    background-color: #091931;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 5px 16px;
+    min-width: 184px;
+}
+
+.secondary-btn {
+    
+}
 /* BUTTONS END */

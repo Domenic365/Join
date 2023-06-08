@@ -47,7 +47,7 @@ function generateLogin() {
             </div>
             <div class="log-btns">
                 <button class="login-btn">Log in</button>
-                <div class="guest-btn">Guest Log in</div>
+                <a href="./assets/templates/main.html" class="guest-btn">Guest Log in</a>
             </div>
         </form>
     </div>

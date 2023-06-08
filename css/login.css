@@ -146,6 +146,11 @@
     gap: 3rem;
 }
 
+.log-btns a {
+    text-decoration: none;
+    color: black;
+}
+
 .login-btn {
     height: 62px;
     background-color: #091931;
