@@ -40,9 +40,14 @@ main h4 {
 }
 
 .tasks-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid black;
     border-radius: 1rem;
     box-sizing: border-box;
+    margin: 0.5rem;
 }
 
 .left-content{
