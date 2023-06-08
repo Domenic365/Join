@@ -27,8 +27,8 @@
 .left-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 450px;
+    gap: 3rem;
+    justify-content: space-evenly;
 }
 
 .form-item {
@@ -93,4 +93,11 @@
     font-size: 1.5rem;
     padding: 1rem;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: space-evenly;
 }
