@@ -3,18 +3,167 @@
 
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     padding: 15px 25px;
     gap: 35px;
-
+    align-items: center;
     width: 357px;
     height: 79px;
 
     background: #ffffff;
     border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
 }
 
-.contactCard:hover{
+.contactCard:hover {
     cursor: pointer;
-    background: #2A3647;
+    background: #2a3647;
+}
+
+.contactFirstLetters {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ffffff;
+    border-radius: 45px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactCardName {
+    width: 127px;
+    height: 25px;
+
+    /* Version 2/t6 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactCardEmail {
+    width: 140px;
+    height: 19px;
+
+    /* Version 2/body */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    /* or 19px */
+
+    display: flex;
+    align-items: center;
+
+    color: #007cee;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.contactData {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+
+    width: 140px;
+    height: 49px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.contactDividerOnly:hover {
+    cursor: unset;
+    background: #ffffff;
+}
+
+.divisonLine {
+    width: 323px;
+    height: 0px;
+
+    /* Style */
+
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactDivider p {
+    width: 282px;
+    height: 40px;
+
+    /* Version 2/t6 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.contactDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
