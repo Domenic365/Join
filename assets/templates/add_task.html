@@ -13,23 +13,37 @@
                     <label for="description">Description</label>
                     <textarea name="description" placeholder="Enter a description"></textarea>
                 </div>
+
                 <div class="form-item">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" placeholder="Enter a title" required>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Accounting">Accounting</option>
-                        <option value="IT">IT</option>
-                    </select>
+                    <div class="dropdown">
+                        <div class="form-title">Choose Category</div>
+                        <div class="dropdown-placeholder" id="category-input" onclick="toggleDropdown()">Choose Category<span>&lt;</span></div>
+                        <div class="item-selection">
+                            <ul id="category-selection">
+                                <li onclick="createCategory()">Add new category</li>
+                                <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
+                                <li onclick="chosenCategory('Test 1')">Test 1</li>
+                                <li onclick="chosenCategory('Test 2')">Test 2</li>
+                                <li onclick="chosenCategory('Test 3')">Test 3</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="form-item">
-                    <label for="assigned-to">Assigned to</label>
-                    <select id="category" name="category" placeholder="Enter a title" required>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Accounting">Accounting</option>
-                        <option value="IT">IT</option>
-                    </select>
+                    <div class="dropdown">
+                        <div class="form-title">Assigned to</div>
+                        <div class="dropdown-placeholder" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+                        <div class="contacts-selection">
+                            <ul id="contact-selection">
+                                <li onclick="addNewContact()">Add new contact</li>
+                                <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
+                                <li onclick="chosenContact('Testkontakt 1')">Testkontakt 1</li>
+                                <li onclick="chosenContact('Testkontakt 2')">Testkontakt 2</li>
+                                <li onclick="chosenContact('Testkontakt 3')">Testkontakt 3</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </form>
             <div class="vertical-divider"></div>
@@ -52,28 +66,8 @@
                         <option value="IT">IT</option>
                     </select>
                 </div>
-                <div class="form-item">
-                    <label for="assigned-to">Assigned to</label>
-                    <select id="category" name="category" placeholder="Enter a title" required>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Accounting">Accounting</option>
-                        <option value="IT">IT</option>
-                    </select>
-                </div>
 
-                <div class="dropdown-category">
-                    <div class="selection">
-                        <span class="selected"><span class="placeholder">Select task category</span></span>
-                        <div class="drop-arrow"></div>
-                    </div>
-                    <ul id="category-list">
-                        <li>Marketing</li>
-                        <li>Accounting</li>
-                        <li>Sales</li>
-                        <li>IT</li>
-                    </ul>
-                </div>
+                
             </form>
         </div>
     </div>

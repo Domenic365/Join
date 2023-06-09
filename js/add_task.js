@@ -1,26 +1,36 @@
 "use strict";
 
-const categoryDropdown = document.querySelector('.dropdown-category');
-const selection = document.querySelector('.selection');
-const dropArrow = document.querySelector('.drop-arrow');
-const categoryList = document.querySelector('.category-list');
-const options = document.querySelectorAll('.category-list li');
-const selected = document.querySelector('.selected');
+// TO DO: Erstellen eines Category Arrys, um hier die Liste der Kategorien zu erzeugen
 
-selection.addEventListener('click', () => {
-    selection.classList.toggle('select-clicked');
-    dropArrow.classList.toggle('arrow-rotate');
-    categoryList.classList.toggle('selection-open');
-});
+function toggleDropdown() {
+    const dropdownArrow = document.querySelector('#category-input span');
+    const selection = document.querySelector('.item-selection');
 
-options.forEach(option => {
-    option.addEventListener('click', () => {
-        selected.innerText = option.innerText;
-        selected.classList.remove('select-clicked');
-        dropArrow.classList.remove('arrow-rotate');
-        selection.classList.remove('selection-open');
-        options.forEach(option => {
-            option.classList.remove('active');
-        });
-    });
-});
+    if (selection.classList.contains('active')) {
+        selection.classList.remove('active');
+        dropdownArrow.classList.remove('active-arrow');
+    } else {
+        selection.classList.add('active');
+        dropdownArrow.classList.add('active-arrow');
+    }
+}
+
+function chosenCategory(value) {
+    let dropdownContent = document.getElementById('category-input');
+    dropdownContent.innerHTML = `${value}<span class="active-dropdown">&lt;</span>`;
+    dropdownContent.classList.add('cat-picked');
+    toggleDropdown();
+}
+
+function toggleAssigning() {
+    const dropdownArrow = document.querySelector('#contacts-input span');
+    const selection = document.querySelector('.contacts-selection');
+
+    if (selection.classList.contains('active')) {
+        selection.classList.remove('active');
+        dropdownArrow.classList.remove('active-arrow');
+    } else {
+        selection.classList.add('active');
+        dropdownArrow.classList.add('active-arrow');
+    }
+}
