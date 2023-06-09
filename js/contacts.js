@@ -79,8 +79,14 @@ function loadLetterSection(lastContactData, currentContactData, contactlist) {
     }
 }
 
+
+/**
+ * 
+ * @param {number} contactNumber the position in the array after sorting
+ */
 function loadSingleContact(contactNumber) {
     let contact = contacts.contactList[contactNumber];
+    let contactArray = createContactArray(contact);
     document.getElementById("contactInformation").innerHTML =
         "Contact Information";
     document.getElementById("editContact").innerHTML = "Edit Contact";
@@ -89,6 +95,24 @@ function loadSingleContact(contactNumber) {
         contact.firstName + " " + contact.secondName;
     document.getElementById("contactEmail").innerHTML = contact.email;
     document.getElementById("contactPhone").innerHTML = contact.phone;
+}
+
+/**
+ * 
+ * @param {Contact} contact 
+ * @returns the html data to open the contact details
+ */
+function createContactArray(contact) {
+    return openContactDetails = [
+        contactInformation = {},
+        editContact = {},
+        firstLetters = {},
+        contactName = {},
+    ]
+}
+
+function insertIntoHTML(id, innerOfHTML) {
+    document.getElementById(id).innerHTML = innerOfHTML;
 }
 
 function showContactModal() {
