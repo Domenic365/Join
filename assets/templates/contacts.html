@@ -18,21 +18,21 @@
             <div id="contactEmail"></div>
             <div id="contactPhone"></div>
         </div>
-        <button>New contact</button>
+        <button onclick="showContactModal()">New contact</button>
     </article>
 </main>
 
-<main class="divForAddContact">
+<main id="divForAddContact" class="divForAddContact dpNone">
     <div class="addContact">
         <article class="addContactLeftSide"></article>
         <article class="addContactRightSide">
             <div></div>
             <div>
-                <input id="newContactFirstName" placeholder="firstName" type="name">
-                <input id="newContactSecondName" placeholder="secondName" type="name">
+                <input id="newContactFirstName" placeholder="firstName" type="text">
+                <input id="newContactSecondName" placeholder="secondName" type="text">
                 <input id="newContactEmail" placeholder="email" type="email">
-                <input id="newContactPhone" placeholder="phone" type="phone">
-                <form onsubmit="addNewContact(); return false">
+                <input id="newContactPhone" placeholder="phone" type="tel">
+                <form onsubmit="addNewContact(event)">
                     <button class="secondary-btn">Cancel</button>
                     <button class="main-btn">Create contact</button>
                 </form>

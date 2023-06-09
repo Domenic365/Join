@@ -23,6 +23,11 @@ function loadContactHTML(contact, currentContact) {
 
 async function loadContacts() {
     await changeContentHTML("../../assets/templates/contacts.html");
+    loadContactCards();
+
+}
+
+function loadContactCards() {
     let contactlist = document.getElementById("contacts");
     contactlist.innerHTML = "";
     for (
@@ -64,13 +69,22 @@ function loadSingleContact(contactNumber) {
 }
 
 function showContactModal() {
-  let modal = document.getElementById('addContact');
+    document.getElementById("divForAddContact").classList.remove("dpNone");
 }
 
-function addNewContact() {
+function addNewContact(event) {
+    event.preventDefault();
     let firstName = document.getElementById("newContactFirstName").value;
     let secondName = document.getElementById("newContactSecondName").value;
     let phone = document.getElementById("newContactPhone").value;
-    let email = document.getElementById('newContactEmail').value;
-    contacts.contactList.push(new Contact(firstName, secondName, email, phone))
+    let email = document.getElementById("newContactEmail").value;
+    contacts.contactList.push(new Contact(firstName, secondName, email, phone));
+    updateContacts();
+    document.getElementById("divForAddContact").classList.add("dpNone");
+    return false;
+}
+
+function updateContacts() {
+    contacts.sortContacts();
+    loadContactCards();
 }

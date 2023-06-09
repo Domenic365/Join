@@ -1,5 +1,5 @@
 .dpNone {
-    display: none;
+    display: none !important;
 }
 
 .divForAddContact{
