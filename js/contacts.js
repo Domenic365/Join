@@ -40,7 +40,9 @@ async function loadContacts() {
     loadContactCards();
 }
 
-
+/**
+ * loading all contact cards
+ */
 function loadContactCards() {
     let contactlist = document.getElementById("contacts");
     contactlist.innerHTML = "";
@@ -51,18 +53,7 @@ function loadContactCards() {
     ) {
         const lastContactData = contacts.contactList[currentContact - 1];
         const currentContactData = contacts.contactList[currentContact];
-        if (lastContactData) {
-            if (
-                lastContactData.sortingLetter !=
-                currentContactData.sortingLetter
-            ) {
-                contactlist.innerHTML += contactDivider(
-                    currentContactData.sortingLetter
-                );
-            }
-        } else {
-            contactlist.innerHTML += contactDivider("A");
-        }
+        loadLetterSection(lastContactData, currentContactData, contactlist);
         contactlist.innerHTML += loadContactHTML(
             currentContactData,
             currentContact
@@ -70,8 +61,22 @@ function loadContactCards() {
     }
 }
 
-function loadLetterSection() {
-    
+/**
+ *
+ * @param {Contact} lastContactData
+ * @param {Contact} currentContactData
+ * @param {HTMLElement} contactlist the HTML Element where to insert the letter section
+ */
+function loadLetterSection(lastContactData, currentContactData, contactlist) {
+    if (lastContactData) {
+        if (lastContactData.sortingLetter != currentContactData.sortingLetter) {
+            contactlist.innerHTML += contactDivider(
+                currentContactData.sortingLetter
+            );
+        }
+    } else {
+        contactlist.innerHTML += contactDivider("A");
+    }
 }
 
 function loadSingleContact(contactNumber) {
