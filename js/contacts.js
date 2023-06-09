@@ -1,5 +1,10 @@
 let contacts = new ContactList();
 
+/**
+ *
+ * @param {string} letter the letter for the section
+ * @returns returns the html for the letter section
+ */
 function contactDivider(letter) {
     return /*html*/ `
     <div class="contactDivider">
@@ -9,6 +14,12 @@ function contactDivider(letter) {
   `;
 }
 
+/**
+ *
+ * @param {Contact} contact
+ * @param {number} currentContact
+ * @returns the html for one contactCard
+ */
 function loadContactHTML(contact, currentContact) {
     return /*html*/ `
   <div onclick="loadSingleContact(${currentContact})" class="contactCard">
@@ -21,11 +32,14 @@ function loadContactHTML(contact, currentContact) {
   `;
 }
 
+/**
+ * the function for the first load
+ */
 async function loadContacts() {
     await changeContentHTML("../../assets/templates/contacts.html");
     loadContactCards();
-
 }
+
 
 function loadContactCards() {
     let contactlist = document.getElementById("contacts");
@@ -54,6 +68,10 @@ function loadContactCards() {
             currentContact
         );
     }
+}
+
+function loadLetterSection() {
+    
 }
 
 function loadSingleContact(contactNumber) {
