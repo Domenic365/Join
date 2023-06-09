@@ -79,46 +79,57 @@ function loadLetterSection(lastContactData, currentContactData, contactlist) {
     }
 }
 
-
 /**
- * 
+ *
  * @param {number} contactNumber the position in the array after sorting
  */
 function loadSingleContact(contactNumber) {
     let contact = contacts.contactList[contactNumber];
     let contactArray = createContactArray(contact);
-    document.getElementById("contactInformation").innerHTML =
-        "Contact Information";
-    document.getElementById("editContact").innerHTML = "Edit Contact";
-    document.getElementById("firstLetters").innerHTML = contact.firstLetters;
-    document.getElementById("contactName").innerHTML =
-        contact.firstName + " " + contact.secondName;
-    document.getElementById("contactEmail").innerHTML = contact.email;
-    document.getElementById("contactPhone").innerHTML = contact.phone;
+    contactArray.forEach((valueForHTML) => {
+        insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
+    });
 }
 
 /**
- * 
- * @param {Contact} contact 
+ *
+ * @param {Contact} contact
  * @returns the html data to open the contact details
  */
 function createContactArray(contact) {
-    return openContactDetails = [
-        contactInformation = {},
-        editContact = {},
-        firstLetters = {},
-        contactName = {},
-    ]
+    return (openContactDetails = [
+        { id: "contactInformation", htmlValue: "Contact Information" },
+        { id: "editContact", htmlValue: "Edit Contact" },
+        { id: "firstLetters", htmlValue: contact.firstLetters },
+        {
+            id: "contactName",
+            htmlValue: contact.firstName + " " + contact.secondName,
+        },
+        { id: "contactEmail", htmlValue: contact.email },
+        { id: "contactPhone", htmlValue: contact.phone },
+    ]);
 }
 
+/**
+ *
+ * @param {string} id of the html element to edit
+ * @param {string} innerOfHTML, the value to edit
+ */
 function insertIntoHTML(id, innerOfHTML) {
     document.getElementById(id).innerHTML = innerOfHTML;
 }
 
+/**
+ * displays the modal
+ */
 function showContactModal() {
     document.getElementById("divForAddContact").classList.remove("dpNone");
 }
 
+/**
+ *
+ * @param {event} event to prevent reload
+ */
 function addNewContact(event) {
     event.preventDefault();
     let firstName = document.getElementById("newContactFirstName").value;
@@ -128,9 +139,11 @@ function addNewContact(event) {
     contacts.contactList.push(new Contact(firstName, secondName, email, phone));
     updateContacts();
     document.getElementById("divForAddContact").classList.add("dpNone");
-    return false;
 }
 
+/**
+ * using this instead init prevents deleting added contacts
+ */
 function updateContacts() {
     contacts.sortContacts();
     loadContactCards();
