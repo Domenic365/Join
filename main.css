@@ -139,6 +139,29 @@ body {
 }
 
 .secondary-btn {
-    
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+
+    width: 136px;
+    height: 55px;
+
+    /* Version 2/ main color  */
+
+    border: 1px solid #2a3647;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 }
 /* BUTTONS END */

@@ -66,3 +66,11 @@ function loadSingleContact(contactNumber) {
 function showContactModal() {
   let modal = document.getElementById('addContact');
 }
+
+function addNewContact() {
+    let firstName = document.getElementById("newContactFirstName").value;
+    let secondName = document.getElementById("newContactSecondName").value;
+    let phone = document.getElementById("newContactPhone").value;
+    let email = document.getElementById('newContactEmail').value;
+    contacts.contactList.push(new Contact(firstName, secondName, email, phone))
+}

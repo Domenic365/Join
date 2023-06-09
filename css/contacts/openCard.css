@@ -1,3 +1,20 @@
+:root {
+    --modalHeight: 594px;
+    --modalBorder: 30px;
+    --modalWidth: 1212px;
+    --lefSideWidth: 463px;
+    --rightSideWidth: calc(var(--modalWidth) - var(--lefSideWidth))
+}
+
+.addContact {
+    width: var(--modalWidth);
+    height: var(--modalHeight);
+
+    background: #ffffff;
+    border-radius: var(--modalBorder);
+    display: flex;
+}
+
 #contactData {
     /* Auto layout */
 
@@ -81,4 +98,32 @@
 
     flex: none;
     flex-grow: 0;
+}
+
+.addContactLeftSide {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    isolation: isolate;
+
+    width: var(--lefSideWidth);
+    height: var(--modalHeight);
+    border-top-left-radius: var(--modalBorder);
+    border-bottom-left-radius: var(--modalBorder) ;
+
+    /* Version 2/ main color  */
+
+    background: #2a3647;
+}
+
+.addContactRightSide{
+    width: var(--rightSideWidth);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

@@ -25,6 +25,18 @@
 <main class="divForAddContact">
     <div class="addContact">
         <article class="addContactLeftSide"></article>
-        <article class="addContactRightSide"></article>
+        <article class="addContactRightSide">
+            <div></div>
+            <div>
+                <input id="newContactFirstName" placeholder="firstName" type="name">
+                <input id="newContactSecondName" placeholder="secondName" type="name">
+                <input id="newContactEmail" placeholder="email" type="email">
+                <input id="newContactPhone" placeholder="phone" type="phone">
+                <form onsubmit="addNewContact(); return false">
+                    <button class="secondary-btn">Cancel</button>
+                    <button class="main-btn">Create contact</button>
+                </form>
+            </div>
+        </article>
     </div>
 </main>
