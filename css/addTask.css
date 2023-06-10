@@ -53,7 +53,7 @@
     padding-left: 1rem;
     border: 2px solid #d1d1d1;
     font-size: 1.5rem;
-    min-width: 400px;
+    width: 400px;
 }
 
 .addtask-form-container label {
@@ -63,6 +63,10 @@
 
 .addtask-form-container input::placeholder {
     color: #d1d1d1;
+}
+
+.addcontact-li {
+    color: black;
 }
 
 .addtask-form-container select {
@@ -107,6 +111,11 @@
 .dropdown {
     position: relative;
     width: 100%;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
 }
 
 .dropdown-placeholder {
@@ -156,9 +165,9 @@
 }
 
 .active {
-    opacity: 1;
+    opacity: 1 !important;
     transition: all 150ms ease-in-out;
-    pointer-events: all;
+    pointer-events: all !important;
 }
 
 .item-selection ul {
@@ -166,8 +175,6 @@
     overflow-y: auto;
     max-height: 200px;
     margin: 0;
-    scrollbar-width: 10px;
-    scrollbar-color: lightgray white;
 }
 
 .item-selection ul li {
@@ -191,4 +198,90 @@
     margin-bottom: .5rem;
 }
 
+/* Contacts Dropdown */
+
+.contact-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.contacts-selection {
+    position: absolute;
+    top: 77px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    border-right: 2px solid #d1d1d1;
+    border-left: 2px solid #d1d1d1;
+    border-bottom: 2px solid #d1d1d1;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.contacts-selection ul {
+    padding: 0;
+    overflow-y: auto;
+    max-height: 100px;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.contacts-selection ul li {
+    list-style: none;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 1.2rem;
+}
+
+.contacts-selection ul li:hover {
+    cursor: pointer;
+    background-color: #d1d1d1;
+}
+
+.contacts-selection ul li:last-child{
+    border-bottom: none;
+}
+
+[type="checkbox"] {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 15px;
+    height: 15px;
+    justify-content: space-between;
+}
+
+.contacts-selection li {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.contacts-selection li label {
+    font-size: 1.2rem;
+}
+
+.dropdown-check {
+    height: 50px;
+    width: 50px!important;
+    margin-right: -15px;
+}
+
+.addtask-form-container .dropdown-check {
+    height: 15px;
+}
+.contacts-selection li input {
+    width: 50px !important;
+}
+
+
 /* DROPDOWNS END */
+
+/* FORM-STYLING*/
+/* Date-input */
+
+
+
+/* FORM-STYLING END*/

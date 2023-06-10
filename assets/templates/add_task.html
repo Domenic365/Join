@@ -31,16 +31,17 @@
                 </div>
 
                 <div class="form-item">
-                    <div class="dropdown">
+                    <div class="contact-dropdown">
                         <div class="form-title">Assigned to</div>
                         <div class="dropdown-placeholder" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
                         <div class="contacts-selection">
                             <ul id="contact-selection">
-                                <li onclick="addNewContact()">Add new contact</li>
                                 <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
-                                <li onclick="chosenContact('Testkontakt 1')">Testkontakt 1</li>
-                                <li onclick="chosenContact('Testkontakt 2')">Testkontakt 2</li>
-                                <li onclick="chosenContact('Testkontakt 3')">Testkontakt 3</li>
+                                <li><label for="Testkontakt-1">Testkontakt 1</label><input class="dropdown-check" type="checkbox" id="Testkontakt-1"></li>
+                                <li><label for="Testkontakt-2">Testkontakt 1</label><input class="dropdown-check" type="checkbox" id="Testkontakt-2"></li>
+                                <li><label for="Testkontakt-3">Testkontakt 1</label><input class="dropdown-check" type="checkbox" id="Testkontakt-3"></li>
+                                <li><label for="Testkontakt-4">Testkontakt 1</label><input class="dropdown-check" type="checkbox" id="Testkontakt-4"></li>
+                                <li onclick="addContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts.svg"></span></li>
                             </ul>
                         </div>
                     </div>
@@ -50,8 +51,8 @@
             <!-- right side -->
             <form onsubmit="" class="right-form">
                 <div class="form-item" name="date">
-                    <label for="date">Date</label>
-                    <input type="date">
+                    <label for="date">Due Date</label>
+                    <input type="date" class="date-input">
                 </div>
                 <div class="form-item">
                     <label for="description">Description</label>
