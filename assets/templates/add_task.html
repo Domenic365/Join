@@ -54,18 +54,40 @@
                     <label for="date">Due Date</label>
                     <input type="date" class="date-input">
                 </div>
+                
                 <div class="form-item">
-                    <label for="description">Description</label>
-                    <textarea name="description" placeholder="Enter a description"></textarea>
+                    <div class="dropdown">
+                        
+                        <div class="dropdown-placeholder" id="category-input" onclick="toggleDropdown()">Choose Category<span>&lt;</span></div>
+                        <div class="item-selection">
+                            <ul id="category-selection">
+                                <li onclick="createCategory()">Add new category</li>
+                                <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
+                                <li onclick="chosenCategory('Test 1')">Test 1</li>
+                                <li onclick="chosenCategory('Test 2')">Test 2</li>
+                                <li onclick="chosenCategory('Test 3')">Test 3</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="form-item">
-                    <label for="category">Category</label>
-                    <select id="category" name="category" placeholder="Enter a title" required>
-                        <option value="Marketing">Marketing</option>
-                        <option value="Sales">Sales</option>
-                        <option value="Accounting">Accounting</option>
-                        <option value="IT">IT</option>
-                    </select>
+                    <div class="form-title">Subtasks</div>
+                    <div class="dropdown-placeholder" id="subtask-input" onclick="">Add new subtask<span>&plus;</span></div>
+                    <ul class="subtask-list" id="subtask-overview">
+                        <li class="subtask-item">
+                            <input type="checkbox" id="subtask1" name="subtask1" value="subtask.vlaue">
+                            <label for="subtask1">Subtask 1</label>
+                        </li>
+                        <li class="subtask-item">
+                            <input type="checkbox" id="subtask2" name="subtask2" value="subtask2.vlaue">
+                            <label for="subtask2">Subtask 2</label>
+                        </li>
+                        <li class="subtask-item">
+                            <input type="checkbox" id="subtask3" name="subtask3" value="subtask3.vlaue">
+                            <label for="subtask3">Subtask 3</label>
+                        </li>
+                    </ul>
                 </div>
 
                 
