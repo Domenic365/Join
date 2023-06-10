@@ -65,8 +65,8 @@
     color: #d1d1d1;
 }
 
-.addcontact-li {
-    color: black;
+#contact-selection li img {
+    fill: black;
 }
 
 .addtask-form-container select {
