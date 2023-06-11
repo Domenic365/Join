@@ -75,3 +75,8 @@ main h4 {
 .border-urgend-task{
     border-right: 0.16rem solid rgb(209,209,209);
 }
+
+.icons-container{
+    display: flex;
+    margin-right: 1rem;
+}
