@@ -32,28 +32,15 @@
 }
 
 .frame104 {
-    /* Auto layout */
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 13px;
-
-    width: 287px;
-    height: 88px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 #contactName {
-    width: 287px;
-    height: 56px;
-
-    /* Version 2/t2 */
 
     font-family: "Inter";
     font-style: normal;
@@ -67,10 +54,6 @@
 
     color: #000000;
 
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame108 {
@@ -503,4 +486,8 @@
 
     flex: none;
     flex-grow: 0;
+}
+
+.frame81Floating{
+    margin: 0;
 }

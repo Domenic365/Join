@@ -12,7 +12,7 @@
                     <div id="firstLetters" class="AM">AM</div>
                 </div>
                 <div class="frame104">
-                    <div class="frame81">
+                    <div class="frame81 frame81Floating">
                         <div id="contactName">Anton Mayer</div>
                     </div>
                     <div class="frame108">
@@ -27,24 +27,32 @@
                 </div>
             </div>
             <div class="frame106">
-                <div class="contactInformation">Contact Information</div>
+                <div id="contactInformation" class="contactInformation">
+                    Contact Information
+                </div>
                 <div class="frame100">
                     <div class="editContacts">
                         <div class="group8">
-                            <img src="../../assets/img/pencil.svg" alt="">
+                            <img src="../../assets/img/pencil.svg" alt="" />
                         </div>
-                        <div class="editContact">Edit Contact</div>
+                        <div id="editContact" class="editContact">
+                            Edit Contact
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="frame101">
                 <div class="frame102">
-                    <div id="contactEmail" class="email">Email</div>
-                    <div class="contactCardEmail">gutentag@mail.com</div>
+                    <div class="email">Email</div>
+                    <div id="contactEmail" class="contactCardEmail">
+                        gutentag@mail.com
+                    </div>
                 </div>
                 <div class="frame102">
-                    <div id="contactPhone" class="phone">Phone</div>
-                    <div class="floatingContactPhone">+49 176 13264856</div>
+                    <div class="phone">Phone</div>
+                    <div id="contactPhone" class="floatingContactPhone">
+                        +49 176 13264856
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,41 +67,29 @@
     </article>
 </main>
 
-        <main id="divForAddContact" class="divForAddContact dpNone">
-            <div class="addContact">
-                <article class="addContactLeftSide"></article>
-                <article class="addContactRightSide">
-                    <div></div>
-                    <div>
-                        <input
-                            id="newContactFirstName"
-                            placeholder="firstName"
-                            type="text" />
-                        <input
-                            id="newContactSecondName"
-                            placeholder="secondName"
-                            type="text" />
-                        <input
-                            id="newContactEmail"
-                            placeholder="email"
-                            type="email" />
-                        <input
-                            id="newContactPhone"
-                            placeholder="phone"
-                            type="tel" />
-                        <form>
-                            <button onclick="" class="secondary-btn">
-                                Cancel
-                            </button>
-                            <button
-                                onclick="addNewContact(event)"
-                                class="main-btn">
-                                Create contact
-                            </button>
-                        </form>
-                    </div>
-                </article>
+<main id="divForAddContact" class="divForAddContact dpNone">
+    <div class="addContact">
+        <article class="addContactLeftSide"></article>
+        <article class="addContactRightSide">
+            <div></div>
+            <div>
+                <input
+                    id="newContactFirstName"
+                    placeholder="firstName"
+                    type="text" />
+                <input
+                    id="newContactSecondName"
+                    placeholder="secondName"
+                    type="text" />
+                <input id="newContactEmail" placeholder="email" type="email" />
+                <input id="newContactPhone" placeholder="phone" type="tel" />
+                <form>
+                    <button onclick="" class="secondary-btn">Cancel</button>
+                    <button onclick="addNewContact(event)" class="main-btn">
+                        Create contact
+                    </button>
+                </form>
             </div>
-        </main>
-    </article>
+        </article>
+    </div>
 </main>
