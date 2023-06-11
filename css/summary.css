@@ -1,7 +1,7 @@
 header {
     display: flex;
     align-items: center;
-    margin-left: 10rem;
+
 }
 
 header h2 {
@@ -51,21 +51,27 @@ main h4 {
 }
 
 .tasks-container {
-   /* display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center; */
     width: 100%;
     text-align: center;
     border: 1px solid rgb(212, 212, 213);
     border-radius: 1rem;
     box-sizing: border-box;
-    margin: 0.5rem;
     padding: 1rem;
+    margin: 0.5rem;
     background-color: white;
 }
 
-.abc {
+.direction-tasks {
     display: flex;
     justify-content: center;
+}
+
+.urgent-tasks-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-urgend-task{
+    border-right: 0.16rem solid rgb(209,209,209);
 }
