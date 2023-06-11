@@ -24,7 +24,6 @@ main {
 main span {
     font-size: 1.3rem;
     color: rgb(42, 54, 71);
-
 }
 
 main p {
@@ -52,6 +51,9 @@ main h4 {
 }
 
 .tasks-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     text-align: center;
     border: 1px solid rgb(212, 212, 213);
@@ -62,7 +64,7 @@ main h4 {
     background-color: white;
 }
 
-.direction-tasks {
+.direction-all-tasks {
     display: flex;
     justify-content: center;
 }
@@ -79,6 +81,13 @@ main h4 {
 
 .icons-container {
     display: flex;
+    align-items: center;
     margin-right: 1rem;
     max-height: 4rem;
+}
+
+.counter-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

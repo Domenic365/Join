@@ -1,26 +1,28 @@
 <main>
+
     <!--Task Sektion-->
     <div class="left-content">
         <header>
-        <div>
-            <h2>Summary</h2>
-        </div>
-        <div class="border-color">
-            <h3>Everything in a nutshell!</h3>
-        </div>
-    </header>
-        <div class="direction-tasks">
-            <div class="task-board-container tasks-container">
-                <p>5</p><br />
-                <span>Tasks in Board</span>
+            <div>
+                <h2>Summary</h2>
             </div>
-            <div class="task-progress-container tasks-container">
-                <p>2</p><br />
-                <span>Tasks in Progress</span>
+            <div class="border-color">
+                <h3>Everything in a nutshell!</h3>
             </div>
-            <div class="task-feedback-container tasks-container">
-                <p>2</p><br />
-                <span>Awaiting Feedback</span>
+
+        </header>
+        <div class="direction-all-tasks">
+            <div class="task-board-container tasks-container counter-container">
+                    <p>5</p>
+                    <span>Tasks in <br> Board</span>
+            </div>
+            <div class="task-progress-container tasks-container counter-container ">
+                <p>2</p>
+                <span>Tasks in <br> Progress</span>
+            </div>
+            <div class="task-feedback-container tasks-container counter-container">
+                <p>2</p>
+                <span>Awaiting <br> Feedback</span>
             </div>
         </div>
         <div class="urgent-tasks-container tasks-container">
@@ -28,34 +30,40 @@
                 <img src="../../assets/img/icons/urgend.svg" alt="Taks status" />
             </div>
             <div class="border-urgend-task">
-                <p>1</p><br />
+                <p>1</p>
                 <span>Urgent</span>
             </div>
             <div>
-                <span>October 16, 2022</span> <br />
+                <span>October 16, 2022</span> <br>
                 <span>Upcoming Deadline</span>
             </div>
         </div>
-        <div class="direction-tasks">
+        <div class="direction-all-tasks">
             <div class="to-do-container tasks-container">
                 <div class="icons-container">
                     <img src="../../assets/img/icons/pen.svg" alt="Tasks in progress" />
                 </div>
-                <p>1</p><br />
-                <span>To-Do</span>
+                <div class="counter-container">
+                    <p>1</p>
+                    <span>To-Do</span>
+                </div>
             </div>
             <div class="done-container tasks-container">
                 <div class="icons-container">
                     <img src="../../assets/img/icons/check.svg" alt="Taks finished" />
                 </div>
-                <p>1</p><br />
-                <span>Done</span>
+                <div class="counter-container">
+                    <p>1</p>
+                    <span>Done</span>
+                </div>
             </div>
         </div>
     </div>
+
     <!--Greeting Sektion-->
     <div class="right-content">
         <span>Good morning,</span>
         <h4>Max Mustermann</h4>
     </div>
+
 </main>
