@@ -84,8 +84,15 @@
     padding-right: 1rem;
 }
 
-.addtask-form-container textarea
+.date-input {
+    height: 50px;
+    box-sizing: border-box;
+}
 
+input {
+    width: 400px;
+    box-sizing: border-box;
+}
 
 .addtask-form-container option {
     height: 50px;
@@ -316,9 +323,37 @@
 
 /* DROPDOWNS END */
 
-/* FORM-STYLING*/
-/* Date-input */
+/* SUBTASK STYLING*/
+.subtask-input {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
 
+.subtask-label {
+    width: 100%;
+}
 
+.addTaskBtns {
+    position: absolute;   
+    width: 50px;
+    display: flex;
+    top: 45px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+
+.cancel {
+    border-right: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.check {
+    margin-left: 10px;
+}
 
 /* FORM-STYLING END*/
