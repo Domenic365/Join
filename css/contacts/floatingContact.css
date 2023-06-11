@@ -1,38 +1,20 @@
 .floatingContact {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 21px;
-
-    width: 461px;
-    height: 364px;
-    left: 750px;
-    top: 292px;
+    flex: 1;
+    width: 100%;
+    margin-top: 64px;
 }
 
 .frame105 {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 54px;
-
-    width: 461px;
-    height: 120px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame104 {
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -41,67 +23,50 @@
 }
 
 #contactName {
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 47px;
     line-height: 120%;
-    /* or 56px */
 
     display: flex;
     align-items: center;
+    flex-grow: 100;
 
     color: #000000;
+}
 
+.bigNameAbbreviation {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+
+.amBigNameAbbrevation {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 47px;
+    line-height: 120%;
 }
 
 .frame108 {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px;
     gap: 13px;
-
-    width: 128px;
-    height: 19px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .addTaskContacts {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px;
     gap: 13px;
-
-    width: 128px;
-    height: 19px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .group11 {
     width: 15px;
     height: 15px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .vector14 {
@@ -109,11 +74,9 @@
     width: 0px;
     height: 15px;
     left: 8px;
-    top: -2.36px;
+    top: -3.36px;
 
-    /* Ligth blue */
-
-    border: 2px solid #29abe2;
+    border: 1.5px solid #29abe2;
     transform: rotate(90deg);
 }
 
@@ -124,264 +87,117 @@
     left: 7.5px;
     top: -20px;
 
-    /* Ligth blue */
-
-    border: 2px solid #29abe2;
+    border: 1.5px solid #29abe2;
 }
 
 .addTask {
-    width: 100px;
-    height: 19px;
-
-    /* Version 2/body */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
-
-    display: flex;
-    align-items: center;
-
-    /* Ligth blue */
 
     color: #29abe2;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame106 {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     align-items: center;
     padding: 0px;
     gap: 59px;
-
-    width: 392.85px;
-    height: 74px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .contactInformation {
     width: 207px;
-    height: 74px;
-
-    /* Version 2/t6 */
 
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame100 {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
-    padding: 0px;
+    align-items: center;
     gap: 6px;
-
-    width: 126.85px;
-    height: 29.34px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .editContacts {
-    /* Auto layout */
-
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     padding: 0px;
     gap: 6px;
-
-    width: 126.85px;
-    height: 29.34px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
-
 .editContact {
-    width: 100px;
-    height: 19px;
-
-    /* Version 2/body */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
-
-    display: flex;
-    align-items: center;
-
-    /* Version 2/ main color  */
 
     color: #2a3647;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame101 {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 22px;
-
-    width: 140px;
-    height: 128px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame102 {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 15px;
-
-    width: 140px;
-    height: 53px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .email {
-    width: 43px;
-    height: 19px;
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .phone {
-    width: 50px;
-    height: 19px;
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .floatingContactPhone {
-    width: 124px;
-    height: 19px;
-
-    /* Version 2/body */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
+}
 
+.forButton {
+    width: 100%;
     display: flex;
-    align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
+    justify-content: flex-end;
 }
 
 .secondaryContact {
     box-sizing: border-box;
 
-    /* Auto layout */
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 18px 15px;
     gap: 10px;
 
     width: 197.77px;
     height: 53px;
-    left: 1195px;
-    top: 907px;
 
     background: #2a3647;
     border: 1px solid #2a3647;
@@ -389,34 +205,19 @@
 }
 
 .newContact {
-    width: 130px;
-    height: 25px;
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
-
-    /* white */
 
     color: #ffffff;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .capa1 {
-    width: 27.77px;
+    width: 28px;
     height: 25px;
 
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .capa1Vector1 {
@@ -424,9 +225,6 @@
     right: 7.58%;
     top: 50.71%;
     bottom: 26.42%;
-
-    /* white */
-
     background: #ffffff;
 }
 
@@ -435,9 +233,6 @@
     right: 13.12%;
     top: 53.57%;
     bottom: 26.42%;
-
-    /* white */
-
     background: #ffffff;
 }
 
@@ -446,48 +241,25 @@
     right: 12.75%;
     top: 26.42%;
     bottom: 47.86%;
-
-    /* white */
-
     background: #ffffff;
 }
 
 #contactEmail {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 15px;
-
-    width: 140px;
-    height: 16px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 #contactPhone {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 15px;
-
-    width: 124px;
-    height: 16px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
-.frame81Floating{
+.frame81Floating {
     margin: 0;
+    flex-grow: 100;
 }

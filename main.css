@@ -93,6 +93,7 @@ body {
 .right-bar {
     width: calc(85vw - 250px);
     margin-left: 250px;
+    max-height: calc(100vh - 90px);
 }
 
 /* TOP BAR */

@@ -1,22 +1,17 @@
 .contacts {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    align-items: start;
+    justify-content: start;
 }
 
 .allContacts {
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    /* Frame 97 */
-
     width: 453px;
-    height: 886px;
-
-    /* white */
+    height: calc(100vh - 90px);
 
     background: #ffffff;
     box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
@@ -28,82 +23,42 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    flex: 100;
+    flex: 1;
+    height: calc(100vh - 90px - 128px);
     justify-content: space-between;
-}
-
-.contactSlogan {
-    /* Auto layout */
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0px;
-    gap: 30px;
-
-    width: 569px;
-    height: 73px;
+    padding: 64px;
 }
 
 .contactsTitle {
-    /* Contacts */
-
-    height: 73px;
-
-    /* Version 2/t1 */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
-    /* or 73px */
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+    margin: 0;
 }
 
 .contactsVector {
-    /* Vector 5 */
-
     width: 0px;
     height: 59px;
 
     border: 2px solid #29abe2;
+}
 
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+.contactSlogan {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;
+    gap: 30px;
 }
 
 .contactsText {
-    /* Better with a team */
-
-    width: 235px;
-    height: 32px;
-
-    /* Version 2/t5 */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
     line-height: 120%;
-    /* or 32px */
 
     color: #2a3647;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 2;
-    flex-grow: 0;
 }
