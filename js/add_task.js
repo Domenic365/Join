@@ -5,7 +5,6 @@
 function toggleDropdown() {
     const dropdownArrow = document.querySelector('#category-input span');
     const selection = document.querySelector('.item-selection');
-
     if (selection.classList.contains('active')) {
         selection.classList.remove('active');
         dropdownArrow.classList.remove('active-arrow');
@@ -25,7 +24,6 @@ function chosenCategory(value) {
 function toggleAssigning() {
     const dropdownArrow = document.querySelector('#contacts-input span');
     const selection = document.querySelector('.contacts-selection');
-
     if (selection.classList.contains('active')) {
         selection.classList.remove('active');
         dropdownArrow.classList.remove('active-arrow');

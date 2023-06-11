@@ -81,6 +81,7 @@
 .addtask-form-container input[type="date"] {
     font-family: Arial, Helvetica, sans-serif;
     color: #d1d1d1;
+    padding-right: 1rem;
 }
 
 .addtask-form-container textarea
@@ -243,7 +244,7 @@
     z-index: 9;
 }
 
-.contacts-selection ul {
+.contacts-selection #contact-selection {
     padding: 0;
     overflow-y: auto;
     max-height: 100px;
@@ -251,28 +252,41 @@
     overflow-x: hidden;
 }
 
-.contacts-selection ul li {
+.contacts-selection #contact-selection div {
     list-style: none;
     padding: 1rem 1rem;
     border-bottom: 1px solid #d1d1d1;
     font-size: 1.2rem;
 }
 
-.contacts-selection ul li:hover {
+.contacts-selection #contact-selection div:hover {
     cursor: pointer;
     background-color: #d1d1d1;
 }
 
-.contacts-selection ul li:last-child{
+.contacts-selection #contact-selection div:last-child{
     border-bottom: none;
+    font-size: 1.5rem;
 }
 
 [type="checkbox"] {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     width: 15px!important;
     height: 15px!important;
     justify-content: space-between;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contact-item label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
 }
 
 .contacts-selection li {
