@@ -1,5 +1,19 @@
 "use strict";
 
+let task = {
+    title: 'Design',
+    description: 'sdogfhasdliguhs',
+    category: '',
+    catColor: 'blue',
+    assignedTo: [],
+    deadline: 'februar',
+    prio: 'urgent',
+    subtasks: [],
+}
+
+let subtasks = ['create new logo', 'finish'];
+let categorys = [];
+
 // TO DO: Erstellen eines Category Arrys, um hier die Liste der Kategorien zu erzeugen
 
 function toggleDropdown() {
@@ -34,7 +48,16 @@ function toggleAssigning() {
 }
 
 function changeFormIcons(formElement) {
-    if (formElement == 'subtask') {
+    if (formElement === 'subtask') {
+        let btns = document.querySelector('.addTaskBtns');
+        btns.classList.remove('d-none');
+        let inputHolder = document.querySelector('#subtask-placeholder');
+        inputHolder.classList.add('d-none');
+        let subtaskInput = document.querySelector('.subtask-input');
+        subtaskInput.classList.remove('d-none');
+        subtaskInput.focus();
+    } else if (formElement === 'contact') {
+        toggleAssigning();
         let plus = document.querySelector('#subtask-placeholder span');
         plus.classList.add('d-none');
         let btns = document.querySelector('.addTaskBtns');
@@ -45,4 +68,32 @@ function changeFormIcons(formElement) {
         subtaskInput.classList.remove('d-none');
         subtaskInput.focus();
     }
+}
+
+function cancelInput(formElement) {
+    if (formElement == 'subtask') {
+        let plus = document.querySelector('#subtask-placeholder span');
+        plus.classList.remove('d-none');
+        let btns = document.querySelector('.addTaskBtns');
+        btns.classList.add('d-none');
+        let inputHolder = document.querySelector('#subtask-placeholder');
+        inputHolder.classList.remove('d-none');
+        let subtaskInput = document.querySelector('.subtask-input');
+        subtaskInput.classList.add('d-none');
+    }
+}
+
+function saveSubtask() {
+    let task = document.getElementById('subtask-value').value;
+    let list = document.getElementById('subtask-overview');
+
+    list.innerHTML += `
+        <li class="subtask-item">
+            <input type="checkbox" id="subtask3" name="subtask3" value="subtask3.value">
+            <label for="subtask3">${task}</label>
+        </li>
+    `;
+    task.value = '';
+    // cancelInput('subtask');
+    
 }

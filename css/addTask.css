@@ -334,6 +334,10 @@ input {
     width: 100%;
 }
 
+.subtask-dropdown {
+    position: relative;
+}
+
 .addTaskBtns {
     position: absolute;   
     width: 50px;
