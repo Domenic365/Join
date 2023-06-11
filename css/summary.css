@@ -38,13 +38,14 @@ main h4 {
     margin: 0rem;
 }
 
-/*.left-content {
-    max-width: 50%;
+.left-content {
+    display: flex;
+    flex-direction: column;
+    margin: 10rem 0rem 0rem 1rem;
 }
-
 .right-content {
-    max-width: 50%;
-}*/
+    margin: 25rem 1rem 1rem 1rem;
+}
 
 .border-color {
     border-left: 0.3rem solid rgb(42, 171, 226);
@@ -83,7 +84,10 @@ main h4 {
     display: flex;
     align-items: center;
     margin-right: 1rem;
-    max-height: 4rem;
+}
+
+.icons-container img{
+    max-height: 3.5rem;
 }
 
 .counter-container{
