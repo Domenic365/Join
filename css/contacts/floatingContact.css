@@ -7,7 +7,6 @@
     padding: 0px;
     gap: 21px;
 
-    position: absolute;
     width: 461px;
     height: 364px;
     left: 750px;
@@ -43,24 +42,6 @@
 
     width: 287px;
     height: 88px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
-}
-
-.frame81 {
-    /* Auto layout */
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-
-    width: 287px;
-    height: 56px;
 
     /* Inside auto layout */
 
@@ -141,11 +122,11 @@
 }
 
 .vector14 {
-    position: absolute;
+    position: relative;
     width: 0px;
     height: 15px;
-    left: 15px;
-    top: 9.64px;
+    left: 8px;
+    top: -2.36px;
 
     /* Ligth blue */
 
@@ -154,11 +135,11 @@
 }
 
 .vector13 {
-    position: absolute;
+    position: relative;
     width: 0px;
     height: 15px;
     left: 7.5px;
-    top: 2px;
+    top: -20px;
 
     /* Ligth blue */
 
@@ -272,42 +253,9 @@
 }
 
 .group8 {
-    width: 5.64px;
-    height: 30.9px;
-
-    transform: matrix(-0.85, -0.52, -0.52, 0.85, 0, 0);
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
+    
 }
 
-.vector7 {
-    position: absolute;
-    width: 5.64px;
-    height: 4.41px;
-    left: 7.11px;
-    top: 25.58px;
-
-    /* Version 2/ main color  */
-
-    background: #2a3647;
-    transform: matrix(-0.85, -0.52, -0.52, 0.85, 0, 0);
-}
-
-.vector6 {
-    position: absolute;
-    width: 5.64px;
-    height: 25.37px;
-    left: 20.85px;
-    top: 2.92px;
-
-    /* Version 2/ main color  */
-
-    background: #2a3647;
-    transform: matrix(-0.85, -0.52, -0.52, 0.85, 0, 0);
-}
 
 .editContact {
     width: 100px;
@@ -451,7 +399,6 @@
     padding: 18px 15px;
     gap: 10px;
 
-    position: absolute;
     width: 197.77px;
     height: 53px;
     left: 1195px;
@@ -494,7 +441,6 @@
 }
 
 .capa1Vector1 {
-    position: absolute;
     left: 86.29%;
     right: 7.58%;
     top: 50.71%;
@@ -506,7 +452,6 @@
 }
 
 .capa1Vector2 {
-    position: absolute;
     left: 78.37%;
     right: 13.12%;
     top: 53.57%;
@@ -518,7 +463,6 @@
 }
 
 .capa1Vector3 {
-    position: absolute;
     left: 80.35%;
     right: 12.75%;
     top: 26.42%;
@@ -527,4 +471,40 @@
     /* white */
 
     background: #ffffff;
+}
+
+#contactEmail {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 15px;
+
+    width: 140px;
+    height: 16px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    flex-grow: 0;
+}
+
+#contactPhone {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 15px;
+
+    width: 124px;
+    height: 16px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    flex-grow: 0;
 }

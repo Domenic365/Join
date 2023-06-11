@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
 }
 
 .allContacts {
@@ -25,9 +26,10 @@
 
 .selectedContact {
     display: flex;
-    flex-grow: 100;
     align-items: center;
     flex-direction: column;
+    flex: 100;
+    justify-content: space-between;
 }
 
 .contactSlogan {
