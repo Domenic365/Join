@@ -1,11 +1,12 @@
-.contactCard {
+.frame97 {
     /* Auto layout */
 
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     padding: 15px 25px;
     gap: 35px;
-    align-items: center;
+
     width: 357px;
     height: 79px;
 
@@ -15,16 +16,31 @@
     /* Inside auto layout */
 
     flex: none;
-    order: 2;
     flex-grow: 0;
 }
 
-.contactCard:hover {
-    cursor: pointer;
+.frame97:hover {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 35px;
+
+    width: 357px;
+    height: 79px;
+
     background: #2a3647;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    flex-grow: 0;
 }
 
-.contactFirstLetters {
+.frame79 {
     /* Auto layout */
 
     display: flex;
@@ -47,8 +63,76 @@
     flex-grow: 0;
 }
 
+.group9 {
+    width: 42px;
+    height: 42px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.AM {
+    position: relative;
+    width: 28px;
+    height: 10px;
+    left: 7px;
+    top: 16px;
+
+    /* Version 2/t7 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    /* or 14px */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+
+    z-index: 1;
+}
+
+.ellipse5 {
+    box-sizing: border-box;
+
+    position: relative;
+    width: 42px;
+    height: 42px;
+    left: 0px;
+    top: 0px;
+
+    background: #ff7a00;
+    border: 1px solid #ffffff;
+}
+
+.frame81 {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 5px;
+
+    width: 156px;
+    height: 49px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 .contactCardName {
-    width: 127px;
+    width: 116px;
     height: 25px;
 
     /* Version 2/t6 */
@@ -73,7 +157,7 @@
 }
 
 .contactCardEmail {
-    width: 140px;
+    width: 156px;
     height: 19px;
 
     /* Version 2/body */
@@ -95,75 +179,4 @@
     flex: none;
     order: 1;
     flex-grow: 0;
-}
-
-.contactData {
-    /* Auto layout */
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 5px;
-
-    width: 140px;
-    height: 49px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-}
-
-.contactDividerOnly:hover {
-    cursor: unset;
-    background: #ffffff;
-}
-
-.divisonLine {
-    width: 323px;
-    height: 0px;
-
-    /* Style */
-
-    border: 1px solid #d1d1d1;
-    border-radius: 3px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.contactDivider p {
-    width: 282px;
-    height: 40px;
-
-    /* Version 2/t6 */
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
-
-.contactDivider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

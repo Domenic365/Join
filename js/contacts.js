@@ -7,15 +7,12 @@ let contacts = new ContactList();
  */
 function contactDivider(letter) {
     return /*html*/ `
-    <div class="contactCard contactDividerOnly">
-        <div>
-            <div class="contactDivider">
-                <p>${letter}</p>
-            </div>
-        <div class="divisonLine"><div></div></div>
-        </div>
+    <div class="framge84">
+        <div class="contactDividerLetter">${letter}</div>
     </div>
-
+    <div class="frame83">
+        <div class="contactDividerVector"></div>
+    </div>
   `;
 }
 
@@ -27,13 +24,18 @@ function contactDivider(letter) {
  */
 function loadContactHTML(contact, currentContact) {
     return /*html*/ `
-  <div onclick="loadSingleContact(${currentContact})" class="contactCard">
-    <div class="contactFirstLetters"> ${contact.firstLetters}</div>
-    <div class="contactData">
-      <div class="contactCardName">${contact.firstName} ${contact.secondName}</div>
-      <div class="contactCardEmail">${contact.email}</div>
+    <div onclick="loadSingleContact(${currentContact})" class="frame97">
+        <div class="frame79">
+            <div class="group9">
+                <div class="AM"> ${contact.firstLetters}</div>
+                <div class="ellipse5"></div>
+            </div>
+        </div>
+        <div class="frame81">
+                <div class="contactCardName">${contact.firstName} ${contact.secondName}</div>
+                <div class="contactCardEmail">${contact.email}</div>
+        </div>
     </div>
-  </div>
   `;
 }
 

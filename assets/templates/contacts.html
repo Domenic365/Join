@@ -6,6 +6,44 @@
             <div class="contactsVector"></div>
             <p class="contactsText">Better with a team</p>
         </div>
+        <div class="floatingContact">
+            <div class="frame105">
+                <div class="frame79">
+                    <div class="group9">
+                        <div class="AM"></div>
+                        <div class="ellipse5"></div>
+                    </div>
+                </div>
+                <div class="frame104">
+                    <div class="frame81">
+                        <div>Anton Mayer</div>
+                    </div>
+                    <div class="frame108">
+                        <div class="addTaskContacts">
+                            <div class="group11">
+                                <div class="vector14"></div>
+                                <div class="vector13"></div>
+                            </div>
+                            <div class="addTask">Add Task</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="frame106">
+                <div class="contactInformation">Contact Information</div>
+                <div class="frame100">
+                    <div class="editContacts">
+                        <div class="group8">
+                            <div class="vector7"></div>
+                            <div class="vector6"></div>
+                        </div>
+                        <div class="editContact">Edit Contact</div>
+                    </div>
+                </div>
+            </div>
+            <div class="frame101"></div>
+        </div>
+        <!--
         <div id="contactData">
             <div class="contactName">
                 <div id="firstLetters"></div>
@@ -22,21 +60,43 @@
     </article>
 </main>
 
-<main id="divForAddContact" class="divForAddContact dpNone">
-    <div class="addContact">
-        <article class="addContactLeftSide"></article>
-        <article class="addContactRightSide">
-            <div></div>
-            <div>
-                <input id="newContactFirstName" placeholder="firstName" type="text">
-                <input id="newContactSecondName" placeholder="secondName" type="text">
-                <input id="newContactEmail" placeholder="email" type="email">
-                <input id="newContactPhone" placeholder="phone" type="tel">
-                <form onsubmit="addNewContact(event)">
-                    <button class="secondary-btn">Cancel</button>
-                    <button class="main-btn">Create contact</button>
-                </form>
+-->
+
+        <main id="divForAddContact" class="divForAddContact dpNone">
+            <div class="addContact">
+                <article class="addContactLeftSide"></article>
+                <article class="addContactRightSide">
+                    <div></div>
+                    <div>
+                        <input
+                            id="newContactFirstName"
+                            placeholder="firstName"
+                            type="text" />
+                        <input
+                            id="newContactSecondName"
+                            placeholder="secondName"
+                            type="text" />
+                        <input
+                            id="newContactEmail"
+                            placeholder="email"
+                            type="email" />
+                        <input
+                            id="newContactPhone"
+                            placeholder="phone"
+                            type="tel" />
+                        <form>
+                            <button onclick="" class="secondary-btn">
+                                Cancel
+                            </button>
+                            <button
+                                onclick="addNewContact(event)"
+                                class="main-btn">
+                                Create contact
+                            </button>
+                        </form>
+                    </div>
+                </article>
             </div>
-        </article>
-    </div>
+        </main>
+    </article>
 </main>
