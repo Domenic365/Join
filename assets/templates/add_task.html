@@ -61,18 +61,8 @@
                         <div class="dropdown-placeholder" id="subtask-placeholder" onclick="changeFormIcons('subtask')">Add Subtask<span>&plus;</span></div>
                         <input type="text" class="d-none subtask-input" id="subtask-value" placeholder="Enter a title">
                         <div class="addTaskBtns d-none">
-                            <img src="../img/icons/cancel.svg" class="cancel">
-                            <img src="../img/icons/check_dark.svg" class="check">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-item">
-                    <div class="form-title">Subtasks</div>
-                    <div>
-                        <input class="subtask-input" type="text" onclick="changeFormIcons(subtask)" placeholder="Add subtask" id="subtask-value">
-                        <div class="addTaskBtns">
-                            
+                            <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('subtask')">
+                            <img src="../img/icons/check_dark.svg" class="check" onclick="saveSubtask()">
                         </div>
                     </div>
                     <ul class="subtask-list" id="subtask-overview">
@@ -90,7 +80,6 @@
                         </li>
                     </ul>
                 </div>
-
                 
             </form>
         </div>
