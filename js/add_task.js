@@ -32,3 +32,17 @@ function toggleAssigning() {
         dropdownArrow.classList.add('active-arrow');
     }
 }
+
+function changeFormIcons(formElement) {
+    if (formElement == 'subtask') {
+        let plus = document.querySelector('#subtask-placeholder span');
+        plus.classList.add('d-none');
+        let btns = document.querySelector('.addTaskBtns');
+        btns.classList.remove('d-none');
+        let inputHolder = document.querySelector('#subtask-placeholder');
+        inputHolder.classList.add('d-none');
+        let subtaskInput = document.querySelector('.subtask-input');
+        subtaskInput.classList.remove('d-none');
+        subtaskInput.focus();
+    }
+}

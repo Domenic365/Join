@@ -36,7 +36,7 @@
                         <div class="dropdown-placeholder" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
                         <div class="contacts-selection">
                             <div id="contact-selection">
-                                <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
+                                <!-- Ab der zweiten div muss aus dem Contacts-Array generiert werden -->
                                 <div class="contact-item"><label for="Testkontakt-1">Testkontakt 1<input class="dropdown-check" type="checkbox" id="Testkontakt-1"></label></div>
                                 <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
                                 <div class="contact-item"><label for="Testkontakt-3">Testkontakt 3<input class="dropdown-check" type="checkbox" id="Testkontakt-3"></label></div>
@@ -57,34 +57,35 @@
                 
                 <div class="form-item">
                     <div class="dropdown">
-                        
-                        <div class="dropdown-placeholder" id="category-input" onclick="toggleDropdown()">Choose Category<span>&lt;</span></div>
-                        <div class="item-selection">
-                            <ul id="category-selection">
-                                <li onclick="createCategory()">Add new category</li>
-                                <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
-                                <li onclick="chosenCategory('Test 1')">Test 1</li>
-                                <li onclick="chosenCategory('Test 2')">Test 2</li>
-                                <li onclick="chosenCategory('Test 3')">Test 3</li>
-                            </ul>
+                        <div class="form-title">Subtasks</div>
+                        <div class="dropdown-placeholder" id="subtask-placeholder" onclick="changeFormIcons('subtask')">Add Subtask<span>&plus;</span></div>
+                        <input type="text" class="d-none subtask-input" id="subtask-value" placeholder="Enter a title">
+                        <div class="addTaskBtns d-none">
+                            <img src="../img/icons/cancel.svg" class="cancel">
+                            <img src="../img/icons/check_dark.svg" class="check">
                         </div>
                     </div>
                 </div>
 
                 <div class="form-item">
                     <div class="form-title">Subtasks</div>
-                    <div class="dropdown-placeholder" id="subtask-input" onclick="">Add new subtask<span>&plus;</span></div>
+                    <div>
+                        <input class="subtask-input" type="text" onclick="changeFormIcons(subtask)" placeholder="Add subtask" id="subtask-value">
+                        <div class="addTaskBtns">
+                            
+                        </div>
+                    </div>
                     <ul class="subtask-list" id="subtask-overview">
                         <li class="subtask-item">
-                            <input type="checkbox" id="subtask1" name="subtask1" value="subtask.vlaue">
+                            <input type="checkbox" id="subtask1" name="subtask1" value="subtask.value">
                             <label for="subtask1">Subtask 1</label>
                         </li>
                         <li class="subtask-item">
-                            <input type="checkbox" id="subtask2" name="subtask2" value="subtask2.vlaue">
+                            <input type="checkbox" id="subtask2" name="subtask2" value="subtask2.value">
                             <label for="subtask2">Subtask 2</label>
                         </li>
                         <li class="subtask-item">
-                            <input type="checkbox" id="subtask3" name="subtask3" value="subtask3.vlaue">
+                            <input type="checkbox" id="subtask3" name="subtask3" value="subtask3.value">
                             <label for="subtask3">Subtask 3</label>
                         </li>
                     </ul>
