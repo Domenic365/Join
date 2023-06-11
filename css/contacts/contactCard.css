@@ -7,16 +7,10 @@
     padding: 15px 25px;
     gap: 35px;
 
-    width: 357px;
-    height: 79px;
 
     background: #ffffff;
     border-radius: 10px;
 
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
 }
 
 .frame97:hover {
@@ -28,60 +22,27 @@
     padding: 15px 25px;
     gap: 35px;
 
-    width: 357px;
-    height: 79px;
-
     background: #2a3647;
     border-radius: 10px;
 
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
+    color: white !important;
 }
 
 .frame79 {
-    /* Auto layout */
-
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 0px;
-    gap: 10px;
 
     width: 42px;
     height: 42px;
 
-    background: #ffffff;
+    background: #ff7a00;
+    border: 1px solid #ffffff;
     border-radius: 45px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
-.group9 {
-    width: 42px;
-    height: 42px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-}
 
 .AM {
-    position: relative;
-    width: 28px;
-    height: 10px;
-    left: 7px;
-    top: 16px;
-
-    /* Version 2/t7 */
 
     font-family: "Inter";
     font-style: normal;
@@ -89,10 +50,6 @@
     font-size: 12px;
     line-height: 120%;
     /* or 14px */
-
-    display: flex;
-    align-items: center;
-    text-align: center;
 
     color: #ffffff;
 
@@ -105,34 +62,23 @@
     position: relative;
     width: 42px;
     height: 42px;
-    left: 0px;
-    top: 0px;
 
-    background: #ff7a00;
-    border: 1px solid #ffffff;
+
 }
 
 .frame81 {
-    /* Auto layout */
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
     gap: 5px;
 
     width: 156px;
     height: 49px;
 
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
+    margin-right: 76px;
 }
 
 .contactCardName {
-    width: 116px;
-    height: 25px;
 
     /* Version 2/t6 */
 
@@ -145,14 +91,6 @@
 
     display: flex;
     align-items: center;
-
-    color: #000000;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }
 
 .contactCardEmail {

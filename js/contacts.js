@@ -26,10 +26,7 @@ function loadContactHTML(contact, currentContact) {
     return /*html*/ `
     <div onclick="loadSingleContact(${currentContact})" class="frame97">
         <div class="frame79">
-            <div class="group9">
                 <div class="AM"> ${contact.firstLetters}</div>
-                <div class="ellipse5"></div>
-            </div>
         </div>
         <div class="frame81">
                 <div class="contactCardName">${contact.firstName} ${contact.secondName}</div>
