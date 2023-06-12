@@ -18,13 +18,26 @@
                     <div class="dropdown">
                         <div class="form-title">Choose Category</div>
                         <div class="dropdown-placeholder" id="category-input" onclick="toggleDropdown()">Choose Category<span>&lt;</span></div>
+                        <input class="addCategoryInput d-none" placeholder="Enter category name" type="text">
+                        <div class="createCatBtn d-none">
+                            <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('cat')">
+                            <img src="../img/icons/check_dark.svg" class="check" onclick="renderNewCat()">
+                        </div>
+                        <div class="category-colors d-none">
+                            <div class="purple" onclick="pickCatColor('purple')"></div>
+                            <div class="red" onclick="pickCatColor('red')"></div>
+                            <div class="green" onclick="pickCatColor('green')"></div>
+                            <div class="orange" onclick="pickCatColor('orange')"></div>
+                            <div class="pink" onclick="pickCatColor('pink')"></div>
+                            <div class="blue" onclick="pickCatColor('blue')"></div>
+                        </div>
                         <div class="item-selection">
                             <ul id="category-selection">
                                 <li onclick="createCategory()">Add new category</li>
                                 <!-- Ab dem zweiten Listenpunkt muss aus dem Contacts-Array generiert werden -->
-                                <li onclick="chosenCategory('Test 1')">Test 1</li>
-                                <li onclick="chosenCategory('Test 2')">Test 2</li>
-                                <li onclick="chosenCategory('Test 3')">Test 3</li>
+                                <li onclick="chosenCategory('Test 1')">Test 1<div class="purple"></div></li>
+                                <li onclick="chosenCategory('Test 2')">Test 2<div class="green"></div></li>
+                                <li onclick="chosenCategory('Test 3')">Test 3<div class="red"></div></li>
                             </ul>
                         </div>
                     </div>
@@ -34,7 +47,7 @@
                     <div class="contact-dropdown">
                         <div class="form-title">Assigned to</div>
                         <div class="dropdown-placeholder" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
-                        <input class="inviteContactInput d-none" placeholder="Enter email to invite contact">
+                        <input class="inviteContactInput d-none" placeholder="Enter email to invite contact" type="email">
                         <div class="inviteContactBtn d-none">
                             <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('contact')">
                             <img src="../img/icons/check_dark.svg" class="check" onclick="sendContactInvite()">
