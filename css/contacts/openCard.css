@@ -1,95 +1,327 @@
-:root {
-    --modalHeight: 594px;
-    --modalBorder: 30px;
-    --modalWidth: 1212px;
-    --lefSideWidth: 463px;
-    --rightSideWidth: calc(var(--modalWidth) - var(--lefSideWidth))
+.dpNone{
+    display: none !important;
 }
 
-.addContact {
-    width: var(--modalWidth);
-    height: var(--modalHeight);
-
-    background: #ffffff;
-    border-radius: var(--modalBorder);
+.forCenterOverlay {
+    position: absolute;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+.overlay {
+    display: flex;
+    align-items: stretch;
+    background: #ffffff;
+    border-radius: 30px;
 }
 
-#contactData {
-    /* Auto layout */
+.forColumnDirection {
+    display: flex;
+    flex-direction: column;
+    padding-right: 56px;
+    padding-top: 32px;
+    padding-bottom: 104px;
+}
 
+.group11OpenCard {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100% !important;
+    height: 32px !important;
+    margin-bottom: 80px;
+}
+
+.group11OpenCard img:hover{
+    cursor: pointer;
+}
+
+.group13 {
+    display: flex;
+    align-items: center;
+    margin-left: 72px;
+    margin-right: 84px;
+}
+
+.userLine {
+    width: 62px;
+    height: 62px;
+    left: 29px;
+    top: 29px;
+}
+
+.frame35 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    padding: 0px;
+    gap: 4px;
+    margin-top: 32px;
+}
+
+.frame27 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 25px;
+
+    width: 379px;
+    height: 55px;
+}
+
+.secondaryV1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 136px;
+    height: 55px;
+
+    /* Version 2/ main color  */
+
+    border: 1px solid #2a3647;
+    border-radius: 10px;
+}
+
+.cancelContact {
+    width: 69px;
+    height: 25px;
+
+    /* Version 2/t6 */
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+    /* Version 2/ main color  */
+
+    color: #2a3647;
+}
+
+.iconoirCancel {
+    width: 24px;
+    height: 24px;
+}
+
+.iconoirCancel img {
+    width: 24px;
+    height: 24px;
+}
+
+.primaryChechButtonV1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 55px;
+    width: 218px;
+
+    background: #2a3647;
+    border-radius: 10px;
+}
+
+.CreateContact {
+    width: 154px;
+    height: 25px;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
+
+    color: #ffffff;
+}
+
+.akarIconsCheck {
+    width: 24px;
+    height: 24px;
+}
+
+.akarIconsCheck img {
+    width: 24px;
+    height: 24px;
+}
+
+.addContactText {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 21px;
+    gap: 29px;
 
-    width: 461px;
-    height: 364px;
+    width: 422px;
+    height: 271px;
+    left: 737px;
+    top: 129px;
 }
 
-.contactName {
+.frame155 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 422px;
+    height: 71px;
+}
+
+.frame1570 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 422px;
+    height: 71px;
+}
+
+.frame156 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 422px;
+    height: 71px;
+}
+
+.frame14 {
+    box-sizing: border-box;
+
     /* Auto layout */
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
-    gap: 54px;
+    padding: 13px 21px;
+    gap: 10px;
 
-    width: 461px;
-    height: 120px;
+    width: 422px;
+    height: 51px;
 
-    /* Inside auto layout */
+    background: #ffffff;
+    /* Style */
 
-    flex: none;
-    flex-grow: 0;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
 }
 
-.contactInformation {
-    /* Auto layout */
-
+.frame157 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 0px;
-    gap: 59px;
+    gap: 10px;
 
-    width: 392.85px;
-    height: 74px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    flex-grow: 0;
+    width: 380px;
+    height: 25px;
 }
 
+.name {
+    width: 59px;
+    height: 25px;
 
+    /* Version 2/t6 */
 
-.addContactLeftSide {
-    /* Auto layout */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    /* or 25px */
 
+    /* Style */
+
+    color: #d1d1d1;
+}
+
+.userLine {
+    width: 24px;
+    height: 24px;
+}
+
+.thisFieldIsRequired {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+}
+
+.frame158 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+
+    width: 380px;
+    height: 25px;
+}
+
+.frame194 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 12px;
-    isolation: isolate;
-
-    width: var(--lefSideWidth);
-    height: var(--modalHeight);
-    border-top-left-radius: var(--modalBorder);
-    border-bottom-left-radius: var(--modalBorder) ;
-
-    /* Version 2/ main color  */
-
+    flex: 1;
+    padding: 66px 46px;
     background: #2a3647;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
-.addContactRightSide{
-    width: var(--rightSideWidth);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.addContactOverlay {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+    color: #ffffff;
+}
+
+.tasksAreBetterWithATeam {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+
+    color: #ffffff;
+}
+
+.vector5 {
+    width: 90px;
+    border: 1.5px solid #29abe2;
+}
+
+.capa2 img {
+    width: 56px;
+    height: fit-content;
+}
+
+.grayBackground {
+    background: #d1d1d1;
 }

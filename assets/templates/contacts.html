@@ -35,7 +35,7 @@
                 <div class="frame100">
                     <div class="editContacts">
                         <div class="group8">
-                            <img src="../../assets/img/pencil.svg" alt="" />
+                            <img src="../../assets/img/icons/pencil.svg" alt="" />
                         </div>
                         <div id="editContact" class="editContact">
                             Edit Contact
@@ -61,35 +61,88 @@
         <div class="forButton">
             <div onclick="showContactModal()" class="secondaryContact">
                 <div class="newContact">New contact</div>
-                <img src="../../assets/img/new-contact.svg" class="capa1"/>
+                <img src="../../assets/img/icons/new-contact.svg" class="capa1" />
             </div>
         </div>
     </article>
 </main>
 
-<main id="divForAddContact" class="divForAddContact dpNone">
-    <div class="addContact">
-        <article class="addContactLeftSide"></article>
-        <article class="addContactRightSide">
-            <div></div>
-            <div>
-                <input
-                    id="newContactFirstName"
-                    placeholder="firstName"
-                    type="text" />
-                <input
-                    id="newContactSecondName"
-                    placeholder="secondName"
-                    type="text" />
-                <input id="newContactEmail" placeholder="email" type="email" />
-                <input id="newContactPhone" placeholder="phone" type="tel" />
-                <form>
-                    <button onclick="" class="secondary-btn">Cancel</button>
-                    <button onclick="addNewContact(event)" class="main-btn">
-                        Create contact
-                    </button>
-                </form>
+<div onclick="closeContactModal()" id="forCenterOverlay" class="forCenterOverlay dpNone">
+    <main onclick="event.stopPropagation()" class="overlay">
+        <div class="frame194">
+            <div class="capa2">
+                <img src="../../assets/img/logo-on-dark-bg.svg" alt="logo" />
             </div>
-        </article>
-    </div>
-</main>
+            <div class="addContactOverlay">Add Contact</div>
+            <div class="tasksAreBetterWithATeam">
+                Tasks are better with a team!
+            </div>
+            <div class="vector5"></div>
+        </div>
+        <div class="group13">
+            <div class="frame79 bigNameAbbreviation grayBackground">
+                <img src="../img/icons/whiteHuman.svg" alt="human" />
+            </div>
+        </div>
+        <div class="forColumnDirection">
+            <div class="group11OpenCard">
+                <img onclick="closeContactModal()" src="../../assets/img/icons/cross.svg" alt="Kreuz" />
+            </div>
+            <div class="addContactText">
+                <div class="frame155">
+                    <div class="frame14">
+                        <div class="frame157">
+                            <div class="name"></div>
+                            <div class="userLine">
+                                <img src="../../assets/img/icons/darkHuman.svg" alt="human" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thisFieldIsRequired">
+                        This field is Required
+                    </div>
+                </div>
+                <div class="frame1570">
+                    <div class="frame14">
+                        <div class="frame157">
+                            <div class="name"></div>
+                            <img src="../../assets/img/icons/mailContact.svg" alt="mail" />
+                        </div>
+                    </div>
+                    <div class="thisFieldIsRequired">
+                        This field is Required
+                    </div>
+                </div>
+                <div class="frame156">
+                    <div class="frame14">
+                        <div class="frame158">
+                            <div class="name"></div>
+                            <div class="phoneLine">
+                                <img src="../../assets/img/icons/phone.svg" alt="phone" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thisFieldIsRequired">
+                        This field is Required
+                    </div>
+                </div>
+            </div>
+            <div class="frame35">
+                <div class="frame27">
+                    <div class="secondaryV1">
+                        <div class="cancelContact">Cancel</div>
+                        <div class="iconoirCancel">
+                            <img src="../img/icons/cross.svg" alt="Kreuz" />
+                        </div>
+                    </div>
+                    <div class="primaryChechButtonV1">
+                        <div class="CreateContact">Create contact</div>
+                        <div class="akarIconsCheck">
+                            <img src="../img/icons/checkContact.svg" alt="Haken" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

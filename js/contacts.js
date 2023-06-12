@@ -127,7 +127,15 @@ function insertIntoHTML(id, innerOfHTML) {
  * displays the modal
  */
 function showContactModal() {
-    document.getElementById("divForAddContact").classList.remove("dpNone");
+    document.getElementById("forCenterOverlay").classList.remove("dpNone");
+}
+
+/**
+ * 
+ * @param {event} event to prevent close on everything
+ */
+function closeContactModal() {
+    document.getElementById("forCenterOverlay").classList.add("dpNone");
 }
 
 /**

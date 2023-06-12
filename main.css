@@ -1,11 +1,16 @@
 @font-face {
-    font-family: 'inter';
+    font-family: "inter";
     src: url(./assets/Inter/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+@font-face {
+    font-family: "poppins";
+    src: url(./assets/Poppins/Poppins-Regular.ttf);
 }
 
 body {
     margin: 0;
-    font-family: 'inter';
+    font-family: "inter";
 }
 
 .flexwrapper {

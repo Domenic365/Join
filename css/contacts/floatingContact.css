@@ -204,6 +204,10 @@
     border-radius: 10px;
 }
 
+.secondaryContact:hover{
+    cursor: pointer;
+}
+
 .newContact {
     font-family: "Inter";
     font-style: normal;
