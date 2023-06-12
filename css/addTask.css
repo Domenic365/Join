@@ -7,6 +7,7 @@
     width: calc(100vw - 250px);
     padding: 50px;
     box-sizing: border-box;
+    font-family: 'Inter';
 }
 
 .content-wrapper {
@@ -224,6 +225,7 @@ input {
 
 .subtask-item {
     display: flex;
+    align-items: center;
     gap: 1rem;
 }
 

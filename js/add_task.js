@@ -84,16 +84,15 @@ function cancelInput(formElement) {
 }
 
 function saveSubtask() {
-    let task = document.getElementById('subtask-value').value;
+    let task = document.getElementById('subtask-value');
     let list = document.getElementById('subtask-overview');
 
     list.innerHTML += `
         <li class="subtask-item">
-            <input type="checkbox" id="subtask3" name="subtask3" value="subtask3.value">
-            <label for="subtask3">${task}</label>
+            <input type="checkbox" id="${task.value}" name="${task.value}" value="subtask3.value">
+            <label for="${task.value}">${task.value}</label>
         </li>
     `;
     task.value = '';
-    // cancelInput('subtask');
-    
+    cancelInput('subtask');
 }
