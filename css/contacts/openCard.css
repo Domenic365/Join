@@ -79,6 +79,7 @@
 }
 
 .secondaryV1 {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,8 +87,6 @@
 
     width: 136px;
     height: 55px;
-
-    /* Version 2/ main color  */
 
     border: 1px solid #2a3647;
     border-radius: 10px;
@@ -122,6 +121,7 @@
 }
 
 .primaryChechButtonV1 {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -324,4 +324,22 @@
 
 .grayBackground {
     background: #d1d1d1;
+}
+
+[type=phone]{
+    background-image: url("../../assets/img/icons/phone.svg");
+    background-repeat: no-repeat;
+    background-position: 381px;
+}
+
+[type=name]{
+    background-image: url("../../assets/img/icons/darkHuman.svg");
+    background-repeat: no-repeat;
+    background-position: 381px;
+}
+
+[type=mail]{
+    background-image: url("../../assets/img/icons/mail.svg");
+    background-repeat: no-repeat;
+    background-position: 381px;
 }
