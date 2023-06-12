@@ -52,11 +52,12 @@ main h4 {
     border-left: 0.3rem solid rgb(42, 171, 226);
 }
 
-.tasks-container {
+.box-design {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    /*width: 100%;*/
+    width-bottom: 0.5rem;
     text-align: center;
     border: 1px solid rgb(212, 212, 213);
     border-radius: 1rem;
@@ -99,8 +100,16 @@ main h4 {
     max-height: 3.5rem;
 }
 
-.counter-container {
+.counter {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.wd-upper-tasks {
+    width: 32%;
+}
+
+.wd-lower-tasks {
+    width: 50%;
 }
