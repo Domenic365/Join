@@ -80,7 +80,16 @@ function cancelInput(formElement) {
         inputHolder.classList.remove('d-none');
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.add('d-none');
+    } else if (formElement === 'contact') {
+        let placeholder = document.getElementById('contacts-input');
+        let input = document.querySelector('.inviteContactInput');
+        let buttons = document.querySelector('.inviteContactBtn');
+
+        placeholder.classList.remove('d-none');
+        input.classList.add('d-none');
+        buttons.classList.add('d-none');
     }
+    
 }
 
 function saveSubtask() {
@@ -95,4 +104,15 @@ function saveSubtask() {
     `;
     task.value = '';
     cancelInput('subtask');
+}
+
+function inviteContact() {
+    toggleAssigning();
+    let placeholder = document.getElementById('contacts-input');
+    let input = document.querySelector('.inviteContactInput');
+    let buttons = document.querySelector('.inviteContactBtn');
+
+    placeholder.classList.add('d-none');
+    input.classList.remove('d-none');
+    buttons.classList.remove('d-none');
 }

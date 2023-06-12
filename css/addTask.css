@@ -261,6 +261,24 @@ input {
     overflow-x: hidden;
 }
 
+#contacts-input {
+    position: relative;
+}
+
+.inviteContactBtn {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    position: absolute;
+    top: 38px;
+    right: 20px;
+}
+
+.inviteContactInput {
+    position: absolute;
+    top: 37px;
+}
+
 .contacts-selection #contact-selection div {
     list-style: none;
     padding: 1rem 1rem;
