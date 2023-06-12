@@ -24,12 +24,14 @@ main {
 main span {
     font-size: 1.3rem;
     color: rgb(42, 54, 71);
+    transition: 125ms ease-in-out;
 }
 
 main p {
     font-size: 3rem;
     color: rgb(42, 54, 71);
     margin: 0.2rem;
+    transition: 125ms ease-in-out;
 }
 
 main h4 {
@@ -56,8 +58,6 @@ main h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*width: 100%;*/
-    width-bottom: 0.5rem;
     text-align: center;
     border: 1px solid rgb(212, 212, 213);
     border-radius: 1rem;
@@ -65,6 +65,20 @@ main h4 {
     padding: 1rem;
     margin: 0.5rem;
     background-color: white;
+    cursor: pointer;
+    transition: 125ms ease-in-out;
+}
+
+.box-design:hover {
+    transition: 125ms ease-in-out;
+    background-color: rgb(42, 54, 71);
+    color: white;
+}
+
+.box-design:hover p,
+.box-design:hover span {
+    color: white; 
+    transition: 125ms ease-in-out;
 }
 
 .direction-all-tasks {
