@@ -14,7 +14,7 @@ let task = {
 let subtasks = ['create new logo', 'finish'];
 let categorys = [];
 
-// TO DO: Erstellen eines Category Arrys, um hier die Liste der Kategorien zu erzeugen
+
 
 function toggleDropdown() {
     const dropdownArrow = document.querySelector('#category-input span');
