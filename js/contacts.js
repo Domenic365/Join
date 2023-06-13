@@ -127,11 +127,13 @@ function createModalArray(modalKind) {
     switch (modalKind) {
         case "addNewContact":
             return (moadlInfos = [
-                { id: "addContactOverlay", htmlValue: "Deine Mum" },
+                { id: "addContactOverlay", htmlValue: "Add Contact" },
+                { id: "tasksAreBetterWithATeam", htmlValue: "Tasks are better with a team!" },
             ]);
         case "editContact":
             return (modalInfos = [
                 { id: "addContactOverlay", htmlValue: "Edit Contact" },
+                { id: "tasksAreBetterWithATeam", htmlValue: "" },
             ]);
         default:
             window.alert("Fehler im Modal Array");
