@@ -37,6 +37,13 @@
     gap: .5rem;
 }
 
+.pickedCat {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 .taskarea h1 {
     font-size: 3rem;
 }
@@ -160,6 +167,12 @@ input {
     margin-right: 0;
     cursor: pointer;
     color: lightgray;
+}
+
+.dropdown-placeholder div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .cat-picked {
@@ -490,6 +503,7 @@ input {
     width: 32%;
     border: 1px solid lightgray;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .prio-buttons div img {

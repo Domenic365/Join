@@ -20,7 +20,7 @@
                         <input class="addCategoryInput d-none" placeholder="Enter category name" type="text">
                         <div class="createCatBtn d-none">
                             <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('cat')">
-                            <img src="../img/icons/check_dark.svg" class="check" onclick="renderNewCat()">
+                            <img src="../img/icons/check_dark.svg" class="check" onclick="saveNewCat()">
                         </div>
                         <div class="category-colors d-none">
                             <div class="purple" onclick="pickCatColor('purple')"></div>
@@ -69,7 +69,7 @@
             <form onsubmit="" class="right-form">
                 <div class="form-item">
                     <label for="due-date">Due Date</label>
-                    <input name="due-date" type="date" class="date-input" id="due-date">
+                    <input name="due-date" type="date" class="date-input" id="due-date" onchange="dateColor()">
                 </div>
                 <div class="form-item">
                     <div class="form-title">Prio</div>
