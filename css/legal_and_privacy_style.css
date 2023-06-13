@@ -1,5 +1,7 @@
 .info-container {
     margin: 1rem;
+    overflow: auto;
+    height: 100%;
 }
 
 .info-container 
