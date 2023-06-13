@@ -199,6 +199,10 @@ function updateContacts() {
     loadContactCards();
 }
 
+/**
+ *
+ * @param {number} contactNumber the position in the contacts list
+ */
 function editContact(contactNumber) {
     let contactInputValues;
     let clearInputs = -1;
@@ -214,6 +218,11 @@ function editContact(contactNumber) {
     editInputValues(contactInputValues, contactInputIds);
 }
 
+/**
+ *
+ * @param {Array} contactInputValues
+ * @param {Array} contactInputIds
+ */
 function editInputValues(contactInputValues, contactInputIds) {
     for (let input = 0; input < contactInputValues.length; input++) {
         const contactValue = contactInputValues[input];
@@ -226,6 +235,10 @@ function createInputIdArray() {
     return ["newContactName", "newContactPhone", "newContactMail"];
 }
 
+/**
+ *
+ * @param {Number} contactNumber the position in the contacts list
+ */
 function saveContact(contactNumber) {
     let contact = contacts.contactList[contactNumber];
     let inputIds = createInputIdArray();
@@ -239,6 +252,11 @@ function saveContact(contactNumber) {
     loadSingleContact(contactNumber);
 }
 
+
+/**
+ * 
+ * @param {String} method the method to execute if the black button of modal is clicked
+ */
 function changeOnClickInButton(method) {
-    document.getElementById("contactButton").setAttribute("onclick", method)
+    document.getElementById("contactButton").setAttribute("onclick", method);
 }
