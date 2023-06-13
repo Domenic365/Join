@@ -503,6 +503,7 @@ input {
     width: 32%;
     border: 1px solid lightgray;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .prio-buttons div img {
