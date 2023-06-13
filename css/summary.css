@@ -10,9 +10,21 @@ header h2 {
 }
 
 header h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin: 1rem 1rem 1rem 2.5rem;
     color: rgb(42, 54, 71);
+}
+
+main h4 {
+    font-size: 2.7rem;
+    margin: 0rem;
+    color: rgb(42, 54, 71);
+}
+
+main h5 {
+    color: rgb(42, 171, 226);
+    font-size: 4rem;
+    margin: 0rem;
 }
 
 main {
@@ -34,10 +46,8 @@ main p {
     transition: 125ms ease-in-out;
 }
 
-main h4 {
-    color: rgb(42, 171, 226);
-    font-size: 4rem;
-    margin: 0rem;
+.label {
+    font-size: 1rem;
 }
 
 .left-content {
@@ -98,6 +108,7 @@ main h4 {
 
 .deadline-task-position {
     padding-left: 6rem;
+    text-align: left;
 }
 
 .border-urgend-task {
