@@ -77,7 +77,7 @@ main h4 {
 
 .box-design:hover p,
 .box-design:hover span {
-    color: white; 
+    color: white;
     transition: 125ms ease-in-out;
 }
 
@@ -112,6 +112,20 @@ main h4 {
 
 .icons-container img {
     max-height: 3.5rem;
+}
+
+.box-design .hover-image {
+    display: none;
+}
+
+.box-design:hover .task-image {
+    display: none;
+    transition: 125ms ease-in-out;
+}
+
+.box-design:hover .hover-image {
+    display: inline-block;
+    transition: 125ms ease-in-out;
 }
 
 .counter {
