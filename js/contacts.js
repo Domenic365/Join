@@ -143,11 +143,13 @@ function createModalArray(modalKind) {
                     id: "tasksAreBetterWithATeam",
                     htmlValue: "Tasks are better with a team!",
                 },
+                { id: "contactButtonName", htmlValue: "Create Contact" },
             ]);
         case "editContact":
             return (modalInfos = [
                 { id: "addContactOverlay", htmlValue: "Edit Contact" },
                 { id: "tasksAreBetterWithATeam", htmlValue: "" },
+                { id: "contactButtonName", htmlValue: "Save" },
             ]);
         default:
             window.alert("Fehler im Modal Array");
@@ -200,16 +202,14 @@ function updateContacts() {
 function editContact(contactNumber) {
     let contactInputValues;
     let clearInputs = -1;
-    let contactInputIds = [
-        "newContactName",
-        "newContactPhone",
-        "newContactMail",
-    ];
+    let contactInputIds = createInputIdArray();
     if (contactNumber == clearInputs) {
         contactInputValues = ["", "", ""];
+        changeOnClickInButton(`addNewContact(event)`);
     } else {
         let contact = contacts.contactList[contactNumber];
         contactInputValues = [contact.name, contact.phone, contact.email];
+        changeOnClickInButton(`saveContact(${contactNumber})`);
     }
     editInputValues(contactInputValues, contactInputIds);
 }
@@ -220,4 +220,25 @@ function editInputValues(contactInputValues, contactInputIds) {
         const inputId = contactInputIds[input];
         document.getElementById(inputId).value = contactValue;
     }
+}
+
+function createInputIdArray() {
+    return ["newContactName", "newContactPhone", "newContactMail"];
+}
+
+function saveContact(contactNumber) {
+    let contact = contacts.contactList[contactNumber];
+    let inputIds = createInputIdArray();
+    contact.name = document.getElementById(inputIds[0]).value;
+    contact.phone = document.getElementById(inputIds[1]).value;
+    contact.email = document.getElementById(inputIds[2]).value;
+    contact.getFirstLetters();
+    contact.getSortingLetter();
+    closeContactModal();
+    updateContacts();
+    loadSingleContact(contactNumber);
+}
+
+function changeOnClickInButton(method) {
+    document.getElementById("contactButton").setAttribute("onclick", method)
 }

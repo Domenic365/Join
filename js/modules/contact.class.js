@@ -16,8 +16,8 @@ class Contact {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.firstLetters = this.getFirstLetters();
-        this.sortingLetter = this.name.slice(0, 1);
+        this.getFirstLetters();
+        this.getSortingLetter();
     }
 
     getFirstLetters() {
@@ -26,6 +26,10 @@ class Contact {
         let letterOfSecondname = this.name
             .slice(positionOfSecondname + 1, positionOfSecondname + 2)
             .toUpperCase();
-        return letterOfFirstname + letterOfSecondname;
+        this.firstLetters = letterOfFirstname + letterOfSecondname;
+    }
+
+    getSortingLetter(){
+        this.sortingLetter = this.name.slice(0, 1);
     }
 }
