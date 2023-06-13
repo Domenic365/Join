@@ -25,7 +25,7 @@ function contactDivider(letter) {
 function loadContactHTML(contact, currentContact) {
     return /*html*/ `
     <div onclick="loadSingleContact(${currentContact})" class="frame97">
-        <div class="frame79">
+        <div style="background-color: #000000;" class="frame79">
                 <div class="AM"> ${contact.firstLetters}</div>
         </div>
         <div class="frame81">
