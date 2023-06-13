@@ -1,6 +1,5 @@
 class Contact {
-    firstName;
-    secondName;
+    name;
     email;
     phone;
     firstLetters;
@@ -13,16 +12,20 @@ class Contact {
      * @param {string} email
      * @param {number} phone
      */
-    constructor(firstName, secondName, email, phone) {
-        this.firstName = firstName;
-        this.secondName = secondName;
+    constructor(name, email, phone) {
+        this.name = name;
         this.email = email;
         this.phone = phone;
         this.firstLetters = this.getFirstLetters();
-        this.sortingLetter = this.firstName.slice(0, 1);
+        this.sortingLetter = this.name.slice(0, 1);
     }
 
     getFirstLetters() {
-        return this.firstName.slice(0, 1) + this.secondName.slice(0, 1);
+        let positionOfSecondname = this.name.indexOf(" ");
+        let letterOfFirstname = this.name.slice(0, 1).toUpperCase();
+        let letterOfSecondname = this.name
+            .slice(positionOfSecondname + 1, positionOfSecondname + 2)
+            .toUpperCase();
+        return letterOfFirstname + letterOfSecondname;
     }
 }

@@ -29,7 +29,7 @@ function loadContactHTML(contact, currentContact) {
                 <div class="AM"> ${contact.firstLetters}</div>
         </div>
         <div class="frame81">
-                <div class="contactCardName">${contact.firstName} ${contact.secondName}</div>
+                <div class="contactCardName">${contact.name}</div>
                 <div class="contactCardEmail">${contact.email}</div>
         </div>
     </div>
@@ -90,6 +90,12 @@ function loadLetterSection(lastContactData, currentContactData, contactlist) {
 function loadSingleContact(contactNumber) {
     let contact = contacts.contactList[contactNumber];
     let contactArray = createContactArray(contact);
+    document
+        .getElementById("editContacts")
+        .setAttribute(
+            "onclick",
+            `showContactModal("editContact", ${contactNumber})`
+        );
     contactArray.forEach((valueForHTML) => {
         insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
     });
@@ -107,7 +113,7 @@ function createContactArray(contact) {
         { id: "firstLetters", htmlValue: contact.firstLetters },
         {
             id: "contactName",
-            htmlValue: contact.firstName + " " + contact.secondName,
+            htmlValue: contact.name,
         },
         { id: "contactEmail", htmlValue: contact.email },
         { id: "contactPhone", htmlValue: contact.phone },
@@ -123,12 +129,20 @@ function insertIntoHTML(id, innerOfHTML) {
     document.getElementById(id).innerHTML = innerOfHTML;
 }
 
+/**
+ *
+ * @param {string} modalKind the name of modal to load
+ * @returns the html data to edit in the modal
+ */
 function createModalArray(modalKind) {
     switch (modalKind) {
         case "addNewContact":
             return (moadlInfos = [
                 { id: "addContactOverlay", htmlValue: "Add Contact" },
-                { id: "tasksAreBetterWithATeam", htmlValue: "Tasks are better with a team!" },
+                {
+                    id: "tasksAreBetterWithATeam",
+                    htmlValue: "Tasks are better with a team!",
+                },
             ]);
         case "editContact":
             return (modalInfos = [
@@ -144,11 +158,9 @@ function createModalArray(modalKind) {
 /**
  * displays the modal
  */
-function showContactModal(modalKind) {
+function showContactModal(modalKind, contactNumber) {
     let modalArray = createModalArray(modalKind);
-    if ((modalKind = "editContact")) {
-        //the method to edit the contact
-    }
+    editContact(contactNumber); //-1 for clearing the input values
     modalArray.forEach((valueForHTML) => {
         insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
     });
@@ -169,13 +181,12 @@ function closeContactModal() {
  */
 function addNewContact(event) {
     event.preventDefault();
-    let firstName = document.getElementById("newContactFirstName").value;
-    let secondName = document.getElementById("newContactSecondName").value;
+    let name = document.getElementById("newContactName").value;
     let phone = document.getElementById("newContactPhone").value;
-    let email = document.getElementById("newContactEmail").value;
-    contacts.contactList.push(new Contact(firstName, secondName, email, phone));
+    let email = document.getElementById("newContactMail").value;
+    contacts.contactList.push(new Contact(name, email, phone));
     updateContacts();
-    document.getElementById("divForAddContact").classList.add("dpNone");
+    document.getElementById("forCenterOverlay").classList.add("dpNone");
 }
 
 /**
@@ -184,4 +195,29 @@ function addNewContact(event) {
 function updateContacts() {
     contacts.sortContacts();
     loadContactCards();
+}
+
+function editContact(contactNumber) {
+    let contactInputValues;
+    let clearInputs = -1;
+    let contactInputIds = [
+        "newContactName",
+        "newContactPhone",
+        "newContactMail",
+    ];
+    if (contactNumber == clearInputs) {
+        contactInputValues = ["", "", ""];
+    } else {
+        let contact = contacts.contactList[contactNumber];
+        contactInputValues = [contact.name, contact.phone, contact.email];
+    }
+    editInputValues(contactInputValues, contactInputIds);
+}
+
+function editInputValues(contactInputValues, contactInputIds) {
+    for (let input = 0; input < contactInputValues.length; input++) {
+        const contactValue = contactInputValues[input];
+        const inputId = contactInputIds[input];
+        document.getElementById(inputId).value = contactValue;
+    }
 }

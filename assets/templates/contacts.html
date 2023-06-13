@@ -33,7 +33,7 @@
                     Contact Information
                 </div>
                 <div class="frame100">
-                    <div onclick="showContactModal('editContact')" class="editContacts">
+                    <div onclick="showContactModal('editContact')" id="editContacts" class="editContacts">
                         <div class="group8">
                             <img
                                 src="../../assets/img/icons/pencil.svg"
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="forButton">
-            <div onclick="showContactModal('addNewContact')" class="secondaryContact">
+            <div onclick="showContactModal('addNewContact', -1)" class="secondaryContact">
                 <div class="newContact">New contact</div>
                 <img
                     src="../../assets/img/icons/new-contact.svg"
@@ -129,7 +129,7 @@
                             <img src="../img/icons/cross.svg" alt="Kreuz" />
                         </div>
                     </div>
-                    <div onclick="" class="primaryChechButtonV1">
+                    <div onclick="addNewContact(event)" class="primaryChechButtonV1">
                         <div class="CreateContact">Create contact</div>
                         <div class="akarIconsCheck">
                             <img
