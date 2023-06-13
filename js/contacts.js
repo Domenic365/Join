@@ -72,14 +72,14 @@ function loadContactCards() {
  * @param {HTMLElement} contactlist the HTML Element where to insert the letter section
  */
 function loadLetterSection(lastContactData, currentContactData, contactlist) {
-    if (lastContactData) {
-        if (lastContactData.sortingLetter != currentContactData.sortingLetter) {
-            contactlist.innerHTML += contactDivider(
-                currentContactData.sortingLetter
-            );
-        }
-    } else {
-        contactlist.innerHTML += contactDivider("A");
+    if (
+        lastContactData === undefined ||
+        (lastContactData &&
+            lastContactData.sortingLetter !== currentContactData.sortingLetter)
+    ) {
+        contactlist.innerHTML += contactDivider(
+            currentContactData.sortingLetter
+        );
     }
 }
 
@@ -252,9 +252,8 @@ function saveContact(contactNumber) {
     loadSingleContact(contactNumber);
 }
 
-
 /**
- * 
+ *
  * @param {String} method the method to execute if the black button of modal is clicked
  */
 function changeOnClickInButton(method) {

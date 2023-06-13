@@ -30,6 +30,6 @@ class Contact {
     }
 
     getSortingLetter(){
-        this.sortingLetter = this.name.slice(0, 1);
+        this.sortingLetter = this.name.slice(0, 1).toUpperCase();
     }
 }
