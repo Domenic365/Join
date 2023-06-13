@@ -33,9 +33,11 @@
                     Contact Information
                 </div>
                 <div class="frame100">
-                    <div class="editContacts">
+                    <div onclick="showContactModal('editContact')" class="editContacts">
                         <div class="group8">
-                            <img src="../../assets/img/icons/pencil.svg" alt="" />
+                            <img
+                                src="../../assets/img/icons/pencil.svg"
+                                alt="" />
                         </div>
                         <div id="editContact" class="editContact">
                             Edit Contact
@@ -59,22 +61,29 @@
             </div>
         </div>
         <div class="forButton">
-            <div onclick="showContactModal()" class="secondaryContact">
+            <div onclick="showContactModal('addNewContact')" class="secondaryContact">
                 <div class="newContact">New contact</div>
-                <img src="../../assets/img/icons/new-contact.svg" class="capa1" />
+                <img
+                    src="../../assets/img/icons/new-contact.svg"
+                    class="capa1" />
             </div>
         </div>
     </article>
 </main>
 
-<div onclick="closeContactModal()" id="forCenterOverlay" class="forCenterOverlay dpNone">
+<div
+    onclick="closeContactModal()"
+    id="forCenterOverlay"
+    class="forCenterOverlay dpNone">
     <main onclick="event.stopPropagation()" class="overlay">
         <div class="frame194">
             <div class="capa2">
                 <img src="../../assets/img/logo-on-dark-bg.svg" alt="logo" />
             </div>
-            <div class="addContactOverlay">Add Contact</div>
-            <div class="tasksAreBetterWithATeam">
+            <div id="addContactOverlay" class="addContactOverlay">
+                Add Contact
+            </div>
+            <div id="tasksAreBetterWithATeam" class="tasksAreBetterWithATeam">
                 Tasks are better with a team!
             </div>
             <div class="vector5"></div>
@@ -86,20 +95,32 @@
         </div>
         <div class="forColumnDirection">
             <div class="group11OpenCard">
-                <img onclick="closeContactModal()" src="../../assets/img/icons/cross.svg" alt="Kreuz" />
+                <img
+                    onclick="closeContactModal()"
+                    src="../../assets/img/icons/cross.svg"
+                    alt="Kreuz" />
             </div>
             <div class="addContactText">
                 <div class="frame155">
-                    <input id="newContactName" type="name" class="frame14">
-                    <div class="thisFieldIsRequired">
-                        This field is Required
-                    </div>
+                    <input
+                        placeholder="Name"
+                        id="newContactName"
+                        type="name"
+                        class="frame14" />
                 </div>
                 <div class="frame1570">
-                    <input type="phone" class="frame14">
+                    <input
+                        placeholder="Phone"
+                        id="newContactPhone"
+                        type="phone"
+                        class="frame14" />
                 </div>
                 <div class="frame156">
-                    <input type="mail" class="frame14">
+                    <input
+                        placeholder="Email"
+                        id="newContactMail"
+                        type="mail"
+                        class="frame14" />
                 </div>
             </div>
             <div class="frame35">
@@ -113,7 +134,9 @@
                     <div onclick="" class="primaryChechButtonV1">
                         <div class="CreateContact">Create contact</div>
                         <div class="akarIconsCheck">
-                            <img src="../img/icons/checkContact.svg" alt="Haken" />
+                            <img
+                                src="../img/icons/checkContact.svg"
+                                alt="Haken" />
                         </div>
                     </div>
                 </div>

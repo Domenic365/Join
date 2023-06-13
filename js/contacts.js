@@ -123,15 +123,38 @@ function insertIntoHTML(id, innerOfHTML) {
     document.getElementById(id).innerHTML = innerOfHTML;
 }
 
+function createModalArray(modalKind) {
+    switch (modalKind) {
+        case "addNewContact":
+            return (moadlInfos = [
+                { id: "addContactOverlay", htmlValue: "Deine Mum" },
+            ]);
+        case "editContact":
+            return (modalInfos = [
+                { id: "addContactOverlay", htmlValue: "Edit Contact" },
+            ]);
+        default:
+            window.alert("Fehler im Modal Array");
+            break;
+    }
+}
+
 /**
  * displays the modal
  */
-function showContactModal() {
+function showContactModal(modalKind) {
+    let modalArray = createModalArray(modalKind);
+    if ((modalKind = "editContact")) {
+        //the method to edit the contact
+    }
+    modalArray.forEach((valueForHTML) => {
+        insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
+    });
     document.getElementById("forCenterOverlay").classList.remove("dpNone");
 }
 
 /**
- * 
+ *
  * @param {event} event to prevent close on everything
  */
 function closeContactModal() {
