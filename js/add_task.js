@@ -31,15 +31,9 @@ let categorys = [
     },
 ]
 
-function addTaskInit() {
-    renderCategorys();
-    // renderContacts();
-}
-addTaskInit();
-
 function renderCategorys() {
-    let catContainer = document.querySelector('.item-selection ul');
-    console.log(catContainer);
+    let catContainer = document.getElementById('category-selection');
+    
     catContainer.innerHTML = '<li onclick="createCategory()">Add new category</li>';
     for (let i = 0; i<categorys.length; i++) {
         catContainer.innerHTML += `
@@ -49,6 +43,7 @@ function renderCategorys() {
 }
 
 function toggleDropdown() {
+    renderCategorys();
     const dropdownArrow = document.querySelector('#category-input span');
     const selection = document.querySelector('.item-selection');
     if (selection.classList.contains('active')) {
@@ -61,10 +56,20 @@ function toggleDropdown() {
 }
 
 function chosenCategory(value) {
+    let color = colorSearch(value);
     let dropdownContent = document.getElementById('category-input');
-    dropdownContent.innerHTML = `${value}<span class="active-dropdown">&lt;</span>`;
+    dropdownContent.innerHTML = `<div class="pickedCat">${value} <div class="${color}"></div></div><span class="active-dropdown">&lt;</span>`;
     dropdownContent.classList.add('cat-picked');
     toggleDropdown();
+}
+
+function colorSearch(value) {
+    for (let i = 0; i < categorys.length; i++) {
+        const element = categorys[i];
+        if (element.name == value) {
+            return element.color;
+        }
+    }
 }
 
 function toggleAssigning() {
@@ -173,40 +178,50 @@ function pickCatColor(color) {
     pickedColor.classList.add('selectedColor');
 }
 
-function renderNewCat() {
-    // TODO: 
-    // aktuell wird der eingegebene Wert nicht in den input gerendert
-    // Wenn keine Farbe ausgewählt wurde, wird "null" ausgelesen. 
-    // und die Span mit dem dropdown-button muss separat eingefügt werden
+function saveNewCat() {
+    let catTitle = document.querySelector('.addCategoryInput').value;
+    let catColor = document.querySelector('.selectedColor').classList[0];
+    let newCategory = {
+        name : catTitle,
+        color : catColor
+    }
+    categorys.push(newCategory);
 
-    console.log('test');
+    renderCategorys();
+    showNewCat();
+    cancelInput('cat');
+}
+
+function showNewCat() {
+    let element = categorys[categorys.length -1];
     let placeholder = document.getElementById('category-input');
-    placeholder.innerHTML = '';
-    console.log(placeholder);
-    let inputvalue = document.querySelector('.addCategoryInput').value;
-    console.log(inputvalue);
-    let color = document.querySelector('.selectedColor');
-    console.log(color);
-    placeholder.innerHTML = `${inputvalue} ${color}`;
-    cancelInput('contact');
+    placeholder.innerHTML = `
+    <div class="">${element.name}<div class="${element.color}"></div></div><span class="active-arrow">&lt;</span>
+    `
+    placeholder.classList.add('cat-picked');
 }
 
 function pickPrio(pick) {
     resetPrio();
     let button = document.querySelector(`.${pick}`);
-    switch (pick) {
-        case 'urgent':
-            button.classList.add('activeUrgent');
-            button.classList.add('activePick');
+    
+    if (button.classList.contains('activePick')) {
+        resetPrio();
+    } else {
+        switch (pick) {
+            case 'urgent':
+                button.classList.add('activeUrgent');
+                button.classList.add('activePick');
+                break;
+            case 'medium':
+                button.classList.add('activeMedium');
+                button.classList.add('activePick');
             break;
-        case 'medium':
-            button.classList.add('activeMedium');
-            button.classList.add('activePick');
-        break;
-        case 'low':
-            button.classList.add('activeLow');
-            button.classList.add('activePick');
-            break;
+            case 'low':
+                button.classList.add('activeLow');
+                button.classList.add('activePick');
+                break;
+        }
     }
 }
 
@@ -217,4 +232,12 @@ function resetPrio() {
     urgent.classList = 'urgent';
     medium.classList = 'medium';
     low.classList = 'low';
+}
+
+function dateColor() {
+    document.querySelector('#due-date').style.color = "black";
+}
+
+function resetAll() {
+    
 }
