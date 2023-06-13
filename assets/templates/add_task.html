@@ -1,4 +1,3 @@
-<!-- hier werden die jeweiligen Seiten reingerendert -->
 <div class="taskarea">
     <div class="content-wrapper">
         <h1>Add Task</h1>
@@ -68,10 +67,25 @@
             <div class="vertical-divider"></div>
             <!-- right side -->
             <form onsubmit="" class="right-form">
-                <div class="form-item" name="date">
-                    <label for="date">Due Date</label>
-                    <input type="date" class="date-input">
+                <div class="form-item">
+                    <label for="due-date">Due Date</label>
+                    <input name="due-date" type="date" class="date-input" id="due-date">
                 </div>
+                <div class="form-item">
+                    <div class="form-title">Prio</div>
+                    <div class="prio-buttons">
+                        <div class="urgent" onclick="pickPrio('urgent')">
+                            Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
+                        </div>
+                        <div class="medium" onclick="pickPrio('medium')">
+                            Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
+                        </div>
+                        <div class="low" onclick="pickPrio('low')">
+                            Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
+                        </div>
+                    </div>
+                </div>
+                
                 
                 <div class="form-item">
                     <div class="dropdown">

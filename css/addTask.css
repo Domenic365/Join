@@ -469,3 +469,80 @@ input {
 
 
 /* FORM-STYLING END*/
+
+/* PRIO BUTTONS */
+.prio-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.prio-buttons div {
+    background-color: white;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    width: 32%;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.prio-buttons div img {
+    width: 20px;
+}
+
+.prio-buttons div:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+.prio-buttons div:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.prio-buttons .urgent:hover {
+    background: #FF3D00;
+}
+
+.prio-buttons .medium:hover {
+    background: #FFA800;
+}
+
+.prio-buttons .low:hover {
+    background: #7AE229;
+}
+
+.activeUrgent {
+    background: #FF3D00 !important;
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+.activeMedium {
+    background: #FFA800 !important;
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+.activeLow {
+    background: #7AE229 !important;
+    color: white;
+    border: none;
+    font-weight: 600;
+}
+
+.activePick img {
+    filter: brightness(0) invert(1);
+}
+
+/* PRIO BUTTONS END */

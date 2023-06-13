@@ -12,9 +12,41 @@ let task = {
 }
 
 let subtasks = ['create new logo', 'finish'];
-let categorys = [];
+let categorys = [
+    {
+        name: 'Marketing',
+        color: 'purple'
+    },
+    {
+        name: 'Sales',
+        color: 'red'
+    },
+    {
+        name: 'Development',
+        color: 'blue'
+    },
+    {
+        name: 'Accounting',
+        color: 'pink'
+    },
+]
 
+function addTaskInit() {
+    renderCategorys();
+    // renderContacts();
+}
+addTaskInit();
 
+function renderCategorys() {
+    let catContainer = document.querySelector('.item-selection ul');
+    console.log(catContainer);
+    catContainer.innerHTML = '<li onclick="createCategory()">Add new category</li>';
+    for (let i = 0; i<categorys.length; i++) {
+        catContainer.innerHTML += `
+            <li onclick="chosenCategory('${categorys[i].name}')">${categorys[i].name}<div class="${categorys[i].color}"></div></li>
+        `
+    }
+}
 
 function toggleDropdown() {
     const dropdownArrow = document.querySelector('#category-input span');
@@ -157,4 +189,32 @@ function renderNewCat() {
     console.log(color);
     placeholder.innerHTML = `${inputvalue} ${color}`;
     cancelInput('contact');
+}
+
+function pickPrio(pick) {
+    resetPrio();
+    let button = document.querySelector(`.${pick}`);
+    switch (pick) {
+        case 'urgent':
+            button.classList.add('activeUrgent');
+            button.classList.add('activePick');
+            break;
+        case 'medium':
+            button.classList.add('activeMedium');
+            button.classList.add('activePick');
+        break;
+        case 'low':
+            button.classList.add('activeLow');
+            button.classList.add('activePick');
+            break;
+    }
+}
+
+function resetPrio() {
+    let urgent = document.querySelector('.prio-buttons .urgent');
+    let medium = document.querySelector('.prio-buttons .medium');
+    let low = document.querySelector('.prio-buttons .low');
+    urgent.classList = 'urgent';
+    medium.classList = 'medium';
+    low.classList = 'low';
 }
