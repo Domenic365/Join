@@ -25,7 +25,7 @@ function contactDivider(letter) {
 function loadContactHTML(contact, currentContact) {
     return /*html*/ `
     <div onclick="loadSingleContact(${currentContact})" class="frame97">
-        <div style="background-color: #000000;" class="frame79">
+        <div style="background-color: ${contact.color};" class="frame79">
                 <div class="AM"> ${contact.firstLetters}</div>
         </div>
         <div class="frame81">
@@ -96,6 +96,7 @@ function loadSingleContact(contactNumber) {
             "onclick",
             `showContactModal("editContact", ${contactNumber})`
         );
+    document.getElementById("frame79").style.backgroundColor = contact.color;
     contactArray.forEach((valueForHTML) => {
         insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
     });
@@ -214,6 +215,7 @@ function editContact(contactNumber) {
         let contact = contacts.contactList[contactNumber];
         contactInputValues = [contact.name, contact.phone, contact.email];
         changeOnClickInButton(`saveContact(${contactNumber})`);
+        document.getElementById("frame79OpenCard").style.backgroundColor = contact.color;
     }
     editInputValues(contactInputValues, contactInputIds);
 }

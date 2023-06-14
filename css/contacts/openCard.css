@@ -1,4 +1,4 @@
-.dpNone{
+.dpNone {
     display: none !important;
 }
 
@@ -38,7 +38,7 @@
     margin-bottom: 80px;
 }
 
-.group11OpenCard img:hover{
+.group11OpenCard img:hover {
     cursor: pointer;
 }
 
@@ -74,38 +74,6 @@
     gap: 25px;
 }
 
-.secondaryV1 {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    width: 136px;
-    height: 55px;
-
-    border: 1px solid #2a3647;
-    border-radius: 10px;
-}
-
-.cancelContact {
-    width: 69px;
-    height: 25px;
-
-    /* Version 2/t6 */
-
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 120%;
-    /* or 25px */
-
-    /* Version 2/ main color  */
-
-    color: #2a3647;
-}
-
 .iconoirCancel {
     width: 24px;
     height: 24px;
@@ -114,28 +82,6 @@
 .iconoirCancel img {
     width: 24px;
     height: 24px;
-}
-
-.primaryChechButtonV1 {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 16px;
-
-    background: #2a3647;
-    border-radius: 10px;
-}
-
-.CreateContact {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 120%;
-    color: #ffffff;
 }
 
 .akarIconsCheck {
@@ -197,22 +143,34 @@
 .frame14 {
     box-sizing: border-box;
 
-    /* Auto layout */
-
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 13px 21px;
     gap: 10px;
 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+
     width: 422px;
     height: 51px;
 
     background: #ffffff;
-    /* Style */
 
     border: 1px solid #d1d1d1;
     border-radius: 10px;
+}
+
+.frame14::placeholder {
+    color: #d1d1d1;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
 }
 
 .frame157 {
@@ -231,16 +189,11 @@
     width: 59px;
     height: 25px;
 
-    /* Version 2/t6 */
-
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
-
-    /* Style */
 
     color: #d1d1d1;
 }
@@ -304,7 +257,7 @@
 
 .vector5 {
     width: 90px;
-    border: 1.5px solid #29abe2;
+    border: 3px solid #29abe2;
 }
 
 .capa2 img {
@@ -316,19 +269,19 @@
     background: #d1d1d1;
 }
 
-[type=phone]{
+[type="phone"] {
     background-image: url("../../assets/img/icons/phone.svg");
     background-repeat: no-repeat;
     background-position: 381px;
 }
 
-[type=name]{
+[type="name"] {
     background-image: url("../../assets/img/icons/darkHuman.svg");
     background-repeat: no-repeat;
     background-position: 381px;
 }
 
-[type=mail]{
+[type="mail"] {
     background-image: url("../../assets/img/icons/mail.svg");
     background-repeat: no-repeat;
     background-position: 381px;

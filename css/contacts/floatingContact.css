@@ -40,6 +40,7 @@
     width: 120px;
     height: 120px;
     border-radius: 60px;
+    border: 3px solid #ffffff;
 }
 
 .amBigNameAbbrevation {
@@ -188,27 +189,6 @@
     justify-content: flex-end;
 }
 
-.secondaryContact {
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    width: 197.77px;
-    height: 53px;
-
-    background: #2a3647;
-    border: 1px solid #2a3647;
-    border-radius: 10px;
-}
-
-.secondaryContact:hover{
-    cursor: pointer;
-}
-
 .newContact {
     font-family: "Inter";
     font-style: normal;
@@ -222,7 +202,6 @@
 .capa1 {
     width: 28px;
     height: 25px;
-
 }
 
 .capa1Vector1 {

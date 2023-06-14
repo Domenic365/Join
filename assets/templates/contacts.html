@@ -8,7 +8,7 @@
         </div>
         <div class="floatingContact">
             <div class="frame105">
-                <div class="frame79 bigNameAbbreviation">
+                <div id="frame79" class="frame79 bigNameAbbreviation">
                     <div id="firstLetters" class="AM amBigNameAbbrevation">
                         AM
                     </div>
@@ -33,7 +33,10 @@
                     Contact Information
                 </div>
                 <div class="frame100">
-                    <div onclick="showContactModal('editContact')" id="editContacts" class="editContacts">
+                    <div
+                        onclick="showContactModal('editContact')"
+                        id="editContacts"
+                        class="editContacts">
                         <div class="group8">
                             <img
                                 src="../../assets/img/icons/pencil.svg"
@@ -61,7 +64,9 @@
             </div>
         </div>
         <div class="forButton">
-            <div onclick="showContactModal('addNewContact', -1)" class="secondaryContact">
+            <div
+                onclick="showContactModal('addNewContact', -1)"
+                class="main-btn">
                 <div class="newContact">New contact</div>
                 <img
                     src="../../assets/img/icons/new-contact.svg"
@@ -80,14 +85,16 @@
             <div class="capa2">
                 <img src="../../assets/img/logo-on-dark-bg.svg" alt="logo" />
             </div>
-            <div id="addContactOverlay" class="addContactOverlay">
-            </div>
-            <div id="tasksAreBetterWithATeam" class="tasksAreBetterWithATeam">
-            </div>
+            <div id="addContactOverlay" class="addContactOverlay"></div>
+            <div
+                id="tasksAreBetterWithATeam"
+                class="tasksAreBetterWithATeam"></div>
             <div class="vector5"></div>
         </div>
         <div class="group13">
-            <div class="frame79 bigNameAbbreviation grayBackground">
+            <div
+                id="frame79OpenCard"
+                class="frame79 bigNameAbbreviation grayBackground">
                 <img src="../img/icons/whiteHuman.svg" alt="human" />
             </div>
         </div>
@@ -123,14 +130,19 @@
             </div>
             <div class="frame35">
                 <div class="frame27">
-                    <div onclick="closeContactModal()" class="secondaryV1">
-                        <div class="cancelContact">Cancel</div>
-                        <div class="iconoirCancel">
+                    <div onclick="closeContactModal()" class="secondary-btn">
+                        Cancel
+                        <span class="iconoirCancel">
                             <img src="../img/icons/cross.svg" alt="Kreuz" />
-                        </div>
+                        </span>
                     </div>
-                    <div id="contactButton" onclick="addNewContact(event)" class="primaryChechButtonV1">
-                        <div id="contactButtonName" class="CreateContact">Create contact</div>
+                    <div
+                        id="contactButton"
+                        onclick="addNewContact(event)"
+                        class="main-btn">
+                        <div id="contactButtonName" class="CreateContact">
+                            Create contact
+                        </div>
                         <div class="akarIconsCheck">
                             <img
                                 src="../img/icons/checkContact.svg"
