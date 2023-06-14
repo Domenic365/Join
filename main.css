@@ -124,6 +124,7 @@ body {
 
 .user-info div:first-child {
     margin-left: 3rem;
+    font-size: 1.5rem;
 }
 
 .user-info div:last-child {
