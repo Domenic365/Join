@@ -50,12 +50,15 @@ function toggleDropdown() {
     renderCategorys();
     const dropdownArrow = document.querySelector('#category-input span');
     const selection = document.querySelector('.item-selection');
+    const layer = document.getElementById('layerForCats');
     if (selection.classList.contains('active')) {
         selection.classList.remove('active');
         dropdownArrow.classList.remove('active-arrow');
+        layer.classList.add('d-none');
     } else {
         selection.classList.add('active');
         dropdownArrow.classList.add('active-arrow');
+        layer.classList.remove('d-none');
     }
 }
 
@@ -79,23 +82,26 @@ function colorSearch(value) {
 function toggleAssigning() {
     const dropdownArrow = document.querySelector('#contacts-input span');
     const selection = document.querySelector('.contacts-selection');
+    const layer = document.getElementById('layerForContactDD');
     if (selection.classList.contains('active')) {
         selection.classList.remove('active');
         dropdownArrow.classList.remove('active-arrow');
+        layer.classList.add('d-none');
     } else {
         selection.classList.add('active');
         dropdownArrow.classList.add('active-arrow');
+        layer.classList.remove('d-none');
     }
-    renderContacts();
+    // renderContacts();
 }
 
-// function renderContacts() {
-//     let list = document.getElementById('contact-selection');
-//     list.innerHTML = '';
-//     for (let i = 0; i<contactList.length; i++) {
-//         const contact = contactList[i];
-//     }
-// }
+function renderContacts() {
+    let list = document.getElementById('contact-selection');
+    list.innerHTML = '';
+    for (let i = 0; i<contactList.length; i++) {
+        const contact = contactList[i];
+    }
+}
 
 function changeFormIcons(formElement) {
     if (formElement === 'subtask') {

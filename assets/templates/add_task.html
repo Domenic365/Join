@@ -2,6 +2,8 @@
     <div class="content-wrapper">
         <h1>Add Task</h1>
         <div class="addtask-form-container">
+            <div id="layerForContactDD" class="d-none" onclick="toggleAssigning()"></div>
+            <div id="layerForCats" class="d-none" onclick="toggleDropdown()"></div>
             <!-- left side -->
             <form onsubmit="" class="left-form">
                 <div class="form-item">
@@ -52,7 +54,7 @@
                             <img src="../img/icons/check_dark.svg" class="check" onclick="sendContactInvite()">
                         </div>
                         <div class="contacts-selection">
-                            <div id="contact-selection">
+                            <div id="contact-selection" > 
                                 <!-- Ab der zweiten div muss aus dem Contacts-Array generiert werden -->
                                 <div class="contact-item"><label for="Testkontakt-1">Testkontakt 1<input class="dropdown-check" type="checkbox" id="Testkontakt-1"></label></div>
                                 <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
@@ -65,11 +67,15 @@
                 </div>
             </form>
             <div class="vertical-divider"></div>
+
+
             <!-- right side -->
+
+
             <form onsubmit="" class="right-form">
                 <div class="form-item">
                     <label for="due-date">Due Date</label>
-                    <input name="due-date" type="date" class="date-input" id="due-date" onchange="dateColor()">
+                    <input name="due-date" required type="date" class="date-input" id="due-date" onchange="dateColor()">
                 </div>
                 <div class="form-item">
                     <div class="form-title">Prio</div>
@@ -112,8 +118,14 @@
                         </li>
                     </ul>
                 </div>
-                
             </form>
+        </div>
+        <div class="form-item">
+            <div class="add-btn-wrapper">
+                <button class="clear-btn secondary-btn">Clear <span>&cross;</span></button>
+                <button class="submit main-btn">Add task <span>&check;</span></button>
+            </div>
+            
         </div>
     </div>
 </div>

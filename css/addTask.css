@@ -1,18 +1,21 @@
 .taskarea {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: calc(100vh - 90px);
     background: #f6f7f8;
     width: calc(100vw - 250px);
-    padding: 50px;
+    padding: 3rem;
+    padding-left: 6rem;
     box-sizing: border-box;
     font-family: 'Inter';
+    gap: 2rem;
 }
 
 .content-wrapper {
-    width: 1500px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .addtask-form-container {
@@ -25,10 +28,11 @@
 }
 
 .left-form {
+    padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    justify-content: space-evenly;
+    justify-content: start;
 }
 
 .form-item {
@@ -46,11 +50,12 @@
 
 .taskarea h1 {
     font-size: 3rem;
+    margin-bottom: 0;
 }
 
 .vertical-divider {
     border: 0.3px solid lightgray;
-    height: 800px;
+    height: 700px;
 }
 
 .addtask-form-container input {
@@ -123,10 +128,11 @@ input {
 }
 
 .right-form {
+    padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    justify-content: space-evenly;
+    justify-content: start;
 }
 
 .subtask-list {
@@ -272,9 +278,23 @@ input {
 .contacts-selection #contact-selection {
     padding: 0;
     overflow-y: auto;
-    max-height: 100px;
+    max-height: 150px;
     margin: 0;
     overflow-x: hidden;
+}
+
+#layerForContactDD, #layerForCats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+.item-selection, .contacts-selection {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 #contacts-input {
@@ -578,3 +598,14 @@ input {
 }
 
 /* PRIO BUTTONS END */
+
+/* 
+BTNS
+*/
+
+.add-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    height: 50px;
+}
