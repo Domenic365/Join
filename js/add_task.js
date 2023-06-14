@@ -1,5 +1,9 @@
 "use strict";
 
+let contactList = new ContactList();
+console.log(contactList);
+
+
 let task = {
     title: 'Design',
     description: 'sdogfhasdliguhs',
@@ -11,7 +15,7 @@ let task = {
     subtasks: [],
 }
 
-let subtasks = ['create new logo', 'finish'];
+let subtasks = [];
 let categorys = [
     {
         name: 'Marketing',
@@ -82,7 +86,16 @@ function toggleAssigning() {
         selection.classList.add('active');
         dropdownArrow.classList.add('active-arrow');
     }
+    renderContacts();
 }
+
+// function renderContacts() {
+//     let list = document.getElementById('contact-selection');
+//     list.innerHTML = '';
+//     for (let i = 0; i<contactList.length; i++) {
+//         const contact = contactList[i];
+//     }
+// }
 
 function changeFormIcons(formElement) {
     if (formElement === 'subtask') {

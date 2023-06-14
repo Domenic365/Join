@@ -115,11 +115,21 @@ body {
 
 .user-info {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 90px;
     gap: 1.5rem;
     padding-right: 1.5rem;
+}
+
+.user-info div:first-child {
+    margin-left: 3rem;
+}
+
+.user-info div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 /* TOP BAR END */
