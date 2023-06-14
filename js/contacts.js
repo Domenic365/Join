@@ -145,12 +145,22 @@ function createModalArray(modalKind) {
                     htmlValue: "Tasks are better with a team!",
                 },
                 { id: "contactButtonName", htmlValue: "Create Contact" },
+                {
+                    id: "frame79OpenCard",
+                    htmlValue:
+                        '<img src="../img/icons/whiteHuman.svg" alt="human">',
+                },
             ]);
         case "editContact":
             return (modalInfos = [
                 { id: "addContactOverlay", htmlValue: "Edit Contact" },
                 { id: "tasksAreBetterWithATeam", htmlValue: "" },
                 { id: "contactButtonName", htmlValue: "Save" },
+                {
+                    id: "frame79OpenCard",
+                    htmlValue:
+                        '<div id="shortNameOpenCard" class="AM amBigNameAbbrevation"></div>',
+                },
             ]);
         default:
             window.alert("Fehler im Modal Array");
@@ -167,6 +177,10 @@ function showContactModal(modalKind, contactNumber) {
     modalArray.forEach((valueForHTML) => {
         insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
     });
+    if (modalKind === "editContact") {
+        document.getElementById("shortNameOpenCard").innerHTML =
+            contacts.contactList[contactNumber].firstLetters;
+    }
     document.getElementById("forCenterOverlay").classList.remove("dpNone");
 }
 
@@ -205,17 +219,20 @@ function updateContacts() {
  * @param {number} contactNumber the position in the contacts list
  */
 function editContact(contactNumber) {
+    let contact = contacts.contactList[contactNumber];
     let contactInputValues;
     let clearInputs = -1;
     let contactInputIds = createInputIdArray();
     if (contactNumber == clearInputs) {
         contactInputValues = ["", "", ""];
         changeOnClickInButton(`addNewContact(event)`);
+        document.getElementById("frame79OpenCard").style.backgroundColor =
+            "#d1d1d1";
     } else {
-        let contact = contacts.contactList[contactNumber];
         contactInputValues = [contact.name, contact.phone, contact.email];
         changeOnClickInButton(`saveContact(${contactNumber})`);
-        document.getElementById("frame79OpenCard").style.backgroundColor = contact.color;
+        document.getElementById("frame79OpenCard").style.backgroundColor =
+            contact.color;
     }
     editInputValues(contactInputValues, contactInputIds);
 }

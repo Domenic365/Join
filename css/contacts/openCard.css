@@ -265,10 +265,6 @@
     height: fit-content;
 }
 
-.grayBackground {
-    background: #d1d1d1;
-}
-
 [type="phone"] {
     background-image: url("../../assets/img/icons/phone.svg");
     background-repeat: no-repeat;
