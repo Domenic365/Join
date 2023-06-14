@@ -1,7 +1,6 @@
 header {
     display: flex;
     align-items: center;
-
 }
 
 header h2 {
@@ -53,7 +52,7 @@ main p {
 .left-content {
     display: flex;
     flex-direction: column;
-    margin: 10rem 0rem 0rem 1rem;
+   /* margin: 10rem 0rem 0rem 1rem;*/
 }
 
 .right-content {
