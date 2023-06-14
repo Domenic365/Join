@@ -281,6 +281,24 @@ input {
     position: relative;
 }
 
+#contact-selection::-webkit-scrollbar {
+    width: 8px;
+}
+
+#contact-selection::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgb(41,171,226);
+}
+
+#category-selection::-webkit-scrollbar {
+    width: 8px;
+}
+
+#category-selection::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgb(41,171,226);
+}
+
 .inviteContactBtn {
     display: flex;
     height: 50px;
