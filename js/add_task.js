@@ -140,6 +140,8 @@ function cancelInput(formElement) {
         let input = document.querySelector('.addCategoryInput');
         let buttons = document.querySelector('.createCatBtn');
         let colorPicker = document.querySelector('.category-colors');
+        let contactDD = document.querySelector('.contact-dropdown');
+        contactDD.classList.remove('m-top');
         placeholder.classList.remove('d-none');
         input.classList.add('d-none');
         buttons.classList.add('d-none');
@@ -180,7 +182,9 @@ function createCategory() {
     let input = document.querySelector('.addCategoryInput');
     let buttons = document.querySelector('.createCatBtn');
     let colorPicker = document.querySelector('.category-colors');
+    let contactDD = document.querySelector('.contact-dropdown');
     placeholder.classList.add('d-none');
+    contactDD.classList.add('m-top');
     input.classList.remove('d-none');
     buttons.classList.remove('d-none');
     colorPicker.classList.remove('d-none');
@@ -198,6 +202,7 @@ function pickCatColor(color) {
 }
 
 function saveNewCat() {
+    let contactDD = document.querySelector('.contact-dropdown');
     let catTitle = document.querySelector('.addCategoryInput').value;
     let catColor = document.querySelector('.selectedColor').classList[0];
     let newCategory = {
@@ -205,7 +210,7 @@ function saveNewCat() {
         color : catColor
     }
     categorys.push(newCategory);
-
+    contactDD.classList.remove('m-top');
     renderCategorys();
     showNewCat();
     cancelInput('cat');
