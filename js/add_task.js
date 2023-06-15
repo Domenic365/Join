@@ -262,6 +262,25 @@ function dateColor() {
     document.querySelector('#due-date').style.color = "black";
 }
 
-function resetAll() {
-    
+function clearAll() {
+    let title = document.getElementById('title-input');
+    let description = document.getElementById('description'); 
+    let category = document.getElementById('category-input');
+    let contactlist = document.querySelectorAll('.dropdown-check');
+    let date = document.getElementById('due-date');
+    let tasklist = document.querySelector('.subtask-list');
+    title.value = '';
+    description.value = '';
+    tasklist.innerHTML = '';
+    date.value = '';
+    date.style.color = '';
+    resetPrio();
+    category.innerHTML = 'Choose Category<span>&lt;</span>';
+    clearContacts(contactlist);
+}
+
+function clearContacts(contactlist) {
+    contactlist.forEach(element => {
+        element.checked = false;
+    });
 }
