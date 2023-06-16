@@ -299,5 +299,15 @@ function validateForm() {
 }
 
 function titleValidation(title) {
-    let validationItem = document.getElementById('title-')
+    let validationItem = document.getElementById('title-validation');
+    if (title.value === '') {
+        validationItem.classList.remove('d-none');
+    }
+}
+
+function descriptionValidation(description) {
+    let validationItem = document.getElementById('description-validation');
+    if (description.value === '') {
+        validationItem.classList.remove('d-none');
+    }
 }
