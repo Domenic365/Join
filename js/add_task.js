@@ -284,3 +284,20 @@ function clearContacts(contactlist) {
         element.checked = false;
     });
 }
+
+function validateForm() {
+    let title = document.getElementById('title-input');
+    let description = document.getElementById('description');
+    let category = document.getElementById('category-input');
+    let date = document.getElementById('due-date');
+    let prio = document.querySelectorAll('.prio-buttons > div');
+    titleValidation(title);
+    descriptionValidation(description);
+    catValidation(category);
+    dateValidation(date);
+    prioValidation(prio);
+}
+
+function titleValidation(title) {
+    let validationItem = document.getElementById('title-')
+}

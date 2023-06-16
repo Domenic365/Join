@@ -9,16 +9,19 @@
                 <div class="form-item">
                     <label for="title">Title</label>
                     <input type="text" placeholder="Enter a title" id="title-input">
+                    <div class="invalid d-none" id="title-validation">This field is required</div>
                 </div>
                 <div class="form-item">
                     <label for="description">Description</label>
                     <textarea name="description" id="description" placeholder="Enter a description"></textarea>
+                    <div class="invalid d-none" id="description-validation">This field is required</div>
                 </div>
 
                 <div class="form-item">
                     <div class="dropdown">
                         <div class="form-title">Choose Category</div>
                         <div class="dropdown-placeholder" id="category-input" onclick="toggleDropdown()">Choose Category<span>&lt;</span></div>
+                        <div class="invalid d-none" id="category-validation">This field is required</div>
                         <input class="addCategoryInput d-none" placeholder="Enter category name" type="text">
                         <div class="createCatBtn d-none">
                             <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('cat')">
@@ -76,6 +79,7 @@
                 <div class="form-item">
                     <label for="due-date">Due Date</label>
                     <input name="due-date"  type="date" class="date-input" id="due-date" onchange="dateColor()">
+                    <div class="invalid d-none" id="date-validation">This field is required</div>
                 </div>
                 <div class="form-item">
                     <div class="form-title">Prio</div>
@@ -90,6 +94,7 @@
                             Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                         </div>
                     </div>
+                    <div class="invalid d-none" id="prio-validation">This field is required</div>
                 </div>
                 
                 
@@ -121,7 +126,7 @@
                 <div class="form-item">
                     <div class="add-btn-wrapper">
                         <div class="clear-btn secondary-btn" onclick="clearAll()">Clear <span>&cross;</span></div>
-                        <button class="submit main-btn">Add task <span>&check;</span></button>
+                        <button class="submit main-btn" onclick="validateForm()">Add task <span>&check;</span></button>
                     </div>
                     
                 </div>
