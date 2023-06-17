@@ -624,3 +624,13 @@ BTNS
     bottom: 0;
     left: 1.5rem;
 }
+
+/* form validation */
+#category-validation {
+    margin-top: .5rem;
+}
+
+.invalid {
+    color: red;
+    font-style: italic;
+}

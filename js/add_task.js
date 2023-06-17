@@ -302,6 +302,8 @@ function titleValidation(title) {
     let validationItem = document.getElementById('title-validation');
     if (title.value === '') {
         validationItem.classList.remove('d-none');
+    } else {
+        validationItem.classList.add('d-none');
     }
 }
 
@@ -309,5 +311,42 @@ function descriptionValidation(description) {
     let validationItem = document.getElementById('description-validation');
     if (description.value === '') {
         validationItem.classList.remove('d-none');
+    } else {
+        validationItem.classList.add('d-none');
+    }
+}
+
+function catValidation(category) {
+    let validationItem = document.getElementById('category-validation');
+    if (category.innerHTML == 'Choose Category<span>&lt;</span>') {
+        validationItem.classList.remove('d-none')
+    } else {
+        validationItem.classList.add('d-none');
+    }
+}
+
+function dateValidation(date) {
+    let validationItem = document.getElementById('date-validation');
+    if (date.value == '') {
+        validationItem.classList.remove('d-none');
+    } else {
+        validationItem.classList.add('d-none');
+    }
+}
+
+function prioValidation(prio) {
+    let validationItem = document.getElementById('prio-validation');
+    let bool;
+    for (let i = 0; i < prio.length; i++) {
+        const element = prio[i];
+        if (element.classList.includes('activePick')){
+            bool=true;
+            break;
+        }
+    };
+    if (bool == false) {
+        validationItem.classList.remove('d-none')
+    } else {
+        validationItem.classList.add('d-none');
     }
 }
