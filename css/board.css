@@ -62,30 +62,19 @@ main{
     margin: 0rem 4rem 0rem 4rem;
 }
 
-.to-do-column{
+.box-task-design{
     height: 15rem;
     width: 15rem;
     background-color: red;
-    border-radius: 1rem;
+    border-radius: 1.9rem;
 }
 
-.in-progress-column{
-    height: 15rem;
-    width: 15rem;
-    background-color: red;
-    border-radius: 1rem;
+.box-title{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.feedback-column{
-    height: 15rem;
-    width: 15rem;
-    background-color: red;
-    border-radius: 1rem;
-}
-
-.done-column{
-    height: 15rem;
-    width: 15rem;
-    background-color: red;
-    border-radius: 1rem;
+.column-direction h2{
+font-size: 1.2rem;
 }
