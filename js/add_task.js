@@ -291,12 +291,32 @@ function validateForm() {
     let description = document.getElementById('description');
     let category = document.getElementById('category-input');
     let date = document.getElementById('due-date');
-    let prio = document.querySelectorAll('.prio-buttons > div');
-    titleValidation(title);
-    descriptionValidation(description);
-    catValidation(category);
-    dateValidation(date);
-    prioValidation();
+    let titleStat = titleValidation(title);
+    let descriptionStat = descriptionValidation(description);
+    let catStat = catValidation(category);
+    let dateStat = dateValidation(date);
+    let prioStat = prioValidation();
+    
+    if (titleStat && descriptionStat && catStat && dateStat && prioStat) {
+        addTaskToStorage();
+        
+    }
+}
+
+function addTaskToStorage() {
+    showNotification();
+    // inhalte auslesen und 
+}
+
+function showNotification() {
+    let alert = document.getElementById('notification');
+    alert.classList.add('active-note');
+    setTimeout(() => {
+        alert.classList.remove('active-note');
+    }, 2000);
+
+    
+    
 }
 
 function titleValidation(title) {
@@ -305,6 +325,7 @@ function titleValidation(title) {
         validationItem.classList.remove('d-none');
     } else {
         validationItem.classList.add('d-none');
+        return true;
     }
 }
 
@@ -314,6 +335,7 @@ function descriptionValidation(description) {
         validationItem.classList.remove('d-none');
     } else {
         validationItem.classList.add('d-none');
+        return true;
     }
 }
 
@@ -323,6 +345,7 @@ function catValidation(category) {
         validationItem.classList.remove('d-none')
     } else {
         validationItem.classList.add('d-none');
+        return true;
     }
 }
 
@@ -332,6 +355,7 @@ function dateValidation(date) {
         validationItem.classList.remove('d-none');
     } else {
         validationItem.classList.add('d-none');
+        return true;
     }
 }
 
@@ -342,11 +366,14 @@ function prioValidation() {
     let validationItem = document.getElementById('prio-validation');
 
     if (urgent.classList.contains('activePick')) {
-        validationItem.classList.add('d-none')
+        validationItem.classList.add('d-none');
+        return true;
     } else if (medium.classList.contains('activePick')) {
-        validationItem.classList.add('d-none')
+        validationItem.classList.add('d-none');
+        return true;
     } else if (low.classList.contains('activePick')) {
-        validationItem.classList.add('d-none')
+        validationItem.classList.add('d-none');
+        return true;
     } else {
         validationItem.classList.remove('d-none')
     }
