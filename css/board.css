@@ -76,8 +76,23 @@ main {
 .box-title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
     margin-bottom: 1.5rem;
+}
+
+.img-container .plus-icon-hover{
+    display: none;
+}
+
+.img-container:hover .plus-icon{
+    display: none;
+    transition: 125ms ease-in-out;
+}
+
+.img-container:hover .plus-icon-hover{
+    display: inline-block;
+    transition: 125ms ease-in-out;
 }
 
 .column-direction h2 {
