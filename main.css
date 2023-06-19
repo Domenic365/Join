@@ -94,6 +94,14 @@ body {
     background-color: #091931;
 }
 
+.aligning{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
 /* LEFTSIDE NAVIGATION END*/
 
 .right-bar {

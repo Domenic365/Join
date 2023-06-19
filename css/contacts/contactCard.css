@@ -28,6 +28,7 @@
     background: #ff7a00;
     border: 1px solid #ffffff;
     border-radius: 45px;
+    flex-shrink: 0;
 }
 
 
