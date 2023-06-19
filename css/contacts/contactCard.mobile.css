@@ -1,6 +1,5 @@
 @media (max-width: 1170px){
     .allContacts{
-        height: unset !important;
         width: 100% !important;
     }
 }
