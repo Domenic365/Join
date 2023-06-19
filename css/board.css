@@ -32,13 +32,13 @@ button {
     cursor: pointer;
 }
 
-button img{
+button img {
     height: 1rem;
 }
 
-button:hover{
+button:hover {
     transition: 125ms ease-in-out;
-    background-color: rgb(42,171,226);
+    background-color: rgb(42, 171, 226);
 }
 
 .title h1 {
@@ -59,15 +59,20 @@ button:hover{
 
 /*********** Task Area ***********/
 
-main {
+.board-container {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     margin: 0rem 4rem 0rem 4rem;
 }
 
 .box-task-design {
-    height: 15rem;
-    width: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 13rem;
+    max-height: 15.6rem;
+    width: 15.6rem;
     background-color: red;
     border-radius: 1.9rem;
     margin-bottom: 2rem;
@@ -81,18 +86,45 @@ main {
     margin-bottom: 1.5rem;
 }
 
-.img-container .plus-icon-hover{
+.img-container .plus-icon-hover {
     display: none;
 }
 
-.img-container:hover .plus-icon{
+.img-container:hover .plus-icon {
     display: none;
     transition: 125ms ease-in-out;
 }
 
-.img-container:hover .plus-icon-hover{
+.img-container:hover .plus-icon-hover {
     display: inline-block;
     transition: 125ms ease-in-out;
+}
+
+.box-overflow {
+    overflow-y: auto;
+    max-height: 45vh;
+    overflow-x: hidden;
+}
+
+/* Schmalen Scrollbalken für Webkit-Browser */
+.box-overflow::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Hintergrund des Scrollbalkens */
+.box-overflow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Griff des Scrollbalkens */
+.box-overflow::-webkit-scrollbar-thumb {
+    background: rgb(219, 218, 218);
+    border-radius: 4px;
+}
+
+/* Bei Hover über den Scrollbalken */
+.box-overflow::-webkit-scrollbar-thumb:hover {
+    background: rgb(186, 186, 186);
 }
 
 .column-direction h2 {
