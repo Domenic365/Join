@@ -295,7 +295,7 @@ function validateForm() {
     descriptionValidation(description);
     catValidation(category);
     dateValidation(date);
-    prioValidation(prio);
+    prioValidation();
 }
 
 function titleValidation(title) {
@@ -334,19 +334,19 @@ function dateValidation(date) {
     }
 }
 
-function prioValidation(prio) {
+function prioValidation() {
+    let urgent = document.getElementById('urgent');
+    let medium = document.getElementById('medium');
+    let low = document.getElementById('low');
     let validationItem = document.getElementById('prio-validation');
-    let bool;
-    for (let i = 0; i < prio.length; i++) {
-        const element = prio[i];
-        if (element.classList.includes('activePick')){
-            bool=true;
-            break;
-        }
-    };
-    if (bool == false) {
-        validationItem.classList.remove('d-none')
+
+    if (urgent.classList.contains('activePick')) {
+        validationItem.classList.add('d-none')
+    } else if (medium.classList.contains('activePick')) {
+        validationItem.classList.add('d-none')
+    } else if (low.classList.contains('activePick')) {
+        validationItem.classList.add('d-none')
     } else {
-        validationItem.classList.add('d-none');
+        validationItem.classList.remove('d-none')
     }
 }
