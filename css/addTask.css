@@ -12,7 +12,7 @@
 }
 .addtask-form-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 1rem;
     flex-direction: row;
     width: calc(100vw - 350px);
@@ -27,7 +27,9 @@
     gap: 3rem;
     justify-content: start;
     width: 100%;
-    margin-inline: 1rem;
+    margin-right: 1rem;
+    max-width: 500px;
+    min-width: 300px;
 }
 
 .form-item {
@@ -119,6 +121,7 @@ input {
 
 .right-form {
     width: 100%;
+    max-width: 500px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     display: flex;
@@ -245,6 +248,11 @@ input {
     align-items: center;
     gap: 1rem;
 }
+
+.subtask-item input {
+    margin-right: 0;
+}
+
 
 
 
@@ -599,9 +607,9 @@ input {
 
 /* PRIO BUTTONS END */
 
-/* 
-BTNS
-*/
+.submit {
+
+}
 
 .add-btn-wrapper {
     display: flex;
@@ -646,4 +654,68 @@ BTNS
     bottom: calc(30vh);
     transform: scale(1) !important;
     transition: all 250ms ease-in-out;
+}
+
+@media(max-width: 1170px) {
+    .addtask-form-container {
+        flex-direction: column;
+        
+    }
+
+    .vertical-divider {
+        display: none;
+    }
+
+    .left-form, .right-form {
+        max-width: unset;
+        margin: unset;
+
+        max-width: unset;
+        padding-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        justify-content: start;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .add-btn-wrapper {
+        display: none;
+    }
+    .taskarea {
+        width: 100vw;
+        min-width: 350px;
+        padding: 0;
+    }
+
+    .form-item {
+        min-width: 350px;
+    }
+
+}
+
+@media(max-width: 650px) {
+    .addtask-form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center!important;
+    }
+
+    .right-form {
+    max-width: unset;
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: start;
+    position: relative;
+    box-sizing: border-box;
+    }
+
+    .taskarea {
+        width: 100vw;
+        min-width: 350px;
+        padding: 0;
+    }
 }
