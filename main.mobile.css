@@ -1,4 +1,10 @@
 @media (max-width: 1170px) {
+    body{
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
     .left-bar {
         position: unset;
         top: unset;
@@ -12,9 +18,8 @@
     }
 
     .left-bar .main-menu {
-        flex-direction: grid;
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        flex-direction: unset;
         justify-content: space-evenly;
         align-items: stretch;
         flex: 1;
@@ -44,6 +49,8 @@
         width: unset;
         margin: unset;
         max-height: unset;
+        display: flex;
+        flex-direction: column;
     }
 
     .top-bar {
@@ -51,8 +58,9 @@
         width: unset;
     }
     #content {
+        flex-shrink: 1;
+        margin: 0;
         height: unset;
         width: unset;
-        margin: 0;
     }
 }
