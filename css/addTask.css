@@ -608,7 +608,7 @@ input {
 /* PRIO BUTTONS END */
 
 .submit {
-
+    cursor: pointer;
 }
 
 .add-btn-wrapper {
@@ -656,10 +656,41 @@ input {
     transition: all 250ms ease-in-out;
 }
 
+.mobile-submit {
+    display: none;
+}
+
+.mobile-HL {
+    display: none;
+}
+
 @media(max-width: 1170px) {
+    .mobile-HL {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        width: 90vw;
+        margin: auto;
+        margin-top: 1.5rem;
+    }
+
+    .mobile-submit {
+        display: unset;
+        position: absolute;
+        top: 14px;
+        right: 1rem;
+    }
+
+    .content-wrapper h1 {
+        display: block;
+        width: 90vw;
+        margin: auto;
+        margin-top: 1.5rem;
+    }
     .addtask-form-container {
-        flex-direction: column;
-        
+        display: block;
+        width: 90vw;
+        margin: auto;
     }
 
     .vertical-divider {
@@ -667,9 +698,7 @@ input {
     }
 
     .left-form, .right-form {
-        max-width: unset;
         margin: unset;
-
         max-width: unset;
         padding-bottom: 1.5rem;
         display: flex;
@@ -683,39 +712,23 @@ input {
     .add-btn-wrapper {
         display: none;
     }
+
     .taskarea {
-        width: 100vw;
+        display: unset;
         min-width: 350px;
-        padding: 0;
+        padding-left: 0;
+        overflow-y: scroll;
     }
 
     .form-item {
-        min-width: 350px;
+        min-width: 300px;
     }
 
-}
-
-@media(max-width: 650px) {
-    .addtask-form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center!important;
+    .notification {
+        left: calc(50% - 140px);
     }
 
-    .right-form {
-    max-width: unset;
-    padding-bottom: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    justify-content: start;
-    position: relative;
-    box-sizing: border-box;
-    }
-
-    .taskarea {
-        width: 100vw;
-        min-width: 350px;
-        padding: 0;
+    .active-note {
+        bottom: calc(50vh - 25px);
     }
 }
