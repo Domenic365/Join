@@ -277,6 +277,7 @@ function clearAll() {
     resetPrio();
     category.innerHTML = 'Choose Category<span>&lt;</span>';
     clearContacts(contactlist);
+    resetValidation();
 }
 
 function clearContacts(contactlist) {
@@ -300,7 +301,7 @@ function validateForm() {
 
 function titleValidation(title) {
     let validationItem = document.getElementById('title-validation');
-    if (title.value === '') {
+    if (title.value.trim() === '') {
         validationItem.classList.remove('d-none');
     } else {
         validationItem.classList.add('d-none');
@@ -309,7 +310,7 @@ function titleValidation(title) {
 
 function descriptionValidation(description) {
     let validationItem = document.getElementById('description-validation');
-    if (description.value === '') {
+    if (description.value.trim() === '') {
         validationItem.classList.remove('d-none');
     } else {
         validationItem.classList.add('d-none');
@@ -348,5 +349,13 @@ function prioValidation() {
         validationItem.classList.add('d-none')
     } else {
         validationItem.classList.remove('d-none')
+    }
+}
+
+function resetValidation() {
+    let validation = document.querySelectorAll('.invalid');
+
+    for (let i = 0; i<validation.length; i++) {
+        validation[i].classList.add('d-none');
     }
 }
