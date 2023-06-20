@@ -274,5 +274,36 @@
         font-size: 1.5rem;
     }
 
+    .logoStart {
+        position: absolute;
+        width: 80vw;
+        transform: translate(calc(50%), calc(50vh - 200px)) scale(1);
+    }
+    
+    .logomotion {
+        position: unset;
+        transform: translate(-2rem, -1rem) scale(0.3);
+        transition: all 150ms ease-out;
+    }
+}
 
+@media (max-width: 500px) {
+    .login-btn, .guest-btn {
+        font-size: 1.2rem;
+        box-sizing: border-box;
+        padding: 5px 16px;
+    }
+
+    .loginForm {
+        margin-inline: 12px;
+        border-radius: 15px;
+    }
+
+    .sign-up p {
+        font-size: 16px;
+    }
+
+    .sign-up {
+        left: calc(50% - 189px);
+    }
 }
