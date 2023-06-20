@@ -203,3 +203,20 @@ body {
 }
 
 /* BUTTONS END */
+
+.mobile-logo img{
+    max-height: 50px;
+}
+
+.mobile-logo {
+    display: none;
+}
+
+@media (max-width: 1170px) {
+    .mobile-logo {
+        display: unset;
+    }
+    .topbar-title {
+        display: none;
+    }
+}

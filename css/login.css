@@ -208,6 +208,10 @@
     font-weight: 600;
 }
 
+.topbar-title {
+    padding-left: 2rem;
+}
+
 .arrow {
     position: relative;
 }
