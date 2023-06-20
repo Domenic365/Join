@@ -68,14 +68,16 @@ button:hover {
 
 .box-task-design {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 13rem;
     max-height: 15.6rem;
     width: 15.6rem;
-    background-color: red;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     border-radius: 1.9rem;
     margin-bottom: 2rem;
+    padding: 1.5rem;
 }
 
 .box-title {
@@ -104,6 +106,7 @@ button:hover {
     overflow-y: auto;
     max-height: 45vh;
     overflow-x: hidden;
+    padding-right: 0.4rem;
 }
 
 /* Schmalen Scrollbalken für Webkit-Browser */
@@ -129,4 +132,68 @@ button:hover {
 
 .column-direction h2 {
     font-size: 1.2rem;
+}
+
+
+/*********** Taskbox Content ***********/
+
+.category h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin: 0rem 0.5rem 0 0.5rem;
+}
+
+.task-name h4 {
+    font-size: 1.2rem;
+}
+
+.task-description span {
+    font-size: 1rem;
+    color: gray;
+}
+
+.worker p {
+    font-size: 0.8rem;
+    color: white;
+    margin: 0;
+    padding: 0.8rem;
+    border-radius: 100%;
+    border: 2px solid white;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.6rem;
+    width: fit-content;
+    height: 2rem;
+    background-color: rgb(255, 98, 0);
+}
+
+.worker{
+    display: flex;
+    width: fit-content;
+    position: relative;
+}
+
+.worker p:not(:first-child) {
+    margin-left: -0.5rem; /*Schließt das erste Kind aus und wählt alle nachfolgenden <p>-Elemente aus.*/
+}
+
+.worker-a{
+    background-color: blue;
+ 
+}
+
+.worker-b{
+    background-color: red;
+
+}
+
+.worker-c{
+    background-color: green;
 }
