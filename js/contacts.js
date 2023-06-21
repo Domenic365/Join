@@ -172,6 +172,7 @@ function createModalArray(modalKind) {
  * displays the modal
  */
 function showContactModal(modalKind, contactNumber) {
+    debugger;
     let modalArray = createModalArray(modalKind);
     editContact(contactNumber); //-1 for clearing the input values
     modalArray.forEach((valueForHTML) => {
