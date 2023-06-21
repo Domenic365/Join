@@ -1,6 +1,7 @@
-header {
+.header-disign {
     display: flex;
     align-items: center;
+    margin: unset;
 }
 
 header h2 {
@@ -150,4 +151,81 @@ main p {
 
 .wd-lower-tasks {
     width: 50%;
+}
+
+/****** Responsive ******/
+@media (max-width:1570px) {
+    main h4 {
+        font-size: 2rem;
+    }
+
+    main h5 {
+        font-size: 3rem;
+    }
+
+}
+
+@media(max-width: 1450px) {
+    .right-content {
+        display: none;
+    }
+}
+
+@media(max-width:720px) {
+    header h2 {
+        font-size: 3rem;
+    }
+
+    header h3 {
+        font-size: 1.3rem;
+    }
+
+    main p {
+        font-size: 2rem;
+    }
+
+    main span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width:600px) {
+    .header-disign {
+        display: flex;
+        align-items: center;
+        /* margin: unset; */
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        height: unset !important;
+        /* height: calc(45vh - 90px); */
+        /* margin: 0rem 4rem 0rem 4rem; */
+    }
+
+   
+    header h3 {
+        margin-left: 0rem;
+        margin-top: -1rem;
+        font-size: 1.3rem;
+    }
+
+    .border-color {
+        border-left: unset;
+    }
+
+    .icons-container img {
+        max-height: 2.5rem;
+    }
+
+    .urgunt-task-position {
+        padding-right: 3rem;
+    }
+
+    .deadline-task-position {
+        padding-left: 3rem;
+    }
 }
