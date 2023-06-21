@@ -66,7 +66,7 @@ function generateForgotPassword() {
     <div class="loginForm arrow">
         <img src="./assets/img/icons/backArrow.svg" onclick="renderLogin()">
         <div class="loginHeader">
-            <h1>I forgot my password</h1>
+            <h1 class="pw-hl">I forgot my password</h1>
             <div class="h-divider"></div>
         </div>
         <form class="form">
