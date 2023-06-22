@@ -20,8 +20,7 @@ let categorys = [
     },
 ]
 
-
-function createNewTask() {
+function createNewTask(status = 'todo') {
     let title = document.getElementById('title-input').value;
     let description = document.getElementById('description').value;
     let category = document.querySelector('.pickedCat').innerText;
@@ -29,7 +28,7 @@ function createNewTask() {
     let contacts = getAssignedContacts();
     let date = document.getElementById('due-date').value;
     let prio = document.querySelector('.activePick').innerText;
-    let subtasks =  getSubtasks(); 
+    let subtasks =  getSubtasks();
 
     allTasks.push({
         'title' : title,
@@ -40,6 +39,7 @@ function createNewTask() {
         'dueDate': date,
         'prio' : prio,
         'subtasks' : subtasks,
+        'status' : status
     })
     console.log(allTasks);
 }
@@ -339,9 +339,6 @@ function showNotification() {
     setTimeout(() => {
         alert.classList.remove('active-note');
     }, 2000);
-
-    
-    
 }
 
 function titleValidation(title) {
@@ -389,7 +386,6 @@ function prioValidation() {
     let medium = document.getElementById('medium');
     let low = document.getElementById('low');
     let validationItem = document.getElementById('prio-validation');
-
     if (urgent.classList.contains('activePick')) {
         validationItem.classList.add('d-none');
         return true;
