@@ -33,7 +33,7 @@ function loadContactHTML(contact, currentContact) {
                 <div class="contactCardEmail">${contact.email}</div>
         </div>
     </div>
-  `;
+    `;
 }
 
 /**

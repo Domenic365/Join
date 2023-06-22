@@ -1,10 +1,7 @@
 "use strict";
+let allTasks = []
 
-let contactList = new ContactList();
-console.log(contactList);
-
-
-let task = {
+let newTask = {
     title: 'Design',
     description: 'sdogfhasdliguhs',
     category: '',
@@ -15,7 +12,6 @@ let task = {
     subtasks: [],
 }
 
-let subtasks = [];
 let categorys = [
     {
         name: 'Marketing',
@@ -34,6 +30,30 @@ let categorys = [
         color: 'pink'
     },
 ]
+
+
+function createNewTask() {
+    let title = document.getElementById('title-input').value;
+    let description = document.getElementById('description').value;
+    let category = document.querySelector('.pickedCat').innerText;
+    let categoryColor = document.querySelector('.pickedCat > div').className;
+    let contacts = getAssignedContacts();
+    let date = document.getElementById('due-date').value;
+    let prio = document.querySelector('.activePick').innerText;
+    let subtasks = document.querySelectorAll('.subtask-list > li > label') // richtig auslesen (outerText)
+}
+
+function getAssignedContacts() {
+    let contacts = document.querySelectorAll('#contact-selection > .contact-item'); // alle, die mit "checked" input sind
+    let contactArray = [];
+    for (let i = 0; i<contacts.length -1; i++) {
+        if (contacts[i].lastChild.childNodes[1].checked == true) {
+            contactArray.push(contacts[i].innerText);
+        }
+    }
+    console.log(contactArray);
+
+}
 
 function renderCategorys() {
     let catContainer = document.getElementById('category-selection');
