@@ -1,17 +1,6 @@
 "use strict";
 let allTasks = []
 
-let newTask = {
-    title: 'Design',
-    description: 'sdogfhasdliguhs',
-    category: '',
-    catColor: 'blue',
-    assignedTo: [],
-    deadline: 'februar',
-    prio: 'urgent',
-    subtasks: [],
-}
-
 let categorys = [
     {
         name: 'Marketing',
@@ -40,7 +29,29 @@ function createNewTask() {
     let contacts = getAssignedContacts();
     let date = document.getElementById('due-date').value;
     let prio = document.querySelector('.activePick').innerText;
-    let subtasks = document.querySelectorAll('.subtask-list > li > label') // richtig auslesen (outerText)
+    let subtasks =  getSubtasks(); 
+
+    allTasks.push({
+        'title' : title,
+        'description' : description,
+        'category' : category,
+        'catColor' : categoryColor,
+        'assignedTo' : contacts,
+        'dueDate': date,
+        'prio' : prio,
+        'subtasks' : subtasks,
+    })
+    console.log(allTasks);
+}
+
+function getSubtasks() {
+    let subtaskArray = [];
+    let subtasks = document.querySelectorAll('.subtask-list > li > label');
+    for (let i = 0; i<subtasks.length; i++) {
+        const sub = subtasks[i];
+        subtaskArray.push(sub.outerText);
+    }
+    return subtaskArray;
 }
 
 function getAssignedContacts() {
@@ -51,8 +62,7 @@ function getAssignedContacts() {
             contactArray.push(contacts[i].innerText);
         }
     }
-    console.log(contactArray);
-
+    return contactArray;
 }
 
 function renderCategorys() {
@@ -318,14 +328,9 @@ function validateForm() {
     let prioStat = prioValidation();
     
     if (titleStat && descriptionStat && catStat && dateStat && prioStat) {
-        addTaskToStorage();
-        
+        createNewTask();
+        showNotification();
     }
-}
-
-function addTaskToStorage() {
-    showNotification();
-    // inhalte auslesen und 
 }
 
 function showNotification() {
