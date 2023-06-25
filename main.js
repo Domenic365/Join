@@ -14,6 +14,12 @@ async function init() {
 
 function loadEventlistener() {
     openModalButton.addEventListener("click", (e) => {
-      modal.showModal();
+        modal.showModal();
+    });
+
+    closeModalButton.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            modal.close();
+        });
     });
 }
