@@ -94,7 +94,7 @@ body {
     background-color: #091931;
 }
 
-.aligning{
+.aligning {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,6 +152,16 @@ body {
 }
 /* Content-Area END*/
 
+/* MODAL START */
+
+dialog {
+    border-style: none;
+    padding: unset;
+    background-color: unset;
+}
+
+/* MODAL END */
+
 /* BUTTONS */
 
 .main-btn {
@@ -169,6 +179,8 @@ body {
     font-size: 21px;
     line-height: 120%;
     color: #ffffff;
+    height: unset;
+    width: unset;
 }
 
 .main-btn:hover {
@@ -204,7 +216,7 @@ body {
 
 /* BUTTONS END */
 
-.mobile-logo img{
+.mobile-logo img {
     max-height: 50px;
 }
 
