@@ -1,11 +1,44 @@
 @media (max-width: 1170px){
-    .selectedContact{
-        display: none;
-    }
     .allContacts{
         height: 100%;
     }
     .contacts{
         height: 100%;
+    }
+}
+
+@media (max-width: 950px){
+    .contactsVector{
+        display: none;
+    }
+
+    .contactsText{
+        display: none;
+    }
+
+    .frame105{
+        flex-direction: column;
+    }
+
+    .frame104{
+        align-items: center !important;
+    }
+
+    .frame81{
+        align-items: center !important;
+    }
+
+    .floatingContact{
+        align-items: center;
+    }
+
+    #contactName{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 850px) {
+    .frame106{
+        flex-direction: column;
     }
 }
