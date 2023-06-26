@@ -51,8 +51,9 @@ function renderContacts() {
 
 
 /**
+ * this function shows or hides the add subtask buttons
  * 
- * @param {string} formElement - 
+ * @param {string} formElement - handles the "add subtask" buttons visibility
  */
 function changeFormIcons(formElement) {
     if (formElement === 'subtask') {
@@ -63,12 +64,15 @@ function changeFormIcons(formElement) {
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.remove('d-none');
         subtaskInput.focus();
-    } else if (formElement === 'contact') {
-        
     }
 }
 
 
+/**
+ * this function stops the input of form element
+ * 
+ * @param {string} formElement - parameter to show which element on website is triggered
+ */
 function cancelInput(formElement) {
     if (formElement == 'subtask') {
         let plus = document.querySelector('#subtask-placeholder span');
@@ -101,6 +105,9 @@ function cancelInput(formElement) {
     }   
 }
 
+/**
+ * function to show input field for new contact invite
+ */
 function inviteContact() {
     toggleAssigning();
     let placeholder = document.getElementById('contacts-input');
@@ -113,6 +120,9 @@ function inviteContact() {
     input.focus();
 }
 
+/**
+ * function to create and render new category
+ */
 function createCategory() {
     toggleDropdown();
     let placeholder = document.getElementById('category-input');
@@ -128,6 +138,11 @@ function createCategory() {
     input.focus();
 }
 
+/**
+ * this function shows the picked color for new category item
+ * 
+ * @param {string} color - is var for 1 to 1 comparison of picked color
+ */
 function pickCatColor(color) {
     let colorlist = document.querySelectorAll('.category-colors div')
     for (let i = 0; i<colorlist.length; i++) {
@@ -138,6 +153,9 @@ function pickCatColor(color) {
     pickedColor.classList.add('selectedColor');
 }
 
+/**
+ * function to save new category
+ */
 function saveNewCat() {
     let contactDD = document.querySelector('.contact-dropdown');
     let catTitle = document.querySelector('.addCategoryInput').value;
@@ -153,6 +171,9 @@ function saveNewCat() {
     cancelInput('cat');
 }
 
+/**
+ * this function is called after saving new category. its job is to show the new category as picked category
+ */
 function showNewCat() {
     let element = categorys[categorys.length -1];
     let placeholder = document.getElementById('category-input');
@@ -162,6 +183,11 @@ function showNewCat() {
     placeholder.classList.add('cat-picked');
 }
 
+/**
+ * this function sets the picked prio button on active styles
+ * 
+ * @param {string} pick - with name of the picked prio button color
+ */
 function pickPrio(pick) {
     resetPrio();
     let button = document.querySelector(`.${pick}`);
@@ -186,6 +212,9 @@ function pickPrio(pick) {
     }
 }
 
+/**
+ * function to reset the prio buttons activeness
+ */
 function resetPrio() {
     let urgent = document.querySelector('.prio-buttons .urgent');
     let medium = document.querySelector('.prio-buttons .medium');
@@ -195,10 +224,16 @@ function resetPrio() {
     low.classList = 'low';
 }
 
+/**
+ * function to change the placeholder color when date is picked
+ */
 function dateColor() {
     document.querySelector('#due-date').style.color = "black";
 }
 
+/**
+ * function to reset the whole add task form
+ */
 function clearAll() {
     let title = document.getElementById('title-input');
     let description = document.getElementById('description'); 
@@ -217,12 +252,20 @@ function clearAll() {
     resetValidation();
 }
 
+/**
+ * function to uncheck the checkboxes of contactassigning
+ * 
+ * @param {DOMTokenList} contactlist - All contact items
+ */
 function clearContacts(contactlist) {
     contactlist.forEach(element => {
         element.checked = false;
     });
 }
 
+/**
+ * function to toggle category dropdown
+ */
 function toggleDropdown() {
     renderCategorys();
     const dropdownArrow = document.querySelector('#category-input span');
@@ -239,6 +282,9 @@ function toggleDropdown() {
     }
 }
 
+/**
+ * this function renders all categorys of categorys-array
+ */
 function renderCategorys() {
     let catContainer = document.getElementById('category-selection');
     
