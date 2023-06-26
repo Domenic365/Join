@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Json for all tasks
+ */
 let allTasks = [];
 
 /**
@@ -32,6 +35,7 @@ function createNewTask(status = 'todo') {
 };
 
 /**
+ * This function collects all subtasks from input an pushes it into an array of subtasks
  * 
  * @returns array with Subtasks to place in allTasks json
  */
