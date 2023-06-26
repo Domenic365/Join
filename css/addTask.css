@@ -10,14 +10,6 @@
     gap: 2rem;
     height: 100%;
 }
-.addtask-form-container {
-    display: flex;
-    /* justify-content: center; */
-    gap: 1rem;
-    flex-direction: row;
-    width: calc(100vw - 350px);
-    margin-bottom: 1rem;
-}
 
 .left-form {
     padding-top: 1.5rem;
@@ -54,34 +46,11 @@
     border: 0.3px solid lightgray;
 }
 
-.addtask-form-container input {
-    height: 50px;;
-    border-radius: 8px;
-    padding-left: 1rem;
-    border: 2px solid #d1d1d1;
-    font-size: 1.2rem;
-    width: 100%;
-}
-
-.addtask-form-container label {
-    font-size: 1.2rem;
-
-}
-
-.addtask-form-container input::placeholder {
-    color: #d1d1d1;
-}
 
 #contact-selection li img {
     fill: black;
 }
 
-.addtask-form-container input[type="date"] {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #d1d1d1;
-    padding-right: 1rem;
-    width: 100%;
-}
 
 .date-input {
     height: 50px;;
@@ -92,31 +61,6 @@
 input {
     width: 100%;
     box-sizing: border-box;
-}
-
-.addtask-form-container option {
-    height: 50px;
-    border-radius: 8px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border: 2px solid #d1d1d1;
-    font-size: 1.2rem;
-}
-
-.addtask-form-container textarea {
-    height: 100px;
-    border-radius: 8px;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.addtask-form-container textarea::placeholder {
-    color: #d1d1d1;
-    font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .right-form {
@@ -142,190 +86,9 @@ input {
 
 .selectedColor {
     box-shadow: 0px 4px 4px 0px #00000040;
-    
-}
-
-/* DROPDOWNs*/
-
-.dropdown {
-    position: relative;
-    width: 100%;
-}
-
-.form-title {
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-}
-
-.dropdown-placeholder {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    font-size: 1.2rem;
-    height: 50px;;
-    background-color: white;
-    align-items: center;
-    box-sizing: border-box;
-    border: 2px solid #d1d1d1;
-    border-radius: 8px;
-    margin-right: 0;
-    cursor: pointer;
-    color: lightgray;
-}
-
-.dropdown-placeholder div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.cat-picked {
-    color: black;
-}
-
-.dropdown-placeholder span {
-    font-weight: bold;
-    color: black;
-    
-}
-
-.active-arrow {
-    transform: rotate(-90deg);
-    transition: all 200ms ease-in-out;
-}
-
-.item-selection {
-    position: absolute;
-    top: 77px;
-    left: 0;
-    background-color: white;
-    width: 100%;
-    border-right: 2px solid #d1d1d1;
-    border-left: 2px solid #d1d1d1;
-    border-bottom: 2px solid #d1d1d1;
-    box-sizing: border-box;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9;
-}
-
-.active {
-    opacity: 1 !important;
-    transition: all 150ms ease-in-out;
-    pointer-events: all !important;
-}
-
-.item-selection ul {
-    padding: 0;
-    overflow-y: auto;
-    max-height: 180px;
-    margin: 0;
-}
-
-.item-selection ul li {
-    list-style: none;
-    padding: 1rem 1rem;
-    border-bottom: 1px solid #d1d1d1;
-    font-size: 1.2rem;
-}
-
-.item-selection ul li:hover {
-    cursor: pointer;
-    background-color: #d1d1d1;
-}
-
-.item-selection ul li:last-child{
-    border-bottom: none;
-}
-
-.form-title {
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-}
-
-.subtask-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.subtask-item input {
-    margin-right: 0;
 }
 
 
-
-
-/* Contacts Dropdown */
-
-.contact-dropdown {
-    position: relative;
-    width: 100%;
-}
-
-.contacts-selection {
-    position: absolute;
-    top: 77px;
-    left: 0;
-    background-color: white;
-    width: 100%;
-    border-right: 2px solid #d1d1d1;
-    border-left: 2px solid #d1d1d1;
-    border-bottom: 2px solid #d1d1d1;
-    box-sizing: border-box;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 9;
-}
-
-.contacts-selection #contact-selection {
-    padding: 0;
-    overflow-y: auto;
-    max-height: 60px;
-    margin: 0;
-    overflow-x: hidden;
-}
-
-.m-top {
-    margin-top: 5rem;
-}
-
-#layerForContactDD, #layerForCats {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-}
-
-.item-selection, .contacts-selection {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-#contacts-input {
-    position: relative;
-    width: 100%;
-}
-
-#contact-selection::-webkit-scrollbar {
-    width: 8px;
-}
-
-#contact-selection::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: rgb(41,171,226);
-}
-
-#category-selection::-webkit-scrollbar {
-    width: 8px;
-}
-
-#category-selection::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: rgb(41,171,226);
-}
 
 .inviteContactBtn {
     display: flex;
@@ -484,6 +247,7 @@ input {
     cursor: pointer;
 }
 
+/* CATEGORY COLORS*/
 .purple {
     width: 20px;
     height: 20px;
@@ -526,6 +290,7 @@ input {
     background-color: #0038FF;
 }
 
+/* CATEGORY COLORS END */
 
 /* FORM-STYLING END*/
 
@@ -620,115 +385,4 @@ input {
     z-index: 9;
     bottom: 0;
     left: 1.5rem;
-}
-
-/* form validation */
-#category-validation {
-    margin-top: .5rem;
-}
-
-.invalid {
-    color: red;
-    font-style: italic;
-}
-
-/* Notification */
-.notification {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background-color: #091931;
-    position: absolute;
-    color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    width: 250px;
-    left: calc(50%);
-    bottom: -100px;
-    transform: scale(0);
-    transition: all 250ms ease-in-out;
-}
-
-.active-note {
-    bottom: calc(30vh);
-    transform: scale(1) !important;
-    transition: all 250ms ease-in-out;
-}
-
-.mobile-submit {
-    display: none;
-}
-
-.mobile-HL {
-    display: none;
-}
-
-@media(max-width: 1170px) {
-    .mobile-HL {
-        display: block;
-        font-size: 1rem;
-        
-        width: 90vw;
-        margin: auto;
-        margin-top: 1.5rem;
-    }
-
-    .mobile-submit {
-        display: unset;
-        position: absolute;
-        top: 14px;
-        right: 1rem;
-    }
-
-    .content-wrapper h1 {
-        display: block;
-        width: 90vw;
-        margin: auto;
-        margin-top: 1.5rem;
-    }
-    .addtask-form-container {
-        display: block;
-        width: 90vw;
-        margin: auto;
-    }
-
-    .vertical-divider {
-        display: none;
-    }
-
-    .left-form, .right-form {
-        margin: unset;
-        max-width: unset;
-        padding-bottom: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        justify-content: start;
-        position: relative;
-        box-sizing: border-box;
-    }
-
-    .add-btn-wrapper {
-        display: none;
-    }
-
-    .taskarea {
-        display: unset;
-        min-width: 350px;
-        padding-left: 0;
-        overflow-y: scroll;
-    }
-
-    .form-item {
-        min-width: 300px;
-    }
-
-    .notification {
-        left: calc(50% - 140px);
-    }
-
-    .active-note {
-        bottom: calc(50vh - 25px);
-    }
 }
