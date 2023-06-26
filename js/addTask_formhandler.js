@@ -19,6 +19,9 @@ let categorys = [
     },
 ];
 
+/**
+ * function to toggle dropdown of contact assigning
+ */
 function toggleAssigning() {
     const dropdownArrow = document.querySelector('#contacts-input span');
     const selection = document.querySelector('.contacts-selection');
@@ -35,6 +38,9 @@ function toggleAssigning() {
     // renderContacts();
 }
 
+/**
+ * function to render contacts in dropdown list
+ */
 function renderContacts() {
     let list = document.getElementById('contact-selection');
     list.innerHTML = '';
@@ -44,7 +50,10 @@ function renderContacts() {
 }
 
 
-
+/**
+ * 
+ * @param {string} formElement - 
+ */
 function changeFormIcons(formElement) {
     if (formElement === 'subtask') {
         let btns = document.querySelector('.addTaskBtns');

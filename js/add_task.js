@@ -1,6 +1,12 @@
 "use strict";
 let allTasks = [];
 
+/**
+ * This function creates a new Task by collecting the form data and pushs it into the allTasks JSON
+ * 
+ * @param {string} status - is an optional parameter to sort the task in the right kanban column
+ * 
+ */
 function createNewTask(status = 'todo') {
     let title = document.getElementById('title-input').value;
     let description = document.getElementById('description').value;
@@ -25,6 +31,10 @@ function createNewTask(status = 'todo') {
     console.log(allTasks);
 };
 
+/**
+ * 
+ * @returns array with Subtasks to place in allTasks json
+ */
 function getSubtasks() {
     let subtaskArray = [];
     let subtasks = document.querySelectorAll('.subtask-list > li > label');
@@ -35,6 +45,11 @@ function getSubtasks() {
     return subtaskArray;
 }
 
+/**
+ * This function is responsible to deliver the contacts, whose inputs are checked to assign to new task
+ * 
+ * @returns array with checked contacts to assign the task to
+ */
 function getAssignedContacts() {
     let contacts = document.querySelectorAll('#contact-selection > .contact-item'); // alle, die mit "checked" input sind
     let contactArray = [];
@@ -46,6 +61,12 @@ function getAssignedContacts() {
     return contactArray;
 }
 
+
+/**
+ * This function puts the picked color and the name of new category as spaceholde in the category input
+ * 
+ * @param {string} value - 
+ */
 function chosenCategory(value) {
     let color = colorSearch(value);
     let dropdownContent = document.getElementById('category-input');
@@ -54,6 +75,12 @@ function chosenCategory(value) {
     toggleDropdown();
 }
 
+/**
+ * function to get the picked color of new category
+ * 
+ * @param {string} value - to identify picked color
+ * @returns - picked color
+ */
 function colorSearch(value) {
     for (let i = 0; i < categorys.length; i++) {
         const element = categorys[i];
@@ -62,7 +89,9 @@ function colorSearch(value) {
         }
     }
 }
-
+/**
+ * this function takes input-value of subtask input and adds it to subtask list
+ */
 function saveSubtask() {
     let task = document.getElementById('subtask-value');
     let list = document.getElementById('subtask-overview');
@@ -77,6 +106,10 @@ function saveSubtask() {
     cancelInput('subtask');
 }
 
+/**
+ * this function starts the form validation and if form is valid, shows success-notifation and 
+ * calls  the actual function to create the task
+ */
 function validateForm() {
     let title = document.getElementById('title-input');
     let description = document.getElementById('description');
@@ -87,13 +120,15 @@ function validateForm() {
     let catStat = catValidation(category);
     let dateStat = dateValidation(date);
     let prioStat = prioValidation();
-    
     if (titleStat && descriptionStat && catStat && dateStat && prioStat) {
         createNewTask();
         showNotification();
     }
 }
 
+/**
+ * function to show notification with 2 sec timeout
+ */
 function showNotification() {
     let alert = document.getElementById('notification');
     alert.classList.add('active-note');
@@ -102,6 +137,13 @@ function showNotification() {
     }, 2000);
 }
 
+
+/**
+ * this function validates the title input in addtask form.
+ * 
+ * @param {element} title - element node of title-input in addtask-form
+ * @returns true if value isnt empty after trim()
+ */
 function titleValidation(title) {
     let validationItem = document.getElementById('title-validation');
     if (title.value.trim() === '') {
@@ -112,6 +154,12 @@ function titleValidation(title) {
     }
 }
 
+/**
+ * this function validates the description of new task
+ * 
+ * @param {element} description - Dom-element of textarea
+ * @returns true if description exists
+ */
 function descriptionValidation(description) {
     let validationItem = document.getElementById('description-validation');
     if (description.value.trim() === '') {
@@ -122,6 +170,12 @@ function descriptionValidation(description) {
     }
 }
 
+/**
+ * this funtion validates the category of new task item
+ * 
+ * @param {element} category - dom element of category dropdown
+ * @returns - true, if category is set.
+ */
 function catValidation(category) {
     let validationItem = document.getElementById('category-validation');
     if (category.innerHTML == 'Choose Category<span>&lt;</span>') {
@@ -132,6 +186,12 @@ function catValidation(category) {
     }
 }
 
+/**
+ * function to see if user picked a date
+ * 
+ * @param {element} date - dom element of due date input
+ * @returns true if date is set.
+ */
 function dateValidation(date) {
     let validationItem = document.getElementById('date-validation');
     if (date.value == '') {
@@ -142,6 +202,11 @@ function dateValidation(date) {
     }
 }
 
+/**
+ * validation function to check if priority button is picked
+ * 
+ * @returns true if a prio button is picked. if not, message of required input is shown
+ */
 function prioValidation() {
     let urgent = document.getElementById('urgent');
     let medium = document.getElementById('medium');
@@ -161,6 +226,10 @@ function prioValidation() {
     }
 }
 
+
+/**
+ * function to reset the validation items. if this function is called, no "invalid"-message will be shown
+ */
 function resetValidation() {
     let validation = document.querySelectorAll('.invalid');
     for (let i = 0; i<validation.length; i++) {
