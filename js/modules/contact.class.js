@@ -1,4 +1,4 @@
-class Contact {
+class Contact extends contactHTMLTags {
     name;
     email;
     phone;
@@ -15,6 +15,7 @@ class Contact {
      * @param {number} phone
      */
     constructor(name, email, phone) {
+        super();
         this.name = name;
         this.email = email;
         this.phone = phone;

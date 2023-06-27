@@ -1,4 +1,4 @@
-class ContactList {
+class ContactList extends contactHTMLTags {
     contactList = [
         new Contact(
             "Rainer Winkler",
@@ -54,6 +54,7 @@ class ContactList {
     ];
 
     constructor() {
+        super();
         this.sortContacts();
     }
 
