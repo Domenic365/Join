@@ -1,4 +1,33 @@
 "use strict";
+
+const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
+const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
+
+/**
+ * This function is used to save data in remoteStorage
+ * 
+ * @param {string} key - key or name of the value to set
+ * @param {*} value - value of the item
+ * @returns - fetch to save data as string in remoteStorage
+ */
+
+async function setItem(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+    .then(res => res.json());
+}
+
+/**
+ * This function is used to load data from remoteStorage
+ * 
+ * @param {string} key - key of data you want to load
+ * @returns value of key as json
+ */
+async function getItem(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url).then(res => res.json());
+}
+
 /**
  * Json for all tasks
  */
@@ -31,7 +60,7 @@ function createNewTask(status = 'todo') {
         'subtasks' : subtasks,
         'status' : status
     })
-    console.log(allTasks);
+    setItem('allTasks', allTasks);
 };
 
 /**
