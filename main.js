@@ -13,7 +13,7 @@ async function init() {
 }
 
 function loadEventlistener() {
-    openModalButton.addEventListener("click", (e) => {
+    openModalButton.addEventListener("click", async (e) => {
         modal.showModal();
     });
 
