@@ -2,6 +2,7 @@
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: calc(45vh - 90px);
     margin: 0rem 4rem 0rem 4rem;
 }
@@ -186,7 +187,6 @@ button:hover {
 
 .worker-a{
     background-color: blue;
- 
 }
 
 .worker-b{
