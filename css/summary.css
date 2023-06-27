@@ -163,6 +163,9 @@ main p {
         font-size: 3rem;
     }
 
+    .header-disign {
+        margin-top: -3rem;
+    }
 }
 
 @media(max-width: 1450px) {
@@ -196,6 +199,7 @@ main p {
         /* margin: unset; */
         flex-direction: column;
         margin-bottom: 3rem;
+        margin-top: unset;
     }
 
     header {
@@ -206,13 +210,11 @@ main p {
         /* margin: 0rem 4rem 0rem 4rem; */
     }
 
-
     header h3 {
         margin-left: 0rem;
         margin-top: -1rem;
         font-size: 1.3rem;
         border-bottom: 0.3rem solid rgb(42, 171, 226);
-
     }
 
     .border-color {
