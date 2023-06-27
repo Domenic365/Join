@@ -130,67 +130,6 @@ function insertIntoHTML(id, innerOfHTML) {
     document.getElementById(id).innerHTML = innerOfHTML;
 }
 
-/**
- *
- * @param {string} modalKind the name of modal to load
- * @returns the html data to edit in the modal
- */
-function createModalArray(modalKind) {
-    switch (modalKind) {
-        case "addNewContact":
-            return (moadlInfos = [
-                { id: "addContactOverlay", htmlValue: "Add Contact" },
-                {
-                    id: "tasksAreBetterWithATeam",
-                    htmlValue: "Tasks are better with a team!",
-                },
-                { id: "contactButtonName", htmlValue: "Create Contact" },
-                {
-                    id: "frame79OpenCard",
-                    htmlValue:
-                        '<img src="../img/icons/whiteHuman.svg" alt="human">',
-                },
-            ]);
-        case "editContact":
-            return (modalInfos = [
-                { id: "addContactOverlay", htmlValue: "Edit Contact" },
-                { id: "tasksAreBetterWithATeam", htmlValue: "" },
-                { id: "contactButtonName", htmlValue: "Save" },
-                {
-                    id: "frame79OpenCard",
-                    htmlValue:
-                        '<div id="shortNameOpenCard" class="AM amBigNameAbbrevation"></div>',
-                },
-            ]);
-        default:
-            window.alert("Fehler im Modal Array");
-            break;
-    }
-}
-
-/**
- * displays the modal
- */
-function showContactModal(modalKind, contactNumber) {
-    let modalArray = createModalArray(modalKind);
-    editContact(contactNumber); //-1 for clearing the input values
-    modalArray.forEach((valueForHTML) => {
-        insertIntoHTML(valueForHTML.id, valueForHTML.htmlValue);
-    });
-    if (modalKind === "editContact") {
-        document.getElementById("shortNameOpenCard").innerHTML =
-            contacts.contactList[contactNumber].firstLetters;
-    }
-    document.getElementById("forCenterOverlay").classList.remove("dpNone");
-}
-
-/**
- *
- * @param {event} event to prevent close on everything
- */
-function closeContactModal() {
-    document.getElementById("forCenterOverlay").classList.add("dpNone");
-}
 
 /**
  *
@@ -198,9 +137,12 @@ function closeContactModal() {
  */
 function addNewContact(event) {
     event.preventDefault();
+    let form = document.getElementById("form")
     let name = document.getElementById("newContactName").value;
     let phone = document.getElementById("newContactPhone").value;
     let email = document.getElementById("newContactMail").value;
+    form.reset();
+    modal.close();
     contacts.contactList.push(new Contact(name, email, phone));
     updateContacts();
     document.getElementById("forCenterOverlay").classList.add("dpNone");
@@ -212,63 +154,6 @@ function addNewContact(event) {
 function updateContacts() {
     contacts.sortContacts();
     loadContactCards();
-}
-
-/**
- *
- * @param {number} contactNumber the position in the contacts list
- */
-function editContact(contactNumber) {
-    let contact = contacts.contactList[contactNumber];
-    let contactInputValues;
-    let clearInputs = -1;
-    let contactInputIds = createInputIdArray();
-    if (contactNumber == clearInputs) {
-        contactInputValues = ["", "", ""];
-        changeOnClickInButton(`addNewContact(event)`);
-        document.getElementById("frame79OpenCard").style.backgroundColor =
-            "#d1d1d1";
-    } else {
-        contactInputValues = [contact.name, contact.phone, contact.email];
-        changeOnClickInButton(`saveContact(${contactNumber})`);
-        document.getElementById("frame79OpenCard").style.backgroundColor =
-            contact.color;
-    }
-    editInputValues(contactInputValues, contactInputIds);
-}
-
-/**
- *
- * @param {Array} contactInputValues
- * @param {Array} contactInputIds
- */
-function editInputValues(contactInputValues, contactInputIds) {
-    for (let input = 0; input < contactInputValues.length; input++) {
-        const contactValue = contactInputValues[input];
-        const inputId = contactInputIds[input];
-        document.getElementById(inputId).value = contactValue;
-    }
-}
-
-function createInputIdArray() {
-    return ["newContactName", "newContactPhone", "newContactMail"];
-}
-
-/**
- *
- * @param {Number} contactNumber the position in the contacts list
- */
-function saveContact(contactNumber) {
-    let contact = contacts.contactList[contactNumber];
-    let inputIds = createInputIdArray();
-    contact.name = document.getElementById(inputIds[0]).value;
-    contact.phone = document.getElementById(inputIds[1]).value;
-    contact.email = document.getElementById(inputIds[2]).value;
-    contact.getFirstLetters();
-    contact.getSortingLetter();
-    closeContactModal();
-    updateContacts();
-    loadSingleContact(contactNumber);
 }
 
 /**

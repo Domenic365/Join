@@ -201,9 +201,12 @@ dialog {
     border: 2px solid #2a3647;
     border-radius: 10px;
     color: #2a3647;
+    background-color: #ffffff;
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
+    height: unset;
+    width: unset;
 }
 
 .secondary-btn:hover {
