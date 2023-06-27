@@ -7,7 +7,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
  * This function is used to save data in remoteStorage
  * 
  * @param {string} key - key or name of the value to set
- * @param {*} value - value of the item
+ * @param {JSON Array} value - value of the item
  * @returns - fetch to save data as string in remoteStorage
  */
 
@@ -28,10 +28,14 @@ async function getItem(key) {
     return fetch(url).then(res => res.json());
 }
 
-/**
- * Json for all tasks
- */
-let allTasks = [];
+
+let allTasks = getItem('allTasks');
+
+async function convertToJsonArray(allTasksString) {
+    allTasks = JSON.parse(allTasksString)
+    console.log(allTasks);
+}
+
 
 /**
  * This function creates a new Task by collecting the form data and pushs it into the allTasks JSON
@@ -50,15 +54,15 @@ function createNewTask(status = 'todo') {
     let subtasks =  getSubtasks();
 
     allTasks.push({
-        'title' : title,
-        'description' : description,
-        'category' : category,
-        'catColor' : categoryColor,
-        'assignedTo' : contacts,
-        'dueDate': date,
-        'prio' : prio,
-        'subtasks' : subtasks,
-        'status' : status
+        "title" : title,
+        "description" : description,
+        "category" : category,
+        "catColor" : categoryColor,
+        "assignedTo" : contacts,
+        "dueDate": date,
+        "prio" : prio,
+        "subtasks" : subtasks,
+        "status" : status
     })
     setItem('allTasks', allTasks);
 };

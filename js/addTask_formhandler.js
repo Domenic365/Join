@@ -1,7 +1,5 @@
-"use strict";
-
-const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
+// const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
+// const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
 
 /**
  * This function is used to save data in remoteStorage
