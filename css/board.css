@@ -199,17 +199,27 @@ button:hover {
     background-color: green;
 }
 
+/*********** Responsive Area ***********/
+
 @media (max-width:1500px) {
     .box-task-design {
         min-height: 11rem;
         max-height: 15.6rem;
         width: 11rem;
     }
+
+    .box-overflow {
+        overflow-y: unset;
+        max-height: unset;
+    }
 }
-@media (max-width: 1390px){
-    .board-container{
+
+@media (max-width: 1390px) {
+    .board-container {
         flex-direction: column;
         align-items: center;
+        overflow-y: scroll;
+        height: calc(65vh - 90px);
     }
 
     .box-task-design {
@@ -217,14 +227,10 @@ button:hover {
         max-height: 15.6rem;
         width: 25.6rem;
     }
-    
-    .box-overflow{
-        overflow-y: unset !important;
-    }
 }
 
-@media (max-width: 540px){
-    .box-task-design{
+@media (max-width: 540px) {
+    .box-task-design {
         min-height: 15.6rem;
         max-height: 15.6rem;
         width: 15.6rem;
