@@ -56,6 +56,7 @@ class ContactList extends contactHTMLTags {
     constructor() {
         super();
         this.sortContacts();
+        this.addIntoHTML("contactlist");
     }
 
     sortContacts() {
