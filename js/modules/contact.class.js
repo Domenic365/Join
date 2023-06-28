@@ -1,4 +1,4 @@
-class Contact extends ContactHTMLTags {
+class Contact {
     /**contact data */
     name;
     email;

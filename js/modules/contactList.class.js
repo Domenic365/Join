@@ -1,4 +1,4 @@
-class ContactList extends ContactHTMLTags {
+class ContactList {
     contactList = [
         new Contact(
             "Rainer Winkler",
@@ -74,9 +74,9 @@ class ContactList extends ContactHTMLTags {
         });
     }
 
-    loadContactsToHTML(){
-        this.contactList.forEach(contact => {
-            this.htmlElement.appendChild(contact.htmlElement)
+    loadContactsToHTML() {
+        this.contactList.forEach((contact) => {
+            this.htmlElement.appendChild(contact.htmlElement);
         });
     }
 }
