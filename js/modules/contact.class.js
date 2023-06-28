@@ -20,7 +20,7 @@ class Contact extends HTMLElement {
     firstLettersHTML = document.createElement("div");
     divForNameAndEmail = document.createElement("div");
     nameHTML = document.createElement("div");
-    emailHTML = document.createElement("div");
+    emailHTML = document.createElement("a");
 
     /**
      *
@@ -67,7 +67,7 @@ class Contact extends HTMLElement {
         this.divForNameAndEmail.appendChild(this.emailHTML);
     }
 
-    loadCSS(){
+    loadCSS() {
         this.firstLettersHTML.classList.add("contactCardFirstLetters");
         this.firstLettersHTML.style.backgroundColor = this.color;
         this.divForNameAndEmail.classList.add("contactCardDivForNameAndEmail");
@@ -75,10 +75,11 @@ class Contact extends HTMLElement {
         this.emailHTML.classList.add("contactCardEmail");
     }
 
-    loadValues(){
+    loadValues() {
         this.firstLettersHTML.innerText = this.firstLetters;
         this.nameHTML.innerText = this.name;
-        this.emailHTML.innerText = this.email
+        this.emailHTML.innerText = this.email;
+        this.emailHTML.href = /*html*/ `mailto:${this.email}`;
     }
 }
 

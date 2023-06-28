@@ -1,4 +1,4 @@
-:root{
+:root {
     --ellipse: 42px;
 }
 
@@ -8,6 +8,12 @@ contact-card {
     gap: 2.1875rem;
     border-radius: 10px;
     background: #fff;
+    cursor: pointer;
+}
+
+contact-card:hover {
+    background: #2a3647;
+    color: white;
 }
 
 .contactCardFirstLetters {
@@ -18,10 +24,27 @@ contact-card {
     /*Text*/
     font-size: 0.75rem;
     line-height: 120%;
+    color: white;
 
     /*Ellipse*/
     height: var(--ellipse);
     width: var(--ellipse);
     border-radius: var(--ellipse);
     border: 1px solid #fff;
+}
+
+.contactCardDivForNameAndEmail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3125rem;
+}
+
+.contactCardName {
+    font-size: 1.3125rem;
+    line-height: 120%;
+}
+
+.contactCardEmail {
+    text-decoration: none;
+    color: #007cee;
 }
