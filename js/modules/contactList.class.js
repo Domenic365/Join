@@ -75,7 +75,7 @@ class ContactList extends HTMLElement {
 
     loadContactsToHTML() {
         this.contactList.forEach((contact) => {
-            this.appendChild(contact)
+            this.appendChild(contact);
         });
     }
 }

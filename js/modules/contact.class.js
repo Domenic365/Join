@@ -40,6 +40,7 @@ class Contact extends HTMLElement {
         this.loadHTML();
         this.loadCSS();
         this.loadValues();
+        this.loadClickFunction();
     }
 
     getFirstLetters() {
@@ -80,6 +81,11 @@ class Contact extends HTMLElement {
         this.nameHTML.innerText = this.name;
         this.emailHTML.innerText = this.email;
         this.emailHTML.href = /*html*/ `mailto:${this.email}`;
+    }
+
+    loadClickFunction() {
+        this.addEventListener("click", (e) => {
+        });
     }
 }
 
