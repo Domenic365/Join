@@ -85,6 +85,7 @@ class Contact extends HTMLElement {
 
     loadClickFunction() {
         this.addEventListener("click", (e) => {
+            selectedContact = e.target;
         });
     }
 }

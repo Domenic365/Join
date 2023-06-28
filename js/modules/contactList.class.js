@@ -57,6 +57,7 @@ class ContactList extends HTMLElement {
         super();
         this.sortContacts();
         this.loadContactsToHTML();
+        selectedContact = this.firstChild;
     }
 
     sortContacts() {

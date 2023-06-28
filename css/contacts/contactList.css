@@ -4,4 +4,5 @@ contact-list{
     height: calc(100vh - 90px);
     overflow-y: scroll;
     padding-left: 3rem;
+    padding-right: 3rem;
 }
