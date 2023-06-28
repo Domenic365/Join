@@ -1,4 +1,4 @@
-class ContactList extends HTMLElement{
+class ContactList extends HTMLElement {
     contactList = [
         new Contact(
             "Rainer Winkler",
@@ -54,11 +54,9 @@ class ContactList extends HTMLElement{
     ];
 
     constructor() {
-        debugger;
         super();
         this.sortContacts();
         this.loadContactsToHTML();
-        this.addToHTML();
     }
 
     sortContacts() {
@@ -77,12 +75,9 @@ class ContactList extends HTMLElement{
 
     loadContactsToHTML() {
         this.contactList.forEach((contact) => {
-            this.htmlElement.appendChild(contact);
+            this.appendChild(contact)
         });
     }
-
-    addToHTML(){
-        debugger;
-        document.querySelector("[contact]").appendChild(this);
-    }
 }
+
+customElements.define("contact-list", ContactList);

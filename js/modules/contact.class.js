@@ -31,8 +31,6 @@ class Contact extends HTMLElement{
         this.getFirstLetters();
         this.getSortingLetter();
         this.getColor();
-        this.loadContactHTML();
-        this.loadCSSClasses();
     }
 
     getFirstLetters() {
@@ -53,3 +51,5 @@ class Contact extends HTMLElement{
         this.color = this.colors[colorNumber];
     }
 }
+
+customElements.define("contact-card", Contact)
