@@ -57,6 +57,7 @@ class ContactList extends ContactHTMLTags {
         super();
         this.sortContacts();
         this.addIntoHTML("contactlist");
+        this.loadContactsToHTML();
     }
 
     sortContacts() {
@@ -70,6 +71,12 @@ class ContactList extends ContactHTMLTags {
                 return 1;
             }
             return 0;
+        });
+    }
+
+    loadContactsToHTML(){
+        this.contactList.forEach(contact => {
+            this.htmlElement.appendChild(contact.htmlElement)
         });
     }
 }
