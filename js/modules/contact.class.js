@@ -1,4 +1,4 @@
-class Contact extends HTMLElement{
+class Contact extends HTMLElement {
     /**contact data */
     name;
     email;
@@ -16,6 +16,12 @@ class Contact extends HTMLElement{
         "#462F8A",
     ];
 
+    /**HTML data */
+    firstLettersHTML = document.createElement("div");
+    divForNameAndEmail = document.createElement("div");
+    nameHTML = document.createElement("div");
+    emailHTML = document.createElement("div");
+
     /**
      *
      * @param {string} firstName
@@ -31,6 +37,9 @@ class Contact extends HTMLElement{
         this.getFirstLetters();
         this.getSortingLetter();
         this.getColor();
+        this.loadHTML();
+        this.loadCSS();
+        this.loadValues();
     }
 
     getFirstLetters() {
@@ -50,6 +59,27 @@ class Contact extends HTMLElement{
         let colorNumber = Math.floor(Math.random() * 7);
         this.color = this.colors[colorNumber];
     }
+
+    loadHTML() {
+        this.appendChild(this.firstLettersHTML);
+        this.appendChild(this.divForNameAndEmail);
+        this.divForNameAndEmail.appendChild(this.nameHTML);
+        this.divForNameAndEmail.appendChild(this.emailHTML);
+    }
+
+    loadCSS(){
+        this.firstLettersHTML.classList.add("contactCardFirstLetters");
+        this.firstLettersHTML.style.backgroundColor = this.color;
+        this.divForNameAndEmail.classList.add("contactCardDivForNameAndEmail");
+        this.nameHTML.classList.add("contactCardName");
+        this.emailHTML.classList.add("contactCardEmail");
+    }
+
+    loadValues(){
+        this.firstLettersHTML.innerText = this.firstLetters;
+        this.nameHTML.innerText = this.name;
+        this.emailHTML.innerText = this.email
+    }
 }
 
-customElements.define("contact-card", Contact)
+customElements.define("contact-card", Contact);

@@ -1,7 +1,27 @@
+:root{
+    --ellipse: 42px;
+}
+
 contact-card {
     display: flex;
     padding: 0.9375rem 1.5625rem;
     gap: 2.1875rem;
     border-radius: 10px;
     background: #fff;
+}
+
+.contactCardFirstLetters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*Text*/
+    font-size: 0.75rem;
+    line-height: 120%;
+
+    /*Ellipse*/
+    height: var(--ellipse);
+    width: var(--ellipse);
+    border-radius: var(--ellipse);
+    border: 1px solid #fff;
 }
