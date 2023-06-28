@@ -1,4 +1,4 @@
-class Contact {
+class Contact extends HTMLElement{
     /**contact data */
     name;
     email;
@@ -15,12 +15,6 @@ class Contact {
         "#AF1616",
         "#462F8A",
     ];
-
-    /**html elements */
-    firstLettersHTML = document.createElement("div");
-    divForNameAndEmail = document.createElement("div");
-    nameHTML = document.createElement("div");
-    emailHTML = document.createElement("div");
 
     /**
      *
@@ -57,20 +51,5 @@ class Contact {
     getColor() {
         let colorNumber = Math.floor(Math.random() * 7);
         this.color = this.colors[colorNumber];
-    }
-
-    loadContactHTML() {
-        this.htmlElement.appendChild(this.firstLettersHTML);
-        this.htmlElement.appendChild(this.divForNameAndEmail);
-        this.divForNameAndEmail.appendChild(this.nameHTML);
-        this.divForNameAndEmail.appendChild(this.emailHTML);
-    }
-
-    loadCSSClasses() {
-        this.htmlElement.classList.add("contactCard");
-        this.firstLettersHTML.classList.add("ContactCardfirstLetters");
-        this.divForNameAndEmail.classList.add("ContactCarddivForNameAndEmail");
-        this.nameHTML.classList.add("contactCardName");
-        this.emailHTML.classList.add("contactCardEmail");
     }
 }
