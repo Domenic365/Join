@@ -1,0 +1,7 @@
+contact-card {
+    display: flex;
+    padding: 0.9375rem 1.5625rem;
+    gap: 2.1875rem;
+    border-radius: 10px;
+    background: #fff;
+}
