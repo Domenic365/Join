@@ -1,4 +1,4 @@
-class ContactList extends contactHTMLTags {
+class ContactList extends ContactHTMLTags {
     contactList = [
         new Contact(
             "Rainer Winkler",

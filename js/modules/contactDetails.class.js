@@ -1,5 +1,6 @@
-class contactDetails extends contactHTMLTags {
+class ContactDetails extends ContactHTMLTags {
     constructor(){
         super();
+        this.addIntoHTML("contactdetails");
     }
 }

@@ -1,4 +1,4 @@
-class contactHTMLTags {
+class ContactHTMLTags {
     htmlTag = "div";
     htmlElement;
 
