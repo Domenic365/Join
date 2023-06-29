@@ -1,32 +1,4 @@
-// const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
-// const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
-
-/**
- * This function is used to save data in remoteStorage
- * 
- * @param {string} key - key or name of the value to set
- * @param {*} value - value of the item
- * @returns - fetch to save data as string in remoteStorage
- */
-
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-    .then(res => res.json());
-}
-
-/**
- * This function is used to load data from remoteStorage
- * 
- * @param {string} key - key of data you want to load
- * @returns value of key as json
- */
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json());
-}
-
-
+let loadedContacts = contacts.contactList;
 let categorys = [
     {
         name: 'Marketing',
@@ -62,18 +34,18 @@ function toggleAssigning() {
         dropdownArrow.classList.add('active-arrow');
         layer.classList.remove('d-none');
     }
-    // renderContacts();
+    renderContacts();
 }
+console.log(loadedContacts);
 
 /**
  * function to render contacts in dropdown list
  */
 function renderContacts() {
     let list = document.getElementById('contact-selection');
-    let contacts = getItem('allContacts');
     list.innerHTML = '';
-    for (let i = 0; i<contacts.length; i++) {
-        const contact = contacts[i];
+    for (let i = 0; i<loadedContacts.length; i++) {
+        const contact = loadedContacts[i];
         list.innerHTML += `<div class="contact-item"><label for="${contact}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact}"></label></div>`
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
@@ -94,6 +66,8 @@ function changeFormIcons(formElement) {
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.remove('d-none');
         subtaskInput.focus();
+        let list = document.getElementById('subtask-overview');
+        list.classList.add('mtop-n50');
     }
 }
 
@@ -113,6 +87,8 @@ function cancelInput(formElement) {
         inputHolder.classList.remove('d-none');
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.add('d-none');
+        let list = document.getElementById('subtask-overview');
+        list.classList.remove('mtop-n50');
     } else if (formElement === 'contact') {
         let placeholder = document.getElementById('contacts-input');
         let input = document.querySelector('.inviteContactInput');
