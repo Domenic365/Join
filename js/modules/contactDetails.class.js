@@ -3,7 +3,10 @@ class ContactDetails extends HTMLElement {
     firstRow = document.createElement("div");
     nameAndTaskContainer = document.createElement("div");
     addTask = document.createElement("img");
+
     secondRow = document.createElement("div");
+    editContact = document.createElement("img")
+
     thirdRow = document.createElement("div");
 
     /**contact Data*/
@@ -22,37 +25,51 @@ class ContactDetails extends HTMLElement {
 
     loadRows() {
         this.appendChild(this.firstRow);
-        this.firstRow.appendChild(this.nameAndTaskContainer);
         this.appendChild(this.secondRow);
         this.appendChild(this.thirdRow);
     }
 
     loadValues() {
         this.addTask.src = "../../assets/img/icons/contact/addTask.svg";
+        this.editContact.src = "../../assets/img/icons/contact/editContact.svg"
     }
 
     loadCSS() {
         this.firstRow.classList.add("firstRow");
-        this.addTask.classList.add("addTask");
+        this.addTask.classList.add("imageButtons");
+        this.editContact.classList.add("imageButtons")
     }
 
     loadContact() {
         let cloneOfSelectedContact = selectedContact.cloneNode(true);
+
+        //firstLetters
         let firstLetters = cloneOfSelectedContact.firstChild;
-        let firstLettersPosition = this.firstRow.children[0];
-        this.firstRow.insertBefore(firstLetters, firstLettersPosition);
+        this.firstRow.appendChild(firstLetters);
+        this.firstRow.appendChild(this.nameAndTaskContainer);
+
+        //name and addtask
         let name = cloneOfSelectedContact.firstChild.firstChild;
         this.nameAndTaskContainer.appendChild(name);
         this.firstRow.children[1].appendChild(this.addTask);
+
+        //secondRow
+        this.secondRow.innerText = "Contact Information";
+        this.secondRow.appendChild(this.editContact);
+
+        //thirdRow
+        this.thirdRow.innerText += "Email";
+        this.thirdRow.innerText += "Phone";
     }
 
     loadHover() {
-        this.addTaskHover(this.addTask, "addTask");
+        this.elementHover(this.addTask, "addTask");
+        this.elementHover(this.editContact, "editContact")
     }
 
     //other functions
 
-    addTaskHover(element, name) {
+    elementHover(element, name) {
         element.addEventListener("mouseover", (e) => {
             e.target.src = `../../assets/img/icons/contact/${name}Hover.svg`;
         });
