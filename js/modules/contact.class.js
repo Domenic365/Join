@@ -37,9 +37,9 @@ class Contact extends HTMLElement {
         this.getFirstLetters();
         this.getSortingLetter();
         this.getColor();
-        this.loadHTML();
-        this.loadCSS();
         this.loadValues();
+        this.loadCSS();
+        this.loadHTML();
         this.loadClickFunction();
     }
 

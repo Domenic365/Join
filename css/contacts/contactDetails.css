@@ -1,0 +1,14 @@
+contact-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstRow{
+    display: flex;
+    align-items: center;
+    gap: 3.375rem;
+}
+
+.addTask{
+    cursor: pointer;
+}
