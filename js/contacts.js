@@ -1,3 +1,3 @@
 /**global variables */
 
-let selectedContact;
+let selectedContact = new Contact("", "", "");

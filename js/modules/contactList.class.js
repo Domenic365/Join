@@ -53,11 +53,12 @@ class ContactList extends HTMLElement {
         ),
     ];
 
+    lastSortingLetter;
+
     constructor() {
         super();
         this.sortContacts();
         this.loadContactsToHTML();
-        selectedContact = this.firstChild;
     }
 
     sortContacts() {
@@ -76,6 +77,7 @@ class ContactList extends HTMLElement {
 
     loadContactsToHTML() {
         this.contactList.forEach((contact) => {
+
             this.appendChild(contact);
         });
     }
