@@ -46,6 +46,8 @@ contact-card:hover {
 }
 
 .contactCardEmail {
+    font-weight: 400;
     text-decoration: none;
     color: #007cee;
 }
+

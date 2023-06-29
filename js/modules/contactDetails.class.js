@@ -1,16 +1,23 @@
 class ContactDetails extends HTMLElement {
+    /**contact Data*/
+    cloneOfSelectedContact = selectedContact.cloneNode(true);
+    firstLetters = this.cloneOfSelectedContact.firstChild;
+    name = this.cloneOfSelectedContact.children[1].firstChild;
+    email = this.cloneOfSelectedContact.children[1].children[1];
+
+
     /**HTML data*/
+    title = document.createElement("img");
+
     firstRow = document.createElement("div");
     nameAndTaskContainer = document.createElement("div");
     addTask = document.createElement("img");
 
     secondRow = document.createElement("div");
-    editContact = document.createElement("img")
+    editContact = document.createElement("img");
 
     thirdRow = document.createElement("div");
-
-    /**contact Data*/
-    contactlist = document.querySelector("contact-list");
+    phone = document.createElement("a");
 
     constructor() {
         super();
@@ -24,33 +31,40 @@ class ContactDetails extends HTMLElement {
     //loading functions
 
     loadRows() {
+        this.appendChild(this.title);
         this.appendChild(this.firstRow);
         this.appendChild(this.secondRow);
         this.appendChild(this.thirdRow);
     }
 
     loadValues() {
+        this.title.src =
+            "../../assets/img/icons/contact/contactDetailsTitle.svg";
         this.addTask.src = "../../assets/img/icons/contact/addTask.svg";
-        this.editContact.src = "../../assets/img/icons/contact/editContact.svg"
+        this.editContact.src = "../../assets/img/icons/contact/editContact.svg";
+        this.phone.innerHTML = selectedContact.phone;
+        this.phone.href = /*html*/ `tel:${selectedContact.phone}`;
     }
 
     loadCSS() {
         this.firstRow.classList.add("firstRow");
         this.addTask.classList.add("imageButtons");
-        this.editContact.classList.add("imageButtons")
+        this.editContact.classList.add("imageButtons");
+        this.secondRow.classList.add("secondRow");
+        this.thirdRow.classList.add("thirdRow");
+        this.phone.classList.add("contactDetailsPhone");
+        this.firstLetters.classList.add("contactDetailsFirstLetters")
+        this.name.classList.add("contactDetailsName")
+        this.nameAndTaskContainer.classList.add("nameAndTaskContainer")
     }
 
     loadContact() {
-        let cloneOfSelectedContact = selectedContact.cloneNode(true);
-
         //firstLetters
-        let firstLetters = cloneOfSelectedContact.firstChild;
-        this.firstRow.appendChild(firstLetters);
+        this.firstRow.appendChild(this.firstLetters);
         this.firstRow.appendChild(this.nameAndTaskContainer);
 
         //name and addtask
-        let name = cloneOfSelectedContact.firstChild.firstChild;
-        this.nameAndTaskContainer.appendChild(name);
+        this.nameAndTaskContainer.appendChild(this.name);
         this.firstRow.children[1].appendChild(this.addTask);
 
         //secondRow
@@ -58,13 +72,15 @@ class ContactDetails extends HTMLElement {
         this.secondRow.appendChild(this.editContact);
 
         //thirdRow
-        this.thirdRow.innerText += "Email";
-        this.thirdRow.innerText += "Phone";
+        this.thirdRow.innerHTML += "Email";
+        this.thirdRow.appendChild(this.email);
+        this.thirdRow.innerHTML += "Phone";
+        this.thirdRow.appendChild(this.phone);
     }
 
     loadHover() {
         this.elementHover(this.addTask, "addTask");
-        this.elementHover(this.editContact, "editContact")
+        this.elementHover(this.editContact, "editContact");
     }
 
     //other functions
