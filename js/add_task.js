@@ -90,7 +90,6 @@ function createNewTask(status = 'todo') {
     uploadTasks();
     clearAll();
     redirectToBoard();
-    
 };
 
 function redirectToBoard() {
