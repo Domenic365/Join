@@ -5,7 +5,6 @@ class ContactDetails extends HTMLElement {
     name = this.cloneOfSelectedContact.children[1].firstChild;
     email = this.cloneOfSelectedContact.children[1].children[1];
 
-
     /**HTML data*/
     title = document.createElement("img");
 
@@ -21,6 +20,16 @@ class ContactDetails extends HTMLElement {
 
     constructor() {
         super();
+        this.appendChild(this.title);
+        this.title.src =
+            "../../assets/img/icons/contact/contactDetailsTitle.svg";
+    }
+
+    //loading functions
+
+    updateContact() {
+        this.clearHTML();
+        this.reloadContactData();
         this.loadRows();
         this.loadCSS();
         this.loadContact();
@@ -28,18 +37,26 @@ class ContactDetails extends HTMLElement {
         this.loadHover();
     }
 
-    //loading functions
+    clearHTML(){
+        this.firstRow.innerHTML = "";
+        this.name.innerHTML = "";
+        this.thirdRow.innerHTML = "";
+    }
+
+    reloadContactData(){
+        this.cloneOfSelectedContact = selectedContact.cloneNode(true);
+        this.firstLetters = this.cloneOfSelectedContact.firstChild;
+        this.name = this.cloneOfSelectedContact.children[1].firstChild;
+        this.email = this.cloneOfSelectedContact.children[1].children[1];
+    }
 
     loadRows() {
-        this.appendChild(this.title);
         this.appendChild(this.firstRow);
         this.appendChild(this.secondRow);
         this.appendChild(this.thirdRow);
     }
 
     loadValues() {
-        this.title.src =
-            "../../assets/img/icons/contact/contactDetailsTitle.svg";
         this.addTask.src = "../../assets/img/icons/contact/addTask.svg";
         this.editContact.src = "../../assets/img/icons/contact/editContact.svg";
         this.phone.innerHTML = selectedContact.phone;
@@ -53,9 +70,9 @@ class ContactDetails extends HTMLElement {
         this.secondRow.classList.add("secondRow");
         this.thirdRow.classList.add("thirdRow");
         this.phone.classList.add("contactDetailsPhone");
-        this.firstLetters.classList.add("contactDetailsFirstLetters")
-        this.name.classList.add("contactDetailsName")
-        this.nameAndTaskContainer.classList.add("nameAndTaskContainer")
+        this.firstLetters.classList.add("contactDetailsFirstLetters");
+        this.name.classList.add("contactDetailsName");
+        this.nameAndTaskContainer.classList.add("nameAndTaskContainer");
     }
 
     loadContact() {
