@@ -9,22 +9,22 @@
  * @returns - fetch to save data as string in remoteStorage
  */
 
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-    .then(res => res.json());
-}
+// async function setItem(key, value) {
+//     const payload = { key, value, token: STORAGE_TOKEN };
+//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+//     .then(res => res.json());
+// }
 
-/**
- * This function is used to load data from remoteStorage
- * 
- * @param {string} key - key of data you want to load
- * @returns value of key as json
- */
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json());
-}
+// /**
+//  * This function is used to load data from remoteStorage
+//  * 
+//  * @param {string} key - key of data you want to load
+//  * @returns value of key as json
+//  */
+// async function getItem(key) {
+//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+//     return fetch(url).then(res => res.json());
+// }
 
 
 let categorys = [
@@ -94,6 +94,8 @@ function changeFormIcons(formElement) {
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.remove('d-none');
         subtaskInput.focus();
+        let list = document.getElementById('subtask-overview');
+        list.classList.add('mtop-n50');
     }
 }
 
@@ -113,6 +115,8 @@ function cancelInput(formElement) {
         inputHolder.classList.remove('d-none');
         let subtaskInput = document.querySelector('.subtask-input');
         subtaskInput.classList.add('d-none');
+        let list = document.getElementById('subtask-overview');
+        list.classList.remove('mtop-n50');
     } else if (formElement === 'contact') {
         let placeholder = document.getElementById('contacts-input');
         let input = document.querySelector('.inviteContactInput');

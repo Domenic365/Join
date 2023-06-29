@@ -1,4 +1,3 @@
-"use strict";
 
 const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
@@ -10,7 +9,6 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
  * @param {JSON Array} value - value of the item
  * @returns - fetch to save data as string in remoteStorage
  */
-
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
@@ -25,17 +23,42 @@ async function setItem(key, value) {
  */
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json());
+    return fetch(url).then(res => res.json()).then(res => {
+        if (res.data) { 
+            return res.data.value;
+        } throw `Could not find data with key "${key}".`;
+    });
 }
 
+let allTasks = [
+    {
+        "title" : "Design changes",
+        "description" : "New CI delivers new Logo and new colorpalette",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Anna Müller", "Carolin Krause"],
+        "dueDate": "2023-07-16",
+        "prio" : "urgent",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "todo"
+    },
+    {
+        "title" : "new copywriting",
+        "description" : "Communcate intensions of new CI to customers",
+        "category" : "Marketing",
+        "catColor" : "purple",
+        "assignedTo" : ["Fritz Fischer"],
+        "dueDate": "2023-08-13",
+        "prio" : "medium",
+        "subtasks" : ["write newsletter", "send newsletter to customers"],
+        "status" : "inProgress"
+    },
+];
 
-let allTasks = getItem('allTasks');
-
-async function convertToJsonArray(allTasksString) {
-    allTasks = JSON.parse(allTasksString)
-    console.log(allTasks);
+async function loadAllTasksFromStg() {
+    let res = await getItem('allTasks');
+    allTasks = JSON.parse(res);
 }
-
 
 /**
  * This function creates a new Task by collecting the form data and pushs it into the allTasks JSON
@@ -54,18 +77,31 @@ function createNewTask(status = 'todo') {
     let subtasks =  getSubtasks();
 
     allTasks.push({
-        "title" : title,
-        "description" : description,
-        "category" : category,
-        "catColor" : categoryColor,
-        "assignedTo" : contacts,
-        "dueDate": date,
-        "prio" : prio,
-        "subtasks" : subtasks,
-        "status" : status
+        "title" : `${title}`,
+        "description" : `${description}`,
+        "category" : `${category}`,
+        "catColor" : `${categoryColor}`,
+        "assignedTo" : `${contacts}`,
+        "dueDate": `${date}`,
+        "prio" : `${prio}`,
+        "subtasks" : `${subtasks}`,
+        "status" : `${status}`
     })
-    setItem('allTasks', allTasks);
+    uploadTasks();
+    clearAll();
+    redirectToBoard();
+    
 };
+
+function redirectToBoard() {
+    setTimeout(() => {
+        changeContentHTML('../templates/board.html');
+    }, 2500);
+}
+
+function uploadTasks() {
+    setItem('allTasks', JSON.stringify(allTasks));
+}
 
 /**
  * This function collects all subtasks from input an pushes it into an array of subtasks
@@ -273,3 +309,5 @@ function resetValidation() {
         validation[i].classList.add('d-none');
     }
 }
+
+loadAllTasksFromStg();

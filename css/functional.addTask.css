@@ -284,3 +284,7 @@
     border-radius: 3px;
     background-color: rgb(41,171,226);
 }
+
+.mtop-n50 {
+    margin-top: -40px;
+}
