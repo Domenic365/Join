@@ -30,31 +30,12 @@ async function getItem(key) {
     });
 }
 
-let allTasks = [
-    {
-        "title" : "Design changes",
-        "description" : "New CI delivers new Logo and new colorpalette",
-        "category" : "Development",
-        "catColor" : "blue",
-        "assignedTo" : ["Anna Müller", "Carolin Krause"],
-        "dueDate": "2023-07-16",
-        "prio" : "urgent",
-        "subtasks" : ["change logo", "change colors"],
-        "status" : "todo"
-    },
-    {
-        "title" : "new copywriting",
-        "description" : "Communcate intensions of new CI to customers",
-        "category" : "Marketing",
-        "catColor" : "purple",
-        "assignedTo" : ["Fritz Fischer"],
-        "dueDate": "2023-08-13",
-        "prio" : "medium",
-        "subtasks" : ["write newsletter", "send newsletter to customers"],
-        "status" : "inProgress"
-    },
-];
+let allTasks = [];
 
+
+/**
+ * This function updates the allTasks JSON-Array
+ */
 async function loadAllTasksFromStg() {
     let res = await getItem('allTasks');
     allTasks = JSON.parse(res);
