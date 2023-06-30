@@ -1,13 +1,20 @@
 class ContactList extends HTMLElement {
     contactList = [];
 
+    contactDivider = document.createElement("div");
+    letter = document.createElement("div");
+    line = document.createElement("div");
+
     lastSortingLetter;
 
     constructor() {
         super();
+        this.loadContactDivider();
         this.sortContacts();
         this.loadContactsToHTML();
     }
+
+    //contact data
 
     sortContacts() {
         this.contactList.sort((a, b) => {
@@ -23,11 +30,34 @@ class ContactList extends HTMLElement {
         });
     }
 
+    //html
+
+    loadContactDivider() {
+        //html
+        this.contactDivider.appendChild(this.letter);
+        this.contactDivider.appendChild(this.line);
+
+        //css
+        this.contactDivider.classList.add("contactDivider");
+        this.letter.classList.add("contactDividerLetter");
+        this.line.classList.add("contactDividerLine");
+    }
+
     loadContactsToHTML() {
+        this.innerHTML = "";
         this.contactList.forEach((contact) => {
+            if (contact.sortingLetter !== this.lastSortingLetter) {
+                let contactDividerClone = this.contactDivider.cloneNode(true);
+                contactDividerClone.firstChild.innerHTML =
+                    contact.sortingLetter;
+                this.appendChild(contactDividerClone);
+            }
             this.appendChild(contact);
+            this.lastSortingLetter = contact.sortingLetter;
         });
     }
+
+    //remote Storage
 
     async saveToRemoteStorage() {
         let contactListForStorage = [];
