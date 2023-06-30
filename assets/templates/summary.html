@@ -1,4 +1,4 @@
-<main class="summary-container">
+<main class="summary-container" onload="initSummary()">
     <!--Header Sektion-->
     <div class="left-content">
 
@@ -13,15 +13,15 @@
 
         <!--Task Sektion-->
         <div class="direction-all-tasks">
-            <div class="box-design counter wd-upper-tasks">
+            <div class="box-design counter wd-upper-tasks" id="taskSum" onclick="changeContentHTML('../templates/board.html')">
                 <p>5</p>
                 <span>Tasks in <br> Board</span>
             </div>
-            <div class="box-design counter wd-upper-tasks">
+            <div class="box-design counter wd-upper-tasks" id="progressSum" onclick="changeContentHTML('../templates/board.html')">
                 <p>2</p>
                 <span>Tasks in <br> Progress</span>
             </div>
-            <div class="box-design counter wd-upper-tasks">
+            <div class="box-design counter wd-upper-tasks" id="feedbackSum" onclick="changeContentHTML('../templates/board.html')">
                 <p>2</p>
                 <span>Awaiting <br> Feedback</span>
             </div>

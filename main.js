@@ -9,17 +9,21 @@ async function init() {
     modal = document.querySelector("[modal]");
     closeModalButton = document.querySelectorAll("[closeModalButton]");
     openModalButton = document.querySelector("[openModalButton]");
-    loadEventlistener();
+    // loadEventlistener();
 }
 
-function loadEventlistener() {
-    openModalButton.addEventListener("click", (e) => {
-        modal.showModal();
-    });
 
-    closeModalButton.forEach((button) => {
-        button.addEventListener("click", (e) => {
-            modal.close();
-        });
-    });
-}
+
+// function loadEventlistener() {
+//     openModalButton.addEventListener("click", (e) => {
+//         modal.showModal();
+//     });
+
+//     closeModalButton.forEach((button) => {
+//         button.addEventListener("click", (e) => {
+//             modal.close();
+//         });
+//     });
+// }
+
+initSummary();

@@ -36,7 +36,6 @@ function toggleAssigning() {
     }
     renderContacts();
 }
-console.log(loadedContacts);
 
 /**
  * function to render contacts in dropdown list
