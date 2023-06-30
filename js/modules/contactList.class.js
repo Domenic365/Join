@@ -1,11 +1,5 @@
 class ContactList extends HTMLElement {
     contactList = [
-        { name: "domenic" },
-        { name: "daniel" },
-        { name: "max" },
-        { name: "irina" },
-        { name: "alexander" },
-        { name: "waldemar" },
     ];
 
     lastSortingLetter;
@@ -36,7 +30,7 @@ class ContactList extends HTMLElement {
     }
 
     async saveToRemoteStorage() {
-        await setItem("contactList", this.contactList);
+        await setItem("contactList", JSON.stringify(this.contactList));
     }
 
     async loadFromRemoteStorage() {
