@@ -13,18 +13,18 @@
             <div onclick="closeModal()" class="close">
                 <img src="../img/icons/cross.svg" alt="" />
             </div>
-            <form>
+            <form onsubmit="addContact(event)">
                 <input required type="name" /><input
                     required
                     type="tel" /><input required type="email" />
                 <div class="buttons">
-                    <button class="secondary-btn">
+                    <button type="reset" class="secondary-btn">
                         Cancel
-                        <img src="../img/icons/cross.svg" alt="" /></button
-                    ><button class="main-btn">
+                        <img src="../img/icons/cross.svg" />
+                    </button>
+                    <button type="submit" class="main-btn">
                         Create contact<img
-                            src="../img/icons/checkContact.svg"
-                            alt="" />
+                            src="../img/icons/checkContact.svg" />
                     </button>
                 </div>
             </form>
