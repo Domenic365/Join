@@ -13,7 +13,7 @@
     gap: 0.75rem;
     justify-content: center;
     padding: 4.125rem 2.875rem;
-    border-top-left-radius: 1.875rem;;
+    border-top-left-radius: 1.875rem;
     border-bottom-left-radius: 1.875rem;
 }
 
@@ -42,13 +42,11 @@
     border: 3px solid #29abe2;
 }
 
-
 /*LEFT SIDE END*/
-
 
 /*RIGHT SIDE START*/
 
-.rightSide{
+.rightSide {
     display: flex;
     align-items: center;
     gap: 5.25rem;
@@ -58,51 +56,58 @@
     padding-bottom: 6.5rem;
 }
 
-.human{
+.human {
     min-width: 7.5rem;
     min-height: 7.5rem;
     border-radius: 7.5rem;
-    border: 3px solid #FFF;
-    background: #D1D1D1;
+    border: 3px solid #fff;
+    background: #d1d1d1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.formCloseAndButtons{
+.formCloseAndButtons {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
 }
 
-.rightSide form{
+.rightSide form {
     display: flex;
     flex-direction: column;
     gap: 3.06rem;
 }
 
-.rightSide form .buttons{
+.rightSide form .buttons {
     display: flex;
     gap: 1.56rem;
 }
 
-.rightSide form input{
+.rightSide form input {
     width: 26.375rem;
-}
-
-.rightSide form img{
-    width: 1.5rem;
-    height: 1.5rem;
+    font-size: 1.3125rem;
+    padding-right: 3rem;
     
 }
 
-.close{
+.rightSide form input::placeholder {
+    color: #d1d1d1;
+    font-size: 1.3125rem;
+}
+
+.rightSide form img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.close {
     display: flex;
     justify-content: end;
 }
 
-[type="phone"] {
+[type="tel"] {
     background-image: url("../../assets/img/icons/phone.svg");
     background-repeat: no-repeat;
     background-position: 381px;
