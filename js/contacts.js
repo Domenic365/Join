@@ -18,3 +18,8 @@ async function updateContacts() {
     await contacts.loadFromRemoteStorage();
     contacts.loadContactsToHTML();
 }
+
+
+
+
+

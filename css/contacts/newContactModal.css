@@ -1,0 +1,30 @@
+.newContactModal {
+    width: 75.75rem;
+    height: 37.125rem;
+    border-radius: 1.875rem;
+}
+
+.leftSide {
+    background: #2a3647;
+    height: 37.125rem;
+}
+
+.leftSide p {
+    margin: 0;
+}
+
+.leftSide img {
+    height: 4.15519rem;
+    width: 3.44519rem;
+}
+
+.addContactTitle {
+    color: #fff;
+    font-size: 3.8125rem;
+    font-weight: 700;
+}
+
+.tasksAreBetterWithATeam {
+    color: #fff;
+    font-size: 1.6875rem;
+}
