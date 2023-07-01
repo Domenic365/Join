@@ -2,6 +2,7 @@
     height: 37.125rem;
     border-radius: 1.875rem;
     display: flex;
+    background: #FFF;
 }
 
 /*LEFT SIDE START*/
@@ -103,6 +104,7 @@
 }
 
 .close {
+    cursor: pointer;
     display: flex;
     justify-content: end;
 }
@@ -124,3 +126,5 @@
     background-repeat: no-repeat;
     background-position: 381px;
 }
+
+/*RIGHT SIDE END*/
