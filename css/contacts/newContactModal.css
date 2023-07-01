@@ -101,3 +101,21 @@
     display: flex;
     justify-content: end;
 }
+
+[type="phone"] {
+    background-image: url("../../assets/img/icons/phone.svg");
+    background-repeat: no-repeat;
+    background-position: 381px;
+}
+
+[type="name"] {
+    background-image: url("../../assets/img/icons/darkHuman.svg");
+    background-repeat: no-repeat;
+    background-position: 381px;
+}
+
+[type="email"] {
+    background-image: url("../../assets/img/icons/mail.svg") !important;
+    background-repeat: no-repeat;
+    background-position: 381px;
+}
