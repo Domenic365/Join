@@ -20,4 +20,5 @@ async function includeHTML() {
 async function changeContentHTML(link) {
     document.getElementById("content").setAttribute("w3-include-html", link);
     await init();
+    await initSummary();
 }

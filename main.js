@@ -25,5 +25,3 @@ async function init() {
 //         });
 //     });
 // }
-
-initSummary();

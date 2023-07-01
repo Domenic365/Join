@@ -4,16 +4,7 @@ let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 
 async function initSummary() {
     await taskLoader();
-    renderAllTasks();
-}
-
-async function taskLoader() {
-    let res = await getItem('allTasks');
-    loadedTasks = JSON.parse(res);
-}
-
-function renderAllTasks() {
-    console.log(loadedTasks);
+    console.log('hallo');
     renderOpenTasks()
     renderProgressTasks();
     renderFeedbackTasks();
@@ -21,6 +12,20 @@ function renderAllTasks() {
     renderTodos();
     renderDoneTasks();
 }
+
+async function taskLoader() {
+    let res = await getItem('allTasks');
+    loadedTasks = JSON.parse(res);
+}
+
+// function renderAllTasks() {
+//     renderOpenTasks()
+//     renderProgressTasks();
+//     renderFeedbackTasks();
+//     renderprioTasks();
+//     renderTodos();
+//     renderDoneTasks();
+// }
 
 function renderDoneTasks() {
     let content = document.querySelector('#done-counter');
@@ -47,7 +52,7 @@ function renderTodos() {
 }
 
 function renderOpenTasks() {
-    const openTasks = document.querySelector('#taskSum > p');
+    let openTasks = document.querySelector('#taskSum > p');
     openTasks.innerHTML = `${loadedTasks.length}`;
 }
 
@@ -118,3 +123,4 @@ function getDateFromTask(element) {
     console.log(element.dueDate)
     return element.dueDate;
 }
+
