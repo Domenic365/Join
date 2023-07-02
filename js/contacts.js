@@ -34,3 +34,7 @@ function addContact(event) {
     contacts.addContact(name, email, phone);
     updateContacts();
 }
+
+function openEditContact() {
+    switchModal("../templates/modals/edit_Contact.html", "contact")
+}
