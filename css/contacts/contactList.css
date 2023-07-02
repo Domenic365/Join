@@ -1,0 +1,9 @@
+contact-list{
+    background-color: white;
+    display: block;
+    height: calc(100vh - 90px - 1rem);
+    overflow-y: scroll;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+}

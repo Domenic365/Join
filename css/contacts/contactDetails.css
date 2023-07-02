@@ -1,0 +1,56 @@
+contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.31rem;
+    margin-left: 4.06rem;
+    margin-top: 5.12rem;
+}
+
+.firstRow {
+    display: flex;
+    align-items: center;
+    gap: 3.375rem;
+    margin-top: 1.69rem;
+}
+
+.imageButtons {
+    cursor: pointer;
+}
+
+.secondRow {
+    display: flex;
+    align-items: center;
+    height: 4.625rem;
+    gap: 3.6875rem;
+    font-size: 1.3125rem;
+}
+
+.thirdRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem;
+    font-weight: 700;
+}
+
+.contactDetailsPhone {
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+.contactDetailsPhone:hover {
+    color: #007cee;
+}
+
+.contactDetailsFirstLetters {
+    height: 7.5rem;
+    width: 7.5rem;
+    border-radius: 7.5rem;
+    font-size: 2.9375rem;
+    border-width: 3px !important;
+}
+
+.contactDetailsName {
+    font-size: 2.9375rem;
+    margin-bottom: 0.8125rem;
+}

@@ -1,61 +1,20 @@
-class ContactList {
-    contactList = [
-        new Contact(
-            "Rainer Winkler",
-            "rainerwinkler@gmail.com",
-            "017626548632"
-        ),
-        new Contact("Anna Müller", "anna.mueller@example.com", "0123456789"),
-        new Contact(
-            "Max Mustermann",
-            "max.mustermann@example.com",
-            "9876543210"
-        ),
-        new Contact("Lena Schmidt", "lena.schmidt@example.com", "4567890123"),
-        new Contact("Hans Meier", "hans.meier@example.com", "01234567895"),
-        new Contact(
-            "Julia Schneider",
-            "julia.schneider@example.com",
-            "01234567896"
-        ),
-        new Contact(
-            "Fritz Fischer",
-            "fritz.fischer@example.com",
-            "01234567897"
-        ),
-        new Contact("Sabine Weber", "sabine.weber@example.com", "01234567898"),
-        new Contact(
-            "Michaela Wagner",
-            "michaela.wagner@example.com",
-            "01234567899"
-        ),
-        new Contact(
-            "Martin Becker",
-            "martin.becker@example.com",
-            "012345678910"
-        ),
-        new Contact("Sarah Schulz", "sarah.schulz@example.com", "012345678911"),
-        new Contact(
-            "Thomas Keller",
-            "thomas.keller@example.com",
-            "012345678912"
-        ),
-        new Contact(
-            "Melanie Schmitt",
-            "melanie.schmitt@example.com",
-            "012345678913"
-        ),
-        new Contact("Jan Petersen", "jan.petersen@example.com", "012345678914"),
-        new Contact(
-            "Carolin Krause",
-            "carolin.krause@example.com",
-            "012345678915"
-        ),
-    ];
+class ContactList extends HTMLElement {
+    contactList = [];
+
+    contactDivider = document.createElement("div");
+    letter = document.createElement("div");
+    line = document.createElement("div");
+
+    lastSortingLetter;
 
     constructor() {
+        super();
+        this.loadContactDivider();
         this.sortContacts();
+        this.loadContactsToHTML();
     }
+
+    //contact data
 
     sortContacts() {
         this.contactList.sort((a, b) => {
@@ -70,4 +29,79 @@ class ContactList {
             return 0;
         });
     }
+
+    //html
+
+    loadContactDivider() {
+        //html
+        this.contactDivider.appendChild(this.letter);
+        this.contactDivider.appendChild(this.line);
+
+        //css
+        this.contactDivider.classList.add("contactDivider");
+        this.letter.classList.add("contactDividerLetter");
+        this.line.classList.add("contactDividerLine");
+    }
+
+    loadContactsToHTML() {
+        this.innerHTML = "";
+        this.contactList.forEach((contact) => {
+            if (contact.sortingLetter !== this.lastSortingLetter) {
+                let contactDividerClone = this.contactDivider.cloneNode(true);
+                contactDividerClone.firstChild.innerHTML =
+                    contact.sortingLetter;
+                this.appendChild(contactDividerClone);
+            }
+            this.appendChild(contact);
+            this.lastSortingLetter = contact.sortingLetter;
+        });
+    }
+
+    //remote Storage
+
+    async saveToRemoteStorage() {
+        let contactListForStorage = [];
+        this.contactList.forEach((contact) => {
+            let contactForStorage = {
+                name: contact.name,
+                email: contact.email,
+                phone: contact.phone,
+            };
+            contactListForStorage.push(contactForStorage);
+        });
+        console.log(contactListForStorage);
+        await setItem("contactList", JSON.stringify(contactListForStorage));
+    }
+
+    async loadFromRemoteStorage() {
+        let res = await getItem("contactList");
+        let contactListFromStorage = JSON.parse(res);
+        this.contactList = [];
+        contactListFromStorage.forEach((contact) => {
+            this.contactList.push(
+                new Contact(contact.name, contact.email, contact.phone)
+            );
+        });
+    }
+
+    addContact(name, phone, email) {
+        let contactToAdd = new Contact(name, phone, email);
+        this.contactList.push(contactToAdd);
+        this.save();
+    }
+
+    save() {
+        this.sortContacts();
+        this.saveToRemoteStorage();
+    }
+
+    delete() {
+        const contactIndex = this.contactList.findIndex(
+            (element) => element === selectedContact
+        );
+        this.contactList.splice(contactIndex, 1)
+        this.save;
+    }
 }
+
+customElements.define("contact-list", ContactList);

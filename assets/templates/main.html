@@ -29,15 +29,22 @@
     <script src="../../main.js"></script>
 </head>
 
-<body onload="init()">
-    <section class="right-bar">
-        <div class="top-bar">
-            <div class="user-info">
-                <div class="mobile-logo"><img src="../img/logo_main.svg"></div>
-                <div class="topbar-title">Kanban Project Management Tool</div>
-                <div>
-                    <a onclick="changeContentHTML('../templates/help.html')"><img src="../img/icons/help.svg" class="bar-icon"></a>
-                    <img src="#" class="user-img">
+    <body onload="init()">
+        <section class="right-bar">
+            <div class="top-bar">
+                <div class="user-info">
+                    <div class="mobile-logo">
+                        <img src="../img/logo_main.svg" />
+                    </div>
+                    <div class="topbar-title">
+                        Kanban Project Management Tool
+                    </div>
+                    <div>
+                        <a onclick="changeContentHTML('../templates/help.html')"
+                            ><img src="../img/icons/help.svg" class="bar-icon"
+                        /></a>
+                        <img src="#" class="user-img" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,7 +58,7 @@
             <a onclick="changeContentHTML('../templates/summary.html')"><div class="aligning"><img src="../img/icons/summary.svg" class="menu-icon"></div>Summary</a>
             <a onclick="changeContentHTML('../templates/board.html')"><div class="aligning"><img src="../img/icons/board.svg" class="menu-icon"></div>Board</a>
             <a onclick="changeContentHTML('../templates/add_task.html')"><div class="aligning"><img src="../img/icons/addTask.svg" class="menu-icon" ></div>Add Task</a>
-            <a onclick="loadContacts()"><div class="aligning"><img src="../img/icons/contacts.svg" class="menu-icon"></div>Contacts</a>
+            <a onclick="loadContactContainer()"><div class="aligning"><img src="../img/icons/contacts.svg" class="menu-icon"></div>Contacts</a>
         </div>
         <div class="legal-menu">
             <a onclick="changeContentHTML('../templates/legal_notice.html')"><img src="../img/icons/info.svg" class="menu-icon">Legal Notice</a>
