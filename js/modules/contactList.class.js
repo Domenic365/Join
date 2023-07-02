@@ -87,6 +87,10 @@ class ContactList extends HTMLElement {
     addContact(name, phone, email) {
         let contactToAdd = new Contact(name, phone, email);
         this.contactList.push(contactToAdd);
+        this.save();
+    }
+
+    save() {
         this.sortContacts();
         this.saveToRemoteStorage();
     }

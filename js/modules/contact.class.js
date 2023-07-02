@@ -34,8 +34,10 @@ class Contact extends HTMLElement {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.getFirstLetters();
-        this.getSortingLetter();
+        if (this.name) {
+            this.getFirstLetters();
+            this.getSortingLetter();
+        }
         this.getColor();
         this.loadValues();
         this.loadCSS();
@@ -85,7 +87,7 @@ class Contact extends HTMLElement {
     loadClickFunction() {
         this.addEventListener("click", (e) => {
             selectedContact = e.currentTarget;
-            let contactDetails = document.querySelector("contact-details")
+            let contactDetails = document.querySelector("contact-details");
             contactDetails.updateContact();
         });
     }

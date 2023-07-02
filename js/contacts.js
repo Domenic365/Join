@@ -26,7 +26,6 @@ async function updateContacts() {
 
 function addContact(event) {
     event.preventDefault();
-    debugger;
     let name = event.target[0].value;
     let phone = event.target[1].value;
     let email = event.target[2].value;
@@ -36,16 +35,33 @@ function addContact(event) {
 }
 
 async function openEditContact() {
-    await switchModal("../templates/modals/edit_Contact.html", "contact")
+    await switchModal("../templates/modals/edit_Contact.html", "contact");
     loadIntoModal();
 }
 
 function loadIntoModal() {
-    
-    let name = selectedContact.name;
-    let phone = selectedContact.phone;
-    let email = selectedContact.email;
-    let form = document.querySelector('form');
-    form.children[0].value = name;
-    
+    let contactData = [
+        (contactName = selectedContact.name),
+        (contactPhone = selectedContact.phone),
+        (contactEmail = selectedContact.email),
+    ];
+    for (
+        let contactDataNum = 0;
+        contactDataNum < contactData.length;
+        contactDataNum++
+    ) {
+        const contactValue = contactData[contactDataNum];
+        const form = document.querySelector("form");
+        form.children[contactDataNum].value = contactValue;
+    }
+}
+
+function saveContact(e) {
+    e.preventDefault();
+    const form = document.querySelector("form");
+    selectedContact.name = form.children[0].value;
+    selectedContact.phone = form.children[1].value;
+    selectedContact.email = form.children[2].value;
+    contacts.save();
+    updateContacts();
 }

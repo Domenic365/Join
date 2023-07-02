@@ -12,7 +12,7 @@
             <div onclick="switchModal()" class="close">
                 <img src="../img/icons/cross.svg" alt="" />
             </div>
-            <form onsubmit="addContact(event)">
+            <form onsubmit="saveContact(event)">
                 <input required type="name" placeholder="Name" />
                 <input required type="number" placeholder="Phone" />
                 <input required type="email" placeholder="Email" />
@@ -21,7 +21,7 @@
                         Delete
                         <img src="../img/icons/cross.svg" />
                     </button>
-                    <button type="submit" class="main-btn">
+                    <button onclick="switchModal()" type="submit" class="main-btn">
                         Save contact<img
                             src="../img/icons/checkContact.svg" />
                     </button>
