@@ -80,7 +80,6 @@ class Contact extends HTMLElement {
         this.firstLettersHTML.innerText = this.firstLetters;
         this.nameHTML.innerText = this.name;
         this.emailHTML.innerText = this.email;
-        this.emailHTML.href = /*html*/ `mailto:${this.email}`;
     }
 
     loadClickFunction() {

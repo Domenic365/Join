@@ -30,9 +30,3 @@ function loadOutsideClickForModal() {
         }
     });
 }
-
-
-function addContact(e) {
-    e.preventDefault();
-    console.log(e)
-}

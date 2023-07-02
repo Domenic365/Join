@@ -2,7 +2,7 @@
     height: 37.125rem;
     border-radius: 1.875rem;
     display: flex;
-    background: #FFF;
+    background: #fff;
 }
 
 /*LEFT SIDE START*/
@@ -90,7 +90,6 @@
     width: 26.375rem;
     font-size: 1.3125rem;
     padding-right: 3rem;
-    
 }
 
 .rightSide form input::placeholder {
@@ -109,10 +108,24 @@
     justify-content: end;
 }
 
-[type="tel"] {
+[type="number"] {
     background-image: url("../../assets/img/icons/phone.svg");
     background-repeat: no-repeat;
     background-position: 381px;
+}
+
+/* removing arrows from number */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 [type="name"] {

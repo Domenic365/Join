@@ -16,5 +16,17 @@ async function loadContactContainer() {
 
 async function updateContacts() {
     await contacts.loadFromRemoteStorage();
+    contacts.sortContacts();
     contacts.loadContactsToHTML();
+}
+
+function addContact(event) {
+    event.preventDefault();
+    debugger;
+    let name = event.target[0].value;
+    let phone = event.target[1].value;
+    let email = event.target[2].value;
+
+    contacts.addContact(name, email, phone);
+    updateContacts();
 }

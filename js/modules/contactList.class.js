@@ -83,6 +83,13 @@ class ContactList extends HTMLElement {
             );
         });
     }
+
+    addContact(name, phone, email) {
+        let contactToAdd = new Contact(name, phone, email);
+        this.contactList.push(contactToAdd);
+        this.sortContacts();
+        this.saveToRemoteStorage();
+    }
 }
 
 customElements.define("contact-list", ContactList);
