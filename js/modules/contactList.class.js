@@ -100,7 +100,7 @@ class ContactList extends HTMLElement {
             (element) => element === selectedContact
         );
         this.contactList.splice(contactIndex, 1)
-        this.save;
+        this.save();
     }
 }
 
