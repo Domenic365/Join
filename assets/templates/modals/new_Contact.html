@@ -10,7 +10,7 @@
             <img src="../img/icons/whiteHuman.svg" alt="" />
         </div>
         <div class="formCloseAndButtons">
-            <div onclick="closeModal()" class="close">
+            <div onclick="switchModal()" class="close">
                 <img src="../img/icons/cross.svg" alt="" />
             </div>
             <form onsubmit="addContact(event)">
@@ -18,7 +18,7 @@
                 <input required type="number" placeholder="Phone" />
                 <input required type="email" placeholder="Email" />
                 <div class="buttons">
-                    <button type="reset" class="secondary-btn">
+                    <button onclick="switchModal()" type="reset" class="secondary-btn">
                         Cancel
                         <img src="../img/icons/cross.svg" />
                     </button>
