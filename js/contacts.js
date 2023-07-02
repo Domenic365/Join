@@ -71,5 +71,6 @@ async function saveContact(e) {
 async function deleteContact() {
     debugger;
     contacts.delete();
-    await updateContacts;
+    await updateContacts();
+    await switchModal();
 }
