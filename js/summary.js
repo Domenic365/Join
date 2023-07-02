@@ -150,3 +150,4 @@ function convertToDateObject(dueDate) {
     formatDate(date);
 }
 
+Window.onload = initSummary();
