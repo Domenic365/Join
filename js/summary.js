@@ -6,7 +6,6 @@ let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
  */
 async function initSummary() {
     await taskLoader();
-    console.log('hallo');
     renderOpenTasks()
     renderProgressTasks();
     renderFeedbackTasks();
@@ -14,6 +13,7 @@ async function initSummary() {
     renderTodos();
     renderDoneTasks();
 }
+initSummary();
 
 /**
  * function to load all tasks in loadedTasks variable
@@ -150,4 +150,4 @@ function convertToDateObject(dueDate) {
     formatDate(date);
 }
 
-Window.onload = initSummary();
+//Window.onload = initSummary();
