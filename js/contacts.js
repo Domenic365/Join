@@ -35,6 +35,17 @@ function addContact(event) {
     updateContacts();
 }
 
-function openEditContact() {
-    switchModal("../templates/modals/edit_Contact.html", "contact")
+async function openEditContact() {
+    await switchModal("../templates/modals/edit_Contact.html", "contact")
+    loadIntoModal();
+}
+
+function loadIntoModal() {
+    
+    let name = selectedContact.name;
+    let phone = selectedContact.phone;
+    let email = selectedContact.email;
+    let form = document.querySelector('form');
+    form.children[0].value = name;
+    
 }
