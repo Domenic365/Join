@@ -67,3 +67,9 @@ async function saveContact(e) {
     selectedContact.reload();
     contactDetails.updateContact();
 }
+
+async function deleteContact() {
+    debugger;
+    contacts.delete();
+    await updateContacts;
+}
