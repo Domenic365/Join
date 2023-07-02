@@ -1,9 +1,12 @@
 let tasks = [];
-// Window.onload = initBoard();
+
 
 async function initBoard() {
     await loadBoardtasks();
-    renderTodos();
+    renderBoardTodos();
+    renderBoardProgress();
+    // renderBoardFeedback();
+    // renderBoardDone();
 }
 
 async function loadBoardtasks() {
@@ -18,7 +21,7 @@ function renderBoardTodos() {
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design">
-            <div class="category">
+            <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
             <div class="task-name">
@@ -28,17 +31,17 @@ function renderBoardTodos() {
                 <span>${todos[i].description}</span>
             </div>
             <div class="progress-bar"></div>
-            <div class="worker" id="${todos[i]}-workers">
+            <div class="worker" id="${todos[i].status}${i}-workers">
             </div>
         </div>
         `
-        renderBoardAssignings(todos[i]);
+        renderBoardAssignings(todos[i],i);
     }
 }
 
-function renderBoardAssignings(task) {
-    let workerbox = document.getElementById(`${task}-workers`);
-        // workerbox.innerHTML = ''
+function renderBoardAssignings(task, taskID) {
+    let workerbox = document.getElementById(`${task.status}${taskID}-workers`);
+        workerbox.innerHTML = ''
         for (let j = 0; j<task.assignedTo.length; j++) {
             workerbox.innerHTML += `
             <p class="worker-a">${task.assignedTo[j].split(" ").map((n)=>n[0]).join("")}</p>
@@ -54,6 +57,37 @@ function getBoardTasks(status) {
             arr.push(tasks[i])
         }
     }
-    return arr;
+    if (arr.length < 1) {
+        return;
+    } else if (arr.length>0) {
+        return arr;
+    }
+    
 }
 
+function renderBoardProgress() {
+    let container = document.getElementById('progress-col');
+    container.innerHTML='';
+    let todos = getBoardTasks('inProgress');
+    for (let i = 0; i<todos.length; i++) {
+        container.innerHTML += `
+        <div class="box-task-design">
+            <div class="category ${todos[i].catColor}Cat">
+                <h3>${todos[i].category}</h3>
+            </div>
+            <div class="task-name">
+                <h4>${todos[i].title}</h4>
+            </div>
+            <div class="task-description">
+                <span>${todos[i].description}</span>
+            </div>
+            <div class="progress-bar"></div>
+            <div class="worker" id="${todos[i].status}${i}-workers">
+            </div>
+        </div>
+        `
+        renderBoardAssignings(todos[i],i);
+    }
+}
+
+Window.onload = initBoard();
