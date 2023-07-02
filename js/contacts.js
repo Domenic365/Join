@@ -7,6 +7,10 @@ let contactDetails = new ContactDetails();
 async function loadContactContainer() {
     updateContacts();
     await changeContentHTML("../templates/contacts.html");
+    insertContactHTML();
+}
+
+function insertContactHTML() {
     let contactListContainer = document.querySelector("[contact-list]");
     let contactDetailsContainer = document.querySelector("[contact-details]");
 

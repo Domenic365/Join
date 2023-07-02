@@ -6,10 +6,14 @@ async function init() {
     loadOutsideClickForModal();
 }
 
-async function switchModal(modalLink) {
+async function switchModal(modalLink, page) {
     const modal = document.querySelector("dialog");
     if (modalLink) {
-        
+        modal.setAttribute("w3-include-html", modalLink);
+        await includeHTML();
+    }
+    if (page === "contact") {
+        insertContactHTML();
     }
     if (modal.open) {
         modal.close();

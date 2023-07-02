@@ -61,6 +61,7 @@ class ContactDetails extends HTMLElement {
         this.editContact.src = "../../assets/img/icons/contact/editContact.svg";
         this.phone.innerHTML = selectedContact.phone;
         this.phone.href = /*html*/ `tel:${selectedContact.phone}`;
+        this.editContact.addEventListener("click",function(){switchModal("../templates/modals/edit_Contact.html", "contact")})
     }
 
     loadCSS() {
