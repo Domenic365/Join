@@ -6,14 +6,16 @@ async function init() {
     loadOutsideClickForModal();
 }
 
-function showModal() {
+async function switchModal(modalLink) {
     const modal = document.querySelector("dialog");
-    modal.showModal();
-}
-
-function closeModal() {
-    const modal = document.querySelector("dialog");
-    modal.close();
+    if (modalLink) {
+        
+    }
+    if (modal.open) {
+        modal.close();
+    } else {
+        modal.showModal();
+    }
 }
 
 function loadOutsideClickForModal() {
