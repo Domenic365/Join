@@ -116,7 +116,8 @@ class ContactDetails extends HTMLElement {
     checkDisplay() {
         console.log(this.offsetParent)
         if (this.offsetParent === null) {
-            this.style.cssText = 'display: unset !important';
+            let contactDetails = document.querySelector("[contact-details]")
+            contactDetails.style.cssText = 'display: flex !important';
         }
     }
 }

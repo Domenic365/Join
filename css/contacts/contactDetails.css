@@ -1,5 +1,11 @@
+[contact-details]{
+    display: flex;
+    flex: 1;
+}
+
 contact-details {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 1.31rem;
     margin-left: 4.06rem;

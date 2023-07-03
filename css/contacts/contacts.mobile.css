@@ -91,21 +91,52 @@
 
     /*CONTACTDETAILS START*/
 
-    contact-details {
+    [contact-details] {
         display: none !important;
+        justify-content: center;
+    }
+
+    contact-details{
+        margin: 0 !important;
+        padding: 0 !important;
+        align-items: center;
+    }
+
+    .firstRow{
+        width: 462px;
+        justify-content: start;
+    }
+
+    .secondRow{
+        width: 462px;
+        justify-content: start;
+    }
+
+    .thirdRow{
+        width: 462px;
+        justify-content: start !important;
     }
 
     /*CONTACTDETAILS END*/
 
     /*CONTACTLIST START*/
 
+    [contact-list]{
+        background-color: white;
+    }
+
+    .contacts {
+        height: calc(100vh - 90px - 78.5px) !important;
+    }
+
     contact-list {
         margin-top: 5.06rem;
         height: calc(100vh - 90px - 78.5px - 16px - 5.06rem) !important;
+        max-width: unset !important;
     }
 
     .addContactButton {
-        top: 95px;
+        top: 105px;
         bottom: unset !important;
         right: 1rem !important;
     }
@@ -113,21 +144,20 @@
     /*CONTACTLIST END*/
 }
 
-
 @media (max-width: 430px) {
-    .rightSide input{
+    .rightSide input {
         width: 20rem !important;
     }
 
-    .rightSide form{
+    .rightSide form {
         gap: 1.8rem;
     }
 
-    .leftSide .addContactTitle{
+    .leftSide .addContactTitle {
         font-size: 2.8rem;
     }
 
-    .leftSide .tasksAreBetterWithATeam{
+    .leftSide .tasksAreBetterWithATeam {
         font-size: 1.3rem;
     }
 }

@@ -99,12 +99,19 @@ class ContactList extends HTMLElement {
         const contactIndex = this.contactList.findIndex(
             (element) => element === selectedContact
         );
-        this.contactList.splice(contactIndex, 1)
+        this.contactList.splice(contactIndex, 1);
         this.save();
     }
 
     hide() {
-        this.style.display = 'none';
+        let elementsToHide = [
+            document.querySelector("[contact-list]"),
+            document.querySelector(".addContactButton"),
+        ];
+
+        elementsToHide.forEach((element) => {
+            element.style.display = "none";
+        });
     }
 }
 

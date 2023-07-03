@@ -1,5 +1,5 @@
 @media (max-width: 1360px) {
-    body{
+    body {
         max-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -58,6 +58,7 @@
         position: unset;
         width: unset;
     }
+
     #content {
         height: calc(100vh - 78.5px - 90px);
         margin: 0;
