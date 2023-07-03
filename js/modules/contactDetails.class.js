@@ -6,7 +6,10 @@ class ContactDetails extends HTMLElement {
     email = this.cloneOfSelectedContact.children[1].children[1];
 
     /**HTML data*/
-    title = document.createElement("img");
+    title = document.createElement("div");
+    titleName = document.createElement("h2")
+    titleLine = document.createElement("img");
+    titleSloagen = document.createElement("p");
 
     firstRow = document.createElement("div");
     nameAndTaskContainer = document.createElement("div");
@@ -20,12 +23,21 @@ class ContactDetails extends HTMLElement {
 
     constructor() {
         super();
-        this.appendChild(this.title);
-        this.title.src =
-            "../../assets/img/icons/contact/contactDetailsTitle.svg";
+        this.loadTitle();
     }
 
     //loading functions
+
+    loadTitle() {
+        this.appendChild(this.title);
+        this.title.appendChild(this.titleName)
+        this.title.appendChild(this.titleLine);
+        this.title.appendChild(this.titleSloagen);
+        this.titleName.innerText = "Contact"
+        this.titleSloagen.innerText = "Better with a team";
+        this.titleLine.src = "../../assets/img/icons/contact/contactDetailsLine.svg"
+        this.title.classList.add("contactDetailsTitle")
+    }
 
     updateContact() {
         this.clearHTML();
@@ -114,10 +126,9 @@ class ContactDetails extends HTMLElement {
     }
 
     checkDisplay() {
-        console.log(this.offsetParent)
         if (this.offsetParent === null) {
-            let contactDetails = document.querySelector("[contact-details]")
-            contactDetails.style.cssText = 'display: flex !important';
+            let contactDetails = document.querySelector("[contact-details]");
+            contactDetails.style.cssText = "display: flex !important";
         }
     }
 }

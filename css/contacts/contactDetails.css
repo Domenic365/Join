@@ -13,6 +13,22 @@ contact-details {
     padding-right: 8rem;
 }
 
+.contactDetailsTitle{
+    display: flex;
+    align-items: center;
+    gap: 1.88rem;
+}
+
+.contactDetailsTitle h2{
+    font-size: 3.8125rem;
+    margin: 0;
+}
+
+.contactDetailsTitle p{
+    font-size: 1.6875rem;
+    margin: 0;
+}
+
 .firstRow {
     display: flex;
     align-items: center;
