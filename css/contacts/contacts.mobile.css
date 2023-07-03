@@ -4,16 +4,16 @@
     }
 
     contact-list {
-        height: calc(100vh - 90px - 78.5px - 16px);
+        height: calc(100vh - 90px - 78.5px - 16px) !important;
     }
 }
 
 @media (max-width: 1170px) {
     .rightSide {
-        padding-left: 1.2rem;
-        padding-right: 1.2rem;
-        padding-top: 1.62rem;
-        padding-bottom: 6rem;
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+        padding-top: 1.62rem !important;
+        padding-bottom: 6rem !important;
     }
 }
 
@@ -21,18 +21,18 @@
     /* OVERLAY START */
 
     dialog {
-        width: 100%;
-        height: 100vh;
-        max-width: unset;
-        max-height: unset;
-        margin: 0;
+        width: 100% !important;
+        height: 100vh !important;
+        max-width: unset !important;
+        max-height: unset !important;
+        margin: 0 !important;
     }
 
     .newContactModal {
         flex-direction: column;
         width: 100%;
-        height: 100vh;
-        border-radius: 0;
+        height: 100vh !important;
+        border-radius: 0 !important;
     }
 
     /* OVERLAY END */
@@ -40,7 +40,7 @@
     /* LEFT SIDE START*/
 
     .leftSide {
-        border-radius: 0;
+        border-radius: 0 !important;
         align-items: center;
         height: 50vh;
         padding: 0;
@@ -88,6 +88,29 @@
     }
 
     /* RIGHT SIDE END */
+
+    /*CONTACTDETAILS START*/
+
+    contact-details {
+        display: none !important;
+    }
+
+    /*CONTACTDETAILS END*/
+
+    /*CONTACTLIST START*/
+
+    contact-list {
+        margin-top: 5.06rem;
+        height: calc(100vh - 90px - 78.5px - 16px - 5.06rem) !important;
+    }
+
+    .addContactButton {
+        top: 95px;
+        bottom: unset !important;
+        right: 1rem !important;
+    }
+
+    /*CONTACTLIST END*/
 }
 
 
