@@ -11,7 +11,7 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
  */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'DELETE', body: JSON.stringify(payload)})
+    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
     .then(res => res.json());
 }
 
@@ -33,7 +33,6 @@ async function getItem(key) {
 
 let allTasks = [];
 let uID = 0;
-let deleteTasks = [];
 
 /**
  * This function updates the allTasks JSON-Array
@@ -52,7 +51,7 @@ async function loadAllTasksFromStg() {
 function createNewTask(status = 'todo') {
     
     allTasks.push({
-        "id" : `${uID}`,
+        "task-id" : `${uID}`,
         "title" : `${document.getElementById('title-input').value}`,
         "description" : `${document.getElementById('description').value}`,
         "category" : `${document.querySelector('.pickedCat').innerText}`,
@@ -63,14 +62,19 @@ function createNewTask(status = 'todo') {
         "subtasks" : `${getSubtasks()}`,
         "status" : `${status}`
     })
+    uID = uID++;
     uploadTasks();
     clearAll();
     redirectToBoard();
 };
 
+/**
+ * This function redirects user to board-view after creating task
+ */
 function redirectToBoard() {
     setTimeout(() => {
         changeContentHTML('../templates/board.html');
+        initBoard();
     }, 2500);
 }
 
@@ -285,4 +289,3 @@ function resetValidation() {
 
 // loadAllTasksFromStg();
 
-setItem('allTasks', deleteTasks);
