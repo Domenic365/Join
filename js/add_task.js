@@ -11,9 +11,10 @@ const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
  */
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+    return fetch(STORAGE_URL, { method: 'DELETE', body: JSON.stringify(payload)})
     .then(res => res.json());
 }
+
 
 /**
  * This function is used to load data from remoteStorage
@@ -31,7 +32,8 @@ async function getItem(key) {
 }
 
 let allTasks = [];
-
+let uID = 0;
+let deleteTasks = [];
 
 /**
  * This function updates the allTasks JSON-Array
@@ -48,24 +50,17 @@ async function loadAllTasksFromStg() {
  * 
  */
 function createNewTask(status = 'todo') {
-    let title = document.getElementById('title-input').value;
-    let description = document.getElementById('description').value;
-    let category = document.querySelector('.pickedCat').innerText;
-    let categoryColor = document.querySelector('.pickedCat > div').className;
-    let contacts = getAssignedContacts();
-    let date = document.getElementById('due-date').value;
-    let prio = document.querySelector('.activePick').innerText;
-    let subtasks =  getSubtasks();
-
+    
     allTasks.push({
-        "title" : `${title}`,
-        "description" : `${description}`,
-        "category" : `${category}`,
-        "catColor" : `${categoryColor}`,
-        "assignedTo" : `${contacts}`,
-        "dueDate": `${date}`,
-        "prio" : `${prio}`,
-        "subtasks" : `${subtasks}`,
+        "id" : `${uID}`,
+        "title" : `${document.getElementById('title-input').value}`,
+        "description" : `${document.getElementById('description').value}`,
+        "category" : `${document.querySelector('.pickedCat').innerText}`,
+        "catColor" : `${document.querySelector('.pickedCat > div').className}`,
+        "assignedTo" : `${getAssignedContacts()}`,
+        "dueDate": `${document.getElementById('due-date').value}`,
+        "prio" : `${document.querySelector('.activePick').innerText}`,
+        "subtasks" : `${getSubtasks()}`,
         "status" : `${status}`
     })
     uploadTasks();
@@ -148,7 +143,6 @@ function colorSearch(value) {
 function saveSubtask() {
     let task = document.getElementById('subtask-value');
     let list = document.getElementById('subtask-overview');
-
     list.innerHTML += `
         <li class="subtask-item">
             <input type="checkbox" id="${task.value}" name="${task.value}" value="subtask3.value">
@@ -289,5 +283,6 @@ function resetValidation() {
     }
 }
 
-loadAllTasksFromStg();
+// loadAllTasksFromStg();
 
+setItem('allTasks', deleteTasks);

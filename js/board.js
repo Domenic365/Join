@@ -5,8 +5,8 @@ async function initBoard() {
     await loadBoardtasks();
     renderBoardTodos();
     renderBoardProgress();
-    // renderBoardFeedback();
-    // renderBoardDone();
+    renderBoardFeedback();
+    renderBoardDone();
 }
 
 async function loadBoardtasks() {
@@ -20,7 +20,7 @@ function renderBoardTodos() {
     let todos = getBoardTasks('todo');
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design">
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -71,7 +71,7 @@ function renderBoardProgress() {
     let todos = getBoardTasks('inProgress');
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design">
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -88,4 +88,60 @@ function renderBoardProgress() {
         `
         renderBoardAssignings(todos[i],i);
     }
+}
+
+function renderBoardFeedback() {
+    let container = document.getElementById('feedback-col');
+    container.innerHTML='';
+    let todos = getBoardTasks('feedback');
+    if (todos.length>0){
+        for (let i = 0; i<todos.length; i++) {
+            container.innerHTML += `
+            <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status}">
+                <div class="category ${todos[i].catColor}Cat">
+                    <h3>${todos[i].category}</h3>
+                </div>
+                <div class="task-name">
+                    <h4>${todos[i].title}</h4>
+                </div>
+                <div class="task-description">
+                    <span>${todos[i].description}</span>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="worker" id="${todos[i].status}${i}-workers">
+                </div>
+            </div>
+            `
+            renderBoardAssignings(todos[i],i);
+        }
+    }    
+}
+
+function renderBoardDone() {
+    let container = document.getElementById('done-col');
+    container.innerHTML='';
+    let todos = getBoardTasks('done');
+    for (let i = 0; i<todos.length; i++) {
+        container.innerHTML += `
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
+            <div class="category ${todos[i].catColor}Cat">
+                <h3>${todos[i].category}</h3>
+            </div>
+            <div class="task-name">
+                <h4>${todos[i].title}</h4>
+            </div>
+            <div class="task-description">
+                <span>${todos[i].description}</span>
+            </div>
+            <div class="progress-bar"></div>
+            <div class="worker" id="${todos[i].status}${i}-workers">
+            </div>
+        </div>
+        `
+        renderBoardAssignings(todos[i],i);
+    }
+}
+
+function startDragging(status, id) {
+    
 }

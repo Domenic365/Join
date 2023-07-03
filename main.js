@@ -1,5 +1,8 @@
 "use strict";
 
+/**
+ * this funciton initializes/calls needed functions to render page content
+ */
 async function init() {
     await includeHTML();
     initSummary();

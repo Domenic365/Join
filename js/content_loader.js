@@ -1,3 +1,7 @@
+/**
+ * This function is for usage of html-templates. it fetches the needed template and places it in main.html
+ */
+
 async function includeHTML() {
     let includeElements = document.querySelectorAll("[w3-include-html]");
     for (let i = 0; i < includeElements.length; i++) {
@@ -13,6 +17,7 @@ async function includeHTML() {
 }
 
 /**
+ * This functions calls different functions in every instance and prevents calling wrong function 
  *
  * @param {string} link relative path to the page to load
  */

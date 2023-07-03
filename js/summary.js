@@ -148,5 +148,3 @@ function convertToDateObject(dueDate) {
     let date = new Date(dueDate);
     formatDate(date);
 }
-
-//Window.onload = initSummary();
