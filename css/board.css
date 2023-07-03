@@ -199,6 +199,31 @@ button:hover {
     background-color: green;
 }
 
+/*********** Modal ***********/
+#bg-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+}
+
+#addTask-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background-color: white;
+    transform: scale(0);
+    width: 1171px;
+    
+}
+
+.active-modal {
+    transform: scale(1);
+}
+
 /*********** Responsive Area ***********/
 
 @media (max-width:1500px) {
