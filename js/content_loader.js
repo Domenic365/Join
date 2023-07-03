@@ -20,9 +20,9 @@ async function includeHTML() {
 async function changeContentHTML(link) {
     document.getElementById("content").setAttribute("w3-include-html", link);
     await init();
-    if(link.includes('summary')) {
-        await initSummary();
-    } else if (link.includes('board')) {
-        await initBoard();
-    }    
+    // if(link === '../templates/summary.html') {
+    //     initSummary();
+    // } else if (link.includes('../templates/board.html')) {
+    //     initBoard();
+    // }    
 }

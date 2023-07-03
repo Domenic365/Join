@@ -89,5 +89,3 @@ function renderBoardProgress() {
         renderBoardAssignings(todos[i],i);
     }
 }
-
-Window.onload = initBoard();

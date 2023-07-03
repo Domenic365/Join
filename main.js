@@ -4,6 +4,7 @@ async function init() {
     await includeHTML();
     await updateContacts();
     loadOutsideClickForModal();
+    initSummary();
 }
 
 async function switchModal(modalLink, page) {
