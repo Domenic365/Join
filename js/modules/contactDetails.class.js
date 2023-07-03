@@ -112,6 +112,13 @@ class ContactDetails extends HTMLElement {
             e.target.src = `../../assets/img/icons/contact/${name}.svg`;
         });
     }
+
+    checkDisplay() {
+        console.log(this.offsetParent)
+        if (this.offsetParent === null) {
+            this.style.cssText = 'display: unset !important';
+        }
+    }
 }
 
 customElements.define("contact-details", ContactDetails);

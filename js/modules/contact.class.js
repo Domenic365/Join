@@ -89,6 +89,8 @@ class Contact extends HTMLElement {
             selectedContact = e.currentTarget;
             let contactDetails = document.querySelector("contact-details");
             contactDetails.updateContact();
+            contactDetails.checkDisplay();
+            contacts.hide();
         });
     }
 
