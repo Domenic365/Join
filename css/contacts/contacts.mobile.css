@@ -96,32 +96,51 @@
         justify-content: center;
     }
 
-    contact-details{
+    contact-details {
         margin: 0 !important;
         padding: 0 !important;
-        align-items: center;
+        margin-left: 3.06rem !important;
     }
 
-    .firstRow{
+    .firstRow {
+        width: 462px;
+        justify-content: start;
+        margin: 0 !important;
+    }
+
+    .secondRow {
         width: 462px;
         justify-content: start;
     }
 
-    .secondRow{
-        width: 462px;
-        justify-content: start;
+    .secondRow .imageButtons {
+        position: absolute;
+        right: 1rem;
+        bottom: 6rem;
     }
 
-    .thirdRow{
+    .thirdRow {
         width: 462px;
         justify-content: start !important;
+    }
+
+    .contactDetailsTitle {
+        margin-top: 1.19rem;
+        flex-direction: column;
+        align-items: start !important;
+        gap: 0.5rem !important;
+    }
+
+    .contactDetailsTitle img {
+        transform: rotate(90deg) translate(0, -30px);
+        order: 3;
     }
 
     /*CONTACTDETAILS END*/
 
     /*CONTACTLIST START*/
 
-    [contact-list]{
+    [contact-list] {
         background-color: white;
     }
 
