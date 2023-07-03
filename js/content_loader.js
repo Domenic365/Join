@@ -19,10 +19,19 @@ async function includeHTML() {
 
 async function changeContentHTML(link) {
     document.getElementById("content").setAttribute("w3-include-html", link);
-    await init();
-    // if(link === '../templates/summary.html') {
-    //     initSummary();
-    // } else if (link.includes('../templates/board.html')) {
-    //     initBoard();
-    // }    
+    if(link === '../templates/summary.html') {
+        await includeHTML();
+        initSummary();
+    } else if (link.includes('../templates/board.html')) {
+        await includeHTML();
+        initBoard();
+    } else if (link.includes('../templates/add_task.html')) {
+        await includeHTML();
+    } else if (link.includes('../templates/contacts.html')){
+        await includeHTML();
+        await updateContacts();
+        loadOutsideClickForModal();
+    } else {
+        await init();
+    }
 }

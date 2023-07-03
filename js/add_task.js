@@ -279,7 +279,6 @@ function prioValidation() {
     }
 }
 
-
 /**
  * function to reset the validation items. if this function is called, no "invalid"-message will be shown
  */

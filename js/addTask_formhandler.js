@@ -23,9 +23,9 @@ let categorys = [
  */
 async function loadContactsStorage() {
     let res = await getItem("contactList");
-    loadedContacts =  contactListFromStorage = JSON.parse(res);
-    console.log(loadedContacts);
+    loadedContacts = JSON.parse(res);
 }
+
 loadContactsStorage();
 /**
  * function to toggle dropdown of contact assigning
