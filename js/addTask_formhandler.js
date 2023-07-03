@@ -1,4 +1,4 @@
-let loadedContacts = contacts.contactList;
+let loadedContacts = [];
 let categorys = [
     {
         name: 'Marketing',
@@ -18,6 +18,15 @@ let categorys = [
     },
 ];
 
+/**
+ * this functions loads all contacts from remote-storage and pushes it to loadedContacts-Array
+ */
+async function loadContactsStorage() {
+    let res = await getItem("contactList");
+    loadedContacts =  contactListFromStorage = JSON.parse(res);
+    console.log(loadedContacts);
+}
+loadContactsStorage();
 /**
  * function to toggle dropdown of contact assigning
  */
@@ -49,7 +58,6 @@ function renderContacts() {
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
 }
-
 
 /**
  * this function shows or hides the add subtask buttons
