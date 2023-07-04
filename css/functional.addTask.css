@@ -294,4 +294,16 @@
     justify-content: center;
     align-items: center;
     overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+
+.modalView #layerForCats, #layerForContactDD {
+    display:none;
+}
+
+.modalView .addtask-form-container {
+    width: auto !important;
 }

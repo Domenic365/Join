@@ -16,9 +16,9 @@ async function switchModal(modalLink, page) {
     }
     if (page === "contact") {
         insertContactHTML();
-    } else if (page === 'addTask') {
+    } else if (page === 'addtask') {
         let addTask = document.querySelector('.taskarea')
-        console.log(addTask);
+        console.log('hallo');
         if (addTask.classList.contains('modalView')) {
             addTask.classList.remove('modalView');
         } else {
