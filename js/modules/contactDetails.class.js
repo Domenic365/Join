@@ -7,7 +7,7 @@ class ContactDetails extends HTMLElement {
 
     /**HTML data*/
     title = document.createElement("div");
-    titleName = document.createElement("h2")
+    titleName = document.createElement("h2");
     titleLine = document.createElement("img");
     titleSloagen = document.createElement("p");
 
@@ -21,6 +21,9 @@ class ContactDetails extends HTMLElement {
     thirdRow = document.createElement("div");
     phone = document.createElement("a");
 
+    arrowButton = document.createElement("button");
+    trashbutton = document.createElement("button");
+
     constructor() {
         super();
         this.loadTitle();
@@ -30,13 +33,14 @@ class ContactDetails extends HTMLElement {
 
     loadTitle() {
         this.appendChild(this.title);
-        this.title.appendChild(this.titleName)
+        this.title.appendChild(this.titleName);
         this.title.appendChild(this.titleLine);
         this.title.appendChild(this.titleSloagen);
-        this.titleName.innerText = "Contact"
+        this.titleName.innerText = "Contact";
         this.titleSloagen.innerText = "Better with a team";
-        this.titleLine.src = "../../assets/img/icons/contact/contactDetailsLine.svg"
-        this.title.classList.add("contactDetailsTitle")
+        this.titleLine.src =
+            "../../assets/img/icons/contact/contactDetailsLine.svg";
+        this.title.classList.add("contactDetailsTitle");
     }
 
     updateContact() {
@@ -66,6 +70,9 @@ class ContactDetails extends HTMLElement {
         this.appendChild(this.firstRow);
         this.appendChild(this.secondRow);
         this.appendChild(this.thirdRow);
+
+        this.appendChild(this.arrowButton);
+        this.appendChild(this.trashbutton);
     }
 
     loadValues() {
@@ -86,6 +93,8 @@ class ContactDetails extends HTMLElement {
         this.firstLetters.classList.add("contactDetailsFirstLetters");
         this.name.classList.add("contactDetailsName");
         this.nameAndTaskContainer.classList.add("nameAndTaskContainer");
+        this.arrowButton.classList.add("arrowButton");
+        this.trashbutton.classList.add("trashButton")
     }
 
     loadContact() {
