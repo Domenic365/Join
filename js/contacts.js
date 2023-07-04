@@ -92,3 +92,9 @@ function mobileHideContact() {
         isContactListHiden = false;
     }
 }
+
+async function deleteMobile() {
+    mobileHideContact();
+    contacts.delete();
+    await updateContacts();
+}

@@ -89,6 +89,8 @@ class ContactDetails extends HTMLElement {
         this.phone.href = /*html*/ `tel:${selectedContact.phone}`;
         this.editContact.addEventListener("click", openEditContact);
         this.editButton.addEventListener("click", openEditContact);
+        this.arrowButton.addEventListener("click", mobileHideContact);
+        this.trashbutton.addEventListener("click", deleteMobile);
     }
 
     loadCSS() {
