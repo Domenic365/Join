@@ -30,6 +30,7 @@ async function switchModal(modalLink, page) {
     } else {
         modal.showModal();
     }
+    loadOutsideClickForModal();
 }
 
 function loadOutsideClickForModal() {
