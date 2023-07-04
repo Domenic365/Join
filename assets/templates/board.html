@@ -5,7 +5,7 @@
 
     <div class="interactive-container">
         <input type="text" placeholder="Find Task" class="lupe-img">
-        <button>Add Task
+        <button onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
             <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
         </button>
     </div>
@@ -18,9 +18,9 @@
     <div class="column-direction">
         <div class="box-title">
             <h2>To-Do</h2>
-            <div class="img-container">
+            <div class="img-container" onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
-                <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button" onclick="switchModal('add_task.html', 'addtask')">
+                <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
         <div class="box-overflow" id="todo-col">
@@ -47,7 +47,7 @@
     <div class="column-direction">
         <div class="box-title">
             <h2>In Progress</h2>
-            <div class="img-container">
+            <div class="img-container"onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
@@ -60,7 +60,7 @@
     <div class="column-direction">
         <div class="box-title">
             <h2>Awainting Feedback</h2>
-            <div class="img-container">
+            <div class="img-container" onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
@@ -73,7 +73,7 @@
     <div class="column-direction">
         <div class="box-title" >
             <h2>Done</h2>
-            <div class="img-container">
+            <div class="img-container" onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>

@@ -26,6 +26,10 @@
     display: none;
 }
 
+.mobile-close {
+    display: none;
+}
+
 .mobile-HL {
     display: none;
 }

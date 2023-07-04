@@ -7,7 +7,7 @@
         height: 100vh;
         padding: 1rem;
         border-radius: 0;
-        padding-top: 13rem !important;
+        /* padding-top: 13rem !important; */
     }
     .mobile-HL {
         display: block;
@@ -22,6 +22,12 @@
         position: absolute;
         top: 14px;
         right: 1rem;
+    }
+    .mobile-close {
+        display: unset;
+        position: absolute;
+        top: 14px;
+        right: 14rem;
     }
 
     .content-wrapper h1 {
@@ -57,7 +63,7 @@
     }
 
     .taskarea {
-        /* display: unset; */
+        display: block;
         min-width: 350px;
         padding-left: 0;
         overflow-y: auto;
