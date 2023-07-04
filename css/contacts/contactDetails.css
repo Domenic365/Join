@@ -77,3 +77,11 @@ contact-details {
     font-size: 2.9375rem;
     margin-bottom: 0.8125rem;
 }
+
+.arrowButton{
+    display: none;
+}
+
+.trashButton{
+    display: none;
+}

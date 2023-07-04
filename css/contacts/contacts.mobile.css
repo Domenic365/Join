@@ -136,6 +136,15 @@
         order: 3;
     }
 
+    .arrowButton{
+        display: block !important;
+        position: absolute;
+    }
+
+    .trashButton{
+        display: block !important;
+    }
+
     /*CONTACTDETAILS END*/
 
     /*CONTACTLIST START*/
