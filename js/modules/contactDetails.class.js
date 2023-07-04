@@ -21,8 +21,8 @@ class ContactDetails extends HTMLElement {
     thirdRow = document.createElement("div");
     phone = document.createElement("a");
 
-    arrowButton = document.createElement("button");
-    trashbutton = document.createElement("button");
+    arrowButton = document.createElement("img");
+    trashbutton = document.createElement("img");
 
     constructor() {
         super();
@@ -78,6 +78,8 @@ class ContactDetails extends HTMLElement {
     loadValues() {
         this.addTask.src = "../../assets/img/icons/contact/addTask.svg";
         this.editContact.src = "../../assets/img/icons/contact/editContact.svg";
+        this.arrowButton.src = "../../assets/img/icons/contact/arrow-left-line.svg";
+        this.trashbutton.src = '';
         this.phone.innerHTML = selectedContact.phone;
         this.phone.href = /*html*/ `tel:${selectedContact.phone}`;
         this.editContact.addEventListener("click", openEditContact);

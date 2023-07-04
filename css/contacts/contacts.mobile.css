@@ -113,12 +113,6 @@
         justify-content: start;
     }
 
-    .secondRow .imageButtons {
-        position: absolute;
-        right: 1rem;
-        bottom: 6rem;
-    }
-
     .thirdRow {
         width: 462px;
         justify-content: start !important;
@@ -136,13 +130,23 @@
         order: 3;
     }
 
-    .arrowButton{
-        display: block !important;
+    .secondRow .imageButtons {
         position: absolute;
+        right: 1rem;
+        bottom: 6rem;
     }
 
-    .trashButton{
+    .arrowButton {
+        cursor: pointer;
         display: block !important;
+        position: absolute;
+        top: 8rem;
+        right: 1rem;
+    }
+
+    .trashButton {
+        display: block !important;
+        position: absolute;
     }
 
     /*CONTACTDETAILS END*/
