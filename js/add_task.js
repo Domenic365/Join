@@ -31,7 +31,92 @@ async function getItem(key) {
     });
 }
 
-let allTasks = [];
+let allTasks = [
+    {
+        "task-id" : "0",
+        "title" : "Design changes",
+        "description" : "New CI delivers new Logo and new colorpalette",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Anna Müller", "Carolin Krause"],
+        "dueDate": "2023-07-16",
+        "prio" : "urgent",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "todo"
+    },
+    {
+        "task-id" : "1",
+        "title" : "Design changes",
+        "description" : "New CI delivers new Logo and new colorpalette",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Anna Müller", "Carolin Krause"],
+        "dueDate": "2023-07-16",
+        "prio" : "urgent",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "done"
+    },
+    {
+        "task-id" : "2",
+        "title" : "Design changes",
+        "description" : "New CI delivers new Logo and new colorpalette",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Anna Müller", "Carolin Krause"],
+        "dueDate": "2023-07-16",
+        "prio" : "urgent",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "todo"
+    },
+    {
+        "task-id" : "3",
+        "title" : "Design optimization",
+        "description" : "little fixes ",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Anna Müller", "Carolin Krause"],
+        "dueDate": "2023-07-16",
+        "prio" : "urgent",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "todo"
+    },
+    {
+        "task-id" : "4",
+        "title" : "new copywriting",
+        "description" : "Communcate intensions of new CI to customers",
+        "category" : "Marketing",
+        "catColor" : "purple",
+        "assignedTo" : ["Fritz Fischer"],
+        "dueDate": "2023-08-13",
+        "prio" : "medium",
+        "subtasks" : ["write newsletter", "send newsletter to customers"],
+        "status" : "inProgress"
+    },
+    {
+        "task-id" : "5",
+        "title" : "New Sales Strategy",
+        "description" : "We need a new sales strategy which is matching to new CI",
+        "category" : "Sales",
+        "catColor" : "red",
+        "assignedTo" : ["Carolin Krause"],
+        "dueDate": "2023-07-03",
+        "prio" : "urgent",
+        "subtasks" : ["think of new strategy", "communicate to team"],
+        "status" : "inProgress"
+    },
+    {
+        "task-id" : "6",
+        "title" : "Small alignment fixings",
+        "description" : "There are a few design css flexbox changes to do",
+        "category" : "Development",
+        "catColor" : "blue",
+        "assignedTo" : ["Fritz Fischer"],
+        "dueDate": "2023-07-16",
+        "prio" : "low",
+        "subtasks" : ["change logo", "change colors"],
+        "status" : "feedback"
+    }
+];
 let uID = 0;
 
 /**
@@ -81,6 +166,7 @@ function redirectToBoard() {
 function uploadTasks() {
     setItem('allTasks', JSON.stringify(allTasks));
 }
+
 
 /**
  * This function collects all subtasks from input an pushes it into an array of subtasks
