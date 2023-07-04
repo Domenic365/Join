@@ -35,7 +35,7 @@ async function changeContentHTML(link) {
     } else if (link.includes('../templates/contacts.html')){
         await includeHTML();
         await updateContacts();
-        loadOutsideClickForModal();
+
     } else {
         await init();
     }
