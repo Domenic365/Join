@@ -16,6 +16,14 @@ async function switchModal(modalLink, page) {
     }
     if (page === "contact") {
         insertContactHTML();
+    } else if (page === 'addTask') {
+        let addTask = document.querySelector('.taskarea')
+        console.log(addTask);
+        if (addTask.classList.contains('modalView')) {
+            addTask.classList.remove('modalView');
+        } else {
+            addTask.classList.add('modalView');
+        }
     }
     if (modal.open) {
         modal.close();

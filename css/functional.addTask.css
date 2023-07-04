@@ -288,3 +288,10 @@
 .mtop-n50 {
     margin-top: -40px;
 }
+
+.modalView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}

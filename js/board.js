@@ -4,9 +4,9 @@ let tasks = [];
 async function initBoard() {
     await loadBoardtasks();
     renderBoardTodos();
-    renderBoardProgress();
-    renderBoardFeedback();
-    renderBoardDone();
+    // renderBoardProgress();
+    // renderBoardFeedback();
+    // renderBoardDone();
 }
 
 async function loadBoardtasks() {
