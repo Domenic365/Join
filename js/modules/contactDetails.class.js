@@ -23,6 +23,7 @@ class ContactDetails extends HTMLElement {
 
     arrowButton = document.createElement("img");
     trashbutton = document.createElement("img");
+    editButton = document.createElement("img");
 
     constructor() {
         super();
@@ -73,16 +74,21 @@ class ContactDetails extends HTMLElement {
 
         this.appendChild(this.arrowButton);
         this.appendChild(this.trashbutton);
+        this.appendChild(this.editButton);
     }
 
     loadValues() {
         this.addTask.src = "../../assets/img/icons/contact/addTask.svg";
         this.editContact.src = "../../assets/img/icons/contact/editContact.svg";
-        this.arrowButton.src = "../../assets/img/icons/contact/arrow-left-line.svg";
-        this.trashbutton.src = '';
+        this.arrowButton.src =
+            "../../assets/img/icons/contact/arrow-left-line.svg";
+        this.trashbutton.src = "../../assets/img/icons/contact/trash.svg";
+        this.editButton.src = "../../assets/img/icons/contact/editContactMobile.svg"
+        
         this.phone.innerHTML = selectedContact.phone;
         this.phone.href = /*html*/ `tel:${selectedContact.phone}`;
         this.editContact.addEventListener("click", openEditContact);
+        this.editButton.addEventListener("click", openEditContact);
     }
 
     loadCSS() {
@@ -96,7 +102,8 @@ class ContactDetails extends HTMLElement {
         this.name.classList.add("contactDetailsName");
         this.nameAndTaskContainer.classList.add("nameAndTaskContainer");
         this.arrowButton.classList.add("arrowButton");
-        this.trashbutton.classList.add("trashButton")
+        this.trashbutton.classList.add("trashButton");
+        this.editButton.classList.add("editContactMobile")
     }
 
     loadContact() {
@@ -122,6 +129,8 @@ class ContactDetails extends HTMLElement {
     loadHover() {
         this.elementHover(this.addTask, "addTask");
         this.elementHover(this.editContact, "editContact");
+        this.elementHover(this.trashbutton, "trash");
+        this.elementHover(this.editButton, "editContactMobile")
     }
 
     //other functions

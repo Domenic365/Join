@@ -85,3 +85,7 @@ contact-details {
 .trashButton{
     display: none;
 }
+
+.editContactMobile{
+    display: none;
+}

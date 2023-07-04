@@ -102,17 +102,6 @@ class ContactList extends HTMLElement {
         this.contactList.splice(contactIndex, 1);
         this.save();
     }
-
-    hide() {
-        let elementsToHide = [
-            document.querySelector("[contact-list]"),
-            document.querySelector(".addContactButton"),
-        ];
-
-        elementsToHide.forEach((element) => {
-            element.style.display = "none";
-        });
-    }
 }
 
 customElements.define("contact-list", ContactList);

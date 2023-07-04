@@ -92,7 +92,6 @@
     /*CONTACTDETAILS START*/
 
     [contact-details] {
-        display: none !important;
         justify-content: center;
     }
 
@@ -131,9 +130,7 @@
     }
 
     .secondRow .imageButtons {
-        position: absolute;
-        right: 1rem;
-        bottom: 6rem;
+        display: none;
     }
 
     .arrowButton {
@@ -141,12 +138,29 @@
         display: block !important;
         position: absolute;
         top: 8rem;
-        right: 1rem;
+        right: 2rem;
     }
 
     .trashButton {
+        cursor: pointer;
         display: block !important;
         position: absolute;
+        right: 2rem;
+        bottom: 11.19rem;
+    }
+
+    .editContactMobile{
+        display: block !important;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 2rem;
+        bottom: 7.06rem;
+    }
+
+    .dpNoneMobile{
+        display: none !important;
     }
 
     /*CONTACTDETAILS END*/
@@ -172,6 +186,8 @@
         bottom: unset !important;
         right: 1rem !important;
     }
+
+
 
     /*CONTACTLIST END*/
 }

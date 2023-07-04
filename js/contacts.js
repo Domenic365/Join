@@ -3,6 +3,7 @@
 let selectedContact = new Contact("", "", "");
 let contacts = new ContactList();
 let contactDetails = new ContactDetails();
+let isContactListHiden = false;
 
 async function loadContactContainer() {
     updateContacts();
@@ -72,4 +73,22 @@ async function deleteContact() {
     contacts.delete();
     await updateContacts();
     switchModal();
+}
+
+
+function mobileHideContact() {
+    let contactDetails = document.querySelector("[contact-details]")
+    let contactList = document.querySelector("[contact-list]")
+    let newContactButton = document.querySelector(".addContactButton")
+    if (isContactListHiden === false) {
+        contactDetails.classList.remove("dpNoneMobile");
+        newContactButton.classList.add("dpNoneMobile")
+        contactList.classList.add("dpNoneMobile");
+        isContactListHiden = true;
+    } else {
+        contactDetails.classList.add("dpNoneMobile");
+        contactList.classList.remove("dpNoneMobile");
+        newContactButton.classList.remove("dpNoneMobile");
+        isContactListHiden = false;
+    }
 }
