@@ -289,5 +289,7 @@ button:hover {
 }
 
 .drag-area-highlight {
-    background-color: #FF0000;
+    background-color: rgba(211, 211, 211, 0.219);
+    border-radius: 2rem;
+    transition: all 150ms ease-in-out;
 }

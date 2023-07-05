@@ -1,6 +1,3 @@
-// let tasks = [];
-
-
 async function initBoard() {
     await loadAllTasksFromStg();
     renderBoardTodos();
@@ -63,7 +60,7 @@ function getBoardTasks(status) {
 function renderBoardProgress() {
     let container = document.getElementById('progress-col');
     container.innerHTML='';
-    let todos = getBoardTasks('inProgress');
+    let todos = getBoardTasks("inPorgress");
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
