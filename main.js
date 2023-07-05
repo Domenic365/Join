@@ -14,25 +14,40 @@ async function switchModal(modalLink, page) {
         modal.setAttribute("w3-include-html", modalLink);
         await includeHTML();
     }
-    if (page === "contact") {
-        insertContactHTML();
-    } else if (page === 'addtask') {
-        let addTask = document.querySelector('.taskarea');
-        let btn = document.querySelector('.mobile-close');
-        if (addTask.classList.contains('modalView')) {
-            addTask.classList.remove('modalView');
-            btn.classList.add('d-none')
-        } else {
-            addTask.classList.add('modalView');
-            btn.classList.remove('d-none');
-        }
-    }
+    checkCurrentPage(page);
     if (modal.open) {
         modal.close();
     } else {
         modal.showModal();
     }
     loadOutsideClickForModal();
+}
+
+function checkCurrentPage(page) {
+    switch (page) {
+        case "contact":
+            insertContactHTML();
+            break;
+        case "addtask":
+            modalAddtask();
+            break;
+        case "addTaskInContact":
+            modalAddtask();
+            insertContactHTML();
+            break;
+    }
+}
+
+function modalAddtask() {
+    let addTask = document.querySelector(".taskarea");
+    let btn = document.querySelector(".mobile-close");
+    if (addTask.classList.contains("modalView")) {
+        addTask.classList.remove("modalView");
+        btn.classList.add("d-none");
+    } else {
+        addTask.classList.add("modalView");
+        btn.classList.remove("d-none");
+    }
 }
 
 function loadOutsideClickForModal() {
