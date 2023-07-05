@@ -98,3 +98,7 @@ async function deleteMobile() {
     contacts.delete();
     await updateContacts();
 }
+
+async function openAddTask() {
+    switchModal('add_task.html', 'contact')
+}

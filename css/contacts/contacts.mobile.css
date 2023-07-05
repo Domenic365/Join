@@ -149,7 +149,7 @@
         bottom: 11.19rem;
     }
 
-    .editContactMobile{
+    .editContactMobile {
         display: block !important;
         cursor: pointer;
         width: 50px;
@@ -159,7 +159,7 @@
         bottom: 7.06rem;
     }
 
-    .dpNoneMobile{
+    .dpNoneMobile {
         display: none !important;
     }
 
@@ -169,6 +169,7 @@
 
     [contact-list] {
         background-color: white;
+        max-width: unset !important;
     }
 
     .contacts {
@@ -186,8 +187,6 @@
         bottom: unset !important;
         right: 1rem !important;
     }
-
-
 
     /*CONTACTLIST END*/
 }
