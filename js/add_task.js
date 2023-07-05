@@ -31,6 +31,8 @@ async function getItem(key) {
     });
 }
 
+let uID;
+
 let allTasks = [
     {
         "task-id" : "0",
@@ -117,7 +119,6 @@ let allTasks = [
         "status" : "feedback"
     }
 ];
-let uID = 0;
 
 /**
  * This function updates the allTasks JSON-Array
@@ -125,6 +126,8 @@ let uID = 0;
 async function loadAllTasksFromStg() {
     let res = await getItem('allTasks');
     allTasks = JSON.parse(res);
+    uID = allTasks.length;
+    console.log(uID);
 }
 
 /**
@@ -147,9 +150,9 @@ function createNewTask(status = 'todo') {
         "subtasks" : `${getSubtasks()}`,
         "status" : `${status}`
     })
-    uID = uID++;
     uploadTasks();
     clearAll();
+    loadAllTasksFromStg();
     redirectToBoard();
 };
 
@@ -373,5 +376,4 @@ function resetValidation() {
     }
 }
 
-// loadAllTasksFromStg();
-
+loadAllTasksFromStg();
