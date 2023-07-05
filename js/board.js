@@ -20,7 +20,7 @@ function renderBoardTodos() {
     let todos = getBoardTasks('todo');
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i].uID})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -71,7 +71,7 @@ function renderBoardProgress() {
     let todos = getBoardTasks('inProgress');
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i].uID})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -97,7 +97,7 @@ function renderBoardFeedback() {
     if (todos.length>0){
         for (let i = 0; i<todos.length; i++) {
             container.innerHTML += `
-            <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status}">
+            <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i].uID})">
                 <div class="category ${todos[i].catColor}Cat">
                     <h3>${todos[i].category}</h3>
                 </div>
@@ -123,7 +123,7 @@ function renderBoardDone() {
     let todos = getBoardTasks('done');
     for (let i = 0; i<todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${i}, ${todos[i].status})">
+        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i].uID})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -142,6 +142,6 @@ function renderBoardDone() {
     }
 }
 
-// function startDragging(status, id) {
+function startDragging(taskID) {
     
-// }
+}
