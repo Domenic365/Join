@@ -13,13 +13,17 @@ contact-card {
 }
 
 contact-card:hover {
-    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+    background: linear-gradient(180deg, #f9f9f9 0%, #f0f0f0 100%);
 }
 
-contact-card:focus{
-    background: #2A3647;
+.contactCardFocus {
+    background: #2a3647 !important;
+    color: white !important;
 }
 
+.contactCardFocus:hover {
+    background: #2a3647 !important;
+}
 
 .contactCardFirstLetters {
     display: flex;
@@ -54,4 +58,3 @@ contact-card:focus{
     text-decoration: none;
     color: #007cee;
 }
-

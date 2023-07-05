@@ -70,19 +70,22 @@ async function saveContact(e) {
 }
 
 async function deleteContact() {
+    if (window.innerWidth < 1001) {
+        mobileHideContact();
+    } else {
+        switchModal();
+    }
     contacts.delete();
     await updateContacts();
-    switchModal();
 }
 
-
 function mobileHideContact() {
-    let contactDetails = document.querySelector("[contact-details]")
-    let contactList = document.querySelector("[contact-list]")
-    let newContactButton = document.querySelector(".addContactButton")
+    let contactDetails = document.querySelector("[contact-details]");
+    let contactList = document.querySelector("[contact-list]");
+    let newContactButton = document.querySelector(".addContactButton");
     if (isContactListHiden === false) {
         contactDetails.classList.remove("dpNoneMobile");
-        newContactButton.classList.add("dpNoneMobile")
+        newContactButton.classList.add("dpNoneMobile");
         contactList.classList.add("dpNoneMobile");
         isContactListHiden = true;
     } else {
@@ -93,16 +96,11 @@ function mobileHideContact() {
     }
 }
 
-async function deleteMobile() {
-    mobileHideContact();
-    contacts.delete();
-    await updateContacts();
-}
-
 async function openAddTask() {
-    switchModal('add_task.html', 'addTaskInContact')
+    switchModal("add_task.html", "addTaskInContact");
 }
 
 function loadFocus(contactCard) {
-    
+    contacts.removeHover();
+    contactCard.classList.add("contactCardFocus");
 }

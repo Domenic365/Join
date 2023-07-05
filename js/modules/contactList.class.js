@@ -102,6 +102,16 @@ class ContactList extends HTMLElement {
         this.contactList.splice(contactIndex, 1);
         this.save();
     }
+
+    removeHover() {
+        this.contactList.forEach((contactCard) => {
+            let checktContact =
+                contactCard.classList.contains("contactCardFocus");
+            if (checktContact) {
+                contactCard.classList.remove("contactCardFocus");
+            }
+        });
+    }
 }
 
 customElements.define("contact-list", ContactList);
