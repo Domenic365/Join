@@ -1,4 +1,4 @@
-[contact-details]{
+[contact-details] {
     display: flex;
     flex: 1;
 }
@@ -13,18 +13,18 @@ contact-details {
     padding-right: 8rem;
 }
 
-.contactDetailsTitle{
+.contactDetailsTitle {
     display: flex;
     align-items: center;
     gap: 1.88rem;
 }
 
-.contactDetailsTitle h2{
+.contactDetailsTitle h2 {
     font-size: 3.8125rem;
     margin: 0;
 }
 
-.contactDetailsTitle p{
+.contactDetailsTitle p {
     font-size: 1.6875rem;
     margin: 0;
 }
@@ -68,6 +68,7 @@ contact-details {
 .contactDetailsFirstLetters {
     height: 7.5rem;
     width: 7.5rem;
+    min-width: 7.5rem;
     border-radius: 7.5rem;
     font-size: 2.9375rem;
     border-width: 3px !important;
@@ -78,14 +79,14 @@ contact-details {
     margin-bottom: 0.8125rem;
 }
 
-.arrowButton{
+.arrowButton {
     display: none;
 }
 
-.trashButton{
+.trashButton {
     display: none;
 }
 
-.editContactMobile{
+.editContactMobile {
     display: none;
 }
