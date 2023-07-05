@@ -91,6 +91,7 @@ class ContactDetails extends HTMLElement {
         this.editButton.addEventListener("click", openEditContact);
         this.arrowButton.addEventListener("click", mobileHideContact);
         this.trashbutton.addEventListener("click", deleteMobile);
+        this.addTask.addEventListener("click", openAddTask)
     }
 
     loadCSS() {
