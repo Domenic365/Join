@@ -100,5 +100,9 @@ async function deleteMobile() {
 }
 
 async function openAddTask() {
-    switchModal('add_task.html', 'contact')
+    switchModal('add_task.html', 'addTaskInContact')
+}
+
+function loadFocus(contactCard) {
+    
 }

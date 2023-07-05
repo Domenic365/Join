@@ -13,9 +13,13 @@ contact-card {
 }
 
 contact-card:hover {
-    background: #2a3647;
-    color: white;
+    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
 }
+
+contact-card:focus{
+    background: #2A3647;
+}
+
 
 .contactCardFirstLetters {
     display: flex;
