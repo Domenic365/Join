@@ -127,7 +127,6 @@ async function loadAllTasksFromStg() {
     let res = await getItem('allTasks');
     allTasks = JSON.parse(res);
     uID = allTasks.length;
-    console.log(uID);
 }
 
 /**

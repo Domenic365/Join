@@ -23,7 +23,7 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="todo-col">
+        <div class="box-overflow" id="todo-col" ondrop="moveTo('todo')" ondragleave="removeHighlight('todo-col')" ondragover="allowDrop(event); highlight('todo-col')">
             <div class="box-task-design">
                 <div class="category">
                     <h3>Design</h3>
@@ -47,12 +47,12 @@
     <div class="column-direction">
         <div class="box-title">
             <h2>In Progress</h2>
-            <div class="img-container"onclick="switchModal('add_task.html', 'addtask'), initBoard()">
+            <div class="img-container" onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="progress-col">
+        <div class="box-overflow" id="progress-col" ondrop="moveTo('inPorgress')" ondragleave="removeHighlight('progress-col')" ondragover="allowDrop(event); highlight('progress-col')">
             <div class="box-task-design"></div>
             <div class="box-task-design">2</div>
         </div>
@@ -65,7 +65,7 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="feedback-col">
+        <div class="box-overflow" id="feedback-col" ondrop="moveTo('feedback')" ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('feedback-col')">
             <div class="box-task-design">3</div>
             <div class="box-task-design">3</div>
         </div>
@@ -78,7 +78,7 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="done-col">
+        <div class="box-overflow" id="done-col" ondrop="moveTo('done')" ondragleave="removeHighlight('done-col')" ondragover="allowDrop(event); highlight('done-col')">
             <div class="box-task-design">4</div>
             <div class="box-task-design">4</div>
         </div>

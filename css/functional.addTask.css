@@ -313,3 +313,7 @@
 .modalView .addtask-form-container {
     width: auto !important;
 }
+
+#content {
+    overflow-y: hidden;
+}
