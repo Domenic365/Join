@@ -14,12 +14,14 @@
     bottom: -100px;
     transform: scale(0);
     transition: all 250ms ease-in-out;
+    
 }
 
 .active-note {
     bottom: calc(30vh);
     transform: scale(1) !important;
     transition: all 250ms ease-in-out;
+    z-index: 100;
 }
 
 .mobile-submit {

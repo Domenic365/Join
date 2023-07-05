@@ -17,12 +17,14 @@ async function switchModal(modalLink, page) {
     if (page === "contact") {
         insertContactHTML();
     } else if (page === 'addtask') {
-        let addTask = document.querySelector('.taskarea')
-        console.log('hallo');
+        let addTask = document.querySelector('.taskarea');
+        let btn = document.querySelector('.mobile-close');
         if (addTask.classList.contains('modalView')) {
             addTask.classList.remove('modalView');
+            btn.classList.add('d-none')
         } else {
             addTask.classList.add('modalView');
+            btn.classList.remove('d-none');
         }
     }
     if (modal.open) {

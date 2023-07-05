@@ -166,6 +166,9 @@ function redirectToBoard() {
     }, 2500);
 }
 
+/**
+ * this is called after pushing new item to the allTasks Array and uploads it to remote-storage
+ */
 function uploadTasks() {
     setItem('allTasks', JSON.stringify(allTasks));
 }
@@ -262,9 +265,20 @@ function validateForm() {
     let prioStat = prioValidation();
     if (titleStat && descriptionStat && catStat && dateStat && prioStat) {
         createNewTask();
+        checkIfModal();
         showNotification();
     }
 }
+
+/**
+ * this function checks if the task was created out of the modal view
+ */
+function checkIfModal() {
+    let task = document.querySelector('dialog');
+    if (task.hasAttribute('open')) {
+        switchModal('add_task.html', 'addtask');
+    }
+};
 
 /**
  * function to show notification with 2 sec timeout
@@ -276,7 +290,6 @@ function showNotification() {
         alert.classList.remove('active-note');
     }, 2000);
 }
-
 
 /**
  * this function validates the title input in addtask form.
