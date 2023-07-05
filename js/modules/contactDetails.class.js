@@ -57,6 +57,7 @@ class ContactDetails extends HTMLElement {
     clearHTML() {
         this.firstRow.innerHTML = "";
         this.name.innerHTML = "";
+        this.secondRow.innerHTML = "";
         this.thirdRow.innerHTML = "";
     }
 
