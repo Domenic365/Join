@@ -258,7 +258,7 @@ button:hover {
 
 /*********** Responsive Area ***********/
 
-@media (max-width:1500px) {
+@media (max-width:1700px) {
     .box-task-design {
         min-height: 11rem;
         max-height: 15.6rem;
@@ -266,8 +266,15 @@ button:hover {
     }
 
     .box-overflow {
-        overflow-y: unset;
-        max-height: unset;
+        overflow-y: auto;
+        max-height: 45vh;
+        overflow-x: hidden;
+        padding-right: 0.4rem;
+        min-height: 200px;
+    }
+
+    .box-title{
+        width: 230px;
     }
 }
 
@@ -284,6 +291,22 @@ button:hover {
         max-height: 15.6rem;
         width: 25.6rem;
     }
+
+    .box-title{
+        width: 470px;
+    }
+}
+
+@media  (max-width:720px){
+    .input-norm-view{
+        display: none;
+    }
+
+    .input-mobile{
+        display: flex;
+
+    }
+
 }
 
 @media (max-width: 540px) {

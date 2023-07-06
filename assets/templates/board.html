@@ -4,14 +4,15 @@
     </div>
 
     <div class="interactive-container">
-        <input type="text" placeholder="Find Task" class="lupe-img">
+        <input type="text" placeholder="Find Task" class="lupe-img input-norm-view">
         <button onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
             <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
         </button>
     </div>
+    <input type="text" placeholder="Find Task" class="lupe-img input-mobile">
 </header>
 
-        <!--*** Boxtask Area ***-->
+<!--*** Boxtask Area ***-->
 </div>
 
 <main class="board-container">
@@ -23,7 +24,8 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="todo-col" ondrop="moveTo('todo'); removeHighlight('todo-col')" ondragleave="removeHighlight('todo-col')" ondragover="allowDrop(event); highlight('todo-col')">
+        <div class="box-overflow" id="todo-col" ondrop="moveTo('todo'); removeHighlight('todo-col')"
+            ondragleave="removeHighlight('todo-col')" ondragover="allowDrop(event); highlight('todo-col')">
             <div class="box-task-design">
                 <div class="category">
                     <h3>Design</h3>
@@ -36,7 +38,7 @@
                 </div>
                 <div class="progress-bar"></div>
                 <div class="worker">
-                    
+
                 </div>
             </div>
             <div class="box-task-design">1</div>
@@ -52,7 +54,8 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="progress-col" ondrop="moveTo('inPorgress'); removeHighlight('progress-col')" ondragleave="removeHighlight('progress-col')" ondragover="allowDrop(event); highlight('progress-col')">
+        <div class="box-overflow" id="progress-col" ondrop="moveTo('inPorgress'); removeHighlight('progress-col')"
+            ondragleave="removeHighlight('progress-col')" ondragover="allowDrop(event); highlight('progress-col')">
             <div class="box-task-design"></div>
             <div class="box-task-design">2</div>
         </div>
@@ -65,20 +68,22 @@
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="feedback-col" ondrop="moveTo('feedback'); removeHighlight('feedback-col')"  ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('feedback-col')">
+        <div class="box-overflow" id="feedback-col" ondrop="moveTo('feedback'); removeHighlight('feedback-col')"
+            ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('feedback-col')">
             <div class="box-task-design">3</div>
             <div class="box-task-design">3</div>
         </div>
     </div>
     <div class="column-direction">
-        <div class="box-title" >
+        <div class="box-title">
             <h2>Done</h2>
             <div class="img-container" onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img class="plus-icon" src="../../assets/img/icons/plus-button.svg" alt="Plus Button">
                 <img class="plus-icon-hover" src="../../assets/img/icons/plus-button-bride-blue.svg" alt="Plus Button">
             </div>
         </div>
-        <div class="box-overflow" id="done-col" ondrop="moveTo('done'); removeHighlight('done-col')" ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('done-col')">
+        <div class="box-overflow" id="done-col" ondrop="moveTo('done'); removeHighlight('done-col')"
+            ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('done-col')">
             <div class="box-task-design">4</div>
             <div class="box-task-design">4</div>
         </div>
