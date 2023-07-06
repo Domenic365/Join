@@ -256,6 +256,10 @@ button:hover {
     transition: all 150ms ease-in-out;
 }
 
+.input-mobile{
+    display: none;
+}
+
 /*********** Responsive Area ***********/
 
 @media (max-width:1700px) {
@@ -298,7 +302,19 @@ button:hover {
 }
 
 @media  (max-width:720px){
-    .input-norm-view{
+    header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* height: calc(45vh - 90px); */
+        margin: 0rem 4rem 0rem 4rem;
+        flex-direction: column;
+    }
+    .input-norm{
+        display: none;
+    }
+
+    .button-norm{
         display: none;
     }
 
