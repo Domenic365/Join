@@ -226,6 +226,36 @@ button:hover {
     transform: scale(1);
 }
 
+.purpleCat {
+    background-color: #8AA4FF;
+}
+
+.redCat {
+    background-color: #FF0000;
+}
+
+.greenCat {
+    background-color: #2AD300;
+}
+
+.orangeCat {
+    background-color: #FF8A00;
+}
+
+.pinkCat {
+    background-color: #E200BE;
+}
+
+.blueCat {
+    background-color: #0038FF;
+}
+
+.drag-area-highlight {
+    background-color: rgba(211, 211, 211, 0.219);
+    border-radius: 2rem;
+    transition: all 150ms ease-in-out;
+}
+
 /*********** Responsive Area ***********/
 
 @media (max-width:1500px) {
@@ -262,34 +292,4 @@ button:hover {
         max-height: 15.6rem;
         width: 15.6rem;
     }
-}
-
-.purpleCat {
-    background-color: #8AA4FF;
-}
-
-.redCat {
-    background-color: #FF0000;
-}
-
-.greenCat {
-    background-color: #2AD300;
-}
-
-.orangeCat {
-    background-color: #FF8A00;
-}
-
-.pinkCat {
-    background-color: #E200BE;
-}
-
-.blueCat {
-    background-color: #0038FF;
-}
-
-.drag-area-highlight {
-    background-color: rgba(211, 211, 211, 0.219);
-    border-radius: 2rem;
-    transition: all 150ms ease-in-out;
 }

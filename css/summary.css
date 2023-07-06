@@ -199,7 +199,9 @@ main p {
         /* margin: unset; */
         flex-direction: column;
         margin-bottom: 3rem;
+        margin-right: 7rem;
         margin-top: unset;
+
     }
 
     header {
@@ -235,11 +237,21 @@ main p {
 }
 
 @media (max-width:420px) {
+    .header-disign{
+        margin-right: 5rem;
+    }
+
     .box-design {
         padding: 0.6rem;
     }
 
     .label {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-disign{
+        margin-right: 3rem;
     }
 }
