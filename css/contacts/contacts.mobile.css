@@ -208,3 +208,37 @@
         font-size: 1.3rem;
     }
 }
+
+@media (max-width: 550px) {
+    /* CONTACT DETAILS START*/
+
+    .contactDetailsName {
+        font-size: 2rem !important;
+        display: flex;
+        flex-direction: column;
+        max-width: 100px;
+    }
+
+    .contactDetailsFirstLetters {
+        width: 6rem !important;
+        height: 6rem !important;
+        min-width: 6rem !important;
+    }
+
+    contact-details {
+        overflow-y: scroll;
+        padding-bottom: 16px;
+    }
+
+    .firstRow {
+        max-width: 300px !important;
+    }
+
+    .secondRow {
+        max-width: 300px !important;
+    }
+
+    .thirdRow {
+        max-width: 300px !important;
+    }
+}
