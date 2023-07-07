@@ -260,6 +260,10 @@ button:hover {
     display: none;
 }
 
+.mobile-header{
+    display: none;
+}
+
 /*********** Responsive Area ***********/
 
 @media (max-width:1700px) {
@@ -306,13 +310,19 @@ button:hover {
 }
 
 @media (max-width:720px) {
-    header {
+    /*header {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         height: calc(30vh - 90px);
-        margin: 5rem 4rem 2rem 4rem;
+        margin: 5rem 4rem 2rem 7rem;
         flex-direction: column;
+    }
+
+
+
+    .title h1 {
+        margin-bottom: 0.5rem;
     }
 
     .input-norm {
@@ -323,9 +333,29 @@ button:hover {
         display: none;
     }
 
+ 
+    */
+
+    .board-container {
+        height: calc(90vh - 90px);
+    }
+    header{
+        display: none;
+    }
     .input-mobile {
         display: flex;
     }
+    
+    .mobile-header {
+        display: flex;
+        align-items: center;
+      }
+
+
+      
+      .input-field-container {
+        margin-top: -1rem;
+      }
 }
 
 @media (max-width: 540px) {

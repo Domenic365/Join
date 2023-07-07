@@ -1,21 +1,36 @@
+<!--*** Header normal view  ***-->
 <header>
     <div class="title">
         <h1>Board</h1>
     </div>
-
     <div class="interactive-container">
-        <input class="lupe-img input-norm type="text" placeholder="Find Task"">
-        <button class="button-norm"onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
-            <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
+        <input class="lupe-img input-norm type=" text" placeholder="Find Task"">
+        <button class=" button-norm"onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
+        <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
         </button>
     </div>
-    <input type="text" placeholder="Find Task" class="lupe-img input-mobile">
 </header>
+<!--*** END Header normal view  ***-->
+
+<!--*** Mobile Header only visiable @ width:720px ***-->
+    <div class="mobile-header">
+        <div class="title">
+            <h1>Board</h1>
+        </div>
+        <div class="add-button-mobile">
+            <button  onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
+                <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
+            </button>
+        </div>
+    </div>
+    <div class="input-field-container">
+        <input type="text" placeholder="Find Task" class="lupe-img input-mobile">
+    </div>
+<!--*** END Mobile Header ***-->
 
 <!--*** Boxtask Area ***-->
-</div>
-
 <main class="board-container">
+
     <div class="column-direction">
         <div class="box-title">
             <h2>To-Do</h2>
@@ -38,7 +53,6 @@
                 </div>
                 <div class="progress-bar"></div>
                 <div class="worker">
-
                 </div>
             </div>
             <div class="box-task-design">1</div>
@@ -89,6 +103,8 @@
         </div>
     </div>
 </main>
+<!--*** END Boxtask Area ***-->
+
 <div class="notification" id="notification">
     Task added to clipboard <span class="icon"><img src="../img/icons/board.svg"></span>
 </div>
