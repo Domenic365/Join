@@ -25,13 +25,13 @@ async function updateContacts() {
     contacts.loadContactsToHTML();
 }
 
-function addContact(event) {
+async function addContact(event) {
     event.preventDefault();
     let name = event.target[0].value;
     let phone = event.target[1].value;
     let email = event.target[2].value;
-    switchModal();
     contacts.addContact(name, email, phone);
+    await switchModal();
     updateContacts();
 }
 
@@ -74,6 +74,7 @@ async function saveContact(e) {
     selectedContact.email = form.children[2].value;
     contacts.save();
     await updateContacts();
+    await switchModal();
     selectedContact.reload();
     contactDetails.updateContact();
 }
@@ -82,7 +83,7 @@ async function deleteContact() {
     if (window.innerWidth < 1001) {
         mobileHideContact();
     } else {
-        switchModal();
+        await switchModal();
     }
     contacts.delete();
     contactDetails.clearHTML();
@@ -107,7 +108,7 @@ function mobileHideContact() {
 }
 
 async function openAddTask() {
-    switchModal("add_task.html", "addTaskInContact");
+   await switchModal("add_task.html", "addTaskInContact");
 }
 
 function loadFocus(contactCard) {
