@@ -1,6 +1,6 @@
 /**global variables */
 
-let selectedContact = new Contact("", "", "","");
+let selectedContact = new Contact("", "", "", "");
 let contacts = new ContactList();
 let contactDetails = new ContactDetails();
 let isContactListHiden = false;
@@ -38,6 +38,7 @@ function addContact(event) {
 async function openEditContact() {
     await switchModal("../templates/modals/edit_Contact.html", "contact");
     loadIntoModal();
+    loadFirstLettersIntoModal();
 }
 
 function loadIntoModal() {
@@ -55,6 +56,14 @@ function loadIntoModal() {
         const form = document.querySelector("form");
         form.children[contactDataNum].value = contactValue;
     }
+}
+
+function loadFirstLettersIntoModal() {
+    const human = document.querySelector(".human");
+    human.style.backgroundColor = selectedContact.color;
+    human.style.color = 'white';
+    human.innerHTML = selectedContact.firstLetters;
+    human.classList.add('contactDetailsFirstLetters')
 }
 
 async function saveContact(e) {

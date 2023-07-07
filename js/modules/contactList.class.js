@@ -75,7 +75,6 @@ class ContactList extends HTMLElement {
     }
 
     async loadFromRemoteStorage() {
-        debugger;
         let res = await getItem("contactList");
         let contactListFromStorage = JSON.parse(res);
         this.contactList = [];
