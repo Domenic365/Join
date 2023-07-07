@@ -219,7 +219,7 @@ button:hover {
     background-color: white;
     transform: scale(0);
     width: 1171px;
-    
+
 }
 
 .active-modal {
@@ -256,7 +256,7 @@ button:hover {
     transition: all 150ms ease-in-out;
 }
 
-.input-mobile{
+.input-mobile {
     display: none;
 }
 
@@ -277,7 +277,7 @@ button:hover {
         min-height: 200px;
     }
 
-    .box-title{
+    .box-title {
         width: 230px;
     }
 }
@@ -296,33 +296,36 @@ button:hover {
         width: 25.6rem;
     }
 
-    .box-title{
-        width: 470px;
+    .box-title {
+        width: 460px;
+    }
+
+    .box-overflow {
+        max-height: unset;
     }
 }
 
-@media  (max-width:720px){
+@media (max-width:720px) {
     header {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
-        /* height: calc(45vh - 90px); */
-        margin: 0rem 4rem 0rem 4rem;
+        height: calc(30vh - 90px);
+        margin: 5rem 4rem 2rem 4rem;
         flex-direction: column;
     }
-    .input-norm{
+
+    .input-norm {
         display: none;
     }
 
-    .button-norm{
+    .button-norm {
         display: none;
     }
 
-    .input-mobile{
+    .input-mobile {
         display: flex;
-
     }
-
 }
 
 @media (max-width: 540px) {
