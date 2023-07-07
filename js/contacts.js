@@ -27,7 +27,6 @@ async function updateContacts() {
 
 function addContact(event) {
     event.preventDefault();
-    console.log(event);
     let name = event.target[0].value;
     let phone = event.target[1].value;
     let email = event.target[2].value;
