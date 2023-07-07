@@ -62,7 +62,7 @@
 
     /* RIGHT SIDE START */
 
-    .rightSide {
+    .rightSide
         flex-direction: column;
         padding: 0;
         align-items: center;
@@ -189,25 +189,7 @@
     }
 
     /*CONTACTLIST END*/
-}
 
-@media (max-width: 430px) {
-    .rightSide input {
-        width: 20rem !important;
-    }
-
-    .rightSide form {
-        gap: 1.8rem;
-    }
-
-    .leftSide .addContactTitle {
-        font-size: 2.8rem;
-    }
-
-    .leftSide .tasksAreBetterWithATeam {
-        font-size: 1.3rem;
-    }
-}
 
 @media (max-width: 550px) {
     /* CONTACT DETAILS START*/
@@ -257,4 +239,28 @@
     /* CONTACT LIST START*/
 
     
+}
+
+@media (max-width: 430px) {
+
+    contact-list{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .rightSide input {
+        width: 20rem !important;
+    }
+
+    .rightSide form {
+        gap: 1.8rem;
+    }
+
+    .leftSide .addContactTitle {
+        font-size: 2.8rem;
+    }
+
+    .leftSide .tasksAreBetterWithATeam {
+        font-size: 1.3rem;
+    }
 }
