@@ -1,6 +1,6 @@
 /**global variables */
 
-let selectedContact = new Contact("", "", "");
+let selectedContact = new Contact("", "", "","");
 let contacts = new ContactList();
 let contactDetails = new ContactDetails();
 let isContactListHiden = false;

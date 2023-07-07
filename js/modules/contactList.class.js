@@ -66,6 +66,7 @@ class ContactList extends HTMLElement {
                 name: contact.name,
                 email: contact.email,
                 phone: contact.phone,
+                color: contact.color,
             };
             contactListForStorage.push(contactForStorage);
         });
@@ -74,12 +75,13 @@ class ContactList extends HTMLElement {
     }
 
     async loadFromRemoteStorage() {
+        debugger;
         let res = await getItem("contactList");
         let contactListFromStorage = JSON.parse(res);
         this.contactList = [];
         contactListFromStorage.forEach((contact) => {
             this.contactList.push(
-                new Contact(contact.name, contact.email, contact.phone)
+                new Contact(contact.name, contact.email, contact.phone, contact.color)
             );
         });
     }

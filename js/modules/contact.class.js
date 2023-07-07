@@ -29,11 +29,14 @@ class Contact extends HTMLElement {
      * @param {string} email
      * @param {number} phone
      */
-    constructor(name, email, phone) {
+    constructor(name, email, phone, color) {
         super();
         this.name = name;
         this.email = email;
         this.phone = phone;
+        if (color) {
+            this.color = color;
+        }
         if (this.name) {
             this.getFirstLetters();
             this.getSortingLetter();
@@ -59,8 +62,10 @@ class Contact extends HTMLElement {
     }
 
     getColor() {
-        let colorNumber = Math.floor(Math.random() * 7);
-        this.color = this.colors[colorNumber];
+        if (this.color === undefined) {
+            let colorNumber = Math.floor(Math.random() * 7);
+            this.color = this.colors[colorNumber];
+        }
     }
 
     loadHTML() {
