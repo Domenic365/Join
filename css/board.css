@@ -17,7 +17,7 @@ input {
     padding: 0.5rem;
 }
 
-button {
+.button-norm {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -33,11 +33,11 @@ button {
     cursor: pointer;
 }
 
-button img {
+.button-norm img {
     height: 1rem;
 }
 
-button:hover {
+.button-norm:hover {
     transition: 125ms ease-in-out;
     background-color: rgb(42, 171, 226);
 }
@@ -112,6 +112,11 @@ button:hover {
     min-height: 200px;
 }
 
+.column-direction h2 {
+    font-size: 1.2rem;
+}
+
+
 /* Schmalen Scrollbalken für Webkit-Browser */
 .box-overflow::-webkit-scrollbar {
     width: 5px;
@@ -132,11 +137,6 @@ button:hover {
 .box-overflow::-webkit-scrollbar-thumb:hover {
     background: rgb(186, 186, 186);
 }
-
-.column-direction h2 {
-    font-size: 1.2rem;
-}
-
 
 /*********** Taskbox Content ***********/
 
@@ -260,7 +260,7 @@ button:hover {
     display: none;
 }
 
-.mobile-header{
+.mobile-header {
     display: none;
 }
 
@@ -310,52 +310,35 @@ button:hover {
 }
 
 @media (max-width:720px) {
-    /*header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        height: calc(30vh - 90px);
-        margin: 5rem 4rem 2rem 7rem;
-        flex-direction: column;
-    }
-
-
-
-    .title h1 {
-        margin-bottom: 0.5rem;
-    }
-
-    .input-norm {
+    header {
         display: none;
     }
 
-    .button-norm {
-        display: none;
+    button{
+        border: unset;
+        background-color: unset;
+        cursor: pointer;
     }
-
- 
-    */
 
     .board-container {
         height: calc(90vh - 90px);
     }
-    header{
-        display: none;
-    }
+
     .input-mobile {
         display: flex;
     }
-    
+
     .mobile-header {
         display: flex;
         align-items: center;
-      }
+        justify-content: space-between;
+        margin: 0rem 8rem 0rem 7rem;
+    }
 
-
-      
-      .input-field-container {
-        margin-top: -1rem;
-      }
+    .input-field-container {
+        margin-top: -2.5rem;
+        margin-left: 7rem;
+    }
 }
 
 @media (max-width: 540px) {
