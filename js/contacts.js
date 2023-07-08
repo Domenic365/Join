@@ -6,7 +6,7 @@ let contactDetails = new ContactDetails();
 let isContactListHiden = false;
 
 async function loadContactContainer() {
-    await updateContacts();
+    updateContacts();
     await changeContentHTML("../templates/contacts.html");
     insertContactHTML();
 }
@@ -32,7 +32,7 @@ async function addContact(event) {
     let email = event.target[2].value;
     contacts.addContact(name, email, phone);
     await switchModal();
-    await updateContacts();
+    updateContacts();
 }
 
 async function openEditContact() {

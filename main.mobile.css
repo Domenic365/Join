@@ -31,12 +31,13 @@
 
     .left-bar a {
         flex-direction: column;
+        padding: unset;
         width: unset;
         height: unset;
         justify-content: center;
         flex: 1;
         gap: 14px;
-        padding: 10.5px unset unset;
+        padding-top: 10.5px;
     }
 
     .left-bar .aligning img {
