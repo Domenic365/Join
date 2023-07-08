@@ -51,10 +51,7 @@
     display: flex;
     align-items: center;
     gap: 5.25rem;
-    padding-left: 4.37rem;
-    padding-right: 3.46rem;
-    padding-top: 1.62rem;
-    padding-bottom: 6.5rem;
+    padding: 1.62rem 3.46rem 6.5rem 4.37rem;
 }
 
 .human {

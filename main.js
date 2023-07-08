@@ -5,7 +5,7 @@
  */
 async function init() {
     await includeHTML();
-    initSummary();
+    await initSummary();
 }
 
 async function switchModal(modalLink, page) {
