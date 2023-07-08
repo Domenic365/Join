@@ -9,7 +9,7 @@ class ContactDetails extends HTMLElement {
     title = document.createElement("div");
     titleName = document.createElement("h2");
     titleLine = document.createElement("img");
-    titleSloagen = document.createElement("p");
+    titleSlogan = document.createElement("p");
 
     firstRow = document.createElement("div");
     nameAndTaskContainer = document.createElement("div");
@@ -36,9 +36,9 @@ class ContactDetails extends HTMLElement {
         this.appendChild(this.title);
         this.title.appendChild(this.titleName);
         this.title.appendChild(this.titleLine);
-        this.title.appendChild(this.titleSloagen);
+        this.title.appendChild(this.titleSlogan);
         this.titleName.innerText = "Contact";
-        this.titleSloagen.innerText = "Better with a team";
+        this.titleSlogan.innerText = "Better with a team";
         this.titleLine.src =
             "../../assets/img/icons/contact/contactDetailsLine.svg";
         this.title.classList.add("contactDetailsTitle");
@@ -59,6 +59,7 @@ class ContactDetails extends HTMLElement {
         this.name.innerHTML = "";
         this.secondRow.innerHTML = "";
         this.thirdRow.innerHTML = "";
+        this.nameAndTaskContainer.innerHTML = '';
     }
 
     reloadContactData() {

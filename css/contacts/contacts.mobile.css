@@ -62,7 +62,7 @@
 
     /* RIGHT SIDE START */
 
-    .rightSide
+    .rightSide{
         flex-direction: column;
         padding: 0;
         align-items: center;
@@ -187,6 +187,7 @@
         bottom: unset !important;
         right: 1rem !important;
     }
+}
 
     /*CONTACTLIST END*/
 
