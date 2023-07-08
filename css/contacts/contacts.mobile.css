@@ -232,7 +232,7 @@
         margin-left: 20px !important;
     }
 
-    contact-details h2{
+    contact-details h2 {
         font-size: 3rem !important;
     }
 
@@ -251,4 +251,10 @@
     .thirdRow {
         max-width: 300px !important;
     }
+
+    /* CONTACT DETAILS END*/
+
+    /* CONTACT LIST START*/
+
+    
 }
