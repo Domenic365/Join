@@ -85,30 +85,36 @@ class ContactList extends HTMLElement {
         });
     }
 
-    addContact(name, phone, email) {
+    /**
+     *
+     * @param name {string}
+     * @param phone {string}
+     * @param email {string}
+     */
+    async addContact(name, phone, email) {
         let contactToAdd = new Contact(name, phone, email);
         this.contactList.push(contactToAdd);
-        this.save();
+        await this.save();
     }
 
-    save() {
+    async save() {
         this.sortContacts();
-        this.saveToRemoteStorage();
+        await this.saveToRemoteStorage();
     }
 
-    delete() {
+    async delete() {
         const contactIndex = this.contactList.findIndex(
             (element) => element === selectedContact
         );
         this.contactList.splice(contactIndex, 1);
-        this.save();
+        await this.save();
     }
 
     removeHover() {
         this.contactList.forEach((contactCard) => {
-            let checktContact =
+            let checkContact =
                 contactCard.classList.contains("contactCardFocus");
-            if (checktContact) {
+            if (checkContact) {
                 contactCard.classList.remove("contactCardFocus");
             }
         });

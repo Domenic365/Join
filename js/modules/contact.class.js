@@ -24,10 +24,10 @@ class Contact extends HTMLElement {
 
     /**
      *
-     * @param {string} firstName
-     * @param {string} secondName
+     * @param {string} name
      * @param {string} email
-     * @param {number} phone
+     * @param {string} phone
+     * @param {string} color
      */
     constructor(name, email, phone, color) {
         super();

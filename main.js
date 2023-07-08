@@ -1,13 +1,19 @@
 "use strict";
 
 /**
- * this funciton initializes/calls needed functions to render page content
+ * this function initializes/calls needed functions to render page content
  */
 async function init() {
     await includeHTML();
-    initSummary();
+    await initSummary();
 }
 
+/**
+ *
+ * @param modalLink {string}
+ * @param page {string}
+ * @returns {Promise<void>}
+ */
 async function switchModal(modalLink, page) {
     const modal = document.querySelector("dialog");
     if (modalLink) {
@@ -23,6 +29,10 @@ async function switchModal(modalLink, page) {
     loadOutsideClickForModal();
 }
 
+/**
+ *
+ * @param page {string}
+ */
 function checkCurrentPage(page) {
     switch (page) {
         case "contact":

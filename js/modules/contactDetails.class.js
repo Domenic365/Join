@@ -140,6 +140,11 @@ class ContactDetails extends HTMLElement {
 
     //other functions
 
+    /**
+     *
+     * @param element {HTMLImageElement}
+     * @param name {string}
+     */
     elementHover(element, name) {
         element.addEventListener("mouseover", (e) => {
             e.target.src = `../../assets/img/icons/contact/${name}Hover.svg`;

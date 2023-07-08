@@ -3,10 +3,10 @@
 let selectedContact = new Contact("", "", "", "");
 let contacts = new ContactList();
 let contactDetails = new ContactDetails();
-let isContactListHiden = false;
+let isContactListHidden = false;
 
 async function loadContactContainer() {
-    updateContacts();
+    await updateContacts();
     await changeContentHTML("../templates/contacts.html");
     insertContactHTML();
 }
@@ -25,14 +25,19 @@ async function updateContacts() {
     contacts.loadContactsToHTML();
 }
 
+/**
+ *
+ * @param event {event}
+ * @returns {Promise<void>}
+ */
 async function addContact(event) {
     event.preventDefault();
     let name = event.target[0].value;
     let phone = event.target[1].value;
     let email = event.target[2].value;
-    contacts.addContact(name, email, phone);
+    await contacts.addContact(name, email, phone);
     await switchModal();
-    updateContacts();
+    await updateContacts();
 }
 
 async function openEditContact() {
@@ -66,13 +71,18 @@ function loadFirstLettersIntoModal() {
     human.classList.add('contactDetailsFirstLetters')
 }
 
+/**
+ *
+ * @param e{event}
+ * @returns {Promise<void>}
+ */
 async function saveContact(e) {
     e.preventDefault();
     const form = document.querySelector("form");
     selectedContact.name = form.children[0].value;
     selectedContact.phone = form.children[1].value;
     selectedContact.email = form.children[2].value;
-    contacts.save();
+    await contacts.save();
     await updateContacts();
     await switchModal();
     selectedContact.reload();
@@ -85,7 +95,7 @@ async function deleteContact() {
     } else {
         await switchModal();
     }
-    contacts.delete();
+    await contacts.delete();
     contactDetails.clearHTML();
     await updateContacts();
 }
@@ -94,16 +104,16 @@ function mobileHideContact() {
     let contactDetails = document.querySelector("[contact-details]");
     let contactList = document.querySelector("[contact-list]");
     let newContactButton = document.querySelector(".addContactButton");
-    if (isContactListHiden === false) {
+    if (isContactListHidden === false) {
         contactDetails.classList.remove("dpNoneMobile");
         newContactButton.classList.add("dpNoneMobile");
         contactList.classList.add("dpNoneMobile");
-        isContactListHiden = true;
+        isContactListHidden = true;
     } else {
         contactDetails.classList.add("dpNoneMobile");
         contactList.classList.remove("dpNoneMobile");
         newContactButton.classList.remove("dpNoneMobile");
-        isContactListHiden = false;
+        isContactListHidden = false;
     }
 }
 
@@ -111,6 +121,10 @@ async function openAddTask() {
    await switchModal("add_task.html", "addTaskInContact");
 }
 
+/**
+ *
+ * @param contactCard {Contact}
+ */
 function loadFocus(contactCard) {
     contacts.removeHover();
     contactCard.classList.add("contactCardFocus");
