@@ -10,7 +10,7 @@ function renderBoardTodos() {
     let container = document.getElementById('todo-col');
     container.innerHTML = '';
     let todos = getBoardTasks('todo');
-    for (let i = 0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
@@ -27,41 +27,41 @@ function renderBoardTodos() {
             </div>
         </div>
         `
-        renderBoardAssignings(todos[i],i);
+        renderBoardAssignings(todos[i], i);
     }
 }
 
 function renderBoardAssignings(task, taskID) {
     let workerbox = document.getElementById(`${task.status}${taskID}-workers`);
-        workerbox.innerHTML = ''
-        for (let j = 0; j<task.assignedTo.length; j++) {
-            workerbox.innerHTML += `
-            <p class="worker-a">${task.assignedTo[j].split(" ").map((n)=>n[0]).join("")}</p>
+    workerbox.innerHTML = ''
+    for (let j = 0; j < task.assignedTo.length; j++) {
+        workerbox.innerHTML += `
+            <p class="worker-a">${task.assignedTo[j].split(" ").map((n) => n[0]).join("")}</p>
             `
-        }
+    }
 }
 
 
 function getBoardTasks(status) {
     let arr = [];
-    for (i = 0; i<allTasks.length; i++) {
+    for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].status == status) {
             arr.push(allTasks[i])
         }
     }
     if (arr.length < 1) {
         return false;
-    } else if (arr.length>0) {
+    } else if (arr.length > 0) {
         return arr;
     }
-    
+
 }
 
 function renderBoardProgress() {
     let container = document.getElementById('progress-col');
-    container.innerHTML='';
+    container.innerHTML = '';
     let todos = getBoardTasks("inPorgress");
-    for (let i = 0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
@@ -78,15 +78,15 @@ function renderBoardProgress() {
             </div>
         </div>
         `
-        renderBoardAssignings(todos[i],i);
+        renderBoardAssignings(todos[i], i);
     }
 }
 
 function renderBoardFeedback() {
     let container = document.getElementById('feedback-col');
-    container.innerHTML='';
+    container.innerHTML = '';
     let todos = getBoardTasks('feedback');
-    for (let i = 0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
@@ -103,15 +103,15 @@ function renderBoardFeedback() {
             </div>
         </div>
         `
-        renderBoardAssignings(todos[i],i);
+        renderBoardAssignings(todos[i], i);
     }
 }
 
 function renderBoardDone() {
     let container = document.getElementById('done-col');
-    container.innerHTML='';
+    container.innerHTML = '';
     let todos = getBoardTasks('done');
-    for (let i = 0; i<todos.length; i++) {
+    for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
@@ -128,7 +128,7 @@ function renderBoardDone() {
             </div>
         </div>
         `
-        renderBoardAssignings(todos[i],i);
+        renderBoardAssignings(todos[i], i);
     }
 }
 
@@ -139,7 +139,7 @@ function startDragging(id) {
 }
 
 function allowDrop(ev) {
-    ev.preventDefault(); 
+    ev.preventDefault();
 }
 
 function moveTo(category) {
@@ -154,4 +154,9 @@ function highlight(id) {
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+//****** Open task details *******//
+function openTaskDetails() {
+    document.getElementById('show-details').classList.remove('d-none');
 }

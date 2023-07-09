@@ -64,7 +64,7 @@ input {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin: 0rem 4rem 0rem 4rem;
+    margin: 0rem 4rem 0rem 1rem;
 }
 
 .box-task-design {
@@ -79,6 +79,7 @@ input {
     border-radius: 1.9rem;
     margin-bottom: 2rem;
     padding: 1.5rem;
+    cursor: pointer;
 }
 
 .box-title {
@@ -201,6 +202,33 @@ input {
     background-color: green;
 }
 
+/*********** Card details view ***********/
+
+.popup-bg{
+    background-color: gray;
+    opacity: 0.4;
+    width: 100vw;
+    height: 100vh;
+    z-index: 888;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.task-info{
+    width: 50vw;
+    height: 50vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    top: 0;
+    background-color: black;
+    z-index: 999;
+}
+
 /*********** Modal ***********/
 #bg-layer {
     position: absolute;
@@ -264,6 +292,10 @@ input {
     display: none;
 }
 
+.d-none{
+    display: none;
+}
+
 /*********** Responsive Area ***********/
 
 @media (max-width:1700px) {
@@ -292,16 +324,17 @@ input {
         align-items: center;
         overflow-y: scroll;
         height: calc(65vh - 90px);
+        margin: unset;
     }
 
     .box-task-design {
         min-height: 15.6rem;
         max-height: 15.6rem;
-        width: 25.6rem;
+        width: 34.6rem;
     }
 
     .box-title {
-        width: 460px;
+        width: 600px;
     }
 
     .box-overflow {
@@ -320,6 +353,13 @@ input {
         cursor: pointer;
     }
 
+    .box-task-design {
+        width: 25.6rem;
+    }
+
+    .box-title {
+        width: 460px;
+    }
     .title h1{
         margin-left: -14rem;
     }

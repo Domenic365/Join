@@ -5,7 +5,7 @@
     </div>
     <div class="interactive-container">
         <input class="lupe-img input-norm type=" text" placeholder="Find Task"">
-        <button class="button-norm"onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
+        <button class=" button-norm"onclick="switchModal('add_task.html', 'addtask'), initBoard()">Add Task
         <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
         </button>
     </div>
@@ -14,13 +14,14 @@
 
 <!--*** Boxtask Area ***-->
 <main class="board-container">
-       <!--*** Mobile Header only visiable @ width:720px ***-->
-       <div class="mobile-header">
+
+    <!--*** Mobile Header only visiable @ width:720px ***-->
+    <div class="mobile-header">
         <div class="title">
             <h1>Board</h1>
         </div>
         <div class="button-mobile">
-            <button  onclick="switchModal('add_task.html', 'addtask'), initBoard()">
+            <button onclick="switchModal('add_task.html', 'addtask'), initBoard()">
                 <img src="../../assets/img/icons/plus-button-dark.svg" alt="Cross Button">
             </button>
         </div>
@@ -28,7 +29,7 @@
     <div class="input-field-container">
         <input type="text" placeholder="Find Task" class="lupe-img input-mobile">
     </div>
-<!--*** END Mobile Header ***-->
+    <!--*** END Mobile Header ***-->
 
     <div class="column-direction">
         <div class="box-title">
@@ -40,25 +41,16 @@
         </div>
         <div class="box-overflow" id="todo-col" ondrop="moveTo('todo'); removeHighlight('todo-col')"
             ondragleave="removeHighlight('todo-col')" ondragover="allowDrop(event); highlight('todo-col')">
-            <div class="box-task-design">
-                <div class="category">
-                    <h3>Design</h3>
-                </div>
-                <div class="task-name">
-                    <h4>Website redesign</h4>
-                </div>
-                <div class="task-description">
-                    <span>Modify the contents of the main website</span>
-                </div>
+            <div class="box-task-design" onclick="openTaskDetails()">
+                <div class="category"></div>
+                <div class="task-name"></div>
+                <div class="task-description"></div>
                 <div class="progress-bar"></div>
-                <div class="worker">
-                </div>
+                <div class="worker"></div>
             </div>
-            <div class="box-task-design">1</div>
-            <div class="box-task-design">1</div>
-            <div class="box-task-design">1</div>
         </div>
     </div>
+
     <div class="column-direction">
         <div class="box-title">
             <h2>In Progress</h2>
@@ -69,10 +61,9 @@
         </div>
         <div class="box-overflow" id="progress-col" ondrop="moveTo('inPorgress'); removeHighlight('progress-col')"
             ondragleave="removeHighlight('progress-col')" ondragover="allowDrop(event); highlight('progress-col')">
-            <div class="box-task-design"></div>
-            <div class="box-task-design">2</div>
         </div>
     </div>
+
     <div class="column-direction">
         <div class="box-title">
             <h2>Awainting Feedback</h2>
@@ -83,10 +74,9 @@
         </div>
         <div class="box-overflow" id="feedback-col" ondrop="moveTo('feedback'); removeHighlight('feedback-col')"
             ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('feedback-col')">
-            <div class="box-task-design">3</div>
-            <div class="box-task-design">3</div>
         </div>
     </div>
+
     <div class="column-direction">
         <div class="box-title">
             <h2>Done</h2>
@@ -97,12 +87,17 @@
         </div>
         <div class="box-overflow" id="done-col" ondrop="moveTo('done'); removeHighlight('done-col')"
             ondragleave="removeHighlight('feedback-col')" ondragover="allowDrop(event); highlight('done-col')">
-            <div class="box-task-design">4</div>
-            <div class="box-task-design">4</div>
         </div>
     </div>
 </main>
 <!--*** END Boxtask Area ***-->
+
+<!--*** Card details view ***-->
+<div class="card-details-container d-none" id="show-details">
+    <div class="popup-bg"></div>
+    <div class="task-info" id="card-datail"></div>
+</div>
+<!--*** END Card details view ***-->
 
 <div class="notification" id="notification">
     Task added to clipboard <span class="icon"><img src="../img/icons/board.svg"></span>
