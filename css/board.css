@@ -323,6 +323,7 @@ input {
     .title h1{
         margin-left: -14rem;
     }
+
     .board-container {
         height: calc(90vh - 90px);
         margin: unset;
@@ -349,9 +350,25 @@ input {
 }
 
 @media (max-width: 540px) {
+    .title h1{
+        margin-left: -9rem;
+    }
+
+    .button-mobile{
+        margin-right: -10rem;
+    }
+
+    .input-field-container {
+        margin: -2rem 0rem 2rem -1rem;
+    }
+
+    .box-title{
+        width: 300px;
+    }
     .box-task-design {
         min-height: 15.6rem;
         max-height: 15.6rem;
         width: 15.6rem;
     }
 }
+
