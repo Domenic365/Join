@@ -320,8 +320,16 @@ input {
         cursor: pointer;
     }
 
+    .title h1{
+        margin-left: -14rem;
+    }
     .board-container {
         height: calc(90vh - 90px);
+        margin: unset;
+    }
+
+    .button-mobile{
+        margin-right: -15rem;
     }
 
     .input-mobile {
@@ -336,8 +344,7 @@ input {
     }
 
     .input-field-container {
-        margin-top: -2.5rem;
-        margin-left: 7rem;
+        margin: -2rem 0rem 2rem -11rem;
     }
 }
 
