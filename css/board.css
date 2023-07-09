@@ -205,16 +205,16 @@ input {
 /*********** Card details view ***********/
 
 .popup-bg{
-    background-color: gray;
-    opacity: 0.4;
-    width: 100vw;
-    height: 100vh;
-    z-index: 888;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
+    background-color: gray;
+    opacity: 0.4;
+    width: 100vw;
+    height: 100vh;
+    z-index: 888;   
 }
 
 .task-info{
@@ -223,9 +223,10 @@ input {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, 50%);
     top: 0;
-    background-color: black;
+    transform: translate(-50%, 50%);
+    background-color: white;
+    border-radius: 2rem;
     z-index: 999;
 }
 
