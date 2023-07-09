@@ -4,6 +4,7 @@ async function initBoard() {
     renderBoardProgress();
     renderBoardFeedback();
     renderBoardDone();
+    openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -159,4 +160,14 @@ function removeHighlight(id) {
 //****** Open task details *******//
 function openTaskDetails() {
     document.getElementById('show-details').classList.remove('d-none');
+    document.getElementById('show-details').innerHTML = templateTaskDetailsHTML();
 }
+
+function templateTaskDetailsHTML(){
+ return /*html*/`
+    <div class="task-info" id="card-detail">
+        <h3>asdasdasd</h3>
+    </div>
+    <div class="popup-bg"></div>
+ `;
+} 
