@@ -158,6 +158,7 @@ dialog {
     border-style: none;
     padding: unset;
     background-color: unset;
+    overflow-y: hidden;
 }
 
 /* MODAL END */
