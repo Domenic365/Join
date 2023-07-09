@@ -13,7 +13,7 @@
         padding-left: 1.2rem !important;
         padding-right: 1.2rem !important;
         padding-top: 1.62rem !important;
-        padding-bottom: 6rem !important;
+        padding-bottom: 1rem !important;
     }
 }
 
@@ -254,7 +254,7 @@
     }
 
     .rightSide form {
-        gap: 1.8rem;
+        gap: 1.8rem !important;
     }
 
     .leftSide .addContactTitle {
