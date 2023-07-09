@@ -57,6 +57,7 @@
     /* OVERLAY END */
     /* RIGHT SIDE START */
     .rightSide {
+        position: relative;
         flex-direction: column;
         padding: 0;
         align-items: center;
@@ -74,7 +75,7 @@
 
     .human {
         position: absolute;
-        top: calc(35vh);
+        top: -100px;
     }
 
     .cancel {
@@ -195,6 +196,11 @@
         width: 6rem !important;
         height: 6rem !important;
         min-width: 6rem !important;
+        min-height: unset !important;
+    }
+
+    .human {
+        top: -80px;
     }
 
     contact-details {
