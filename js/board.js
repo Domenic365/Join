@@ -5,6 +5,7 @@ async function initBoard() {
     renderBoardFeedback();
     renderBoardDone();
     //openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    // getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -165,11 +166,24 @@ function openTaskDetails() {
     document.getElementById('show-details').innerHTML = templateTaskDetailsHTML();
 }
 
-function templateTaskDetailsHTML(){
- return /*html*/`
-    <div class="task-info" id="card-detail">
-        <h3>asdasdasd</h3>
-    </div>
-    <div class="popup-bg"></div>
- `;
-} 
+function getTaskDetails(){
+    document.getElementById('show-details').innerHTML = '';
+    for (let i = 0; i < allTasks.length; i++) {
+        let taskTitle = allTasks[i]['title'];
+        let taskDescription = allTasks[i]['description'];
+        let taskDate = allTasks[i]['dueDate'];
+        let taskPrio = allTasks[i]['prio'];
+        let taskWorker = allTasks[i]['assignedTo']['0'];
+        document.getElementById('show-details').innerHTML += templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker);
+    }
+}
+
+
+function templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker) {
+return /*html*/ `
+      <div class="task-info" id="card-detail">
+            <h3>asdasdasd</h3>
+       </div>
+       <div class="popup-bg"></div>
+    `;
+}

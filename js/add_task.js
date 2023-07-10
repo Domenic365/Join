@@ -15,7 +15,6 @@ async function setItem(key, value) {
     .then(res => res.json());
 }
 
-
 /**
  * This function is used to load data from remoteStorage
  * 
