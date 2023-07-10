@@ -60,6 +60,24 @@ function renderOpenTasks() {
     openTasks.innerHTML = `${loadedTasks.length}`;
 }
 
+function getTasksSum() {
+    let deletedTasks = getDeletedTasks();
+    let everyTask = loadedTasks.length;
+    // let sum = everyTask - deteled;
+    // return sum;
+}
+
+function getDeletedTasks() {
+    let delSum;
+    for (let i = 0; i<allTasks.length; i++) {
+        const task = allTasks[i];
+        if(task['status'] === 'deleted') {
+            delSum++;
+        }
+    }
+    return delSum;
+}
+
 /**
  * function to render all tasks which are waiting for feedback
  */
