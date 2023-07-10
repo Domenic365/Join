@@ -4,7 +4,7 @@ async function initBoard() {
     renderBoardProgress();
     renderBoardFeedback();
     renderBoardDone();
-    openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    //openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -151,10 +151,12 @@ function moveTo(category) {
 
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
+    initBoard();
 }
 
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
+    initBoard();
 }
 
 //****** Open task details *******//
