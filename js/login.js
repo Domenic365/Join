@@ -106,11 +106,30 @@ function generateSignup() {
     </div>`;
 }
 
-function loadSignUptoRemoteStorage(event) {
+async function loadSignUptoRemoteStorage(event) {
     event.preventDefault();
     let form = event.target;
-    let loginData = [
-        form.name.value, form.email.value, form.password.value,
-    ];
+    let loginData = [form.name.value, form.email.value, form.password.value,];
+    let alreadySignedUp = await checkAccount(loginData[1])
+    console.log(alreadySignedUp);
+    if (alreadySignedUp) {
+    alert("Diagnose: Homosexuell")
+    } else{
+        await signUp(loginData);
+    }
+}
 
+async function checkAccount(email) {
+    try {
+        await getItem(email);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+async function signUp(loginData) {
+    let email = loginData[1];
+    let stringifyLoginData = JSON.stringify(loginData);
+   await setItem(email, stringifyLoginData);
 }
