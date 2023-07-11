@@ -8,7 +8,7 @@ function initLogin() {
     }, 1000);
     setTimeout(() => {
         loadForm()
-    },1250);
+    }, 1250);
 }
 
 function loadForm() {
@@ -95,13 +95,41 @@ function generateSignup() {
             <h1>Sign up</h1>
             <div class="h-divider"></div>
         </div>
-        <form class="form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" minlength="8" required>
+        <form class="form" onsubmit="loadSignUptoRemoteStorage(event)">
+            <input type="text" placeholder="Name" required name="name">
+            <input type="email" placeholder="Email" required name="email">
+            <input type="password" placeholder="Password" minlength="8" required name="password">
             <div class="log-btns">
                 <button class="login-btn">Sign up</button>
             </div>
         </form>
     </div>`;
+}
+
+async function loadSignUptoRemoteStorage(event) {
+    event.preventDefault();
+    let form = event.target;
+    let loginData = [form.name.value, form.email.value, form.password.value,];
+    let alreadySignedUp = await checkAccount(loginData[1])
+    console.log(alreadySignedUp);
+    if (alreadySignedUp) {
+    alert("Diagnose: Homosexuell")
+    } else{
+        await signUp(loginData);
+    }
+}
+
+async function checkAccount(email) {
+    try {
+        await getItem(email);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+async function signUp(loginData) {
+    let email = loginData[1];
+    let stringifyLoginData = JSON.stringify(loginData);
+   await setItem(email, stringifyLoginData);
 }
