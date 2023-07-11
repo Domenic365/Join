@@ -211,7 +211,7 @@ input {
     bottom: 0;
     top: 0;
     background-color: gray;
-    opacity: 0.4;
+    opacity: 0.03;
     width: 100vw;
     height: 100vh;
     z-index: 888;   

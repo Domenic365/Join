@@ -4,8 +4,8 @@ async function initBoard() {
     renderBoardProgress();
     renderBoardFeedback();
     renderBoardDone();
-    //openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
-    // getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -169,11 +169,11 @@ function openTaskDetails() {
 function getTaskDetails(){
     document.getElementById('show-details').innerHTML = '';
     for (let i = 0; i < allTasks.length; i++) {
-        let taskTitle = allTasks[i]['title'];
-        let taskDescription = allTasks[i]['description'];
-        let taskDate = allTasks[i]['dueDate'];
-        let taskPrio = allTasks[i]['prio'];
-        let taskWorker = allTasks[i]['assignedTo']['0'];
+        let taskTitle = allTasks[0]['title'];
+        let taskDescription = allTasks[0]['description'];
+        let taskDate = allTasks[0]['dueDate'];
+        let taskPrio = allTasks[0]['prio'];
+        let taskWorker = allTasks[0]['assignedTo']['0'];
         document.getElementById('show-details').innerHTML += templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker);
     }
 }
@@ -182,7 +182,11 @@ function getTaskDetails(){
 function templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker) {
 return /*html*/ `
       <div class="task-info" id="card-detail">
-            <h3>asdasdasd</h3>
+            <h3>${taskTitle}</h3>
+            <h3>${taskDescription}</h3>
+            <h3>${taskDate}</h3>
+            <h3>${taskPrio}</h3>
+            <h3>${taskWorker}</h3>
        </div>
        <div class="popup-bg"></div>
     `;
