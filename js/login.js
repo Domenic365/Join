@@ -35,8 +35,8 @@ function generateLogin() {
             <div class="h-divider"></div>
         </div>
         <form class="form" onsubmit="login(event)">
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
+            <input type="email" placeholder="Email" required name="email">
+            <input type="password" placeholder="Password" required name="password">
         
             <div class="forgotPW">
                 <div class="rememberBox">
@@ -113,8 +113,8 @@ async function loadSignUptoRemoteStorage(event) {
     let alreadySignedUp = await checkAccount(loginData[1])
     console.log(alreadySignedUp);
     if (alreadySignedUp) {
-    alert("Diagnose: Homosexuell")
-    } else{
+        alert("Diagnose: Homosexuell")
+    } else {
         await signUp(loginData);
     }
 }
@@ -131,9 +131,17 @@ async function checkAccount(email) {
 async function signUp(loginData) {
     let email = loginData[1];
     let stringifyLoginData = JSON.stringify(loginData);
-   await setItem(email, stringifyLoginData);
+    await setItem(email, stringifyLoginData);
 }
 
 async function login(event) {
     event.preventDefault()
+    let form  = event.target;
+    let loginEnter = [form.email.value, form.password.value];
+    let alreadySignedUp = await checkAccount(loginEnter[0]);
+    if (alreadySignedUp){
+        window.location.href = "./assets/templates/main.html"
+    }else{
+        alert("Du bist nicht angemeldet")
+    }
 }
