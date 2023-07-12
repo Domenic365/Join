@@ -34,7 +34,7 @@ function generateLogin() {
             <h1>Log in</h1>
             <div class="h-divider"></div>
         </div>
-        <form class="form" onsubmit="login()">
+        <form class="form" onsubmit="login(event)">
             <input type="email" placeholder="Email" required>
             <input type="password" placeholder="Password" required>
         
@@ -132,4 +132,8 @@ async function signUp(loginData) {
     let email = loginData[1];
     let stringifyLoginData = JSON.stringify(loginData);
    await setItem(email, stringifyLoginData);
+}
+
+async function login(event) {
+    event.preventDefault()
 }

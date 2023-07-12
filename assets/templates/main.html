@@ -33,45 +33,55 @@
     <script src="../../js/contacts.js"></script>
 </head>
 
-    <body onload="init()">
-        <section class="right-bar">
-            <div class="top-bar">
-                <div class="user-info">
-                    <div class="mobile-logo">
-                        <img src="../img/logo_main.svg" />
-                    </div>
-                    <div class="topbar-title">
-                        Kanban Project Management Tool
-                    </div>
-                    <div>
-                        <a onclick="changeContentHTML('../templates/help.html')"
-                            ><img src="../img/icons/help.svg" class="bar-icon"
-                        /></a>
-                        <img src="#" class="user-img" />
-                    </div>
-                </div>
+<body onload="init()">
+<section class="right-bar">
+    <div class="top-bar">
+        <div class="user-info">
+            <div class="mobile-logo">
+                <img src="../img/logo_main.svg"/>
+            </div>
+            <div class="topbar-title">
+                Kanban Project Management Tool
+            </div>
+            <div>
+                <a onclick="changeContentHTML('../templates/help.html')"
+                ><img src="../img/icons/help.svg" class="bar-icon"
+                /></a>
+                <img src="#" class="user-img"/>
             </div>
         </div>
-        <div id="content" w3-include-html="../../assets/templates/summary.html">
-            <!-- hier werden die jeweiligen Seiten reingerendert -->
-        </div>
-    </section>
-    <section class="left-bar">
-        <img src="../img/logo-on-dark-bg.svg" class="logo">
-        <div class="main-menu">
-            <a onclick="changeContentHTML('../templates/summary.html'), initSummary()"><div class="aligning"><img src="../img/icons/summary.svg" class="menu-icon"></div>Summary</a>
-            <a onclick="changeContentHTML('../templates/board.html'), initBoard()"><div class="aligning"><img src="../img/icons/board.svg" class="menu-icon"></div>Board</a>
-            <a onclick="changeContentHTML('../templates/add_task.html')"><div class="aligning"><img src="../img/icons/addTask.svg" class="menu-icon" ></div>Add Task</a>
-            <a onclick="loadContactContainer()"><div class="aligning"><img src="../img/icons/contacts.svg" class="menu-icon"></div>Contacts</a>
-        </div>
-        <div class="legal-menu">
-            <a onclick="changeContentHTML('../templates/legal_notice.html')"><img src="../img/icons/info.svg" class="menu-icon">Legal Notice</a>
-            <a onclick="changeContentHTML('../templates/privacy_policy.html')"><img src="../img/icons/info.svg" class="menu-icon">Privacy Policy</a>
-        </div>
-    </section>
-    <dialog modal w3-include-html="" ></dialog>
-    <script src="../../js/summary.js"></script>
-    <script src="../../js/board.js"></script>
-    <script src="../../js/addTask_formhandler.js"></script>
+    </div>
+    </div>
+    <div id="content" w3-include-html="../../assets/templates/summary.html">
+        <!-- hier werden die jeweiligen Seiten reingerendert -->
+    </div>
+</section>
+<section class="left-bar">
+    <img src="../img/logo-on-dark-bg.svg" class="logo">
+    <div class="main-menu">
+        <a onclick="changeContentHTML('../templates/summary.html'), initSummary()">
+            <div class="aligning"><img src="../img/icons/summary.svg" class="menu-icon"></div>
+            Summary</a>
+        <a onclick="changeContentHTML('../templates/board.html'), initBoard()">
+            <div class="aligning"><img src="../img/icons/board.svg" class="menu-icon"></div>
+            Board</a>
+        <a onclick="changeContentHTML('../templates/add_task.html')">
+            <div class="aligning"><img src="../img/icons/addTask.svg" class="menu-icon"></div>
+            Add Task</a>
+        <a onclick="loadContactContainer()">
+            <div class="aligning"><img src="../img/icons/contacts.svg" class="menu-icon"></div>
+            Contacts</a>
+    </div>
+    <div class="legal-menu">
+        <a onclick="changeContentHTML('../templates/legal_notice.html')"><img src="../img/icons/info.svg"
+                                                                              class="menu-icon">Legal Notice</a>
+        <a onclick="changeContentHTML('../templates/privacy_policy.html')"><img src="../img/icons/info.svg"
+                                                                                class="menu-icon">Privacy Policy</a>
+    </div>
+</section>
+<dialog modal w3-include-html=""></dialog>
+<script src="../../js/summary.js"></script>
+<script src="../../js/board.js"></script>
+<script src="../../js/addTask_formhandler.js"></script>
 </body>
 </html>
