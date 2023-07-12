@@ -2,29 +2,29 @@
 
 function initLogin() {
     setTimeout(() => {
-        let logo = document.querySelector('.logoStart');
-        logo.classList.remove('logoStart');
-        logo.classList.add('logomotion');
+        let logo = document.querySelector(".logoStart");
+        logo.classList.remove("logoStart");
+        logo.classList.add("logomotion");
     }, 1000);
     setTimeout(() => {
-        loadForm()
+        loadForm();
     }, 1250);
 }
 
 function loadForm() {
     renderLogin();
-    let container = document.getElementById('loginRender');
-    container.classList.remove('d-none');
-    let signupBox = document.querySelector('.sign-up');
-    signupBox.classList.remove('d-none');
+    let container = document.getElementById("loginRender");
+    container.classList.remove("d-none");
+    let signupBox = document.querySelector(".sign-up");
+    signupBox.classList.remove("d-none");
     renderLogin();
 }
 
 function renderLogin() {
-    let container = document.getElementById('loginRender');
+    let container = document.getElementById("loginRender");
     container.innerHTML = generateLogin();
-    let signupBox = document.querySelector('.sign-up');
-    signupBox.classList.remove('d-none');
+    let signupBox = document.querySelector(".sign-up");
+    signupBox.classList.remove("d-none");
 }
 
 function generateLogin() {
@@ -55,9 +55,9 @@ function generateLogin() {
 }
 
 function forgotPassword() {
-    let container = document.getElementById('loginRender');
-    let signupBox = document.querySelector('.sign-up');
-    signupBox.classList.add('d-none');
+    let container = document.getElementById("loginRender");
+    let signupBox = document.querySelector(".sign-up");
+    signupBox.classList.add("d-none");
     container.innerHTML = generateForgotPassword();
 }
 
@@ -80,11 +80,11 @@ function generateForgotPassword() {
 }
 
 function renderSignup() {
-    let container = document.getElementById('loginRender');
-    container.innerHTML = '';
+    let container = document.getElementById("loginRender");
+    container.innerHTML = "";
     container.innerHTML = generateSignup();
-    let signupBox = document.querySelector('.sign-up');
-    signupBox.classList.add('d-none');
+    let signupBox = document.querySelector(".sign-up");
+    signupBox.classList.add("d-none");
 }
 
 function generateSignup() {
@@ -109,11 +109,11 @@ function generateSignup() {
 async function loadSignUptoRemoteStorage(event) {
     event.preventDefault();
     let form = event.target;
-    let loginData = [form.name.value, form.email.value, form.password.value,];
-    let alreadySignedUp = await checkAccount(loginData[1])
+    let loginData = [form.name.value, form.email.value, form.password.value];
+    let alreadySignedUp = await checkAccount(loginData[1]);
     console.log(alreadySignedUp);
     if (alreadySignedUp) {
-        alert("Diagnose: Homosexuell")
+        alert("Diagnose: Homosexuell");
     } else {
         await signUp(loginData);
     }
@@ -135,14 +135,23 @@ async function signUp(loginData) {
 }
 
 async function login(event) {
-    event.preventDefault()
-    let form  = event.target;
-    let loginEnter = [form.email.value, form.password.value];
-    let alreadySignedUp = await checkAccount(loginEnter[0]);
-    let accountData = JSON.parse(await getItem(loginEnter[0]))
-    if (alreadySignedUp) {
-       // window.location.href = "./assets/templates/main.html"
-    }else{
-        alert("Du bist nicht angemeldet")
+    event.preventDefault();
+    let form = event.target;
+    let loginEmail = form.email.value;
+    let loginPassword = form.password.value;
+    let alreadySignedUp = await checkAccount(loginEmail);
+    let accountData = JSON.parse(await getItem(loginEmail));
+    let accountPassword = accountData[2];
+    let isPasswordtheSame = loginPassword == accountPassword;
+    doLogin(alreadySignedUp, isPasswordtheSame);
+}
+
+function doLogin(alreadySignedUp, isPasswordtheSame) {
+    if (alreadySignedUp && isPasswordtheSame) {
+        window.location.href = "./assets/templates/main.html"
+    } else if (alreadySignedUp && !isPasswordtheSame) {
+        alert("Passwort ist falsch")
+    } else if (!alreadySignedUp) {
+        alert("Du bist nicht angemeldet");
     }
 }
