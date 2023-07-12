@@ -139,8 +139,9 @@ async function login(event) {
     let form  = event.target;
     let loginEnter = [form.email.value, form.password.value];
     let alreadySignedUp = await checkAccount(loginEnter[0]);
-    if (alreadySignedUp){
-        window.location.href = "./assets/templates/main.html"
+    let accountData = JSON.parse(await getItem(loginEnter[0]))
+    if (alreadySignedUp) {
+       // window.location.href = "./assets/templates/main.html"
     }else{
         alert("Du bist nicht angemeldet")
     }
