@@ -223,6 +223,7 @@
 }
 
 .profileImage{
+    cursor: pointer;
     height: 3.0625rem ;
     width: 3.0625rem;
     border-width: 3px;
@@ -231,6 +232,12 @@
     border-style: solid;
     background: none;
     color: #29ABE2;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .logout{

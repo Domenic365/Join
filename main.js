@@ -6,6 +6,7 @@
 async function init() {
     await includeHTML();
     await initSummary();
+    loadLetter();
 }
 
 /**

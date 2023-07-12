@@ -143,15 +143,24 @@ async function login(event) {
     let accountData = JSON.parse(await getItem(loginEmail));
     let accountPassword = accountData[2];
     let IsPasswordSame = loginPassword === accountPassword;
-    doLogin(alreadySignedUp, IsPasswordSame);
+    doLogin(alreadySignedUp, IsPasswordSame, loginEmail);
 }
 
-function doLogin(alreadySignedUp, isPasswordSame) {
+function doLogin(alreadySignedUp, isPasswordSame, email) {
     if (alreadySignedUp && isPasswordSame) {
-        window.location.href = "./assets/templates/main.html"
+        debugger;
+        localStorage.setItem("accountName", email)
+        location.href = "./assets/templates/main.html"
     } else if (alreadySignedUp && !isPasswordSame) {
         alert("Passwort ist falsch")
     } else if (!alreadySignedUp) {
         alert("Du bist nicht angemeldet");
     }
+}
+
+function loadLetter() {
+    let name = localStorage.getItem('accountName');
+    let firstLetter = name.slice(0, 1);
+    let profileButton = document.querySelector('.profileImage');
+    profileButton.innerHTML = firstLetter.toUpperCase();
 }
