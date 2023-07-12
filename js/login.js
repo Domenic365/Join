@@ -142,14 +142,14 @@ async function login(event) {
     let alreadySignedUp = await checkAccount(loginEmail);
     let accountData = JSON.parse(await getItem(loginEmail));
     let accountPassword = accountData[2];
-    let isPasswordtheSame = loginPassword == accountPassword;
-    doLogin(alreadySignedUp, isPasswordtheSame);
+    let IsPasswordSame = loginPassword === accountPassword;
+    doLogin(alreadySignedUp, IsPasswordSame);
 }
 
-function doLogin(alreadySignedUp, isPasswordtheSame) {
-    if (alreadySignedUp && isPasswordtheSame) {
+function doLogin(alreadySignedUp, isPasswordSame) {
+    if (alreadySignedUp && isPasswordSame) {
         window.location.href = "./assets/templates/main.html"
-    } else if (alreadySignedUp && !isPasswordtheSame) {
+    } else if (alreadySignedUp && !isPasswordSame) {
         alert("Passwort ist falsch")
     } else if (!alreadySignedUp) {
         alert("Du bist nicht angemeldet");

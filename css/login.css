@@ -222,6 +222,21 @@
     cursor: pointer;
 }
 
+.profileImage{
+    height: 3.0625rem ;
+    width: 3.0625rem;
+    border-width: 3px;
+    border-color: #2A3647 ;
+    border-radius: 6rem;
+    border-style: solid;
+    background: none;
+    color: #29ABE2;
+}
+
+.logout{
+    all: unset;
+}
+
 @media (max-width: 1170px) {
     .sign-up {
         top: unset;
