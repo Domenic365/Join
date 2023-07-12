@@ -1,6 +1,6 @@
 /**global variables */
 
-let selectedContact = new Contact("", "", "", "");
+let selectedContact = new Contact("", "", "", ""); //I dont know why its needed! Dont remove! Ignore the error!
 let contacts = new ContactList();
 let contactDetails = new ContactDetails();
 let isContactListHidden = false;
