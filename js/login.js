@@ -168,10 +168,15 @@ function loadLetter() {
     let firstLetter = name.slice(0, 1);
     let profileButton = document.querySelector('.profileImage');
     profileButton.innerHTML = firstLetter.toUpperCase();
+    profileButton.addEventListener("click", clickProfile)
 }
 
 function loadName() {
     let name = getName()
     let nameElement = document.querySelector('h5')
     nameElement.innerHTML = name;
+}
+
+function clickProfile() {
+    
 }

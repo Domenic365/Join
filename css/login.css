@@ -240,8 +240,15 @@
     justify-content: space-evenly;
 }
 
+.divForProfileImage{
+    position: relative;
+}
+
 .logout{
     all: unset;
+    position: absolute;
+    right: 0px;
+    top: 65px;
 }
 
 @media (max-width: 1170px) {
