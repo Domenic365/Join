@@ -65,7 +65,7 @@ function renderBoardProgress() {
     let todos = getBoardTasks("inProgress");
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -90,7 +90,7 @@ function renderBoardFeedback() {
     let todos = getBoardTasks('feedback');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -115,7 +115,7 @@ function renderBoardDone() {
     let todos = getBoardTasks('done');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -163,31 +163,26 @@ function removeHighlight(id) {
 //****** Open task details *******//
 function openTaskDetails(i) {
     document.getElementById('show-details').classList.remove('d-none');
-    document.getElementById('show-details').innerHTML = templateTaskDetailsHTML(i);
-}
-
-function getTaskDetails() {
-    document.getElementById('show-details').innerHTML = '';
-    for (let i = 0; i < allTasks.length; i++) {
-        let taskTitle = allTasks[0]['title'];
-        let taskDescription = allTasks[0]['description'];
-        let taskDate = allTasks[0]['dueDate'];
-        let taskPrio = allTasks[0]['prio'];
-        let taskWorker = allTasks[0]['assignedTo']['0'];
-        document.getElementById('show-details').innerHTML += templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker);
-    }
+    getTaskDetailsById(i);
 }
 
 
-function templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker) {
-    return /*html*/ `
-      <div class="task-info" id="card-detail">
-            <h3>${taskTitle}</h3>
-            <h3>${taskDescription}</h3>
-            <h3>${taskDate}</h3>
-            <h3>${taskPrio}</h3>
-            <h3>${taskWorker}</h3>
+function getTaskDetailsById(i) {
+    let container = document.getElementById('show-details');
+    container.innerHTML = '';
+    
+    let todos = getBoardTasks('todo');
+    for (let i = 0; i < todos.length; i++) {
+        container.innerHTML += /*html*/`
+         <div class="task-info" id="card-detail">
+            <h3>Titel:<br>${todos[i].title}</h3>
+            <h3>Beschreibung:<br> ${todos[i].description}</h3>
+            <h3>Fällig:<br> ${todos[i].dueDate}</h3>
+            <h3>Priorität:<br> ${todos[i].prio}</h3>
        </div>
+       <div class="worker" id="${todos[i].status}${i}-workers">
        <div class="popup-bg"></div>
-    `;
+        `;
+        renderBoardAssignings(todos[i], i);
+    }
 }
