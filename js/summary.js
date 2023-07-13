@@ -28,8 +28,8 @@ async function taskLoader() {
 function renderDoneTasks() {
     let content = document.querySelector('#done-counter > p');
     let counter = 0;
-    for (let i = 0; i<loadedTasks.length; i++) {
-        const element = loadedTasks[i];
+    for (let i = 0; i<allTasks.length; i++) {
+        const element = allTasks[i];
         if (element.status === 'done'){
             counter++;
         }
@@ -57,7 +57,7 @@ function renderTodos() {
  */
 function renderOpenTasks() {
     let openTasks = document.querySelector('#taskSum > p');
-    openTasks.innerHTML = `${loadedTasks.length}`;
+    openTasks.innerHTML = `${allTasks.length}`;
 }
 
 function getTasksSum() {
@@ -90,6 +90,7 @@ function renderFeedbackTasks() {
             counter++;
         }
     };
+    console.log(counter);
     feedbackTasks.innerHTML = `
         <p>${counter}</p>
         <span>Awaiting<br>Feedback</span>
@@ -102,9 +103,9 @@ function renderFeedbackTasks() {
 function renderProgressTasks() {
     let progressTasks = document.getElementById('progressSum');
     let counter = 0;
-    for (let i = 0; i<loadedTasks.length; i++) {
-        const element = loadedTasks[i]
-        if (element.status === 'inProgress') {
+    for (let i = 0; i<allTasks.length; i++) {
+        const element = allTasks[i];
+        if (element.status === "inProgress") {
             counter++;
         }
     };
