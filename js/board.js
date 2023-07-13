@@ -4,8 +4,8 @@ async function initBoard() {
     renderBoardProgress();
     renderBoardFeedback();
     renderBoardDone();
-    // openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
-    // getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    //openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
+    //getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -14,7 +14,7 @@ function renderBoardTodos() {
     let todos = getBoardTasks('todo');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']})" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -161,12 +161,12 @@ function removeHighlight(id) {
 }
 
 //****** Open task details *******//
-function openTaskDetails() {
+function openTaskDetails(i) {
     document.getElementById('show-details').classList.remove('d-none');
-    document.getElementById('show-details').innerHTML = templateTaskDetailsHTML();
+    document.getElementById('show-details').innerHTML = templateTaskDetailsHTML(i);
 }
 
-function getTaskDetails(){
+function getTaskDetails() {
     document.getElementById('show-details').innerHTML = '';
     for (let i = 0; i < allTasks.length; i++) {
         let taskTitle = allTasks[0]['title'];
@@ -180,7 +180,7 @@ function getTaskDetails(){
 
 
 function templateTaskDetailsHTML(taskTitle, taskDescription, taskDate, taskPrio, taskWorker) {
-return /*html*/ `
+    return /*html*/ `
       <div class="task-info" id="card-detail">
             <h3>${taskTitle}</h3>
             <h3>${taskDescription}</h3>
