@@ -245,10 +245,15 @@
 }
 
 .logout{
+    cursor: pointer;
     all: unset;
     position: absolute;
     right: 0px;
     top: 65px;
+}
+
+.logout img{
+    cursor: pointer;
 }
 
 @media (max-width: 1170px) {
