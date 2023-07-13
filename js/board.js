@@ -62,7 +62,7 @@ function getBoardTasks(status) {
 function renderBoardProgress() {
     let container = document.getElementById('progress-col');
     container.innerHTML = '';
-    let todos = getBoardTasks("inPorgress");
+    let todos = getBoardTasks("inProgress");
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
         <div class="box-task-design" draggable="true" ondragstart="startDragging(${todos[i]['task-id']})">
