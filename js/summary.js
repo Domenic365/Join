@@ -12,6 +12,7 @@ async function initSummary() {
     renderprioTasks();
     renderTodos();
     renderDoneTasks();
+    loadName();
 }
 
 /**

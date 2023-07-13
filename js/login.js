@@ -113,9 +113,10 @@ async function loadSignUptoRemoteStorage(event) {
     let alreadySignedUp = await checkAccount(loginData[1]);
     console.log(alreadySignedUp);
     if (alreadySignedUp) {
-        alert("Diagnose: Homosexuell");
+        alert("You already signed up");
     } else {
         await signUp(loginData);
+        location.reload()
     }
 }
 
@@ -142,25 +143,35 @@ async function login(event) {
     let alreadySignedUp = await checkAccount(loginEmail);
     let accountData = JSON.parse(await getItem(loginEmail));
     let accountPassword = accountData[2];
+    let loginName = accountData[0];
     let IsPasswordSame = loginPassword === accountPassword;
-    doLogin(alreadySignedUp, IsPasswordSame, loginEmail);
+    doLogin(alreadySignedUp, IsPasswordSame, loginName);
 }
 
-function doLogin(alreadySignedUp, isPasswordSame, email) {
+function doLogin(alreadySignedUp, isPasswordSame, name) {
     if (alreadySignedUp && isPasswordSame) {
-        debugger;
-        localStorage.setItem("accountName", email)
+        localStorage.setItem("accountName", name)
         location.href = "./assets/templates/main.html"
     } else if (alreadySignedUp && !isPasswordSame) {
-        alert("Passwort ist falsch")
+        alert("Password is wrong")
     } else if (!alreadySignedUp) {
-        alert("Du bist nicht angemeldet");
+        alert("You need to sign up first");
     }
 }
 
+const getName = () => {
+    return localStorage.getItem('accountName')
+}
+
 function loadLetter() {
-    let name = localStorage.getItem('accountName');
+    let name = getName()
     let firstLetter = name.slice(0, 1);
     let profileButton = document.querySelector('.profileImage');
     profileButton.innerHTML = firstLetter.toUpperCase();
+}
+
+function loadName() {
+    let name = getName()
+    let nameElement = document.querySelector('h5')
+    nameElement.innerHTML = name;
 }
