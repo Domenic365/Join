@@ -163,26 +163,75 @@ function removeHighlight(id) {
 //****** Open task details *******//
 function openTaskDetails(i) {
     document.getElementById('show-details').classList.remove('d-none');
-    getTaskDetailsById(i);
+    getTodoTaskDetails(i);
+    getProgressTaskDetails(i)
 }
 
 
-function getTaskDetailsById(i) {
+function getTodoTaskDetails(i) {
     let container = document.getElementById('show-details');
     container.innerHTML = '';
     
     let todos = getBoardTasks('todo');
     for (let i = 0; i < todos.length; i++) {
-        container.innerHTML += /*html*/`
+        console.log(todos);
+        container.innerHTML = /*html*/`
          <div class="task-info" id="card-detail">
-            <h3>Titel:<br>${todos[i].title}</h3>
-            <h3>Beschreibung:<br> ${todos[i].description}</h3>
-            <h3>Fällig:<br> ${todos[i].dueDate}</h3>
-            <h3>Priorität:<br> ${todos[i].prio}</h3>
+             <div class="close-btn" onclick="closeWindow()">
+                <img src="../../assets/img/icons/cross.svg" alt="Close button">
+             </div>
+
+             <div class="delete-edit-btn" onclick="closeWindow()">
+                <img src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button">
+                <img src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
+            </div>
+
+                <h3>${todos[i].category}</h3>
+                <h2>${todos[i].title}</h2>
+                <h3>${todos[i].description}</h3>
+                <h3>Due date:<br> ${todos[i].dueDate}</h3>
+                <h3>Priority:<br> ${todos[i].prio}</h3>
+                <h3>Assigned To:<br></h3>
        </div>
        <div class="worker" id="${todos[i].status}${i}-workers">
        <div class="popup-bg"></div>
         `;
         renderBoardAssignings(todos[i], i);
     }
+}
+
+function getProgressTaskDetails(i) {
+    let container = document.getElementById('show-details');
+    container.innerHTML = '';
+    
+    let todos = getBoardTasks("inProgress");
+    for (let i = 0; i < todos.length; i++) {
+        console.log(todos);
+        container.innerHTML = /*html*/`
+         <div class="task-info" id="card-detail">
+             <div class="close-btn-container" onclick="closeWindow()">
+                <img src="../../assets/img/icons/cross.svg" alt="Close button">
+             </div>
+             <div class="delete-edit-container" onclick="closeWindow()">
+                <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button">
+                <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
+            </div>
+      
+                 <h3 >${todos[i].category}</h3>
+                 <h2 class="cat-det">${todos[i].title}</h2>
+                 <h3 class="descr-det">${todos[i].description}</h3>
+                 <h3>Due date: ${todos[i].dueDate}</h3>
+                 <h3>Priority: ${todos[i].prio}</h3>
+                 <h3>Assigned To:<br></h3>
+       </div>
+       <div class="worker" id="${todos[i].status}${i}-workers">
+       <div class="popup-bg"></div>
+        `;
+        renderBoardAssignings(todos[i], i);
+    }
+}
+
+
+function closeWindow(){
+    document.getElementById('show-details').classList.add('d-none');
 }

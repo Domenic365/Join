@@ -204,20 +204,20 @@ input {
 
 /*********** Card details view ***********/
 
-.popup-bg{
+.popup-bg {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
-    background-color: gray;
-    opacity: 0.03;
+    background-color: rgb(184, 185, 186);
+    opacity: 0.1;
     width: 100vw;
     height: 100vh;
-    z-index: 888;   
+    z-index: 888;
 }
 
-.task-info{
+.task-info {
     width: 50vw;
     height: 50vh;
     position: fixed;
@@ -228,8 +228,42 @@ input {
     background-color: white;
     border-radius: 2rem;
     z-index: 999;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
+.cat-det {
+    font-size: 3.5rem;
+    color: rgb(43, 54, 71);
+}
+
+.descr-det {
+    font-size: 1.3rem;
+    color: black;
+}
+
+.close-btn-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.delete-edit-container{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 2rem;
+}
+
+.del-btn{
+    margin-right: -0.3rem;
+    cursor: pointer;
+}
+
+.edit-btn{
+    cursor: pointer;
+}
 /*********** Modal ***********/
 #bg-layer {
     position: absolute;
@@ -293,7 +327,7 @@ input {
     display: none;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
 
@@ -348,7 +382,7 @@ input {
         display: none;
     }
 
-    button{
+    button {
         border: unset;
         background-color: unset;
         cursor: pointer;
@@ -361,7 +395,8 @@ input {
     .box-title {
         width: 460px;
     }
-    .title h1{
+
+    .title h1 {
         margin-left: -14rem;
     }
 
@@ -370,7 +405,7 @@ input {
         margin: unset;
     }
 
-    .button-mobile{
+    .button-mobile {
         margin-right: -15rem;
     }
 
@@ -391,11 +426,11 @@ input {
 }
 
 @media (max-width: 540px) {
-    .title h1{
+    .title h1 {
         margin-left: -9rem;
     }
 
-    .button-mobile{
+    .button-mobile {
         margin-right: -10rem;
     }
 
@@ -403,13 +438,13 @@ input {
         margin: -2rem 0rem 2rem -1rem;
     }
 
-    .box-title{
+    .box-title {
         width: 300px;
     }
+
     .box-task-design {
         min-height: 15.6rem;
         max-height: 15.6rem;
         width: 15.6rem;
     }
 }
-
