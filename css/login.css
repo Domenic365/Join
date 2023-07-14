@@ -244,9 +244,14 @@
     position: relative;
 }
 
+.logoutShow{
+    display: unset !important;
+}
+
 .logout{
-    cursor: pointer;
-    all: unset;
+    background: none;
+    border: none;
+    display: none;
     position: absolute;
     right: 0px;
     top: 65px;

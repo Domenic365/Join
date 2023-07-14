@@ -163,6 +163,15 @@ const getName = () => {
     return localStorage.getItem('accountName')
 }
 
+function clickProfile() {
+    let logout = document.querySelector(".logout");
+    if (!logout.classList.contains("logoutShow")){
+        logout.classList.add("logoutShow");
+    } else {
+        logout.classList.remove("logoutShow");
+    }
+}
+
 function loadLetter() {
     let name = getName()
     let firstLetter = name.slice(0, 1);
@@ -177,6 +186,3 @@ function loadName() {
     nameElement.innerHTML = name;
 }
 
-function clickProfile() {
-    
-}
