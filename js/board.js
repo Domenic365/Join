@@ -4,8 +4,6 @@ async function initBoard() {
     renderBoardProgress();
     renderBoardFeedback();
     renderBoardDone();
-    //openTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
-    //getTaskDetails(); //SPÄTER DIESEN AUFRUF LÖSCHEN. NUR ZUM ERSTELLEN STEHEN LASSEN
 }
 
 function renderBoardTodos() {
@@ -14,7 +12,7 @@ function renderBoardTodos() {
     let todos = getBoardTasks('todo');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']})" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -65,7 +63,7 @@ function renderBoardProgress() {
     let todos = getBoardTasks("inProgress");
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -90,7 +88,7 @@ function renderBoardFeedback() {
     let todos = getBoardTasks('feedback');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -115,7 +113,7 @@ function renderBoardDone() {
     let todos = getBoardTasks('done');
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += `
-        <div class="box-task-design" draggable="true" onclick="openTaskDetails(${todos[i]['task-id']} ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
@@ -161,53 +159,19 @@ function removeHighlight(id) {
 }
 
 //****** Open task details *******//
-function openTaskDetails(i) {
+function openTaskDetails(taskId) {
     document.getElementById('show-details').classList.remove('d-none');
-    getTodoTaskDetails(i);
-    getProgressTaskDetails(i)
+    getTodoTaskDetails(taskId);
+    getProgressTaskDetails(taskId);
 }
 
 
-function getTodoTaskDetails(i) {
+function getTodoTaskDetails(taskId) {
     let container = document.getElementById('show-details');
     container.innerHTML = '';
-    
-    let todos = getBoardTasks('todo');
-    for (let i = 0; i < todos.length; i++) {
-        console.log(todos);
-        container.innerHTML = /*html*/`
-         <div class="task-info" id="card-detail">
-             <div class="close-btn" onclick="closeWindow()">
-                <img src="../../assets/img/icons/cross.svg" alt="Close button">
-             </div>
 
-             <div class="delete-edit-btn" onclick="closeWindow()">
-                <img src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button">
-                <img src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
-            </div>
-
-                <h3>${todos[i].category}</h3>
-                <h2>${todos[i].title}</h2>
-                <h3>${todos[i].description}</h3>
-                <h3>Due date:<br> ${todos[i].dueDate}</h3>
-                <h3>Priority:<br> ${todos[i].prio}</h3>
-                <h3>Assigned To:<br></h3>
-       </div>
-       <div class="worker" id="${todos[i].status}${i}-workers">
-       <div class="popup-bg"></div>
-        `;
-        renderBoardAssignings(todos[i], i);
-    }
-}
-
-function getProgressTaskDetails(i) {
-    let container = document.getElementById('show-details');
-    container.innerHTML = '';
-    
-    let todos = getBoardTasks("inProgress");
-    for (let i = 0; i < todos.length; i++) {
-        console.log(todos);
-        container.innerHTML = /*html*/`
+    let task = allTasks.find(task => task['task-id'] === taskId);
+    container.innerHTML = /*html*/`
          <div class="task-info" id="card-detail">
              <div class="close-btn-container" onclick="closeWindow()">
                 <img src="../../assets/img/icons/cross.svg" alt="Close button">
@@ -216,22 +180,24 @@ function getProgressTaskDetails(i) {
                 <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button">
                 <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
             </div>
-      
-                 <h3 >${todos[i].category}</h3>
-                 <h2 class="cat-det">${todos[i].title}</h2>
-                 <h3 class="descr-det">${todos[i].description}</h3>
-                 <h3>Due date: ${todos[i].dueDate}</h3>
-                 <h3>Priority: ${todos[i].prio}</h3>
-                 <h3>Assigned To:<br></h3>
-       </div>
-       <div class="worker" id="${todos[i].status}${i}-workers">
-       <div class="popup-bg"></div>
+            <div class="category ${task.catColor}Cat">
+                <h3>${task.category}</h3>
+            </div>    
+                <h2>${task.title}</h2>
+                <h3>${task.description}</h3>
+                <h3>Fälligkeitsdatum:<br> ${task.dueDate}</h3>
+                <h3>Priorität:<br> ${task.prio}</h3>
+                <h3>Zugewiesen an:<br></h3>
+                <div id="id="${task.status}${taskId}-workers"></div>
+            </div>
+            <div class="worker" id="${task.status}${taskId}-workers"></div>
+         <div class="popup-bg"></div>
         `;
-        renderBoardAssignings(todos[i], i);
-    }
+    renderBoardAssignings(task, taskId);
 }
 
 
-function closeWindow(){
+function closeWindow() {
     document.getElementById('show-details').classList.add('d-none');
 }
+
