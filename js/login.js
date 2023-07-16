@@ -47,7 +47,7 @@ function generateLogin() {
             </div>
             <div class="log-btns">
                 <button class="login-btn">Log in</button>
-                <a href="./assets/templates/main.html" class="guest-btn">Guest Log in</a>
+                <a href="./assets/templates/main.html" class="guest-btn" onclick="loadGuestLogin()">Guest Log in</a>
             </div>
         </form>
     </div>
@@ -186,3 +186,6 @@ function loadName() {
     nameElement.innerHTML = name;
 }
 
+function loadGuestLogin() {
+    localStorage.setItem("accountName", "Guest")
+}
