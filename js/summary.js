@@ -58,18 +58,18 @@ function renderTodos() {
  */
 function renderOpenTasks() {
     let openTasks = document.querySelector('#taskSum > p');
-    openTasks.innerHTML = `${allTasks.length}`;
+    openTasks.innerHTML = getTasksSum();
 }
 
 function getTasksSum() {
     let deletedTasks = getDeletedTasks();
     let everyTask = loadedTasks.length;
-    // let sum = everyTask - deteled;
-    // return sum;
+    let sum = everyTask - deletedTasks;
+    return sum;
 }
 
 function getDeletedTasks() {
-    let delSum;
+    let delSum = 0;
     for (let i = 0; i<allTasks.length; i++) {
         const task = allTasks[i];
         if(task['status'] === 'deleted') {
