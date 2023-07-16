@@ -54,7 +54,7 @@ function renderContacts() {
     list.innerHTML = '';
     for (let i = 0; i<loadedContacts.length; i++) {
         const contact = loadedContacts[i];
-        list.innerHTML += `<div class="contact-item"><label for="${contact}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact}"></label></div>`
+        list.innerHTML += `<div class="contact-item"><label for="${contact.name}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact.name}"></label></div>`
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
 }
@@ -204,7 +204,6 @@ function showNewCat() {
 function pickPrio(pick) {
     resetPrio();
     let button = document.querySelector(`.${pick}`);
-    
     if (button.classList.contains('activePick')) {
         resetPrio();
     } else {

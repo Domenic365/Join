@@ -62,7 +62,7 @@ function createNewTask() {
         "assignedTo" : getAssignedContacts(),
         "dueDate": `${document.getElementById('due-date').value}`,
         "prio" : `${document.querySelector('.activePick').innerText}`,
-        "subtasks" : `${getSubtasks()}`,
+        "subtasks" : getSubtasks(),
         "status" : `${currentStatus}`
     })
     uploadTasks();
