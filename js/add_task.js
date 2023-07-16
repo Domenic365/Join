@@ -59,7 +59,7 @@ function createNewTask() {
         "description" : `${document.getElementById('description').value}`,
         "category" : `${document.querySelector('.pickedCat').innerText}`,
         "catColor" : `${document.querySelector('.pickedCat > div').className}`,
-        "assignedTo" : `${getAssignedContacts()}`,
+        "assignedTo" : getAssignedContacts(),
         "dueDate": `${document.getElementById('due-date').value}`,
         "prio" : `${document.querySelector('.activePick').innerText}`,
         "subtasks" : `${getSubtasks()}`,
@@ -117,6 +117,7 @@ function getAssignedContacts() {
             contactArray.push(contacts[i].innerText);
         }
     }
+    console.log(contactArray);
     return contactArray;
 }
 
