@@ -35,7 +35,6 @@ function renderBoardAssignings(task, taskID) {
     let workerbox = document.getElementById(`${task.status}${taskID}-workers`);
     workerbox.innerHTML = ''
     for (let j = 0; j < task.assignedTo.length; j++) { //Fehler: hier wird die Länge des Strings genommen statt der Länge des Arrays, weil kein Array mehr erzeugt wird bei der Kontaktzuweisung
-        console.log(task.assignedTo);
         workerbox.innerHTML += `
             <p class="worker-a">${task.assignedTo[j].split(" ").map((n) => n[0]).join("")}</p>
             `
@@ -55,7 +54,6 @@ function getBoardTasks(status) {
     } else if (arr.length > 0) {
         return arr;
     }
-
 }
 
 function renderBoardProgress() {
@@ -160,46 +158,51 @@ function removeHighlight(id) {
 }
 
 //****** Open task details *******//
-// function openTaskDetails(taskId) {
-//     document.getElementById('show-details').classList.remove('d-none');
-//     getTodoTaskDetails(taskId);
-//     //getProgressTaskDetails(taskId);
-// }
+function openTaskDetails(taskId) {
+    document.getElementById('show-details').classList.remove('d-none');
+    getTodoTaskDetails(taskId);
+    // getProgressTaskDetails(taskId);
+}
 
 
-// function getTodoTaskDetails(taskId) {
-//     let container = document.getElementById('show-details');
-//     container.innerHTML = '';
+function getTodoTaskDetails(taskId) {
+    let container = document.getElementById('show-details');
+    container.innerHTML = '';
 
-//     let task = allTasks.find(task => task['task-id'] === taskId);
-//     console.log(task);
-//     container.innerHTML = /*html*/`
-//         <div class="task-info" id="card-detail">
-//             <div class="close-btn-container" onclick="closeWindow()">
-//                 <img src="../../assets/img/icons/cross.svg" alt="Close button">
-//             </div>
-//             <div class="delete-edit-container" onclick="closeWindow()">
-//                 <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button">
-//                 <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
-//             </div>
-//             <div class="category ${task.catColor}Cat">
-//                 <h3>${task.category}</h3>
-//             </div>    
-//                 <h2>${task.title}</h2>
-//                 <h3>${task.description}</h3>
-//                 <h3>Due Date:<br> ${task.dueDate}</h3>
-//                 <h3>Priority:<br> ${task.prio}</h3>
-//                 <h3>Assigned to:</h3><br>
-//                 <div id="${task.status}${taskId}-workers"></div>
-//             </div>
-//             <div class="worker" id="${task.status}${taskId}-workers"></div>
-//         <div class="popup-bg"></div>
-//         `;
-//     //renderBoardAssignings(task, taskId); // falsch
-// }
+    let task = allTasks.find(task => task['task-id'] === taskId);
+    console.log(task);
+    container.innerHTML = /*html*/`
+        <div class="task-info" id="card-detail">
+            <div class="close-btn-container" onclick="closeWindow()">
+                <img src="../../assets/img/icons/cross.svg" alt="Close button">
+            </div>
+            <div class="delete-edit-container" onclick="closeWindow()">
+                <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button" onclick="deleteTask(${taskId})">
+                <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
+            </div>
+            <div class="category ${task.catColor}Cat">
+                <h3>${task.category}</h3>
+            </div>    
+                <h2>${task.title}</h2>
+                <h3>${task.description}</h3>
+                <h3>Due Date:<br> ${task.dueDate}</h3>
+                <h3>Priority:<br> ${task.prio}</h3>
+                <h3>Assigned to:</h3><br>
+                <div id="${task.status}${taskId}-workers"></div>
+            </div>
+            <div class="worker" id="${task.status}${taskId}-workers"></div>
+        <!-- <div class="popup-bg"></div> -->
+        `;
+    renderBoardAssignings(task, taskId);
+}
 
 
 function closeWindow() {
     document.getElementById('show-details').classList.add('d-none');
 }
 
+function deleteTask(taskID) {
+    allTasks[taskID]['status'] = 'deleted';
+    uploadTasks();
+    initBoard();
+}

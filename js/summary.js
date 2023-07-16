@@ -91,7 +91,6 @@ function renderFeedbackTasks() {
             counter++;
         }
     };
-    console.log(counter);
     feedbackTasks.innerHTML = `
         <p>${counter}</p>
         <span>Awaiting<br>Feedback</span>
