@@ -4,7 +4,7 @@
         <h1>Board</h1>
     </div>
     <div class="interactive-container">
-        <input class="lupe-img input-norm" type="text" placeholder="Find Task">
+        <input class="lupe-img input-norm" type="text" placeholder="Find Task" id="search-task" onkeyup="searchTask()">
         <button class=" button-norm"onclick="switchModal('add_task.html', 'addtask'), initBoard(), setStatus('todo')">Add Task
         <img src="../../assets/img/icons/cross-white.svg" alt="Cross Button">
         </button>

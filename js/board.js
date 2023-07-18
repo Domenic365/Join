@@ -190,7 +190,6 @@ function getTodoTaskDetails(taskId) {
                 <h3>Assigned to:</h3><br>
                 <div id="${task.status}${taskId}-workers"></div>
             </div>
-            <div class="worker" id="${task.status}${taskId}-workers"></div>
         <!-- <div class="popup-bg"></div> -->
         `;
     renderBoardAssignings(task, taskId);
@@ -201,8 +200,130 @@ function closeWindow() {
     document.getElementById('show-details').classList.add('d-none');
 }
 
+
 function deleteTask(taskID) {
     allTasks[taskID]['status'] = 'deleted';
     uploadTasks();
     initBoard();
 }
+
+
+function searchTask() {
+    let search = document.getElementById('search-task').value;
+    search = search.toLowerCase();
+    console.log(search);
+
+    let todoContainer = document.getElementById('todo-col');
+    todoContainer.innerHTML = '';
+
+    let progressContainer = document.getElementById('progress-col');
+    progressContainer.innerHTML = '';
+
+    let feedbackContainer = document.getElementById('feedback-col');
+    feedbackContainer.innerHTML = '';
+
+    let doneContainer = document.getElementById('done-col');
+    doneContainer.innerHTML = '';
+
+    let todoTasks = getBoardTasks('todo');
+    let progressTasks = getBoardTasks('inProgress');
+    let feedbackTasks = getBoardTasks('feedback');
+    let doneTasks = getBoardTasks('done');
+
+    for (let i = 0; i < todoTasks.length; i++) {
+        let title = todoTasks[i].title;
+        let description = todoTasks[i].description;
+        if (title.toLowerCase().includes(search) || description.toLowerCase().includes(search)) {
+            todoContainer.innerHTML += `
+            <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todoTasks[i]['task-id']}')" ondragstart="startDragging(${todoTasks[i]['task-id']})">
+                <div class="category ${todoTasks[i].catColor}Cat">
+                    <h3>${todoTasks[i].category}</h3>
+                </div>
+                <div class="task-name">
+                    <h4>${todoTasks[i].title}</h4>
+                </div>
+                <div class="task-description">
+                    <span>${todoTasks[i].description}</span>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="worker" id="${todoTasks[i].status}${i}-workers">
+                </div>
+            </div>
+            `;
+            renderBoardAssignings(todoTasks[i], i);
+        }
+    }
+
+    for (let i = 0; i < progressTasks.length; i++) {
+        let title = progressTasks[i].title;
+        let description = progressTasks[i].description;
+        if (title.toLowerCase().includes(search) || description.toLowerCase().includes(search)) {
+            progressContainer.innerHTML += `
+            <div class="box-task-design" draggable="true" onclick="openTaskDetails('${progressTasks[i]['task-id']}')" ondragstart="startDragging(${progressTasks[i]['task-id']})">
+                <div class="category ${progressTasks[i].catColor}Cat">
+                    <h3>${progressTasks[i].category}</h3>
+                </div>
+                <div class="task-name">
+                    <h4>${progressTasks[i].title}</h4>
+                </div>
+                <div class="task-description">
+                    <span>${progressTasks[i].description}</span>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="worker" id="${progressTasks[i].status}${i}-workers">
+                </div>
+            </div>
+            `;
+            renderBoardAssignings(progressTasks[i], i);
+        }
+    }
+
+    for (let i = 0; i < feedbackTasks.length; i++) {
+        let title = feedbackTasks[i].title;
+        let description = feedbackTasks[i].description;
+        if (title.toLowerCase().includes(search) || description.toLowerCase().includes(search)) {
+            feedbackContainer.innerHTML += `
+            <div class="box-task-design" draggable="true" onclick="openTaskDetails('${feedbackTasks[i]['task-id']}')" ondragstart="startDragging(${feedbackTasks[i]['task-id']})">
+                <div class="category ${feedbackTasks[i].catColor}Cat">
+                    <h3>${feedbackTasks[i].category}</h3>
+                </div>
+                <div class="task-name">
+                    <h4>${feedbackTasks[i].title}</h4>
+                </div>
+                <div class="task-description">
+                    <span>${feedbackTasks[i].description}</span>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="worker" id="${feedbackTasks[i].status}${i}-workers">
+                </div>
+            </div>
+            `;
+            renderBoardAssignings(feedbackTasks[i], i);
+        }
+    }
+
+    for (let i = 0; i < doneTasks.length; i++) {
+        let title = doneTasks[i].title;
+        let description = doneTasks[i].description;
+        if (title.toLowerCase().includes(search) || description.toLowerCase().includes(search)) {
+            doneContainer.innerHTML += `
+            <div class="box-task-design" draggable="true" onclick="openTaskDetails('${doneTasks[i]['task-id']}')" ondragstart="startDragging(${doneTasks[i]['task-id']})">
+                <div class="category ${doneTasks[i].catColor}Cat">
+                    <h3>${doneTasks[i].category}</h3>
+                </div>
+                <div class="task-name">
+                    <h4>${doneTasks[i].title}</h4>
+                </div>
+                <div class="task-description">
+                    <span>${doneTasks[i].description}</span>
+                </div>
+                <div class="progress-bar"></div>
+                <div class="worker" id="${doneTasks[i].status}${i}-workers">
+                </div>
+            </div>
+            `;
+            renderBoardAssignings(doneTasks[i], i);
+        }
+    }
+}
+
