@@ -211,24 +211,18 @@ function deleteTask(taskID) {
 function searchTask() {
     let search = document.getElementById('search-task').value;
     search = search.toLowerCase();
-    console.log(search);
 
+    renderSearchTodo(search);
+    renderSearchProgress(search);
+    renderSearchFeedback(search);
+    renderSearchDone(search);
+}
+
+
+function renderSearchTodo(search) {
     let todoContainer = document.getElementById('todo-col');
-    todoContainer.innerHTML = '';
-
-    let progressContainer = document.getElementById('progress-col');
-    progressContainer.innerHTML = '';
-
-    let feedbackContainer = document.getElementById('feedback-col');
-    feedbackContainer.innerHTML = '';
-
-    let doneContainer = document.getElementById('done-col');
-    doneContainer.innerHTML = '';
-
     let todoTasks = getBoardTasks('todo');
-    let progressTasks = getBoardTasks('inProgress');
-    let feedbackTasks = getBoardTasks('feedback');
-    let doneTasks = getBoardTasks('done');
+    todoContainer.innerHTML = '';
 
     for (let i = 0; i < todoTasks.length; i++) {
         let title = todoTasks[i].title;
@@ -253,6 +247,13 @@ function searchTask() {
             renderBoardAssignings(todoTasks[i], i);
         }
     }
+}
+
+
+function renderSearchProgress(search) {
+    let progressContainer = document.getElementById('progress-col');
+    progressContainer.innerHTML = '';
+    let progressTasks = getBoardTasks('inProgress');
 
     for (let i = 0; i < progressTasks.length; i++) {
         let title = progressTasks[i].title;
@@ -277,6 +278,13 @@ function searchTask() {
             renderBoardAssignings(progressTasks[i], i);
         }
     }
+}
+
+
+function renderSearchFeedback(search) {
+    let feedbackContainer = document.getElementById('feedback-col');
+    feedbackContainer.innerHTML = '';
+    let feedbackTasks = getBoardTasks('feedback');
 
     for (let i = 0; i < feedbackTasks.length; i++) {
         let title = feedbackTasks[i].title;
@@ -301,6 +309,12 @@ function searchTask() {
             renderBoardAssignings(feedbackTasks[i], i);
         }
     }
+}
+
+function renderSearchDone(search) {
+    let doneContainer = document.getElementById('done-col');
+    doneContainer.innerHTML = '';
+    let doneTasks = getBoardTasks('done');
 
     for (let i = 0; i < doneTasks.length; i++) {
         let title = doneTasks[i].title;
@@ -326,4 +340,3 @@ function searchTask() {
         }
     }
 }
-
