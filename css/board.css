@@ -211,7 +211,7 @@ input {
     bottom: 0;
     top: 0;
     background-color: rgb(184, 185, 186);
-    opacity: 0.1;
+    opacity: 0.5;
     width: 100vw;
     height: 100vh;
     z-index: 888;
@@ -264,6 +264,13 @@ input {
 .edit-btn{
     cursor: pointer;
 }
+
+.abc{
+    display: flex;
+    align-items: center;
+    
+}
+
 /*********** Modal ***********/
 #bg-layer {
     position: absolute;

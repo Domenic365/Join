@@ -6,6 +6,7 @@ async function initBoard() {
     renderBoardDone();
 }
 
+
 function renderBoardTodos() {
     let container = document.getElementById('todo-col');
     container.innerHTML = '';
@@ -30,6 +31,7 @@ function renderBoardTodos() {
         renderBoardAssignings(todos[i], i);
     }
 }
+
 
 function renderBoardAssignings(task, taskID) {
     let workerbox = document.getElementById(`${task.status}${taskID}-workers`);
@@ -56,6 +58,7 @@ function getBoardTasks(status) {
     }
 }
 
+
 function renderBoardProgress() {
     let container = document.getElementById('progress-col');
     container.innerHTML = '';
@@ -80,6 +83,7 @@ function renderBoardProgress() {
         renderBoardAssignings(todos[i], i);
     }
 }
+
 
 function renderBoardFeedback() {
     let container = document.getElementById('feedback-col');
@@ -106,6 +110,7 @@ function renderBoardFeedback() {
     }
 }
 
+
 function renderBoardDone() {
     let container = document.getElementById('done-col');
     container.innerHTML = '';
@@ -131,15 +136,19 @@ function renderBoardDone() {
     }
 }
 
+
 let currentDraggedElement;
+
 
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
+
 
 function moveTo(category) {
     allTasks[currentDraggedElement]['status'] = category;
@@ -147,15 +156,18 @@ function moveTo(category) {
     initBoard();
 }
 
+
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
     initBoard();
 }
 
+
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
     initBoard();
 }
+
 
 //****** Open task details *******//
 function openTaskDetails(taskId) {
@@ -184,13 +196,17 @@ function getTodoTaskDetails(taskId) {
                 <h3>${task.category}</h3>
             </div>    
                 <h2>${task.title}</h2>
-                <h3>${task.description}</h3>
-                <h3>Due Date:<br> ${task.dueDate}</h3>
-                <h3>Priority:<br> ${task.prio}</h3>
-                <h3>Assigned to:</h3><br>
-                <div id="${task.status}${taskId}-workers"></div>
+                <h2>${task.description}</h2>
+                <h2>Due Date:<br> ${task.dueDate}</h2>
+                <h2>Priority:<br> ${task.prio}</h2>
+                <h2>Assigned to:</h2>
+                <div class="abc">
+                     
+                     <div class="worker" id="${task.status}${taskId}-workers"></div>
+                     <h2>${task.assignedTo}</h2><br>
+                    </div>
             </div>
-        <!-- <div class="popup-bg"></div> -->
+        <div class="popup-bg" onclick="closeWindow()"></div>
         `;
     renderBoardAssignings(task, taskId);
 }
@@ -310,6 +326,7 @@ function renderSearchFeedback(search) {
         }
     }
 }
+
 
 function renderSearchDone(search) {
     let doneContainer = document.getElementById('done-col');

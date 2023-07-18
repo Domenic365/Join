@@ -1,10 +1,23 @@
 .info-container {
     overflow-y: scroll;
     height: calc(100vh - 90px);
+}
+
+.pd-privacy{
     padding-right: 5rem;
     padding-left: 5rem;
 }
 
+.pd-legal{
+    padding: 5rem 5rem 5rem 5rem 
+}
+
+.info-container- {
+    overflow-y: scroll;
+    height: calc(100vh - 90px);
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
 .info-container 
 h2,
 h3,
