@@ -173,7 +173,6 @@ function removeHighlight(id) {
 function openTaskDetails(taskId) {
     document.getElementById('show-details').classList.remove('d-none');
     getTodoTaskDetails(taskId);
-    // getProgressTaskDetails(taskId);
 }
 
 
@@ -182,15 +181,14 @@ function getTodoTaskDetails(taskId) {
     container.innerHTML = '';
 
     let task = allTasks.find(task => task['task-id'] === taskId);
-    console.log(task);
     container.innerHTML = /*html*/`
         <div class="task-info" id="card-detail">
             <div class="close-btn-container" onclick="closeWindow()">
                 <img src="../../assets/img/icons/cross.svg" alt="Close button">
             </div>
-            <div class="delete-edit-container" onclick="closeWindow()">
+            <div class="delete-edit-container">
                 <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button" onclick="deleteTask(${taskId})">
-                <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button">
+                <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button" onclick="editTask(${taskId})">
             </div>
             <div class="category ${task.catColor}Cat">
                 <h3>${task.category}</h3>
@@ -200,7 +198,7 @@ function getTodoTaskDetails(taskId) {
                 <h2>Due Date:<br> ${task.dueDate}</h2>
                 <h2>Priority:<br> ${task.prio}</h2>
                 <h2>Assigned to:</h2>
-                <div class="abc">
+                <div class="worker-container">
                      
                      <div class="worker" id="${task.status}${taskId}-workers"></div>
                      <h2>${task.assignedTo}</h2><br>
@@ -214,6 +212,7 @@ function getTodoTaskDetails(taskId) {
 
 function closeWindow() {
     document.getElementById('show-details').classList.add('d-none');
+    document.getElementById('edit-task').classList.add('d-none');
 }
 
 
@@ -221,6 +220,7 @@ function deleteTask(taskID) {
     allTasks[taskID]['status'] = 'deleted';
     uploadTasks();
     initBoard();
+    closeWindow();
 }
 
 
@@ -356,4 +356,61 @@ function renderSearchDone(search) {
             renderBoardAssignings(doneTasks[i], i);
         }
     }
+}
+
+function editTask(taskId) {
+    document.getElementById('show-details').classList.add('d-none');
+    document.getElementById('edit-task').classList.remove('d-none');
+    let container = document.getElementById('edit-task');
+    container.innerHTML = '';
+
+    for (let i = 0; i < allTasks.length; i++) {
+        let currentTask = allTasks[i]['task-id'];
+        let taskTitle = allTasks[i]['title'];
+        let taskDescription = allTasks[i]['description'];
+        let taskDate = allTasks[i]['dueDate'];
+
+        if (currentTask == taskId) {
+            container.innerHTML = /*html*/`
+        <div class="abc">
+            <div class="close-btn-container" onclick="closeWindow()">
+                  <img src="../../assets/img/icons/cross.svg" alt="Close button">
+            </div>
+            <div class="form-item">
+                  <label for="edit-title">Title:</label>
+                  <input type="text" id="edit-title" value="${taskTitle}">
+            </div>
+            <div class="form-item">
+                 <label for="edit-description">Description:</label>
+                 <textarea id="edit-description">${taskDescription}</textarea>
+             </div>
+             <div class="form-item">
+                  <label for="edit-due-date">Due Date:</label>
+                  <input type="date" id="edit-due-date" value="${taskDate}">
+             </div>
+             <button onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save</button>
+        </div>
+        
+        <div class="popup-bg" onclick="closeWindow()"></div>
+           `;
+        }
+    }
+}
+
+function saveEditData(taskId, editTitle, editDescription, editDueDate) {
+    console.log('Save button clicked!');
+
+    // Finde die Aufgabe in allTasks basierend auf der taskId
+    let task = allTasks.find(task => task['task-id'] === taskId);
+    console.log('taskId:', taskId);
+    console.log('allTasks:', allTasks);
+
+    // Aktualisiere die Eigenschaften der Aufgabe mit den bearbeiteten Werten
+    task.title = editTitle;
+    task.description = editDescription;
+    task.dueDate = editDueDate;
+
+    uploadTasks();
+    initBoard();
+    closeWindow();
 }
