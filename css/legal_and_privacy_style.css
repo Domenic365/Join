@@ -9,7 +9,11 @@
 }
 
 .pd-legal{
-    padding: 5rem 5rem 5rem 5rem 
+    padding: 5rem; 
+}
+
+.pd-help{
+    padding: 5rem;
 }
 
 .info-container- {

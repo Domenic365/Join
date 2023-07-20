@@ -190,18 +190,30 @@ function getTodoTaskDetails(taskId) {
                 <img class="del-btn" src="../../assets/img/icons/delete-btn-bright.svg" alt="Delete button" onclick="deleteTask(${taskId})">
                 <img class="edit-btn" src="../../assets/img/icons/edit-btn-dark.svg" alt="Edit button" onclick="editTask(${taskId})">
             </div>
-            <div class="category ${task.catColor}Cat">
+            <div class="category mg-det-view ${task.catColor}Cat">
                 <h3>${task.category}</h3>
             </div>    
-                <h2>${task.title}</h2>
-                <h2>${task.description}</h2>
-                <h2>Due Date:<br> ${task.dueDate}</h2>
-                <h2>Priority:<br> ${task.prio}</h2>
-                <h2>Assigned to:</h2>
-                <div class="worker-container">
-                     
+                <div class="det-title">
+                    <h1>${task.title}</h1>
+                </div>
+                <div class="text-type">
+                    <span>${task.description}</span>
+                </div>
+                <div class="text-type">
+                    <h2>Due Date:</h2>
+                    <span>${task.dueDate}</span>
+                </div> 
+                <div class="text-type">
+                    <h2>Priority:</h2>
+                    <span>${task.prio}</span>
+                </div>
+                <div>
+                    <h2>Assigned to:</h2>
+                </div>
+
+                <div class="worker-container text-type"">
                      <div class="worker" id="${task.status}${taskId}-workers"></div>
-                     <h2>${task.assignedTo}</h2><br>
+                     <span>${task.assignedTo}</span><br>
                     </div>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
@@ -369,28 +381,44 @@ function editTask(taskId) {
         let taskTitle = allTasks[i]['title'];
         let taskDescription = allTasks[i]['description'];
         let taskDate = allTasks[i]['dueDate'];
+        let taskPriority = allTasks[i]['prio'];
 
         if (currentTask == taskId) {
             container.innerHTML = /*html*/`
-        <div class="abc">
+        <div class="edit-task">
             <div class="close-btn-container" onclick="closeWindow()">
                   <img src="../../assets/img/icons/cross.svg" alt="Close button">
             </div>
             <div class="form-item">
-                  <label for="edit-title">Title:</label>
-                  <input type="text" id="edit-title" value="${taskTitle}">
+                  <label class="lbl-font" for="edit-title">Title:</label>
+                  <input class="input-design" type="text" id="edit-title" value="${taskTitle}">
             </div>
             <div class="form-item">
-                 <label for="edit-description">Description:</label>
+                 <label class="lbl-font" for="edit-description">Description:</label>
                  <textarea id="edit-description">${taskDescription}</textarea>
              </div>
              <div class="form-item">
-                  <label for="edit-due-date">Due Date:</label>
-                  <input type="date" id="edit-due-date" value="${taskDate}">
+                  <label class="lbl-font" for="edit-due-date">Due Date:</label>
+                  <input class="input-design" type="date" id="edit-due-date" value="${taskDate}">
              </div>
-             <button onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save</button>
-        </div>
-        
+             <div class="form-item">Prio</div>
+                    <div class="prio-buttons">
+                        <div class="urgent border-color" id="urgent" onclick="pickPrio('urgent')">
+                            Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
+                        </div>
+                        <div class="medium border-color" id="medium" onclick="pickPrio('medium')">
+                            Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
+                        </div>
+                        <div class="low border-color" id="low" onclick="pickPrio('low')">
+                            Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
+                        </div>
+                    </div>
+
+                 <div class="dropdown-placeholder mg-dropdown border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+                 <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
+                 <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button">
+                 </button>
+            </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
         }
