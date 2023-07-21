@@ -218,8 +218,8 @@ input {
 }
 
 .task-info {
-    min-width: 45vw;
-    min-height: 70vh;
+    /*min-width: 45vw;*/
+    /*min-height: 70vh;*/
     position: fixed;
     top: 50%;
     left: 50%;
@@ -288,8 +288,8 @@ input {
 /*********** Card edit view ***********/
 
 .edit-task {
-    min-width: 45vw;
-    min-height: 70vh;
+    /*min-width: 45vw;*/
+    /*min-height: 70vh;*/
     position: fixed;
     top: 50%;
     left: 50%;
@@ -335,6 +335,7 @@ textarea {
 
 .mg-dropdown {
     margin-top: 1.5rem;
+    margin-bottom: 5.5rem;
 }
 
 .save-btn {
