@@ -12,7 +12,7 @@ function renderBoardTodos() {
     container.innerHTML = '';
     let todos = getBoardTasks('todo');
     for (let i = 0; i < todos.length; i++) {
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
@@ -25,6 +25,7 @@ function renderBoardTodos() {
             </div>
             <div class="progress-bar"></div>
             <div class="worker" id="${todos[i].status}${i}-workers">
+            <div id="prio-status"></div>
             </div>
         </div>
         `
@@ -218,35 +219,35 @@ function getAllTaskInfo(taskId) {
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;
     renderBoardAssignings(task, taskId);
-    getPrioStatus(taskId);
+    prioStatusDetailView(taskId);
 }
 
 
 //Fetches the information about the status of the clicked task and displays it in the openTaksDetails view.
-function getPrioStatus(taskId) {
-    for (let i = 0; i < allTasks.length; i++) {
-        let task = allTasks.find(task => task['task-id'] === taskId);
+function prioStatusDetailView(taskId) {
 
-        if (task.prio === 'Urgent') {
-            document.getElementById('getPrio').innerHTML = /*html*/ `
-                    <div class="urgent activeUrgent activePick border-status" id="urgent">
+    let task = allTasks.find(task => task['task-id'] === taskId);
+    console.log('Gibt alle Daten zum jeweiligen Task aus', task);
+    if (task.prio === 'Urgent') {
+        document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="urgent activeUrgent activePick border-status">
                         Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
                     </div>`;
 
-        } if (task.prio === 'Medium') {
-            document.getElementById('getPrio').innerHTML = /*html*/ `
-                    <div class="medium activeMedium activePick border-status" id="medium" onclick="pickPrio('medium')">
+    } if (task.prio === 'Medium') {
+        document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="medium activeMedium activePick border-status">
                         Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
                     </div>`;
 
-        } if (task.prio === 'Low') {
-            document.getElementById('getPrio').innerHTML = /*html*/ `
-                    <div class="low activeLow activePick border-status" id="low" >
+    } if (task.prio === 'Low') {
+        document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="low activeLow activePick border-status">
                         Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                     </div>`;
-        }
     }
 }
+
 
 
 function closeWindow() {
@@ -404,13 +405,12 @@ function editTask(taskId) {
     container.innerHTML = '';
 
     for (let i = 0; i < allTasks.length; i++) {
-        let currentTask = allTasks[i]['task-id'];
+        let currentTaskId = allTasks[i]['task-id'];
         let taskTitle = allTasks[i]['title'];
         let taskDescription = allTasks[i]['description'];
         let taskDate = allTasks[i]['dueDate'];
-        let taskPriority = allTasks[i]['prio'];
 
-        if (currentTask == taskId) {
+        if (currentTaskId == taskId) {
             container.innerHTML = /*html*/`
         <div class="edit-task">
             <div class="close-btn-container" onclick="closeWindow()">
@@ -429,18 +429,17 @@ function editTask(taskId) {
                   <input class="input-design" type="date" id="edit-due-date" value="${taskDate}">
              </div>
              <div class="form-item">Prio</div>
-                    <div class="prio-buttons">
-                        <div class="urgent border-color" id="urgent" onclick="pickPrio('urgent')">
+             <div class="prio-buttons">
+                        <div class="urgent border-color" id="urgent-edit" onclick="pickPrio('urgent')">
                             Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
                         </div>
-                        <div class="medium border-color" id="medium" onclick="pickPrio('medium')">
+                        <div class="medium border-color" id="medium-edit" onclick="pickPrio('medium')">
                             Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
                         </div>
-                        <div class="low border-color" id="low" onclick="pickPrio('low')">
+                        <div class="low border-color" id="low-edit" onclick="pickPrio('low')">
                             Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                         </div>
                     </div>
-
                  <div class="dropdown-placeholder mg-dropdown border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
                  <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
                  <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button">
@@ -448,9 +447,28 @@ function editTask(taskId) {
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
+
         }
     }
+    prioStatusEditView(taskId);
 }
+
+
+function prioStatusEditView(taskId) {
+
+    // Find the task in allTasks based on the taskId
+    let task = allTasks.find(task => task['task-id'] === taskId);
+    console.log(task);
+    // Check the priority of the task and apply the corresponding classes
+    if (task.prio === 'Urgent') {
+        document.getElementById('urgent-edit').classList.add('activeUrgent', 'activePick');
+    } else if (task.prio === 'Medium') {
+        document.getElementById('medium-edit').classList.add('activeMedium', 'activePick');
+    } else if (task.prio === 'Low') {
+        document.getElementById('low-edit').classList.add('activeLow', 'activePick');
+    }
+}
+
 
 
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
