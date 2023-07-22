@@ -172,11 +172,11 @@ function removeHighlight(id) {
 //****** Open task details *******//
 function openTaskDetails(taskId) {
     document.getElementById('show-details').classList.remove('d-none');
-    getTodoTaskDetails(taskId);
+    getAllTaskInfo(taskId);
 }
 
 
-function getTodoTaskDetails(taskId) {
+function getAllTaskInfo(taskId) {
     let container = document.getElementById('show-details');
     container.innerHTML = '';
 
@@ -205,12 +205,11 @@ function getTodoTaskDetails(taskId) {
                 </div> 
                 <div class="text-type">
                     <h2>Priority:</h2>
-                    <span>${task.prio}</span>
+                    <span id="getPrio">${task.prio}</span>
                 </div>
                 <div>
                     <h2>Assigned to:</h2>
                 </div>
-
                 <div class="worker-container text-type"">
                      <div class="worker" id="${task.status}${taskId}-workers"></div>
                      <span>${task.assignedTo}</span><br>
@@ -219,6 +218,34 @@ function getTodoTaskDetails(taskId) {
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;
     renderBoardAssignings(task, taskId);
+    getPrioStatus(taskId);
+}
+
+
+//Fetches the information about the status of the clicked task and displays it in the openTaksDetails view.
+function getPrioStatus(taskId) {
+    for (let i = 0; i < allTasks.length; i++) {
+        let task = allTasks.find(task => task['task-id'] === taskId);
+
+        if (task.prio === 'Urgent') {
+            document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="urgent activeUrgent activePick border-status" id="urgent">
+                        Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
+                    </div>`;
+
+        } if (task.prio === 'Medium') {
+            document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="medium activeMedium activePick border-status" id="medium" onclick="pickPrio('medium')">
+                        Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
+                    </div>`;
+
+        } if (task.prio === 'Low') {
+            document.getElementById('getPrio').innerHTML = /*html*/ `
+                    <div class="low activeLow activePick border-status" id="low" >
+                        Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
+                    </div>`;
+        }
+    }
 }
 
 
@@ -239,7 +266,6 @@ function deleteTask(taskID) {
 function searchTask() {
     let search = document.getElementById('search-task').value;
     search = search.toLowerCase();
-
     renderSearchTodo(search);
     renderSearchProgress(search);
     renderSearchFeedback(search);
@@ -370,6 +396,7 @@ function renderSearchDone(search) {
     }
 }
 
+
 function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
@@ -425,15 +452,16 @@ function editTask(taskId) {
     }
 }
 
+
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     console.log('Save button clicked!');
 
-    // Finde die Aufgabe in allTasks basierend auf der taskId
+    // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] === taskId);
     console.log('taskId:', taskId);
     console.log('allTasks:', allTasks);
 
-    // Aktualisiere die Eigenschaften der Aufgabe mit den bearbeiteten Werten
+    // Update the properties of the task with the edited values
     task.title = editTitle;
     task.description = editDescription;
     task.dueDate = editDueDate;
