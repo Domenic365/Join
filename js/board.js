@@ -214,7 +214,7 @@ function getAllTaskInfo(taskId) {
                 <div class="worker-container text-type"">
                      <div class="worker" id="${task.status}${taskId}-workers"></div>
                      <span>${task.assignedTo}</span><br>
-                    </div>
+                </div>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;
@@ -434,7 +434,25 @@ function editTask(taskId) {
                         Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                   </div>
             </div>
-            <div class="dropdown-placeholder mg-dropdown border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+            <div class="contact-dropdown mg-dropdown">
+                        <div class="form-title">Assigned to</div>
+                        <div class="dropdown-placeholder border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+                        <input class="inviteContactInput d-none" placeholder="Enter email to invite contact" type="email">
+                        <div class="inviteContactBtn d-none">
+                            <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('contact')">
+                            <img src="../img/icons/check_dark.svg" class="check" onclick="sendContactInvite()">
+                        </div>
+                        <div class="contacts-selection">
+                            <div id="contact-selection" > 
+                                <!-- Ab der zweiten div muss aus dem Contacts-Array generiert werden -->
+                                <div class="contact-item"><label for="Testkontakt-1">Testkontakt 1<input class="dropdown-check" type="checkbox" id="Testkontakt-1"></label></div>
+                                <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
+                                <div class="contact-item"><label for="Testkontakt-3">Testkontakt 3<input class="dropdown-check" type="checkbox" id="Testkontakt-3"></label></div>
+                                <div class="contact-item"><label for="Testkontakt-4">Testkontakt 4<input class="dropdown-check" type="checkbox" id="Testkontakt-4"></label></div>
+                                <div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
+                            </div>
+                        </div>
+                    </div>
                  <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
                  <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button"></button>
             </div>
