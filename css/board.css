@@ -218,8 +218,8 @@ input {
 }
 
 .task-info {
-    min-width: 30vw;
-    min-height: 60vh;
+    min-width: 600px;
+    min-height: 600px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -291,8 +291,8 @@ input {
 /*********** Card edit view ***********/
 
 .edit-task {
-    /*min-width: 45vw;*/
-    /*min-height: 70vh;*/
+    min-width: 600px;
+    min-height: 600px;
     position: fixed;
     top: 50%;
     left: 50%;
