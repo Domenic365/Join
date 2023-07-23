@@ -457,7 +457,7 @@ function editTask(taskId) {
 function prioStatusEditView(taskId) {
 
     // Find the task in allTasks based on the taskId
-    let task = allTasks.find(task => task['task-id'] === taskId);
+    let task = allTasks.find(task => task['task-id'] == taskId);
     console.log(task);
     // Check the priority of the task and apply the corresponding classes
     if (task.prio === 'Urgent') {
