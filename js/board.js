@@ -227,27 +227,25 @@ function getAllTaskInfo(taskId) {
 function prioStatusDetailView(taskId) {
 
     let task = allTasks.find(task => task['task-id'] === taskId);
-    console.log('Gibt alle Daten zum jeweiligen Task aus', task);
     if (task.prio === 'Urgent') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="urgent activeUrgent activePick border-status">
                         Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
                     </div>`;
 
-    } if (task.prio === 'Medium') {
+    } else if (task.prio === 'Medium') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="medium activeMedium activePick border-status">
                         Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
                     </div>`;
 
-    } if (task.prio === 'Low') {
+    } else if (task.prio === 'Low') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="low activeLow activePick border-status">
                         Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                     </div>`;
     }
 }
-
 
 
 function closeWindow() {
@@ -401,32 +399,26 @@ function renderSearchDone(search) {
 function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
+    let task = allTasks.find(task => task['task-id'] == taskId);
+    
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
-
-    for (let i = 0; i < allTasks.length; i++) {
-        let currentTaskId = allTasks[i]['task-id'];
-        let taskTitle = allTasks[i]['title'];
-        let taskDescription = allTasks[i]['description'];
-        let taskDate = allTasks[i]['dueDate'];
-
-        if (currentTaskId == taskId) {
-            container.innerHTML = /*html*/`
+    container.innerHTML = /*html*/`
         <div class="edit-task">
             <div class="close-btn-container" onclick="closeWindow()">
                   <img src="../../assets/img/icons/cross.svg" alt="Close button">
             </div>
             <div class="form-item">
                   <label class="lbl-font" for="edit-title">Title:</label>
-                  <input class="input-design" type="text" id="edit-title" value="${taskTitle}">
+                  <input class="input-design" type="text" id="edit-title" value="${task.title}">
             </div>
             <div class="form-item">
                  <label class="lbl-font" for="edit-description">Description:</label>
-                 <textarea id="edit-description">${taskDescription}</textarea>
+                 <textarea id="edit-description">${task.description}</textarea>
              </div>
              <div class="form-item">
                   <label class="lbl-font" for="edit-due-date">Due Date:</label>
-                  <input class="input-design" type="date" id="edit-due-date" value="${taskDate}">
+                  <input class="input-design" type="date" id="edit-due-date" value="${task.dueDate}">
              </div>
              <div class="form-item">Prio</div>
              <div class="prio-buttons">
@@ -447,18 +439,16 @@ function editTask(taskId) {
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
-
-        }
-    }
-    prioStatusEditView(taskId);
+    showPrioStatusEditView(taskId);
 }
 
 
-function prioStatusEditView(taskId) {
 
+
+function showPrioStatusEditView(taskId) {
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] == taskId);
-    console.log(task);
+    console.log('Daten des ausgewählten Tasks', task);
     // Check the priority of the task and apply the corresponding classes
     if (task.prio === 'Urgent') {
         document.getElementById('urgent-edit').classList.add('activeUrgent', 'activePick');
@@ -470,19 +460,23 @@ function prioStatusEditView(taskId) {
 }
 
 
-
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     console.log('Save button clicked!');
 
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] === taskId);
-    console.log('taskId:', taskId);
-    console.log('allTasks:', allTasks);
+    console.log('prio:', task.prio);
 
     // Update the properties of the task with the edited values
     task.title = editTitle;
     task.description = editDescription;
     task.dueDate = editDueDate;
+
+     // Get the selected priority
+     const selectedPriority = document.querySelector('.activePick');
+     if (selectedPriority) {
+         task.prio = selectedPriority.innerText;
+     }
 
     uploadTasks();
     initBoard();
