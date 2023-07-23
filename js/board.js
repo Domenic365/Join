@@ -220,6 +220,8 @@ function getAllTaskInfo(taskId) {
         `;
     renderBoardAssignings(task, taskId);
     prioStatusDetailView(taskId);
+    console.log('zeigt alle Daten vom Task an', task)
+    console.log('Aktuelle Prio vom Task:', task.prio);
 }
 
 
@@ -400,7 +402,7 @@ function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
     let task = allTasks.find(task => task['task-id'] == taskId);
-    
+
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
     container.innerHTML = /*html*/`
@@ -422,20 +424,19 @@ function editTask(taskId) {
              </div>
              <div class="form-item">Prio</div>
              <div class="prio-buttons">
-                        <div class="urgent border-color" id="urgent-edit" onclick="pickPrio('urgent')">
-                            Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
-                        </div>
-                        <div class="medium border-color" id="medium-edit" onclick="pickPrio('medium')">
-                            Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
-                        </div>
-                        <div class="low border-color" id="low-edit" onclick="pickPrio('low')">
-                            Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
-                        </div>
-                    </div>
-                 <div class="dropdown-placeholder mg-dropdown border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+                  <div class="urgent border-color" id="urgent-edit" onclick="pickPrio('urgent')">
+                        Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
+                  </div>
+                  <div class="medium border-color" id="medium-edit" onclick="pickPrio('medium')">
+                        Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
+                  </div>
+                  <div class="low border-color" id="low-edit" onclick="pickPrio('low')">
+                        Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
+                  </div>
+            </div>
+            <div class="dropdown-placeholder mg-dropdown border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
                  <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
-                 <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button">
-                 </button>
+                 <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button"></button>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
@@ -443,12 +444,9 @@ function editTask(taskId) {
 }
 
 
-
-
 function showPrioStatusEditView(taskId) {
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] == taskId);
-    console.log('Daten des ausgewählten Tasks', task);
     // Check the priority of the task and apply the corresponding classes
     if (task.prio === 'Urgent') {
         document.getElementById('urgent-edit').classList.add('activeUrgent', 'activePick');
@@ -461,24 +459,22 @@ function showPrioStatusEditView(taskId) {
 
 
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
-    console.log('Save button clicked!');
-
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] === taskId);
-    console.log('prio:', task.prio);
-
+    // Get the selected priority
+    const selectedPriority = document.querySelector('.activePick');
+    if (selectedPriority) {
+        task.prio = selectedPriority.innerText;
+    }
     // Update the properties of the task with the edited values
     task.title = editTitle;
     task.description = editDescription;
     task.dueDate = editDueDate;
 
-     // Get the selected priority
-     const selectedPriority = document.querySelector('.activePick');
-     if (selectedPriority) {
-         task.prio = selectedPriority.innerText;
-     }
+   
 
     uploadTasks();
     initBoard();
     closeWindow();
+    console.log('Prio geändert auf', task.prio)
 }
