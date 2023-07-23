@@ -461,6 +461,7 @@ function showPrioStatusEditView(taskId) {
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] === taskId);
+    
     // Get the selected priority
     const selectedPriority = document.querySelector('.activePick');
     if (selectedPriority) {
@@ -470,8 +471,6 @@ function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     task.title = editTitle;
     task.description = editDescription;
     task.dueDate = editDueDate;
-
-   
 
     uploadTasks();
     initBoard();
