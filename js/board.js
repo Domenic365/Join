@@ -181,7 +181,7 @@ function getAllTaskInfo(taskId) {
     let container = document.getElementById('show-details');
     container.innerHTML = '';
 
-    let task = allTasks.find(task => task['task-id'] === taskId);
+    const task = allTasks[taskId];
     container.innerHTML = /*html*/`
         <div class="task-info" id="card-detail">
             <div class="close-btn-container" onclick="closeWindow()">
@@ -211,7 +211,7 @@ function getAllTaskInfo(taskId) {
                 <div>
                     <h2>Assigned to:</h2>
                 </div>
-                <div class="worker-container text-type"">
+                <div class="worker-container text-type">
                      <div class="worker" id="${task.status}${taskId}-workers"></div>
                      <span>${task.assignedTo}</span><br>
                 </div>
@@ -228,20 +228,20 @@ function getAllTaskInfo(taskId) {
 //Fetches the information about the status of the clicked task and displays it in the openTaksDetails view.
 function prioStatusDetailView(taskId) {
 
-    let task = allTasks.find(task => task['task-id'] === taskId);
-    if (task.prio === 'Urgent') {
+    let task = allTasks[taskId];
+    if (task.prio === 'Urgent' || task.prio === 'urgent') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="urgent activeUrgent activePick border-status">
                         Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
                     </div>`;
 
-    } else if (task.prio === 'Medium') {
+    } else if (task.prio === 'Medium' || task.prio === 'medium') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="medium activeMedium activePick border-status">
                         Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
                     </div>`;
 
-    } else if (task.prio === 'Low') {
+    } else if (task.prio === 'Low' || task.prio === 'low') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
                     <div class="low activeLow activePick border-status">
                         Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
@@ -424,13 +424,13 @@ function editTask(taskId) {
              </div>
              <div class="form-item">Prio</div>
              <div class="prio-buttons">
-                  <div class="urgent border-color" id="urgent-edit" onclick="pickPrio('urgent')">
+                  <div class="urgent border-color" id="urgent-edit" onclick="updatePrio(${taskId}, 'urgent')">
                         Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
                   </div>
-                  <div class="medium border-color" id="medium-edit" onclick="pickPrio('medium')">
+                  <div class="medium border-color" id="medium-edit" onclick="updatePrio(${taskId}, 'medium')">
                         Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
                   </div>
-                  <div class="low border-color" id="low-edit" onclick="pickPrio('low')">
+                  <div class="low border-color" id="low-edit" onclick="updatePrio(${taskId}, 'low')">
                         Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
                   </div>
             </div>
@@ -454,7 +454,7 @@ function editTask(taskId) {
                         </div>
                     </div>
                  <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
-                 <img src="../../assets/img/icons/check-icon-white.svg"" alt="Save Button"></button>
+                 <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
@@ -462,15 +462,46 @@ function editTask(taskId) {
 }
 
 
+function updatePrio(taskId, newPrio){
+    resetPrioEdit();
+    let btn = document.querySelector(`#${newPrio}-edit`);
+    if(newPrio === 'urgent') {
+        btn.classList.add('activeUrgent');
+        btn.classList.add('activePick');
+    } else if (newPrio === 'medium') {
+        btn.classList.add('activeMedium');
+        btn.classList.add('activePick');
+    } else if (newPrio === 'low') {
+        btn.classList.add('activeLow');
+        btn.classList.add('activePick');
+    }
+    const task = allTasks[taskId];
+    task['prio'] = newPrio;
+    uploadTasks();
+    initBoard();
+}
+
+function resetPrioEdit() {
+    let urgent = document.querySelector('#urgent-edit');
+    let medium = document.querySelector('#medium-edit');
+    let low = document.querySelector('#low-edit');
+    urgent.classList = 'urgent';
+    urgent.classList = 'border-color';
+    medium.classList = 'medium';
+    medium.classList = 'border-color';
+    low.classList = 'low';
+    low.classList = 'border-color';
+};
+
 function showPrioStatusEditView(taskId) {
     // Find the task in allTasks based on the taskId
     let task = allTasks.find(task => task['task-id'] == taskId);
     // Check the priority of the task and apply the corresponding classes
-    if (task.prio === 'Urgent') {
+    if (task.prio === 'Urgent' || task.prio === 'urgent') {
         document.getElementById('urgent-edit').classList.add('activeUrgent', 'activePick');
-    } else if (task.prio === 'Medium') {
+    } else if (task.prio === 'Medium' || task.prio === 'medium') {
         document.getElementById('medium-edit').classList.add('activeMedium', 'activePick');
-    } else if (task.prio === 'Low') {
+    } else if (task.prio === 'Low' || task.prio === 'low') {
         document.getElementById('low-edit').classList.add('activeLow', 'activePick');
     }
 }
@@ -478,7 +509,7 @@ function showPrioStatusEditView(taskId) {
 
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     // Find the task in allTasks based on the taskId
-    let task = allTasks.find(task => task['task-id'] === taskId);
+    let task = allTasks['task-id'] === taskId;
     
     // Get the selected priority
     const selectedPriority = document.querySelector('.activePick');
