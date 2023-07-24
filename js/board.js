@@ -211,17 +211,11 @@ function getAllTaskInfo(taskId) {
                 <div>
                     <h2>Assigned to:</h2>
                 </div>
-                <div class="worker-container text-type">
-                     <div class="worker" id="${task.status}${taskId}-workers"></div>
-                     <span>${task.assignedTo}</span><br>
-                </div>
+                <div>${showResponsiveWorker(task)}</div>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;
-    renderBoardAssignings(task, taskId);
     prioStatusDetailView(taskId);
-    console.log('zeigt alle Daten vom Task an', task)
-    console.log('Aktuelle Prio vom Task:', task.prio);
 }
 
 
@@ -402,7 +396,8 @@ function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
     let task = allTasks.find(task => task['task-id'] == taskId);
-
+   // let assignedToHTML = showResponsiveWorkerEdit(task);
+    console.log(task);
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
     container.innerHTML = /*html*/`
@@ -452,20 +447,32 @@ function editTask(taskId) {
                                 <div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
                             </div>
                         </div>
-                    </div>
-                 <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
-                 <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
-            </div>
+                        <div>${showResponsiveWorker(task)}</div>
+                        </div>
+                               <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
+                               <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
+                        </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
            `;
     showPrioStatusEditView(taskId);
 }
 
 
-function updatePrio(taskId, newPrio){
+function showResponsiveWorker(task) {
+    let assignedToHTML = '';
+    for (let j = 0; j < task.assignedTo.length; j++) {
+        let worker = task.assignedTo[j];
+        assignedToHTML += `<p>${worker}</p>`;
+        console.log('was gibts du mir aus', worker);
+    }
+    return assignedToHTML;
+}
+
+
+function updatePrio(taskId, newPrio) {
     resetPrioEdit();
     let btn = document.querySelector(`#${newPrio}-edit`);
-    if(newPrio === 'urgent') {
+    if (newPrio === 'urgent') {
         btn.classList.add('activeUrgent');
         btn.classList.add('activePick');
     } else if (newPrio === 'medium') {
@@ -481,6 +488,7 @@ function updatePrio(taskId, newPrio){
     initBoard();
 }
 
+
 function resetPrioEdit() {
     let urgent = document.querySelector('#urgent-edit');
     let medium = document.querySelector('#medium-edit');
@@ -491,7 +499,8 @@ function resetPrioEdit() {
     medium.classList = 'border-color';
     low.classList = 'low';
     low.classList = 'border-color';
-};
+}
+
 
 function showPrioStatusEditView(taskId) {
     // Find the task in allTasks based on the taskId
@@ -510,7 +519,7 @@ function showPrioStatusEditView(taskId) {
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     // Find the task in allTasks based on the taskId
     let task = allTasks['task-id'] === taskId;
-    
+
     // Get the selected priority
     const selectedPriority = document.querySelector('.activePick');
     if (selectedPriority) {
@@ -524,5 +533,4 @@ function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     uploadTasks();
     initBoard();
     closeWindow();
-    console.log('Prio geändert auf', task.prio)
 }
