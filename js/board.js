@@ -396,8 +396,6 @@ function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
     let task = allTasks.find(task => task['task-id'] == taskId);
-   // let assignedToHTML = showResponsiveWorkerEdit(task);
-    console.log(task);
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
     container.innerHTML = /*html*/`
@@ -452,7 +450,7 @@ function editTask(taskId) {
                                <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
                                <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
                         </div>
-        <div class="popup-bg" onclick="closeWindow()"></div>
+            <div class="popup-bg" onclick="closeWindow()"></div>
            `;
     showPrioStatusEditView(taskId);
 }
@@ -462,8 +460,12 @@ function showResponsiveWorker(task) {
     let assignedToHTML = '';
     for (let j = 0; j < task.assignedTo.length; j++) {
         let worker = task.assignedTo[j];
-        assignedToHTML += `<p>${worker}</p>`;
-        console.log('was gibts du mir aus', worker);
+        assignedToHTML += /*html*/ `
+        <div class="responsible-worker">
+        <img src="../../assets/img/icons/user.svg" alt="User Icon"> 
+        <p>${worker}</p></div>
+        `;
+        console.log('Zeit alle zugewiesenen Bearbeiter des Tasks an', worker);
     }
     return assignedToHTML;
 }

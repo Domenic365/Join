@@ -245,7 +245,7 @@ input {
     font-size: 3rem;
 }
 
-.text-type{
+.text-type {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -284,10 +284,11 @@ input {
     align-items: center;
 }
 
-.border-status{
+.border-status {
     border-radius: 0.5rem;
     padding: 0.1rem 1rem 0.1rem 1rem;
 }
+
 /*********** Card edit view ***********/
 
 .edit-task {
@@ -367,6 +368,15 @@ textarea {
 .save-btn:hover {
     transition: 125ms ease-in-out;
     background-color: rgb(42, 171, 226);
+}
+
+.responsible-worker {
+    display: flex;
+    align-items: center;
+}
+
+.responsible-worker img {
+    margin-right: 1rem;
 }
 
 /*********** Modal ***********/
