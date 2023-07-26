@@ -46,6 +46,35 @@ function toggleAssigning() {
     renderContacts();
 }
 
+function toggleEditAssigning(taskId) {
+    console.log(taskId);
+    const dropdownArrow = document.querySelector('#contacts-input span');
+    const selection = document.querySelector('.contacts-selection');
+    if (selection.classList.contains('active')) {
+        selection.classList.remove('active');
+        dropdownArrow.classList.remove('active-arrow');
+    } else {
+        selection.classList.add('active');
+        dropdownArrow.classList.add('active-arrow');
+    }
+    renderContacts();
+    preCheckedContacts(taskId);
+}
+
+function preCheckedContacts(taskId) {
+    const assignings = allTasks[taskId]['assignedTo'];
+    let selection = document.querySelectorAll('.contact-item');
+    for (let i = 0; i<selection.length -1; i++) {
+        const contact = selection[i].innerText; // Name des Kontakts aus allen Kontakten
+        for (let j = 0; j<assignings.length; j++) {
+            let curAssigning = assignings[j];   // ein bereits zugewiesener Kontakt
+            if(contact === curAssigning) {
+                document.getElementById(curAssigning).checked = true;
+            }
+        }
+    }
+}
+
 /**
  * function to render contacts in dropdown list
  */

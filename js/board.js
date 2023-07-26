@@ -429,7 +429,7 @@ function editTask(taskId) {
             </div>
             <div class="contact-dropdown mg-dropdown">
                         <div class="form-title">Assigned to</div>
-                        <div class="dropdown-placeholder border-color" id="contacts-input" onclick="toggleAssigning()">Select contacts to assign<span>&lt;</span></div>
+                        <div class="dropdown-placeholder border-color" id="contacts-input" onclick="toggleEditAssigning(${taskId})">Select contacts to assign<span>&lt;</span></div>
                         <input class="inviteContactInput d-none" placeholder="Enter email to invite contact" type="email">
                         <div class="inviteContactBtn d-none">
                             <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('contact')">
