@@ -47,7 +47,8 @@ function toggleAssigning() {
 }
 
 function toggleEditAssigning(taskId) {
-    console.log(taskId);
+    console.log("toggleEditAssigning called with taskId:", taskId);
+
     const dropdownArrow = document.querySelector('#contacts-input span');
     const selection = document.querySelector('.contacts-selection');
     if (selection.classList.contains('active')) {
@@ -59,16 +60,19 @@ function toggleEditAssigning(taskId) {
     }
     renderContacts();
     preCheckedContacts(taskId);
+    checkDropdownCheckboxes(); //Function can be deleted later
 }
 
 function preCheckedContacts(taskId) {
+    console.log("preCheckedContacts called with taskId:", taskId);
     const assignings = allTasks[taskId]['assignedTo'];
+    console.log('wem ist der Task zugewiesen?',assignings);
     let selection = document.querySelectorAll('.contact-item');
-    for (let i = 0; i<selection.length -1; i++) {
+    for (let i = 0; i < selection.length - 1; i++) {
         const contact = selection[i].innerText; // Name des Kontakts aus allen Kontakten
-        for (let j = 0; j<assignings.length; j++) {
+        for (let j = 0; j < assignings.length; j++) {
             let curAssigning = assignings[j];   // ein bereits zugewiesener Kontakt
-            if(contact === curAssigning) {
+            if (contact === curAssigning) {
                 document.getElementById(curAssigning).checked = true;
             }
         }
@@ -76,16 +80,42 @@ function preCheckedContacts(taskId) {
 }
 
 /**
+ * Function shows which kontatke are assigned to the taks. Function can be deleted later
+ */
+function checkDropdownCheckboxes() {
+    const checkboxes = document.querySelectorAll('.dropdown-check');
+  
+    checkboxes.forEach(checkbox => {
+      const contactName = checkbox.id;
+      const isChecked = checkbox.checked;
+  
+      if (isChecked) {
+        console.log(`Kontakt "${contactName}" ist ausgewählt.`);
+        // Weitere Aktionen, wenn der Kontakt ausgewählt ist.
+      } else {
+        console.log(`Kontakt "${contactName}" ist nicht ausgewählt.`);
+        // Weitere Aktionen, wenn der Kontakt nicht ausgewählt ist.
+      }
+    });
+  }
+
+/**
  * function to render contacts in dropdown list
  */
 function renderContacts() {
     let list = document.getElementById('contact-selection');
     list.innerHTML = '';
-    for (let i = 0; i<loadedContacts.length; i++) {
+    for (let i = 0; i < loadedContacts.length; i++) {
         const contact = loadedContacts[i];
         list.innerHTML += `<div class="contact-item"><label for="${contact.name}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact.name}"></label></div>`
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
+
+    //click event as soon as a new contact has been selected or deselected 
+    const newCheckboxes = document.querySelectorAll('.dropdown-check');
+    newCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', checkDropdownCheckboxes);
+    });
 }
 
 /**
@@ -144,7 +174,7 @@ function cancelInput(formElement) {
         input.classList.add('d-none');
         buttons.classList.add('d-none');
         colorPicker.classList.add('d-none');
-    }   
+    }
 }
 
 /**
@@ -187,10 +217,10 @@ function createCategory() {
  */
 function pickCatColor(color) {
     let colorlist = document.querySelectorAll('.category-colors div')
-    for (let i = 0; i<colorlist.length; i++) {
+    for (let i = 0; i < colorlist.length; i++) {
         colorlist[i].classList.remove('selectedColor');
     }
-    
+
     let pickedColor = document.querySelector(`.${color}`);
     pickedColor.classList.add('selectedColor');
 }
@@ -203,8 +233,8 @@ function saveNewCat() {
     let catTitle = document.querySelector('.addCategoryInput').value;
     let catColor = document.querySelector('.selectedColor').classList[0];
     let newCategory = {
-        name : catTitle,
-        color : catColor
+        name: catTitle,
+        color: catColor
     }
     categorys.push(newCategory);
     contactDD.classList.remove('m-top');
@@ -217,7 +247,7 @@ function saveNewCat() {
  * this function is called after saving new category. its job is to show the new category as picked category
  */
 function showNewCat() {
-    let element = categorys[categorys.length -1];
+    let element = categorys[categorys.length - 1];
     let placeholder = document.getElementById('category-input');
     placeholder.innerHTML = `
     <div class="">${element.name}<div class="${element.color}"></div></div><span class="active-arrow">&lt;</span>
@@ -244,7 +274,7 @@ function pickPrio(pick) {
             case 'medium':
                 button.classList.add('activeMedium');
                 button.classList.add('activePick');
-            break;
+                break;
             case 'low':
                 button.classList.add('activeLow');
                 button.classList.add('activePick');
@@ -277,7 +307,7 @@ function dateColor() {
  */
 function clearAll() {
     let title = document.getElementById('title-input');
-    let description = document.getElementById('description'); 
+    let description = document.getElementById('description');
     let category = document.getElementById('category-input');
     let contactlist = document.querySelectorAll('.dropdown-check');
     let date = document.getElementById('due-date');
@@ -328,9 +358,9 @@ function toggleDropdown() {
  */
 function renderCategorys() {
     let catContainer = document.getElementById('category-selection');
-    
+
     catContainer.innerHTML = '<li onclick="createCategory()">Add new category</li>';
-    for (let i = 0; i<categorys.length; i++) {
+    for (let i = 0; i < categorys.length; i++) {
         catContainer.innerHTML += `
             <li onclick="chosenCategory('${categorys[i].name}')">${categorys[i].name}<div class="${categorys[i].color}"></div></li>
         `
