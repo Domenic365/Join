@@ -491,6 +491,12 @@ textarea {
     }
 }
 
+@media (max-height: 900px) {
+    .edit-task {
+        transform: translate(-50%, 5%);
+    }
+}
+
 @media (max-width:720px) {
     header {
         display: none;
@@ -500,6 +506,14 @@ textarea {
         border: unset;
         background-color: unset;
         cursor: pointer;
+    }
+
+    .task-info {
+        min-width: 80%;
+    }
+
+    .edit-task {
+        min-width: 80%;
     }
 
     .box-task-design {
@@ -560,5 +574,27 @@ textarea {
         min-height: 15.6rem;
         max-height: 15.6rem;
         width: 15.6rem;
+    }
+}
+
+@media (max-width: 375px) and (max-height: 667px) {
+    .det-title h1 {
+        font-size: 2rem;
+    }
+
+    .task-info {
+        min-width: 80%;
+        min-height: 90%;
+        transform: translate(-50%, 2%);
+    }
+
+    .edit-task {
+        min-width: 90%;
+        transform: translate(-50%, 0%);
+        border-radius: 0rem;
+    }
+
+    .save-btn {
+        bottom: 30px;
     }
 }
