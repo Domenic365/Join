@@ -195,18 +195,18 @@ function getAllTaskInfo(taskId) {
                 <h3>${task.category}</h3>
             </div>    
                 <div class="det-title">
-                    <h1>${task.title}</h1>
+                    <h1>${task['title']}</h1>
                 </div>
                 <div class="text-type">
-                    <span>${task.description}</span>
+                    <span>${task['description']}</span>
                 </div>
                 <div class="text-type">
                     <h2>Due Date:</h2>
-                    <span>${task.dueDate}</span>
+                    <span>${task['dueDate']}</span>
                 </div> 
                 <div class="text-type">
                     <h2>Priority:</h2>
-                    <span id="getPrio">${task.prio}</span>
+                    <span id="getPrio">${task['prio']}</span>
                 </div>
                 <div>
                     <h2>Assigned to:</h2>
@@ -250,10 +250,10 @@ function closeWindow() {
 }
 
 
-function deleteTask(taskID) {
+async function deleteTask(taskID) {
     allTasks[taskID]['status'] = 'deleted';
     uploadTasks();
-    initBoard();
+    await initBoard();
     closeWindow();
 }
 
@@ -533,16 +533,16 @@ function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     // Find the task in allTasks based on the taskId
     let task = allTasks[taskId];
 
-    // Get the selected priority
-    const selectedPriority = document.querySelector('.activePick');
-    if (selectedPriority) {
-        task.prio = selectedPriority.innerText;
-    }
+    // // Get the selected priority
+    // const selectedPriority = document.querySelector('.activePick');
+    // if (selectedPriority) {
+    //     task.prio = selectedPriority.innerText;
+    // }
     // Update the properties of the task with the edited values
-    task.title = editTitle;
-    task.description = editDescription;
-    task.dueDate = editDueDate;
-    task.assignedTo = getAssignedContacts();
+    task['title'] = editTitle;
+    task['description'] = editDescription;
+    task['dueDate'] = editDueDate;
+    task['assignedTo'] = getAssignedContacts();
 
     uploadTasks();
     initBoard();
