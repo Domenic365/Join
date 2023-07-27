@@ -442,7 +442,7 @@ function editTask(taskId) {
                                 <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
                                 <div class="contact-item"><label for="Testkontakt-3">Testkontakt 3<input class="dropdown-check" type="checkbox" id="Testkontakt-3"></label></div>
                                 <div class="contact-item"><label for="Testkontakt-4">Testkontakt 4<input class="dropdown-check" type="checkbox" id="Testkontakt-4"></label></div>
-                                <div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
+                                <div class="contact-item" onclick="inviteContactEdit(taskId)">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
                             </div>
                         </div>
                         <div>${showResponsiveWorker(task)}</div>
@@ -455,6 +455,19 @@ function editTask(taskId) {
     showPrioStatusEditView(taskId);
 }
 
+
+function inviteContactEdit(taskId) {
+    toggleEditAssigning(taskId);
+    let placeholder = document.getElementById('contacts-input');
+    let input = document.querySelector('.inviteContactInput');
+    let buttons = document.querySelector('.inviteContactBtn');
+
+    placeholder.classList.add('d-none');
+    input.classList.remove('d-none');
+    input.classList.add('whundred')
+    buttons.classList.remove('d-none');
+    input.focus();
+}
 
 function showResponsiveWorker(task) {
     let assignedToHTML = '';

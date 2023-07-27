@@ -91,3 +91,8 @@
         overflow-x: hidden;
     }
 }
+
+.whundred {
+    width: 100%;
+    background-position: 475px !important;
+}

@@ -52,7 +52,6 @@ async function loadAllTasksFromStg() {
  * This function creates a new Task by collecting the form data and pushs it into the allTasks JSON
  */
 function createNewTask() {
-    
     allTasks.push({
         "task-id" : `${uID}`,
         "title" : `${document.getElementById('title-input').value}`,
