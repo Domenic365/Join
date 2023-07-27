@@ -1,3 +1,6 @@
+/**
+ * initilizes whole page
+ */
 async function initBoard() {
     await loadAllTasksFromStg();
     renderBoardTodos();
@@ -6,7 +9,9 @@ async function initBoard() {
     renderBoardDone();
 }
 
-
+/**
+ * renders all tasks with status 'todo'
+ */
 function renderBoardTodos() {
     let container = document.getElementById('todo-col');
     container.innerHTML = '';
@@ -33,7 +38,12 @@ function renderBoardTodos() {
     }
 }
 
-
+/**
+ * function to render assigned contacts to the task
+ * 
+ * @param {HTMLNode} task - whole node of the task
+ * @param {number} taskID - unique task id
+ */
 function renderBoardAssignings(task, taskID) {
     let workerbox = document.getElementById(`${task.status}${taskID}-workers`);
     workerbox.innerHTML = ''
@@ -44,7 +54,12 @@ function renderBoardAssignings(task, taskID) {
     }
 }
 
-
+/**
+ * function to get all subtasks of the task
+ * 
+ * @param {string} status  - current status of task
+ * @returns array with all subtasks
+ */
 function getBoardTasks(status) {
     let arr = [];
     for (i = 0; i < allTasks.length; i++) {
@@ -59,7 +74,9 @@ function getBoardTasks(status) {
     }
 }
 
-
+/**
+ * renders all tasks with status 'inProgress'
+ */
 function renderBoardProgress() {
     let container = document.getElementById('progress-col');
     container.innerHTML = '';
@@ -85,7 +102,9 @@ function renderBoardProgress() {
     }
 }
 
-
+/**
+ * renders all tasks with status 'awaiting feedback'
+ */
 function renderBoardFeedback() {
     let container = document.getElementById('feedback-col');
     container.innerHTML = '';
@@ -111,7 +130,9 @@ function renderBoardFeedback() {
     }
 }
 
-
+/**
+ * renders all tasks with status 'done'
+ */
 function renderBoardDone() {
     let container = document.getElementById('done-col');
     container.innerHTML = '';
@@ -140,43 +161,71 @@ function renderBoardDone() {
 
 let currentDraggedElement;
 
-
+/**
+ * allows to start dragging
+ * 
+ * @param {number} id - id of task
+ */
 function startDragging(id) {
     currentDraggedElement = id;
 }
 
-
+/**
+ * to allow dropping the dragged item
+ * 
+ * @param {Event} ev - event of hovering above other html element
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
-
+/**
+ * function to assign new category to task after moving it with drag n drop
+ * 
+ * @param {string} category - name of new category
+ */
 function moveTo(category) {
     allTasks[currentDraggedElement]['status'] = category;
     uploadTasks();
     initBoard();
 }
 
-
+/**
+ * highlights the area while hovering above it to show where you can drop items
+ * 
+ * @param {number} id - id of task
+ */
 function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
     initBoard();
 }
 
-
+/**
+ * removes highlighting of dropable area after drop
+ * 
+ * @param {number} id - id of task
+ */
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
     initBoard();
 }
 
 
-//****** Open task details *******//
+/**
+ * removes display none of popup and calls other function to render content
+ * 
+ * @param {number} taskId  - task id
+ */
 function openTaskDetails(taskId) {
     document.getElementById('show-details').classList.remove('d-none');
     getAllTaskInfo(taskId);
 }
 
-
+/**
+ * renders task in detail view
+ * 
+ * @param {number} taskId  - task id
+ */
 function getAllTaskInfo(taskId) {
     let container = document.getElementById('show-details');
     container.innerHTML = '';
@@ -218,10 +267,11 @@ function getAllTaskInfo(taskId) {
     prioStatusDetailView(taskId);
 }
 
-
-//Fetches the information about the status of the clicked task and displays it in the openTaksDetails view.
+/**
+ * Fetches the information about the status of the clicked task and displays it in the openTaksDetails view.
+ * @param {number} taskId - task id
+ */
 function prioStatusDetailView(taskId) {
-
     let task = allTasks[taskId];
     if (task.prio === 'Urgent' || task.prio === 'urgent') {
         document.getElementById('getPrio').innerHTML = /*html*/ `
@@ -243,6 +293,9 @@ function prioStatusDetailView(taskId) {
     }
 }
 
+/**
+ * calls search-functions for every status
+ */
 function searchTask() {
     let search = document.getElementById('search-task').value;
     search = search.toLowerCase();
@@ -252,7 +305,10 @@ function searchTask() {
     renderSearchDone(search);
 }
 
-
+/**
+ * searches in todo-status tasks
+ * @param {string} search - searched string
+ */
 function renderSearchTodo(search) {
     let todoContainer = document.getElementById('todo-col');
     let todoTasks = getBoardTasks('todo');
