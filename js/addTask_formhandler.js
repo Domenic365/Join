@@ -85,12 +85,6 @@ function renderContacts() {
         list.innerHTML += `<div class="contact-item"><label for="${contact.name}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact.name}"></label></div>`
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContact()">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
-
-    //click event as soon as a new contact has been selected or deselected 
-    const newCheckboxes = document.querySelectorAll('.dropdown-check');
-    newCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('click', checkDropdownCheckboxes);
-    });
 }
 
 function renderEditableContacts(taskId) {
