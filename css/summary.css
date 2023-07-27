@@ -60,7 +60,7 @@ main p {
     margin: 25rem 1rem 1rem 1rem;
 }
 
-.border-color {
+.line-header-color {
     border-left: 0.3rem solid rgb(42, 171, 226);
 }
 
@@ -219,7 +219,7 @@ main p {
         border-bottom: 0.3rem solid rgb(42, 171, 226);
     }
 
-    .border-color {
+    .line-header-color {
         border-left: unset;
     }
 
@@ -253,5 +253,11 @@ main p {
 @media (max-width: 400px) {
     .header-disign{
         margin-right: 3rem;
+    }
+}
+
+@media (max-height: 569px){
+    #content{
+        overflow-y: auto;
     }
 }
