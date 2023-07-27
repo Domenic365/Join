@@ -116,7 +116,6 @@ function getAssignedContacts() {
             contactArray.push(contacts[i].innerText);
         }
     }
-    console.log(contactArray);
     return contactArray;
 }
 

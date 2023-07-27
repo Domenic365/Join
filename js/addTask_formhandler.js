@@ -47,8 +47,6 @@ function toggleAssigning() {
 }
 
 function toggleEditAssigning(taskId) {
-    console.log("toggleEditAssigning called with taskId:", taskId);
-
     const dropdownArrow = document.querySelector('#contacts-input span');
     const selection = document.querySelector('.contacts-selection');
     if (selection.classList.contains('active')) {
@@ -60,13 +58,10 @@ function toggleEditAssigning(taskId) {
     }
     renderEditableContacts(taskId);
     preCheckedContacts(taskId);
-    checkDropdownCheckboxes(); //Function can be deleted later
 }
 
 function preCheckedContacts(taskId) {
-    console.log("preCheckedContacts called with taskId:", taskId);
     const assignings = allTasks[taskId]['assignedTo'];
-    console.log('wem ist der Task zugewiesen?',assignings);
     let selection = document.querySelectorAll('.contact-item');
     for (let i = 0; i < selection.length - 1; i++) {
         const contact = selection[i].innerText; // Name des Kontakts aus allen Kontakten
@@ -78,26 +73,6 @@ function preCheckedContacts(taskId) {
         }
     }
 }
-
-/**
- * Function shows which kontatke are assigned to the taks. Function can be deleted later
- */
-function checkDropdownCheckboxes() {
-    const checkboxes = document.querySelectorAll('.dropdown-check');
-  
-    checkboxes.forEach(checkbox => {
-      const contactName = checkbox.id;
-      const isChecked = checkbox.checked;
-  
-      if (isChecked) {
-        console.log(`Kontakt "${contactName}" ist ausgewählt.`);
-        // Weitere Aktionen, wenn der Kontakt ausgewählt ist.
-      } else {
-        console.log(`Kontakt "${contactName}" ist nicht ausgewählt.`);
-        // Weitere Aktionen, wenn der Kontakt nicht ausgewählt ist.
-      }
-    });
-  }
 
 /**
  * function to render contacts in dropdown list
@@ -126,12 +101,6 @@ function renderEditableContacts(taskId) {
         list.innerHTML += `<div class="contact-item"><label for="${contact.name}">${contact.name}<input class="dropdown-check" type="checkbox" id="${contact.name}"></label></div>`
     }
     list.innerHTML += `<div class="contact-item" onclick="inviteContactEdit(${taskId})">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>`
-
-    //click event as soon as a new contact has been selected or deselected 
-    const newCheckboxes = document.querySelectorAll('.dropdown-check');
-    newCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('click', checkDropdownCheckboxes);
-    });
 }
 
 /**

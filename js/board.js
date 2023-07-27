@@ -395,7 +395,7 @@ function renderSearchDone(search) {
 function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
-    let task = allTasks.find(task => task['task-id'] == taskId);
+    let task = allTasks[taskId];
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
     container.innerHTML = /*html*/`
@@ -478,7 +478,6 @@ function showResponsiveWorker(task) {
         <img src="../../assets/img/icons/user.svg" alt="User Icon"> 
         <p>${worker}</p></div>
         `;
-        console.log('Zeit alle zugewiesenen Bearbeiter des Tasks an', worker);
     }
     return assignedToHTML;
 }
@@ -487,13 +486,13 @@ function showResponsiveWorker(task) {
 function updatePrio(taskId, newPrio) {
     resetPrioEdit();
     let btn = document.querySelector(`#${newPrio}-edit`);
-    if (newPrio === 'urgent') {
+    if (newPrio === 'urgent' || newPrio === 'Urgent') {
         btn.classList.add('activeUrgent');
         btn.classList.add('activePick');
-    } else if (newPrio === 'medium') {
+    } else if (newPrio === 'medium' || newPrio === 'Medium') {
         btn.classList.add('activeMedium');
         btn.classList.add('activePick');
-    } else if (newPrio === 'low') {
+    } else if (newPrio === 'low' || newPrio === 'Low') {
         btn.classList.add('activeLow');
         btn.classList.add('activePick');
     }
@@ -530,10 +529,9 @@ function showPrioStatusEditView(taskId) {
     }
 }
 
-
 function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     // Find the task in allTasks based on the taskId
-    let task = allTasks['task-id'] === taskId;
+    let task = allTasks[taskId];
 
     // Get the selected priority
     const selectedPriority = document.querySelector('.activePick');
@@ -544,8 +542,10 @@ function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     task.title = editTitle;
     task.description = editDescription;
     task.dueDate = editDueDate;
+    task.assignedTo = getAssignedContacts();
 
     uploadTasks();
     initBoard();
     closeWindow();
+    
 }
