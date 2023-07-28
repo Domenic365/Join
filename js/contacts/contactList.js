@@ -70,7 +70,6 @@ class ContactList extends HTMLElement {
             };
             contactListForStorage.push(contactForStorage);
         });
-        console.log(contactListForStorage);
         await setItem("contactList", JSON.stringify(contactListForStorage));
     }
 
