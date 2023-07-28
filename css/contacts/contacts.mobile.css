@@ -200,7 +200,11 @@
     }
 
     .human {
-        top: -80px;
+        top: -90px;
+        width: 102px;
+        height: 102px;
+        min-width: unset !important;
+        min-height: unset !important;
     }
 
     contact-details {
