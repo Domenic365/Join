@@ -70,4 +70,12 @@
     .main-menu a{
         font-size: .9rem !important;
     }
+
+    #content{
+        height: calc(100vh - 71.5px - 90px);
+    }
+
+    .header-disign{
+        margin-bottom: 0 !important;
+    }
 }
