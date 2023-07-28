@@ -7,6 +7,10 @@ header {
     margin: 0rem 4rem 0rem 4rem;
 }
 
+.borderHeader{
+    height: 160px;
+}
+
 input {
     border-radius: 0.5rem;
     border: 1px solid rgb(233, 231, 231);
@@ -65,6 +69,7 @@ input {
     justify-content: space-between;
     align-items: baseline;
     margin: 0rem 4rem 0rem 1rem;
+    height: calc(100vh - 90px - 160px);
 }
 
 .box-task-design {
@@ -89,6 +94,7 @@ input {
     cursor: pointer;
     margin-bottom: 1.5rem;
     width: 300px;
+    height: 55px;
 }
 
 .img-container .plus-icon-hover {
@@ -107,10 +113,9 @@ input {
 
 .box-overflow {
     overflow-y: auto;
-    max-height: 45vh;
     overflow-x: hidden;
     padding-right: 0.4rem;
-    min-height: 200px;
+    height: calc(100vh - 90px - 160px - 55px);
 }
 
 .column-direction h2 {
@@ -456,7 +461,6 @@ textarea {
 
     .box-overflow {
         overflow-y: auto;
-        max-height: 45vh;
         overflow-x: hidden;
         padding-right: 0.4rem;
         min-height: 200px;

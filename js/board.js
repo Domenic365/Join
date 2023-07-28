@@ -184,10 +184,10 @@ function allowDrop(ev) {
  * 
  * @param {string} category - name of new category
  */
-function moveTo(category) {
+async function moveTo(category) {
     allTasks[currentDraggedElement]['status'] = category;
     uploadTasks();
-    initBoard();
+    await initBoard();
 }
 
 /**
@@ -195,9 +195,9 @@ function moveTo(category) {
  * 
  * @param {number} id - id of task
  */
-function highlight(id) {
+async function highlight(id) {
     document.getElementById(id).classList.add('drag-area-highlight');
-    initBoard();
+    await initBoard();
 }
 
 /**
@@ -205,9 +205,9 @@ function highlight(id) {
  * 
  * @param {number} id - id of task
  */
-function removeHighlight(id) {
+async function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
-    initBoard();
+    await initBoard();
 }
 
 
