@@ -26,10 +26,10 @@ async function changeContentHTML(link) {
     document.getElementById("content").setAttribute("w3-include-html", link);
     if(link === '../templates/summary.html') {
         await includeHTML();
-        initSummary();
+        await initSummary();
     } else if (link.includes('../templates/board.html')) {
         await includeHTML();
-        initBoard();
+        await initBoard();
     } else if (link.includes('../templates/add_task.html')) {
         await includeHTML();
     } else if (link.includes('../templates/contacts.html')){
