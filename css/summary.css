@@ -256,7 +256,7 @@ main p {
     }
 }
 
-@media (max-height: 569px){
+@media (max-height: 667px) {
     #content{
         overflow-y: auto;
     }
