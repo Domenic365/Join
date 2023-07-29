@@ -492,6 +492,7 @@ textarea {
 
     .box-overflow {
         max-height: unset;
+        height: unset;
     }
 }
 
