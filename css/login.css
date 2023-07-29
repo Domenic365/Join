@@ -249,6 +249,7 @@
 
 .logoutShow{
     display: unset !important;
+    z-index: 3;
 }
 
 .logout{
