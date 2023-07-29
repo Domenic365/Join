@@ -129,67 +129,85 @@ function renderSearchDone(search) {
  * 
  * @param {number} taskId  - unique id of task
  */
-function editTask(taskId) {
+ function editTask(taskId) {
     document.getElementById('show-details').classList.add('d-none');
     document.getElementById('edit-task').classList.remove('d-none');
     let task = allTasks[taskId];
     let container = document.getElementById('edit-task');
     container.innerHTML = '';
+
     container.innerHTML = /*html*/`
         <div class="edit-task">
             <div class="close-btn-container" onclick="closeWindow()">
-                  <img src="../../assets/img/icons/cross.svg" alt="Close button">
+                <img src="../../assets/img/icons/cross.svg" alt="Close button">
             </div>
             <div class="form-item">
-                  <label class="lbl-font" for="edit-title">Title:</label>
-                  <input class="input-design" type="text" id="edit-title" value="${task.title}">
+                <label class="lbl-font" for="edit-title">Title:</label>
+                <input class="input-design" type="text" id="edit-title" value="${task.title}">
             </div>
             <div class="form-item">
-                 <label class="lbl-font" for="edit-description">Description:</label>
-                 <textarea id="edit-description">${task.description}</textarea>
-             </div>
-             <div class="form-item">
-                  <label class="lbl-font" for="edit-due-date">Due Date:</label>
-                  <input class="input-design" type="date" id="edit-due-date" value="${task.dueDate}">
-             </div>
-             <div class="form-item">Prio</div>
-             <div class="prio-buttons">
-                  <div class="urgent border-color" id="urgent-edit" onclick="updatePrio(${taskId}, 'urgent')">
-                        Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
-                  </div>
-                  <div class="medium border-color" id="medium-edit" onclick="updatePrio(${taskId}, 'medium')">
-                        Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
-                  </div>
-                  <div class="low border-color" id="low-edit" onclick="updatePrio(${taskId}, 'low')">
-                        Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
-                  </div>
+                <label class="lbl-font" for="edit-description">Description:</label>
+                <textarea id="edit-description">${task.description}</textarea>
+            </div>
+            <div class="form-item">
+                <label class="lbl-font" for="edit-due-date">Due Date:</label>
+                <input class="input-design" type="date" id="edit-due-date" value="${task.dueDate}">
+            </div>
+            <div class="form-item">Prio</div>
+            <div class="prio-buttons">
+                <div class="urgent border-color" id="urgent-edit" onclick="updatePrio(${taskId}, 'urgent')">
+                    Urgent <span class="prio-img"><img src="../img/icons/urgent-nofill-orange.svg" alt=""></span>
+                </div>
+                <div class="medium border-color" id="medium-edit" onclick="updatePrio(${taskId}, 'medium')">
+                    Medium <span class="prio-img"><img src="../img/icons/medium_nofill_orange.svg" alt=""></span>
+                </div>
+                <div class="low border-color" id="low-edit" onclick="updatePrio(${taskId}, 'low')">
+                    Low <span class="prio-img"><img src="../img/icons/low_nofill_green.svg" alt=""></span>
+                </div>
             </div>
             <div class="contact-dropdown mg-dropdown">
-                        <div class="form-title">Assigned to</div>
-                        <div class="dropdown-placeholder border-color" id="contacts-input" onclick="toggleEditAssigning(${taskId})">Select contacts to assign<span>&lt;</span></div>
-                        <input class="inviteContactInput d-none" placeholder="Enter email to invite contact" type="email">
-                        <div class="inviteContactBtn d-none">
-                            <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('contact')">
-                            <img src="../img/icons/check_dark.svg" class="check" onclick="sendContactInvite()">
-                        </div>
-                        <div class="contacts-selection">
-                            <div id="contact-selection" > 
-                                <!-- Ab der zweiten div muss aus dem Contacts-Array generiert werden -->
-                                <div class="contact-item"><label for="Testkontakt-1">Testkontakt 1<input class="dropdown-check" type="checkbox" id="Testkontakt-1"></label></div>
-                                <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
-                                <div class="contact-item"><label for="Testkontakt-3">Testkontakt 3<input class="dropdown-check" type="checkbox" id="Testkontakt-3"></label></div>
-                                <div class="contact-item"><label for="Testkontakt-4">Testkontakt 4<input class="dropdown-check" type="checkbox" id="Testkontakt-4"></label></div>
-                                <div class="contact-item" onclick="inviteContactEdit(taskId)">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
-                            </div>
-                        </div>
-                        <div>${showResponsiveWorker(task)}</div>
-                        </div>
-                               <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
-                               <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
-                        </div>
-            <div class="popup-bg" onclick="closeWindow()"></div>
-           `;
+                <div class="form-title">Assigned to</div>
+                <div class="dropdown-placeholder border-color" id="contacts-input" onclick="toggleEditAssigning(${taskId})">Select contacts to assign<span>&lt;</span></div>
+                <input class="inviteContactInput d-none" placeholder="Enter email to invite contact" type="email">
+                <div class="inviteContactBtn d-none">
+                    <img src="../img/icons/cancel.svg" class="cancel" onclick="cancelInput('contact')">
+                    <img src="../img/icons/check_dark.svg" class="check" onclick="sendContactInvite()">
+                </div>
+                <div class="contacts-selection">
+                    <div id="contact-selection" > 
+                        <!-- Ab der zweiten div muss aus dem Contacts-Array generiert werden -->
+                        <div class="contact-item"><label for="Testkontakt-1">Testkontakt 1<input class="dropdown-check" type="checkbox" id="Testkontakt-1"></label></div>
+                        <div class="contact-item"><label for="Testkontakt-2">Testkontakt 2<input class="dropdown-check" type="checkbox" id="Testkontakt-2"></label></div>
+                        <div class="contact-item"><label for="Testkontakt-3">Testkontakt 3<input class="dropdown-check" type="checkbox" id="Testkontakt-3"></label></div>
+                        <div class="contact-item"><label for="Testkontakt-4">Testkontakt 4<input class="dropdown-check" type="checkbox" id="Testkontakt-4"></label></div>
+                        <div class="contact-item" onclick="inviteContactEdit(taskId)">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
+                    </div>
+                </div>
+                <div>${showResponsiveWorker(task)}</div>
+            </div>
+            <button class="save-btn" id="save-btn">Save <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
+        </div>
+    </div>
+    <div class="popup-bg" onclick="closeWindow()"></div>
+    `;
+    addSaveButtonListener(taskId);
     showPrioStatusEditView(taskId);
+}
+
+/**
+ * function to show invite-input for new contact. it replaces the placeholder an shows an actual input field
+ * 
+ * @param {number} taskId - unique id of task
+ */
+function addSaveButtonListener(taskId) {
+    const saveButton = document.getElementById('save-btn');
+
+    saveButton.addEventListener('click', function () {
+        const editTitle = document.getElementById('edit-title').value;
+        const editDescription = document.getElementById('edit-description').value;
+        const editDueDate = document.getElementById('edit-due-date').value;
+        saveEditData(taskId, editTitle, editDescription, editDueDate);
+    });
 }
 
 /**
