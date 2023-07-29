@@ -90,6 +90,11 @@
     .modalView {
         overflow-x: hidden;
     }
+
+    .taskarea{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
 }
 
 .whundred {
