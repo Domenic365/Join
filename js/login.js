@@ -183,7 +183,9 @@ function loadLetter() {
 function loadName() {
     let name = getName()
     let nameElement = document.querySelector('h5')
-    nameElement.innerHTML = name;
+    if (nameElement){
+        nameElement.innerHTML = name;
+    }
 }
 
 function loadGuestLogin() {
