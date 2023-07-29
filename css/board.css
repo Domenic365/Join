@@ -476,7 +476,7 @@ textarea {
         flex-direction: column;
         align-items: center;
         overflow-y: scroll;
-        height: calc(65vh - 90px);
+        height: calc(100vh - 90px - 160px - 78.5px);
         margin: unset;
     }
 
