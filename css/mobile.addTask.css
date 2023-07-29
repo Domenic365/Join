@@ -83,6 +83,12 @@
     }
 }
 
+@media (max-width: 700px) {
+    .modalView{
+        padding-top: 90px;
+    }
+}
+
 @media (max-width: 500px){
     .modalView .mobile-HL {
         display: none;
