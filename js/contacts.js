@@ -86,7 +86,7 @@ async function saveContact(e) {
     await updateContacts();
     await switchModal();
     selectedContact.reload();
-    contactDetails.updateContact();
+    contactDetails.clearHTML();
 }
 
 async function deleteContact() {
