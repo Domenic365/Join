@@ -185,29 +185,14 @@ function renderSearchDone(search) {
                 </div>
                 <div>${showResponsiveWorker(task)}</div>
             </div>
-            <button class="save-btn" id="save-btn">Save <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button"></button>
+            <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
+                <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button">
+            </button>
         </div>
     </div>
     <div class="popup-bg" onclick="closeWindow()"></div>
     `;
-    addSaveButtonListener(taskId);
     showPrioStatusEditView(taskId);
-}
-
-/**
- * function to show invite-input for new contact. it replaces the placeholder an shows an actual input field
- * 
- * @param {number} taskId - unique id of task
- */
-function addSaveButtonListener(taskId) {
-    const saveButton = document.getElementById('save-btn');
-
-    saveButton.addEventListener('click', function () {
-        const editTitle = document.getElementById('edit-title').value;
-        const editDescription = document.getElementById('edit-description').value;
-        const editDueDate = document.getElementById('edit-due-date').value;
-        saveEditData(taskId, editTitle, editDescription, editDueDate);
-    });
 }
 
 /**
