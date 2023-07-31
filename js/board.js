@@ -19,19 +19,24 @@ function renderBoardTodos() {
     for (let i = 0; i < todos.length; i++) {
         container.innerHTML += /*html*/`
         <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
-            <div class="category ${todos[i].catColor}Cat">
+            <div class="category-header">  
+                <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
-            <div class="task-name">
+            <div>
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+            </div>
+        </div>  
+        <div class="task-name">
                 <h4>${todos[i].title}</h4>
-            </div>
-            <div class="task-description">
-                <span>${todos[i].description}</span>
-            </div>
-            <div class="progress-bar"></div>
-            <div class="worker" id="${todos[i].status}${i}-workers">
-            <div id="prio-status"></div>
-            </div>
+        </div>
+        <div class="task-description">
+             <span>${todos[i].description}</span>
+        </div>
+        <div class="progress-bar"></div>
+        <div class="worker" id="${todos[i].status}${i}-workers">
+             <div id="prio-status"></div>
+        </div>
         </div>
         `
         renderBoardAssignings(todos[i], i);
@@ -82,11 +87,17 @@ function renderBoardProgress() {
     container.innerHTML = '';
     let todos = getBoardTasks("inProgress");
     for (let i = 0; i < todos.length; i++) {
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="category-header">      
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
+            <div class="arrow-container">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+            </div>
+        </div>
             <div class="task-name">
                 <h4>${todos[i].title}</h4>
             </div>
@@ -110,11 +121,17 @@ function renderBoardFeedback() {
     container.innerHTML = '';
     let todos = getBoardTasks('feedback');
     for (let i = 0; i < todos.length; i++) {
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="category-header">
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
+            <div class="arrow-container">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+            </div>
+        </div>
             <div class="task-name">
                 <h4>${todos[i].title}</h4>
             </div>
@@ -138,11 +155,16 @@ function renderBoardDone() {
     container.innerHTML = '';
     let todos = getBoardTasks('done');
     for (let i = 0; i < todos.length; i++) {
-        container.innerHTML += `
+        container.innerHTML += /*html*/`
         <div class="box-task-design" draggable="true" onclick="openTaskDetails('${todos[i]['task-id']}')" ondragstart="startDragging(${todos[i]['task-id']})">
+        <div class="category-header">   
             <div class="category ${todos[i].catColor}Cat">
                 <h3>${todos[i].category}</h3>
             </div>
+            <div class="arrow-container">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+            </div>
+        </div>
             <div class="task-name">
                 <h4>${todos[i].title}</h4>
             </div>
@@ -158,6 +180,10 @@ function renderBoardDone() {
     }
 }
 
+function moveToSection(event) {
+    console.log('button clicked');
+    event.stopPropagation();
+}
 
 let currentDraggedElement;
 
@@ -217,6 +243,7 @@ async function removeHighlight(id) {
  * @param {number} taskId  - task id
  */
 function openTaskDetails(taskId) {
+    event.stopPropagation();
     document.getElementById('show-details').classList.remove('d-none');
     getAllTaskInfo(taskId);
 }

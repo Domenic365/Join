@@ -183,6 +183,16 @@ input {
     background-color: rgb(255, 98, 0);
 }
 
+.category-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .worker {
     display: flex;
     width: fit-content;
@@ -445,6 +455,14 @@ textarea {
     display: none;
 }
 
+#move-to-next-section {
+    display: none;
+}
+
+#move-to-privious-section {
+    display: none;
+}
+
 .d-none {
     display: none;
 }
@@ -492,6 +510,27 @@ textarea {
     .box-overflow {
         max-height: unset;
         height: unset;
+    }
+
+    #move-to-next-section {
+        display: block;
+    }
+
+    #move-to-privious-section {
+        display: block;
+    }
+
+    .move-to-icon {
+        width: 25px;
+        padding: 0.2rem;
+        border: 1px solid rgb(178, 178, 178);
+        border-radius: 0.5rem;
+        transition: 125ms ease-in-out;
+    }
+
+    .move-to-icon:hover{
+        transition: 125ms ease-in-out;
+        border: 1px solid rgb(45, 45, 45);
     }
 }
 
@@ -624,12 +663,12 @@ textarea {
         margin: 0rem 2rem 3rem;
     }
 
-    .contact-mobile-detail{
+    .contact-mobile-detail {
         overflow-y: scroll;
         height: 230px;
     }
 
-    .contact-mobile-edit{
+    .contact-mobile-edit {
         overflow-y: scroll;
         height: 100px;
     }
