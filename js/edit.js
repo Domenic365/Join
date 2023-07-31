@@ -183,7 +183,7 @@ function renderSearchDone(search) {
                         <div class="contact-item" onclick="inviteContactEdit(taskId)">Invite new contact<span><img class="addcontact-li" src="../img/icons/contacts-black.svg"></span></div>
                     </div>
                 </div>
-                <div>${showResponsiveWorker(task)}</div>
+                <div class="contact-mobile-edit">${showResponsiveWorker(task)}</div>
             </div>
             <button class="save-btn" onclick="saveEditData('${taskId}', document.getElementById('edit-title').value, document.getElementById('edit-description').value, document.getElementById('edit-due-date').value)">Save
                 <img src="../../assets/img/icons/check-icon-white.svg" alt="Save Button">

@@ -260,7 +260,7 @@ function getAllTaskInfo(taskId) {
                 <div>
                     <h2>Assigned to:</h2>
                 </div>
-                <div>${showResponsiveWorker(task)}</div>
+                <div class="contact-mobile-detail">${showResponsiveWorker(task)}</div>
             </div>
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;

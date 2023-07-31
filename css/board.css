@@ -344,7 +344,6 @@ textarea {
 
 .mg-dropdown {
     margin-top: 1.5rem;
-    margin-bottom: 5.5rem;
 }
 
 .save-btn {
@@ -598,13 +597,12 @@ textarea {
     }
 
     .save-btn {
-        bottom: 2rem;
+        bottom: 1rem;
     }
 
 }
 
 @media (max-width: 375px) and (max-height: 667px) {
-    
 
     .det-title h1 {
         font-size: 2rem;
@@ -614,17 +612,25 @@ textarea {
         min-width: 90%;
         height: 100%;
         transform: translate(-50%, 0%);
-        overflow-y: scroll !important;
     }
 
     .edit-task {
         min-width: 90%;
         transform: translate(-50%, 0%);
         border-radius: 0rem;
-        overflow-y: scroll !important;
     }
 
     .delete-edit-container {
         margin: 0rem 2rem 3rem;
+    }
+
+    .contact-mobile-detail{
+        overflow-y: scroll;
+        height: 230px;
+    }
+
+    .contact-mobile-edit{
+        overflow-y: scroll;
+        height: 100px;
     }
 }
