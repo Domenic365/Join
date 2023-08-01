@@ -61,7 +61,7 @@
     },
     {
         "task-id" : 5,
-        "title" : "New Sales Strategy",z
+        "title" : "New Sales Strategy",
         "description" : "We need a new sales strategy which is matching to new CI",
         "category" : "Sales",
         "catColor" : "red",
