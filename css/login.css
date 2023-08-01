@@ -274,6 +274,13 @@
         margin-inline: 1rem;
         box-sizing: border-box;
     }
+
+    .logomotion {
+        position: absolute !important;
+        top: -7%;
+        transform: translate(-2rem, -1rem) scale(0.3);
+        transition: all 150ms ease-out;
+    }
 }
 
 @media (max-width: 780px) {
@@ -315,20 +322,17 @@
         font-size: 1.5rem;
     }
 
-    .logoStart {
-        position: absolute;
-        width: 80vw;
-        transform: translate(calc(50%), calc(50vh - 200px)) scale(1);
-    }
-    
-    .logomotion {
-        position: unset;
-        transform: translate(-2rem, -1rem) scale(0.3);
-        transition: all 150ms ease-out;
-    }
+
+
 }
 
 @media (max-width: 500px) {
+    .logomotion {
+        top: 0;
+        transform: translate(-2rem, -1rem) scale(0.3);
+        transition: all 150ms ease-out;
+    }
+
     .arrow img {
         top: 24px;
         left: 24px;
