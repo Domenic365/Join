@@ -24,7 +24,7 @@ function renderBoardTodos() {
                 <h3>${todos[i].category}</h3>
             </div>
             <div>
-                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event, '${todos[i]['task-id']}', 1)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
             </div>
         </div>  
         <div class="task-name">
@@ -94,8 +94,8 @@ function renderBoardProgress() {
                 <h3>${todos[i].category}</h3>
             </div>
             <div class="arrow-container">
-                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
-                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event, '${todos[i]['task-id']}', -1)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event, '${todos[i]['task-id']}', 1)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
             </div>
         </div>
             <div class="task-name">
@@ -128,8 +128,8 @@ function renderBoardFeedback() {
                 <h3>${todos[i].category}</h3>
             </div>
             <div class="arrow-container">
-                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
-                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event, '${todos[i]['task-id']}', -1)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-next-section" onclick="moveToSection(event, '${todos[i]['task-id']}', 1)" src="../../assets/img/icons/arrow-down.ico" alt="Move to Icon">
             </div>
         </div>
             <div class="task-name">
@@ -162,7 +162,7 @@ function renderBoardDone() {
                 <h3>${todos[i].category}</h3>
             </div>
             <div class="arrow-container">
-                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
+                <img class="move-to-icon" id="move-to-privious-section" onclick="moveToSection(event, '${todos[i]['task-id']}', -1)" src="../../assets/img/icons/arrow-up.ico" alt="Move to Icon">
             </div>
         </div>
             <div class="task-name">
@@ -180,9 +180,16 @@ function renderBoardDone() {
     }
 }
 
-function moveToSection(event) {
+const statuses = ["todo", "inProgress", "feedback", "done"];
+
+async function moveToSection(event, id, moveCount) {
     console.log('button clicked');
     event.stopPropagation();
+    let test = allTasks[id];
+    let currentStatusNum = statuses.findIndex(status => test.status === status);
+    let nextCategoryNum = currentStatusNum + moveCount;
+    let nextCategory = statuses[nextCategoryNum];
+    moveTo(nextCategory, id);
 }
 
 let currentDraggedElement;
@@ -207,11 +214,12 @@ function allowDrop(ev) {
 
 /**
  * function to assign new category to task after moving it with drag n drop
- * 
+ *
  * @param {string} category - name of new category
+ * @param {number} id - with this you can choose if you want to take a certain task. By default, currentDraggedElement is used
  */
-async function moveTo(category) {
-    allTasks[currentDraggedElement]['status'] = category;
+async function moveTo(category, id) {
+    allTasks[id || currentDraggedElement]['status'] = category;
     uploadTasks();
     await initBoard();
 }
