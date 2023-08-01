@@ -704,12 +704,6 @@ textarea {
         transform: scale(1);
     }
 }
-.control-checkbox input + .control_indicator::before {
-    animation: s-ripple 250ms ease-out;
-}
-.control-checkbox input:checked + .control_indicator::before {
-    animation-name: s-ripple-dup;
-}
 
 @media (max-width: 540px) {
     .title h1 {
