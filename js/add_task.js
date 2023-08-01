@@ -51,7 +51,7 @@ async function loadAllTasksFromStg() {
 /**
  * This function creates a new Task by collecting the form data and pushs it into the allTasks JSON
  */
-function createNewTask() {
+async function createNewTask() {
     allTasks.push({
         "task-id" : `${uID}`,
         "title" : `${document.getElementById('title-input').value}`,
@@ -64,27 +64,25 @@ function createNewTask() {
         "subtasks" : getSubtasks(),
         "status" : `${currentStatus}`
     })
-    uploadTasks();
+    await uploadTasks();
     clearAll();
-    loadAllTasksFromStg();
-    redirectToBoard();
+    await loadAllTasksFromStg();
+    await redirectToBoard();
 };
 
 /**
  * This function redirects user to board-view after creating task
  */
-function redirectToBoard() {
-    setTimeout(() => {
-        changeContentHTML('../templates/board.html');
-        initBoard();
-    }, 2500);
+async function redirectToBoard() {
+        await changeContentHTML('../templates/board.html');
+        await initBoard();
 }
 
 /**
  * this is called after pushing new item to the allTasks Array and uploads it to remote-storage
  */
-function uploadTasks() {
-    setItem('allTasks', JSON.stringify(allTasks));
+async function uploadTasks() {
+    await setItem('allTasks', JSON.stringify(allTasks));
 }
 
 
@@ -167,7 +165,7 @@ function saveSubtask() {
  * this function starts the form validation and if form is valid, shows success-notifation and 
  * calls  the actual function to create the task
  */
-function validateForm() {
+async function validateForm() {
     let title = document.getElementById('title-input');
     let description = document.getElementById('description');
     let category = document.getElementById('category-input');
@@ -178,19 +176,19 @@ function validateForm() {
     let dateStat = dateValidation(date);
     let prioStat = prioValidation();
     if (titleStat && descriptionStat && catStat && dateStat && prioStat) {
-        createNewTask();
-        checkIfModal();
-        showNotification();
+        await createNewTask();
+        await checkIfModal();
+        await showNotification();
     }
 }
 
 /**
  * this function checks if the task was created out of the modal view
  */
-function checkIfModal() {
+async function checkIfModal() {
     let task = document.querySelector('dialog');
     if (task.hasAttribute('open')) {
-        switchModal('add_task.html', 'addtask');
+        await switchModal('add_task.html', 'addtask');
     }
 };
 

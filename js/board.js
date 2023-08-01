@@ -183,13 +183,12 @@ function renderBoardDone() {
 const statuses = ["todo", "inProgress", "feedback", "done"];
 
 async function moveToSection(event, id, moveCount) {
-    console.log('button clicked');
     event.stopPropagation();
     let test = allTasks[id];
     let currentStatusNum = statuses.findIndex(status => test.status === status);
     let nextCategoryNum = currentStatusNum + moveCount;
     let nextCategory = statuses[nextCategoryNum];
-    moveTo(nextCategory, id);
+    await moveTo(nextCategory, id);
 }
 
 let currentDraggedElement;
@@ -220,7 +219,7 @@ function allowDrop(ev) {
  */
 async function moveTo(category, id) {
     allTasks[id || currentDraggedElement]['status'] = category;
-    uploadTasks();
+    await uploadTasks();
     await initBoard();
 }
 
@@ -311,22 +310,30 @@ function loadSubtasks(task){
     let subtaskDiv = document.querySelector("[sub-tasks]");
     subtaskDiv.innerHTML = "";
     let isChecked;
-    task.subtasks.forEach((subtask) =>{
+    task.subtasks.forEach((subtask, subtaskNum) =>{
         if (subtask.completed){
-            isChecked = `checked = "checked`
+            isChecked = `checked = "checked"`
+        } else {
+            isChecked = undefined;
         }
-        subtaskDiv.innerHTML += createSubtaskHTML(subtask, isChecked);
+        subtaskDiv.innerHTML += createSubtaskHTML(subtask, isChecked, task, subtaskNum);
     })
 }
 
-function createSubtaskHTML(subtask, isChecked) {
+function createSubtaskHTML(subtask, isChecked, task, subtaskNum) {
     return `
                 <label class="control control-checkbox">
             ${subtask.taskText}
-            <input type="checkbox" ${isChecked} />
+            <input type="checkbox" ${isChecked} onchange="saveCheck(${task['task-id']}, ${subtaskNum})"/>
             <div class="control_indicator"></div>
         </label>
         `;
+}
+
+async function saveCheck(taskId, subtaskNum){
+    allTasks[taskId].subtasks[subtaskNum].completed = !allTasks[taskId].subtasks[subtaskNum].completed;
+    console.log(allTasks[taskId].subtasks[subtaskNum].completed);
+    await uploadTasks();
 }
 
 /**

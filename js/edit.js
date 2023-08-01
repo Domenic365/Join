@@ -14,7 +14,7 @@ function closeWindow() {
  */
 async function deleteTask(taskID) {
     allTasks[taskID]['status'] = 'deleted';
-    uploadTasks();
+    await uploadTasks();
     await initBoard();
     closeWindow();
 }
@@ -238,7 +238,7 @@ function showResponsiveWorker(task) {
  * @param {Number} taskId - unique id of task
  * @param {string} newPrio - can be urgent, medium or low to identify the new priority of task
  */
-function updatePrio(taskId, newPrio) {
+async function updatePrio(taskId, newPrio) {
     resetPrioEdit();
     let btn = document.querySelector(`#${newPrio}-edit`);
     if (newPrio === 'urgent' || newPrio === 'Urgent') {
@@ -253,8 +253,8 @@ function updatePrio(taskId, newPrio) {
     }
     const task = allTasks[taskId];
     task['prio'] = newPrio;
-    uploadTasks();
-    initBoard();
+    await uploadTasks();
+    await initBoard();
 }
 
 /**
@@ -296,13 +296,13 @@ function showPrioStatusEditView(taskId) {
  * @param {string} editDescription - new detailed desription of task
  * @param {date-string} editDueDate - new  due date
  */
-function saveEditData(taskId, editTitle, editDescription, editDueDate) {
+async function saveEditData(taskId, editTitle, editDescription, editDueDate) {
     let task = allTasks[taskId];
     task['title'] = editTitle;
     task['description'] = editDescription;
     task['dueDate'] = editDueDate;
     task['assignedTo'] = getAssignedContacts();
-    uploadTasks();
-    initBoard();
+    await uploadTasks();
+    await initBoard();
     closeWindow();
 }
