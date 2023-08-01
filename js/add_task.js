@@ -98,7 +98,7 @@ function getSubtasks() {
     let subtasks = document.querySelectorAll('.subtask-list > li > label');
     for (let i = 0; i<subtasks.length; i++) {
         const sub = subtasks[i];
-        subtaskArray.push(sub.outerText);
+        subtaskArray.push({taskText: sub.outerText, completed: false});
     }
     return subtaskArray;
 }

@@ -292,6 +292,10 @@ function getAllTaskInfo(taskId) {
                     <h2>Priority:</h2>
                     <span id="getPrio">${task['prio']}</span>
                 </div>
+                <div class="text-type">
+                    <h2>Subtasks:</h2>
+                    <div sub-tasks></div>
+                </div>
                 <div>
                     <h2>Assigned to:</h2>
                 </div>
@@ -300,6 +304,29 @@ function getAllTaskInfo(taskId) {
         <div class="popup-bg" onclick="closeWindow()"></div>
         `;
     prioStatusDetailView(taskId);
+    loadSubtasks(task);
+}
+
+function loadSubtasks(task){
+    let subtaskDiv = document.querySelector("[sub-tasks]");
+    subtaskDiv.innerHTML = "";
+    let isChecked;
+    task.subtasks.forEach((subtask) =>{
+        if (subtask.completed){
+            isChecked = `checked = "checked`
+        }
+        subtaskDiv.innerHTML += createSubtaskHTML(subtask, isChecked);
+    })
+}
+
+function createSubtaskHTML(subtask, isChecked) {
+    return `
+                <label class="control control-checkbox">
+            ${subtask.taskText}
+            <input type="checkbox" ${isChecked} />
+            <div class="control_indicator"></div>
+        </label>
+        `;
 }
 
 /**
