@@ -278,7 +278,7 @@ function resetPrio() {
  * function to change the placeholder color when date is picked
  */
 function dateColor() {
-    document.querySelector('#due-date').style.color = "black";
+   document.querySelector('#due-date').style.color = "black";
 }
 
 /**
@@ -344,4 +344,8 @@ function renderCategorys() {
             <li onclick="chosenCategory('${categorys[i].name}')">${categorys[i].name}<div class="${categorys[i].color}"></div></li>
         `
     }
+}
+
+function preventPastDate() {
+    document.getElementById("due-date").setAttribute("min", today);
 }

@@ -32,6 +32,7 @@ async function changeContentHTML(link) {
         await initBoard();
     } else if (link.includes('../templates/add_task.html')) {
         await includeHTML();
+        preventPastDate();
     } else if (link.includes('../templates/contacts.html')){
         await includeHTML();
         await updateContacts();

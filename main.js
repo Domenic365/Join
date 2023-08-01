@@ -41,10 +41,12 @@ function checkCurrentPage(page) {
             break;
         case "addtask":
             modalAddtask();
+            preventPastDate();
             break;
         case "addTaskInContact":
             modalAddtask();
             insertContactHTML();
+            preventPastDate();
             break;
     }
 }
