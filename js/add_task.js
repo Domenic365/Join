@@ -189,6 +189,7 @@ async function checkIfModal() {
     let task = document.querySelector('dialog');
     if (task.hasAttribute('open')) {
         await switchModal('add_task.html', 'addtask');
+        await initBoard();
     }
 };
 

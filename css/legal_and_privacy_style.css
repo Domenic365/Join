@@ -4,16 +4,15 @@
 }
 
 .pd-privacy{
-    padding-right: 5rem;
-    padding-left: 5rem;
+    padding: 0 3rem 3rem;
 }
 
 .pd-legal{
-    padding: 5rem; 
+    padding: 0 3rem 3rem;
 }
 
 .pd-help{
-    padding: 5rem;
+    padding: 0 3rem 3rem;
 }
 
 .info-container- {
@@ -39,9 +38,6 @@ h4 {
     text-decoration: unset;
 }
 
-.containerForPadding{
-    padding-top: 5rem;
-}
 
 @media(max-width: 800px){
     .pd-privacy{
@@ -50,13 +46,13 @@ h4 {
     }
 
     .pd-help{
-        padding: 2rem;
+        padding: 0 2rem 2rem;
     }
     
 }
 
 @media(max-width: 490px){
     .pd-legal{
-        padding: 2rem;
+        padding: 1rem;
     }
 }
