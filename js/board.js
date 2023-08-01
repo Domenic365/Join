@@ -332,7 +332,6 @@ function createSubtaskHTML(subtask, isChecked, task, subtaskNum) {
 
 async function saveCheck(taskId, subtaskNum){
     allTasks[taskId].subtasks[subtaskNum].completed = !allTasks[taskId].subtasks[subtaskNum].completed;
-    console.log(allTasks[taskId].subtasks[subtaskNum].completed);
     await uploadTasks();
 }
 
