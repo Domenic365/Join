@@ -1,4 +1,4 @@
-
+const today = new Date().toISOString().split('T')[0];
 const STORAGE_TOKEN = '1GGTJCGIJY1V8ZLLX41LUIWE477QTTU9RMVWREOA';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item'
 
